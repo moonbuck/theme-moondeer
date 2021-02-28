@@ -23,12 +23,12 @@ table {
 	border-collapse:collapse;
 	border-spacing:0
 }
-*, *:before, *:after { 
-	-moz-box-sizing: 
-	border-box; 
-	-webkit-box-sizing: 
-	border-box; 
-	box-sizing: border-box; 
+*, *:before, *:after {
+	-moz-box-sizing:
+	border-box;
+	-webkit-box-sizing:
+	border-box;
+	box-sizing: border-box;
 }
 
 /* Clearfix */
@@ -51,7 +51,7 @@ html, body {
 	height: 100%;
 }
 
-body {
+body, a.pinned {
 	font-family: mr-eaves-sans, "Avenir Next", Avenir, "-apple-system", Helvetica, Arial, sans-serif;
 	font-weight: 300;
 	font-style: normal;
@@ -70,8 +70,8 @@ body {
 
 .profile #avatar {
 	display: inline-block;
-	width: 320px; /*80px;*/
-	height: 320px; /*80px;*/
+	/*width: 320px; 80px;*/
+	/*height: 320px; 80px;*/
 	margin-bottom: 1em;
 	/*border-radius: 40px;*/
 }
@@ -215,7 +215,7 @@ li	{ list-style-type:circle; list-style-position:inside;}
 article ol li {
 	list-style-type: decimal;
 	padding-left: 20px;
-}  
+}
 
 article ul li {
 	list-style-type: disc;
@@ -224,6 +224,7 @@ article ul li {
 
 article p {
 	line-height: 1.1;
+	/*text-align: justify;*/
 }
 
 div.img-gallery {
@@ -246,7 +247,7 @@ em, i {
 	font-style: italic;
 }
 
-sup { 
+sup {
     vertical-align: super;
     font-size: smaller;
 }
@@ -594,7 +595,7 @@ video {
     display: block;
 }
 
-/* 
+/*
 article #post-list li {
 	list-style-type: disc;
 }

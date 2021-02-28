@@ -1,7 +1,7 @@
 {{ define "main" }}
 <article class="h-entry post">
   <header>
-	{{ with .Title }}
+  {{ with .Title }}
     <h1 class="p-name">{{ . }}</h1>
     {{ end }}
     <h2 class="headline">
@@ -10,25 +10,50 @@
       </time>
     </h2>
   </header>
-  <div>
-	Replying to: <img src="{{ .Params.reply_to_avatar }}" width="22" height="22" style="width: 22px; height: 22px; vertical-align: top; border-radius: 11px;" alt="{{ .Params.reply_to_username }}" />
-	{{ if eq .Params.reply_to_hostname "micro.blog" }}
-		<a href="{{ .Params.reply_to_url }}" class="u-in-reply-to">@{{ .Params.reply_to_username }}</a>
-	{{ else }}
-		<a href="{{ .Params.reply_to_url }}" class="u-in-reply-to">{{ .Params.reply_to_hostname }}</a>
-	{{ end }}
-  </div>
   <section class="e-content post-body">
       {{ .Content }}
   </section>
-</article>
-<section id="post-meta" class="clearfix">
-  <a href="/">
+
+  {{ if .Site.Params.include_conversation }}
+  <script type="text/javascript" src="https://micro.blog/conversation.js?url={{ .Permalink }}"></script>
+  {{ end }}
+
+  <section id="post-meta" class="clearfix p-author h-card">
+    <a href="/" class="u-url">
+    {{ if .Params.author }}
+    <img class="u-photo avatar" src="{{ .Params.author.avatar }}" width="96" height="96">
+    <div>
+      <span class="p-name dark">{{ .Params.author.name }}</span>
+      <span><a href="https://micro.blog/{{ .Params.author.username }}">@{{ .Params.author.username }}</a></span>
+    </div>
+    {{ else }}
     <img class="u-photo avatar" src="{{ .Site.Author.avatar }}" width="96" height="96">
     <div>
-      <span class="p-author h-card dark">{{ .Site.Author.name }}</span>
+      <span class="p-name dark">{{ .Site.Author.name }}</span>
       <span><a href="https://micro.blog/{{ .Site.Author.username }}">@{{ .Site.Author.username }}</a></span>
     </div>
-  </a>
-</section>
+  {{ end }}
+    </a>
+  </section>
+</article>
+<div id="disqus_thread"></div>
+<script>
+    /**
+    *  RECOMMENDED CONFIGURATION VARIABLES: EDIT AND UNCOMMENT THE SECTION BELOW TO INSERT DYNAMIC VALUES FROM YOUR PLATFORM OR CMS.
+    *  LEARN WHY DEFINING THESE VARIABLES IS IMPORTANT: https://disqus.com/admin/universalcode/#configuration-variables    */
+
+    var disqus_config = function () {
+    this.page.url = "{{ .Permalink }}";  // Replace PAGE_URL with your page's canonical URL variable
+    this.page.identifier = "{{ .Permalink }}"; // Replace PAGE_IDENTIFIER with your page's unique identifier variable
+    };
+
+    (function() { // DON'T EDIT BELOW THIS LINE
+    var d = document, s = d.createElement('script');
+    s.src = 'https://moondeer.disqus.com/embed.js';
+    s.setAttribute('data-timestamp', +new Date());
+    (d.head || d.body).appendChild(s);
+    })();
+</script>
+<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+
 {{ end }}
