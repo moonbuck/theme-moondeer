@@ -1,21 +1,26 @@
+{{ $categories := .Page.Params.categories }}
 <nav class="main-nav">
-  {{- $this_page := .Title -}}
-  {{- $class := "" -}}
-  {{- if eq .Site.Home.Title $this_page -}}
-    {{- $class = "selected" -}}
-  {{ end }}
+	{{- $this_page := .Title -}}
+	{{- $class := "" -}}
+	{{- if eq .Site.Home.Title $this_page -}}
+		{{- $class = "selected" -}}
+	{{ end }}
   <a class="{{ $class }}" href="/">Home</a>
-  {{- $current_page := "" -}}
-  {{- range .Site.Menus.main -}}
-    {{- $class = "" -}}
-    {{- if .Page.Params.redirect_url -}}
-    {{- $current_page = .Page.Params.redirect_url -}}
-    {{- else -}}
-    {{- $current_page = (.URL | relLangURL | safeURL) -}}
-    {{- end -}}
-    {{- if eq .Name $this_page -}}
-      {{- $class = "selected " -}}
-    {{ end }}
+	{{- $current_page := "" -}}
+	{{- range .Site.Menus.main -}}
+		{{- $class = "" -}}
+		{{- if .Page.Params.redirect_url -}}
+		{{- $current_page = .Page.Params.redirect_url -}}
+		{{- else -}}
+		{{- $current_page = (.URL | relLangURL | safeURL) -}}
+		{{- end -}}
+		{{- if eq .Name $this_page -}}
+			{{- $class = "selected " -}}
+              {{ else }}
+              {{ if in $categories .Name }}
+{{- $class = "selected " -}}
+              {{ end }}
+		{{ end }}
   <a class="{{ $class }}" href="{{ $current_page }}">{{ .Name }}</a>
-    {{- end }}
+		{{- end }}
 </nav>

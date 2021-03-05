@@ -6,7 +6,7 @@
 <span style="padding-bottom: 25px;"><span class="divider"></span></span>
 <ul id="post-list">
 
-{{ $paginator := .Paginate (where .Pages "Type" "post") 50 }}
+{{ $paginator := .Paginate (where .Pages "Type" "post") 10 }}
 {{ range $paginator.Pages  }}
 
   <li>
@@ -17,7 +17,10 @@
         <h2><a href="{{ .Permalink }}">{{ .Title }}</a></h2>
       </header>
       <section class="post-body">
-        {{ .Content }}
+        {{ .Summary }}
+          {{ if .Truncated }}
+            <p><a href="{{ .RelPermalink }}">Read More</a></p>
+          {{ end }}
       </section>
       </section>
       {{ else }}
@@ -36,4 +39,5 @@
 
 </ul>
 
+{{ partial "pagination.html" . }}
 {{ end }}
