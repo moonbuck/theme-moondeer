@@ -15,12 +15,11 @@
 		{{- else -}}
 		{{- $current_page = (.URL | relLangURL | safeURL) -}}
 		{{- end -}}
-          {{ $current_page = printf "https://moondeer.blog%s" $current_page }}
 		{{- if eq .Name $this_page -}}
 			{{- $class = "selected " -}}
               {{ else }}
               {{ if in $categories .Name }}
-{{- $class = "selected " -}}
+                {{- $class = "selected " -}}
               {{ end }}
 		{{ end }}
   <a class="{{ $class }}" href="{{ $current_page }}">{{ .Name }}</a>
