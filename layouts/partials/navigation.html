@@ -5,8 +5,9 @@
 	{{- if eq .Site.Home.Title $this_page -}}
 		{{- $class = "selected" -}}
 	{{ end }}
-  <a class="{{ $class }}" href="/">Home</a>
+  <a class="{{ $class }}" href="https://moondeer.blog">Home</a>
 	{{- $current_page := "" -}}
+	{{ $url := urls.Parse .URL }}
 	{{- range .Site.Menus.main -}}
 		{{- $class = "" -}}
 		{{- if .Page.Params.redirect_url -}}
@@ -14,6 +15,7 @@
 		{{- else -}}
 		{{- $current_page = (.URL | relLangURL | safeURL) -}}
 		{{- end -}}
+          {{ $current_page = printf "https://moondeer.blog%s" $current_page }}
 		{{- if eq .Name $this_page -}}
 			{{- $class = "selected " -}}
               {{ else }}
