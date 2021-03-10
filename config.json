@@ -1,5 +1,5 @@
 {
-	"paginate": 10,
+	"paginate": 25,
 	"params": {
 		"description": "<a href=\"https://micro.blog/[USERNAME]\">@[USERNAME]</a>",
 		"paginate_home": true,
