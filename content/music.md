@@ -1,4 +1,0 @@
----
-title: "Music"
-type: music
----

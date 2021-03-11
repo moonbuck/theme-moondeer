@@ -1,4 +1,0 @@
----
-title: "Perspectives"
-type: perspectives
----

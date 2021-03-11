@@ -1,4 +1,0 @@
----
-title: "Critters"
-type: critters
----
