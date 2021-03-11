@@ -1,6 +1,4 @@
-{{ $url := urls.Parse .Permalink }}
-{{ $parts := split $url.Path "/" }}
-{{ $category := index $parts 2 }}
+{{ $category := . }}
 {{ if eq $category "perspectives" }}
 <div><img style="border-radius: 0px;" src="https://moondeer.blog/uploads/2021/4c68e54d85.jpg" /> </div>
 {{ end }}
@@ -19,9 +17,15 @@
 {{ if eq $category "critters" }}
 <div><img style="border-radius: 0px;" src="https://moondeer.blog/uploads/2021/0a37500db6.jpg" /> </div>
 {{ end }}
+{{ if eq $category "stream-of-consciousness" }}
+<div><img style="border-radius: 0px;" src="https://moondeer.blog/uploads/2021/c11b3de2ff.jpg" /> </div>
+{{ end }}
 {{ if eq $category "biographical-tripe" }}
-<div><img style="border-radius: 0px;" src="https://moondeer.blog/uploads/2021/fecee598c4.jpg" /> </div>
+<div><img style="border-radius: 0px;" src="https://moondeer.blog/uploads/2021/92a565154b.jpg" /> </div>
 {{ end }}
 {{ if eq $category "artsy-fartsy" }}
 <div><img style="border-radius: 0px;" src="https://moondeer.blog/uploads/2021/54e4381559.jpg" /> </div>
+{{ end }}
+{{ if eq $category "personal-favorites" }}
+<div><img style="border-radius: 0px;" src="https://moondeer.blog/uploads/2021/328c442bd6.jpg" /> </div>
 {{ end }}
