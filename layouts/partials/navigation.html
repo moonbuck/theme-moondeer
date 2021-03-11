@@ -5,23 +5,25 @@
 	{{- if eq .Site.Home.Title $this_page -}}
 		{{- $class = "selected" -}}
 	{{ end }}
-  <a class="{{ $class }}" href="https://moondeer.blog">Home</a>
+  <a class="{{ $class }}" href="https://moondeer.blog">Latest</a>
 	{{- $current_page := "" -}}
 	{{ $url := urls.Parse .URL }}
 	{{- range .Site.Menus.main -}}
 		{{- $class = "" -}}
-		{{- if .Page.Params.redirect_url -}}
-		{{- $current_page = .Page.Params.redirect_url -}}
-		{{- else -}}
-		{{- $current_page = (.URL | relLangURL | safeURL) -}}
-		{{- end -}}
+        {{- $current_page = (.URL | relLangURL | safeURL) -}}
+         
 		{{- if eq .Name $this_page -}}
 			{{- $class = "selected " -}}
               {{ else }}
               {{ if in $categories .Name }}
-                {{- $class = "selected " -}}
+{{- $class = "selected " -}}
               {{ end }}
 		{{ end }}
   <a class="{{ $class }}" href="{{ $current_page }}">{{ .Name }}</a>
 		{{- end }}
+          {{- $class = "" -}}
+            {{ if eq .Title "Cloud" }}
+              {{- $class = "selected" -}}
+            {{ end }}
+          <a class="{{ $class }}" href="https://moondeer.blog/cloud/">Cloud</a>
 </nav>
