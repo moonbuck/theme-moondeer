@@ -1,10 +1,7 @@
 {{ define "main" }}
-
-<h1 style="padding-top: 25px;">Latest Posts</h1>
-<span style="padding-bottom: 25px;"><span class="divider"></span></span>
 <ul id="post-list">
 
-{{ $paginator := .Paginate (where .Pages "Type" "post") 10 }}
+{{ $paginator := .Paginate (where .Pages "Type" "post") 25 }}
 {{ range $paginator.Pages  }}
 
   <li>

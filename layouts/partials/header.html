@@ -1,21 +1,20 @@
 {{ partial "navigation.html" . }}
 {{ if .IsHome }}
-<div><img style="border-radius: 0px;" src="https://moondeer.blog/uploads/2021/952e12123d.jpg" /></div>
-{{ partial "profile.html" . }}
+<div id="latest" class="banner-image"></div>
 {{ else }}
 {{ $url := urls.Parse .Permalink }}
 {{ $parts := split $url.Path "/" }}
-{{ printf "<!--" | safeHTML }}
-{{ printf "parts:" | safeHTML }}
-{{ printf "%v" $parts | safeHTML }}
-{{ printf "-->" | safeHTML }}
 {{ $kind := index $parts 1 }}
 {{ if eq $kind "cloud" }}
-<div><img style="border-radius: 0px;" src="https://moondeer.blog/uploads/2021/603feff919.jpg" /> </div>
+<div id="cloud" class="banner-image"></div>
+{{ else }}
+{{ if eq $kind "about" }}
+<div id="about" class="banner-image"></div>
 {{ else }}
 {{ if and (eq $kind "categories") (not .IsPage) }}
 {{ $category := index $parts 2 }}
 {{ partial "banner.html" $category }}
+{{ end }}
 {{ end }}
 {{ end }}
 {{ end }}

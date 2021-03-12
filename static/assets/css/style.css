@@ -94,8 +94,8 @@ body, a.pinned {
 
 nav.main-nav {
 	padding: 20px 20px 0;
-	background: #fff;
-	background: rgba(255,255,255,.90);
+    background: #516189;/*#fff;*/
+	/*background: rgba(255,255,255,.90);*/
 	margin: 0 auto;
 	text-align: right;
 	z-index: 100;
@@ -104,7 +104,7 @@ nav.main-nav {
 nav.main-nav a {
 	top: 8px;
 	right: 6px;
-	color: #000;
+	color: #FFF; /*000;*/
 	font-size: 17px; /*13px;*/
 	line-height: 1.35;
 	font-weight: 400;
@@ -150,12 +150,12 @@ h1, h2, h3 {
 }
 
 h1 {
-	font-size: 37px; /*30px;*/
+	font-size: 32px; /*30px;*/
 	font-weight: 700; /*bold;*/
 }
 
 h2 {
-	font-size: 32px; /*25px;*/
+	font-size: 30px; /*25px;*/
 	font-weight: 400;
 }
 
@@ -606,3 +606,86 @@ article #post-list li {
 */
 
 figure { padding-top: 8vw; }
+
+nav.main-nav {
+	background: #516189;
+}
+
+nav.main-nav a {
+	color: #FFF;
+}
+
+div#latest {
+  background-image: url(https://moondeer.blog/uploads/2021/7c412827ad.jpg)
+}
+
+div#perspectives {
+  background-image: url(https://moondeer.blog/uploads/2021/4c68e54d85.jpg)
+}
+
+div#projects {
+  background-image: url(https://moondeer.blog/uploads/2021/a0c8728c89.jpg)
+}
+
+div#poetry {
+  background-image: url(https://moondeer.blog/uploads/2021/23a2035cdc.jpg)
+}
+
+div#music {
+  background-image: url(https://moondeer.blog/uploads/2021/8d0a055caa.jpg)
+}
+
+div#programming {
+  background-image: url(https://moondeer.blog/uploads/2021/47e02e5e74.jpg)
+}
+
+div#critters {
+  background-image: url(https://moondeer.blog/uploads/2021/0a37500db6.jpg)
+}
+
+div#stream-of-consciousness {
+  background-image: url(https://moondeer.blog/uploads/2021/c11b3de2ff.jpg)
+}
+
+div#biographical-tripe {
+  background-image: url(https://moondeer.blog/uploads/2021/92a565154b.jpg)
+}
+
+div#artsy-fartsy {
+  background-image: url(https://moondeer.blog/uploads/2021/54e4381559.jpg)
+}
+
+div#personal-favorites {
+  background-image: url(https://moondeer.blog/uploads/2021/328c442bd6.jpg)
+}
+
+div#cloud {
+  background-image: url(https://moondeer.blog/uploads/2021/603feff919.jpg)
+}
+
+div#about {
+  background-image: url(https://moondeer.blog/uploads/2021/952e12123d.jpg)
+}
+
+.banner-image {
+  background-color: #516189;
+  height: 300px;
+  width: 100%;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  position: relative;
+}
+
+div#banner {
+  background: #516189;
+}
+
+div#banner > img {
+  border-radius: 0px;
+  width: auto;
+  max-height: 400px;
+  margin-left: auto;
+  margin-right: auto;
+  display: block;
+}
