@@ -1,0 +1,115 @@
+{{/* Title */}}
+{{ printf "" }}
+{{- if .Title -}}
+<meta name="twitter:title" content="{{ .Title }}" />
+<meta property="og:title" content="{{ .Title }}" />
+{{- else -}}
+<meta name="twitter:title" content="{{ .Site.Title }}" />
+<meta property="og:title" content="{{ .Site.Title }}" />
+{{- end -}}
+{{/* Description */}}
+{{ if .Description -}}
+<meta property="og:description" content="{{ .Description }}" />
+<meta name="twitter:description" content="{{ .Description }}" />
+{{- else -}}
+  {{- if .IsPage -}}
+<meta property="og:description" content="{{ .Summary }}" />
+<meta name="twitter:description" content="{{ .Summary }}" />
+  {{- else -}}
+    {{- if .Site.Params.description -}}
+<meta property="og:description" content="{{ .Site.Params.description }}" />
+<meta name="twitter:description" content="{{ .Site.Params.description }}" />
+    {{- end -}}
+  {{- end -}}
+{{- end -}}
+{{/* Category-based workaround for Twitter player card since I can't figure out whether front matter holds videos */}}
+{{- if in .Params.categories "Music" }}
+<meta name="twitter:card" content="player" />
+<meta name="twitter:player"  content="{{ .Permalink }}" />
+<meta name="twitter:image" content="https://Moondeer.micro.blog/uploads/2020/fb7352e860.png" />
+<meta name="twitter:player:width" content="480" />
+<meta name="twitter:player:height" content="480" />
+{{- else }}
+{{/* With at least one available image */}}
+  {{- with $.Params.images -}}
+<meta name="twitter:card" content="summary_large_image"/>
+<meta name="twitter:image" content="{{ index . 0 | absURL }}" />
+<meta property="og:image" content="{{ index . 0 | absURL }}" />
+  {{ else -}}
+    {{- $images := $.Resources.ByType "image" -}}
+    {{- $featured := $images.GetMatch "*feature*" -}}
+    {{- if not $featured -}}
+      {{- $featured = $images.GetMatch "{*cover*,*thumbnail*}" -}}
+    {{ end -}}
+    {{- with $featured -}}
+<meta name="twitter:card" content="summary_large_image"/>
+<meta name="twitter:image" content="{{ $featured.Permalink }}" />
+<meta property="og:image" content="{{ $featured.Permalink }}" />
+    {{- else -}}
+      {{- with $.Site.Params.images -}}
+<meta name="twitter:card" content="summary_large_image" />
+<meta name="twitter:image" content="{{ index . 0 | absURL }}" />
+<meta property="og:image" content="{{ index . 0 | absURL }}" />
+      {{ else -}}
+<meta name="twitter:card" content="summary" />
+      {{- end -}}
+    {{- end -}}
+  {{- end }}
+{{- end -}}
+{{/* URL */}}
+<meta property="og:url" content="{{ .Permalink }}" />
+{{/* Audio */}}
+{{- if .Params.audio -}}
+  {{- range first 1 .Params.audio -}}
+<meta property="og:audio" content="{{ . }}" />
+<meta property="og:type" content="music.song" />
+  {{- end -}}
+{{- else -}}
+  {{- if .Title -}}
+<meta property="og:type" content="article" />
+  {{- else -}}
+<meta property="og:type" content="website" />
+  {{- end -}}
+{{- end -}}
+{{/* Video, this is not currently being made available as front matter that I can tell */}}
+{{- if .Params.videos -}}
+    {{- range first 1 .Params.videos -}}
+<meta property="og:video" content="{{ . | absURL }}" />
+    {{- end -}}
+{{- end -}}
+{{/* Specific to pages */}}
+{{- $iso8601 := "2006-01-02T15:04:05-07:00" -}}
+{{- if .IsPage -}}
+{{/* Publish time */}}
+  {{- if not .PublishDate.IsZero }}
+<meta property="article:published_time" content="{{ .PublishDate.Format $iso8601 | safeHTML }}" />
+  {{- else if not .Date.IsZero }}
+<meta property="article:published_time" content="{{ .Date.Format $iso8601 | safeHTML }}" />
+  {{- end -}}
+{{/* Last Modification time */}}
+  {{- if not .Lastmod.IsZero }}
+<meta property="article:modified_time" content="{{ .Lastmod.Format $iso8601 | safeHTML }}" />
+  {{- end -}}
+{{/* Section */}}
+<meta property="article:section" content="{{ .Section }}" />
+{{/* Tags */}}
+  {{- if .Params.tags -}}
+    {{- range first 6 .Params.tags -}}
+<meta property="article:tag" content="{{ . }}" />
+    {{- end -}}
+  {{- end -}}
+{{/* Specific to non-pages */}}
+{{- else -}}
+{{/* Updated time */}}
+  {{- if not .Date.IsZero }}
+<meta property="og:updated_time" content="{{ .Date.Format $iso8601 | safeHTML }}" />
+  {{- end -}}
+{{- end -}}
+{{/* Site name */}}
+{{- if .Site.Params.title -}}
+<meta property="og:site_name" content="{{ .Site.Params.title }}" />
+{{- end -}}
+ {{- if in .Title "Perspectives" -}}
+  <meta name="twitter:image" content="https://Moondeer.micro.blog/uploads/2021/4eafd56801.jpg" />
+  <meta name="og:image" content="https://Moondeer.micro.blog/uploads/2021/4eafd56801.jpg" />
+  {{- end -}}
