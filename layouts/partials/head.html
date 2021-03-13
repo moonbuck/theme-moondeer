@@ -25,11 +25,13 @@
 {{- $url := urls.Parse .Permalink -}}
 {{- $parts := split $url.Path "/" -}}
 {{- $kind := index $parts 1 -}}
+{{- $matched := findRE "[0-9]{4}" $kind 1 -}}
+{{- $matchedYear := index $matched 0 -}}
 {{- $style := "assets/css/style.css" -}}
-{{- if and (eq $kind "categories") .IsPage -}}
+{{- if and $matchedYear .IsPage -}}
 {{- $style = "assets/css/post-style.css" -}}
 {{- end -}}
-{{- $seconds := .Site.Params.theme_seconds -}}
+{{- $seconds := .Site.Params.theme_seconds }}
 {{/* link the core stylesheet for the theme */}}
 <link href="{{ $style | relURL }}?{{ $seconds }}"
       rel="stylesheet">

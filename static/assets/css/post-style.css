@@ -94,8 +94,8 @@ body, a.pinned {
 
 nav.main-nav {
 	padding: 20px 20px 0;
-    background: #516189;/*#fff;*/
-	/*background: rgba(255,255,255,.90);*/
+  background: #fff;
+	background: rgba(255,255,255,.90);
 	margin: 0 auto;
 	text-align: right;
 	z-index: 100;
@@ -104,7 +104,7 @@ nav.main-nav {
 nav.main-nav a {
 	top: 8px;
 	right: 6px;
-	color: #FFF; /*000;*/
+	color: #000;
 	font-size: 17px; /*13px;*/
 	line-height: 1.35;
 	font-weight: 400;
@@ -606,14 +606,6 @@ article #post-list li {
 */
 
 figure { padding-top: 8vw; }
-
-nav.main-nav {
-	background: #516189;
-}
-
-nav.main-nav a {
-	color: #FFF;
-}
 
 div#latest {
   background-image: url(https://moondeer.blog/uploads/2021/7c412827ad.jpg)
