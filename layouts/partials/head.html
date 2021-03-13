@@ -5,19 +5,23 @@
   <meta content="{{ .Site.Author.name }}" name="author">
 
   <title>
-      {{- block "title" . -}}
+    {{- block "title" . -}}
     {{- .Site.Title -}}
-    {{- if .Title }}
-    - {{ .Title }}
+    {{- if .Title -}}
+    {{- if eq .Site.Title .Title -}}
+    {{- printf " - Latest" -}}
+    {{- else -}}
+    - {{- .Title -}}
     {{- end -}}
-      {{- end -}}
+    {{- end -}}
+    {{- end -}}
   </title>
 
 <link rel="stylesheet" href="https://use.typekit.net/nmn4mcn.css">
-<link href="{{ "assets/css/style.css" | relURL }}?{{ .Site.Params.theme_seconds }}" rel="stylesheet">
-  <link href="{{ "assets/css/highlight.css" | relURL }}?{{ .Site.Params.theme_seconds }}" rel="stylesheet">
-  <link rel="stylesheet" href="{{ "custom.css" | relURL }}?{{ .Site.Params.theme_seconds }}">
-
+{{- $seconds := .Site.Params.theme_seconds -}}
+<link href="{{ "assets/css/style.css" | relURL }}?{{ $seconds }}" rel="stylesheet">
+  <link href="{{ "assets/css/highlight.css" | relURL }}?{{ $seconds }}" rel="stylesheet">
+  <link rel="stylesheet" href="{{ "custom.css" | relURL }}?{{ $seconds }}">
   <link rel="shortcut icon" href="https://micro.blog/{{ .Site.Author.username }}/favicon.png" type="image/x-icon" />
 
     {{ if .RSSLink -}}
@@ -28,14 +32,8 @@
     {{ end -}}
 
   <link rel="me" href="https://micro.blog/{{ .Site.Author.username }}" />
-  {{ with .Site.Params.twitter_username }}
-    <link rel="me" href="https://twitter.com/{{ . }}" />
-  {{ end }}
   {{ with .Site.Params.github_username }}
     <link rel="me" href="https://github.com/{{ . }}" />
-  {{ end }}
-  {{ with .Site.Params.instagram_username }}
-    <link rel="me" href="https://instagram.com/{{ . }}" />
   {{ end }}
   <link rel="authorization_endpoint" href="https://micro.blog/indieauth/auth" />
   <link rel="token_endpoint" href="https://micro.blog/indieauth/token" />
