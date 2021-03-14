@@ -1,0 +1,13 @@
+{{/* Audio */}}
+{{- if .Params.audio -}}
+  {{- range first 1 .Params.audio -}}
+<meta property="og:audio" content="{{ . }}" />
+<meta property="og:type" content="music.song" />
+  {{- end -}}
+{{- else -}}
+  {{- if .Title -}}
+<meta property="og:type" content="article" />
+  {{- else -}}
+<meta property="og:type" content="website" />
+  {{- end -}}
+{{- end -}}
