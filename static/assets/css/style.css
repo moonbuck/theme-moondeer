@@ -698,3 +698,8 @@ div#banner > img {
 {
 body {-webkit-text-size-adjust: none;}
 }
+
+a.glightbox {
+  text-decoration:none;
+  box-shadow: none;
+}
