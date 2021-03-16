@@ -1,4 +1,0 @@
----
-title: "Programming"
-type: programming
----
