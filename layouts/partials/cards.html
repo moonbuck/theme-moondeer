@@ -19,8 +19,10 @@
 {{- else -}}
   {{- if .IsPage -}}
   {{- partial "cards/description.html" .Summary -}}
-  {{/*- else if .Site.Params.description -}}
-    {{- partial "cards/description.html" .Site.Params.description -*/}}
+  {{- else if .Description -}}
+  {{- partial "cards/description.html" .Description -}}
+  {{- else -}}
+  {{- partial "cards/description.html" "All the latest things to fall out my head." -}}
   {{- end -}}
 {{- end -}}
 
