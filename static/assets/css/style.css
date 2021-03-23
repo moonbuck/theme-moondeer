@@ -355,7 +355,7 @@ img {
 	width: 100%;
 	max-width: 100%;
 	height: auto;
-	border-radius: 5px;
+	/*border-radius: 5px;*/
 }
 
 /*=========================================
@@ -463,8 +463,8 @@ footer #wrapper {
 }
 
 #post-meta img.avatar {
-  height: 92px;
-  width: 92px;
+  height: 36px;
+  width: 36px;
   float: left;
   margin-right: 15px;
   box-shadow: 0 0 0 3px #fff, 0 0 0 4px #eee;
@@ -620,7 +620,7 @@ div#latest {
 }
 
 div#perspectives {
-  background-image: url(https://moondeer.blog/uploads/2021/4c68e54d85.jpg)
+  background-image: url(https://moondeer.blog/uploads/2021/45d159bbd8.jpg)
 }
 
 div#projects {
@@ -652,7 +652,7 @@ div#biographical-tripe {
 }
 
 div#artsy-fartsy {
-  background-image: url(https://moondeer.blog/uploads/2021/54e4381559.jpg)
+  background-image: url(https://moondeer.blog/uploads/2021/bfa1978a74.jpg)
 }
 
 div#personal-favorites {
@@ -665,6 +665,10 @@ div#cloud {
 
 div#about {
   background-image: url(https://moondeer.blog/uploads/2021/952e12123d.jpg)
+}
+
+div#plausible {
+  background-image: url(https://moondeer.blog/uploads/2021/e71e7d47c1.jpg)
 }
 
 .banner-image {
@@ -697,4 +701,9 @@ div#banner > img {
   and (orientation: landscape)
 {
 body {-webkit-text-size-adjust: none;}
+}
+
+a.glightbox, a.img-link {
+  text-decoration:none;
+  box-shadow: none;
 }

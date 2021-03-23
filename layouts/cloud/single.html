@@ -1,0 +1,41 @@
+{{ define "main" }}
+{{ if not (eq (len $.Site.Taxonomies.categories) 0) }}
+    {{ $fontUnit := "px" }}
+    {{ $largestFontSize := 25 }}
+    {{ $smallestFontSize := 17 }}
+	{{ $largestFontWeight := 700 }}
+    {{ $smallestFontWeight := 400 }}
+    {{ $fontSpread := sub $largestFontSize $smallestFontSize }}
+	{{ $weightSpread := sub $largestFontWeight $smallestFontWeight }}
+    {{ $max := add (len (index $.Site.Taxonomies.categories.ByCount 0).Pages) 1 }}
+    {{ $min := len (index $.Site.Taxonomies.categories.ByCount.Reverse 0).Pages }}
+    {{ $spread := sub $max $min }}
+    {{ $fontStep := div $fontSpread $spread }}
+	{{ $weightStep := 100 }}
+
+    <div id="category-cloud">
+        {{ range $name, $taxonomy := $.Site.Taxonomies.categories }}
+            {{ $currentCategoryCount := len $taxonomy.Pages }}
+	    {{ $showCategoryCount := len $taxonomy.Pages }}
+            {{ $currentFontSize := (add $smallestFontSize (mul (sub $currentCategoryCount $min) $fontStep) ) }}
+			{{ $currentFontSize := (add $smallestFontWeight (mul (sub $currentCategoryCount $min) $weightStep) ) }}
+            {{ $count := len $taxonomy.Pages }}
+            {{ $fontW := div (sub (math.Log $count) (math.Log $min)) (sub (math.Log $max) (math.Log $min)) }}
+            {{ $currentFontSize := (add $smallestFontSize (mul (sub $largestFontSize $smallestFontSize) $fontW) ) }}
+			{{ $currentFontWeight := (add $smallestFontWeight (mul (sub $largestFontWeight $smallestFontWeight) $fontW) ) }}
+            <a href="{{ "/categories/" | relLangURL }}{{ $name | urlize }}" style="font-size:{{$currentFontSize}}{{$fontUnit}}; font-weight:{{$currentFontWeight}}">{{ $name }}({{$showCategoryCount}})</a>
+        {{ end }}
+    </div>
+	<style>
+		#category-cloud {
+			margin-top: 1em;
+		}
+		#category-cloud a {
+			color: #666;
+		}
+		#category-cloud a:hover {
+			color: #000;
+		}
+	</style>
+{{ end }}
+{{ end }}

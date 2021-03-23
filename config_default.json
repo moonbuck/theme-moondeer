@@ -38,14 +38,7 @@
 			"isPlainText": true,
 			"notAlternative": true
 		},
-      "CrossingJSON": {
-          "mediaType": "application/json",
-          "path": "crossing",
-          "baseName": "index",
-          "isPlainText": true,
-          "notAlternative": true        
-      },
-	 "PhotosHTML": {
+		"PhotosHTML": {
 			"mediaType": "text/html",
 			"path": "photos",
 			"baseName": "index",
@@ -73,7 +66,7 @@
 		}
 	},
 	"outputs": {
-		"home": [ "HTML", "RSS", "JSON", "RSD", "ArchiveHTML", "ArchiveJSON", "PhotosJSON", "PodcastXML", "PodcastJSON", "CrossingJSON" ],
+		"home": [ "HTML", "RSS", "JSON", "RSD", "ArchiveHTML", "ArchiveJSON", "PhotosJSON", "PodcastXML", "PodcastJSON" ],
 		"page": [ "HTML" ],
 		"section": [ "HTML" ],
 		"taxonomy": [ "HTML", "RSS", "JSON" ],
@@ -111,5 +104,4 @@
 		"plugins_html": []
 	}
 }
-
 
