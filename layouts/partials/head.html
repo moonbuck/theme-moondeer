@@ -1,7 +1,7 @@
 <head>
 <meta charset="utf-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <meta content="{{ .Site.Author.name }}" name="author">
 <title>
   {{- block "title" . -}}
@@ -15,9 +15,20 @@
   {{- end -}}
   {{- end -}}
 </title>
+    {{ if .Description }}
+<meta name="description" content="{{ .Description }}">
+    {{ else }}
+<meta name="description" content="All the latest thoughts to fall out my head.">    
+    {{ end }}
 <link rel="shortcut icon" 
-      href="https://micro.blog/{{ .Site.Author.username }}/favicon.png"
+      href="https://moondeer.blog/uploads/2021/5260d2013e.png"
       type="image/x-icon" />
+    <link rel="apple-touch-icon" sizes="180x180" href="https://moondeer.blog/uploads/2021/5260d2013e.png">
+<link rel="icon" type="image/png" sizes="32x32" href="https://moondeer.blog/uploads/2021/91b72102d1.png">
+<link rel="icon" type="image/png" sizes="16x16" href="https://moondeer.blog/uploads/2021/df2e80d9c3.png">
+<link rel="mask-icon" href="https://moondeer.blog/uploads/2021/3b64fed44b.svg" color="#4a577c">
+<meta name="msapplication-TileColor" content="#da532c">
+<meta name="theme-color" content="#da532c">
 {{/* link Adobe typekit */}}
 <link rel="stylesheet"
       href="https://use.typekit.net/nmn4mcn.css">
@@ -71,6 +82,10 @@
 {{ range .Site.Params.plugins_css }}
   <link rel="stylesheet" href="{{ . }}" />
 {{ end }}
+  {{/* plausible analytics */}}
+  {{ partial "plausible.html" }}
+  {{/* glightbox */}}
+  {{ partial "glightbox.html" }}
 {{ range $filename := .Site.Params.plugins_html }}
   {{ partial $filename $ }}
 {{ end }}

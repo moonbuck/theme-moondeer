@@ -1,7 +1,7 @@
 {{ define "main" }}
 <ul id="post-list">
 
-{{ $paginator := .Paginate (where .Pages "Type" "post") 25 }}
+{{ $paginator := .Paginate (where .Pages "Type" "post") 10 }}
 {{ range $paginator.Pages  }}
 
   <li>
@@ -35,4 +35,6 @@
 </ul>
 
 {{ partial "pagination.html" . }}
+
+{{ partial "profile.html" . }}
 {{ end }}

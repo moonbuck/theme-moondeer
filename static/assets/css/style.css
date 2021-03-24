@@ -652,7 +652,7 @@ div#biographical-tripe {
 }
 
 div#artsy-fartsy {
-  background-image: url(https://moondeer.blog/uploads/2021/700dde4c9f.jpg)
+  background-image: url(https://moondeer.blog/uploads/2021/76f1f5d0d6.jpg)
 }
 
 div#personal-favorites {
@@ -706,4 +706,15 @@ body {-webkit-text-size-adjust: none;}
 a.glightbox, a.img-link {
   text-decoration:none;
   box-shadow: none;
+  display: block;
+  margin-top: 8vw;
+}
+
+@media screen and (max-width: 540px) {
+  div#artsy-fartsy {
+     background-position: 35% 50%;
+  }
+  div#critters {
+     background-position: 35% 50%;
+  }
 }
