@@ -91,7 +91,7 @@
 	"languageCode": "[LANGUAGE]",
 	"paginate": 10,
 	"params": {
-		"description": "<a href=\"https://micro.blog/[USERNAME]\">@[USERNAME]</a>",
+		"description": "All the latest thoughts to fall out my head.",
 		"itunes_description": "[ITUNES_DESCRIPTION]",
 		"itunes_category": "[ITUNES_CATEGORY]",
 		"itunes_subcategory": "[ITUNES_SUBCATEGORY]",

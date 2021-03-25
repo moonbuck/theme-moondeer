@@ -1,23 +1,17 @@
 <rss version="2.0">
   <channel>
-  {{/* Title */}}
-    {{- $title := "" -}}
-    {{- if eq  .Title  .Site.Title -}}
-      {{- $title = .Site.Title -}}
-    {{- else if .Title -}}
-      {{- $title = printf "%s - %s" .Title .Site.Title -}}
-    {{- end -}}
-    <title>{{ $title }}</title>
+  <title>{{ .Site.Title }}</title>
     <link>{{ .Permalink }}</link>
     {{/* Description */}}
     <description>
-    {{- with .Description }}{{ . }}{{ end -}}
+    {{- with .Site.Params.description }}{{ . }}{{ end -}}
     </description>
     {{ with .Site.LanguageCode }}
     <language>{{.}}</language>
     {{ end }}
     <lastBuildDate>{{ .Date.Format "Mon, 02 Jan 2006 15:04:05 -0700" | safeHTML }}</lastBuildDate>
-    {{ range .Pages }}
+	{{ $list := (where .Pages "Type" "post") }}
+    {{ range $list }}
     <item>
       <title>{{ .Title }}</title>
       <link>{{ .Permalink }}</link>
