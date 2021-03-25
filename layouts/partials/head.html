@@ -86,6 +86,8 @@
   {{ partial "plausible.html" }}
   {{/* glightbox */}}
   {{ partial "glightbox.html" }}
+  {{/* cards */}}
+  {{ partial "cards.html" . }}
 {{ range $filename := .Site.Params.plugins_html }}
   {{ partial $filename $ }}
 {{ end }}
