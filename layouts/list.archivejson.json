@@ -1,3 +1,4 @@
+{{/* Currently unmodifed */}}
 {
 	"version": "https://jsonfeed.org/version/1",
 	"title": {{ .Site.Title | jsonify }},

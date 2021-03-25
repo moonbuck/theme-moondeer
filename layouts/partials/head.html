@@ -1,7 +1,9 @@
-{{ printf "<!-- theme: Moondeer v1 -->" | safeHTML }}
+{{/* Modified to include custom links and metadata, branch linked CSS by whether page is a list, and include partials for the absorbed plugins … for starters */}}
+{{ printf "<!-- theme: Moondeer v2 -->" | safeHTML }}
 <head>
 <meta charset="utf-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+{{/* added "viewport-fit=cover" to prevent the inset added to landscape iPhone screens */}}
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <meta content="{{ .Site.Author.name }}" name="author">
 <title>

@@ -1,8 +1,9 @@
 <rss version="2.0">
   <channel>
+  {{/* Simplified title logic */}}
   <title>{{ .Site.Title }}</title>
     <link>{{ .Permalink }}</link>
-    {{/* Description */}}
+    {{/* Modifed to use page description from config.json */}}
     <description>
     {{- with .Site.Params.description }}{{ . }}{{ end -}}
     </description>

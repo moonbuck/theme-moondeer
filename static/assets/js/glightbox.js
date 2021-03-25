@@ -1,3 +1,4 @@
+/* Unmodified code from the glightbox plugin */
 const lightbox = GLightbox(	
 	{
 		touchNavigation: true,

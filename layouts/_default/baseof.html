@@ -4,15 +4,17 @@
 <body>
   {{ partial "header.html" . }}
   <section id="wrapper" {{ if eq .File.Dir "about/" }} class="bio" {{ end }}>
-	{{ block "main" . }}{{ end }}
+  {{ block "main" . }}{{ end }}
   </section>
   {{ partial "footer.html" . }}
   {{ partial "custom_footer.html" . }}
-        <script src="/assets/js/glightbox.js"></script>
-        <script src="/assets/js/prettyurl.js"></script>        
-		{{ range .Site.Params.plugins_js }}
-			<script src="{{ . }}"></script>
-		{{ end }}
+  {{/* Include theme JavaScript */}}
+  <script src="/assets/js/glightbox.js"></script>
+  <script src="/assets/js/prettyurl.js"></script>
+  {{/* Include plugin JavaScript */}}
+  {{ range .Site.Params.plugins_js }}
+    <script src="{{ . }}"></script>
+  {{ end -}}
 </body>
 </html>
 

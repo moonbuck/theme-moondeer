@@ -1,3 +1,5 @@
+{{/* Modified to fully control the menu items as well as create a hook for per-page banners */}}
+{{/* Also added logic to mark items representing a category within which a post is include as "selected" */}}
 {{ $categories := .Page.Params.categories }}
 <nav class="main-nav">
 {{- $this_page := .Title -}}

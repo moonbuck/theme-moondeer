@@ -1,22 +1,25 @@
+{{/* Created for more control over the home page */}}
 {{ define "main" }}
 <ul id="post-list">
 
+{{/* Pagination currently ignoring the setting in config.json */}}
 {{ $paginator := .Paginate (where .Pages "Type" "post") 10 }}
 {{ range $paginator.Pages  }}
 
   <li>
     <article>
+    {{/* Truncate posts with titles */}}
       {{ if .Title }}
       <section class="post-body">
-      <header>
-        <h2><a href="{{ .Permalink }}">{{ .Title }}</a></h2>
-      </header>
-      <section class="post-body">
-        {{ .Summary }}
-          {{ if .Truncated }}
-            <p><a href="{{ .RelPermalink }}">Read More</a></p>
-          {{ end }}
-      </section>
+        <header>
+          <h2><a href="{{ .Permalink }}">{{ .Title }}</a></h2>
+        </header>
+        <section class="post-body">
+          {{ .Summary }}
+            {{ if .Truncated }}
+              <p><a href="{{ .RelPermalink }}">Read More</a></p>
+            {{ end }}
+        </section>
       </section>
       {{ else }}
         {{ .Content }}
@@ -35,6 +38,6 @@
 </ul>
 
 {{ partial "pagination.html" . }}
-
+{{/* Include bio so there is an h-card on the home page. */}}
 {{ partial "profile.html" . }}
 {{ end }}

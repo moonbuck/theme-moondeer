@@ -9,7 +9,7 @@
     {{- end -}}
     <title>{{ $title }}</title>
     <link>{{ .Permalink }}</link>
-    {{/* Description */}}
+    {{/* Modifed to use page descriptions */}}
     <description>
     {{- with .Description }}{{ . }}{{ end -}}
     </description>

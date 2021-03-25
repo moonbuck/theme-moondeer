@@ -1,3 +1,4 @@
+{{/* Code from the Category Cloud plugin, modified to exclude "crossing" category */}}
 {{ define "main" }}
 {{ if not (eq (len $.Site.Taxonomies.categories) 0) }}
     {{ $fontUnit := "px" }}
