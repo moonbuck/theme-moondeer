@@ -8,14 +8,14 @@
 {{ $kind := index $parts 1 }}
 {{ if eq $kind "cloud" }}
 <div id="cloud" class="banner-image"></div>
-{{ else }}
-{{ if eq $kind "about" }}
+{{ else if eq $kind "about" }}
 <div id="about" class="banner-image"></div>
+{{ else if eq $kind "plausible" }}
+<div id="plausible" class="banner-image"></div>
 {{ else }}
 {{ if and (eq $kind "categories") (not .IsPage) }}
 {{ $category := index $parts 2 }}
 {{ partial "banner.html" $category }}
-{{ end }}
 {{ end }}
 {{ end }}
 {{ end }}
