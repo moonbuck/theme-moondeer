@@ -1,14 +1,5 @@
-{{/* Currently unmodifed */}}
+{{/* Removed categories since they are in the menu */}}
 {{ define "main" }}
-
-	{{ $list := ($.Site.GetPage "taxonomyTerm" "categories").Pages }}
-	{{ if gt (len $list) 0 }}
-		<div class="archive_categories" style="border-bottom: 1px solid lightgray; padding-bottom: 15px; margin-bottom: 30px;">
-			{{ range $list }}
-				<p><a href="{{ .Permalink }}">{{ .Title }}</a></p>
-			{{ end }}
-		</div>
-	{{ end }}
 	
 	{{ $list := (where .Site.Pages "Type" "post") }}
 	{{ range $list }}
