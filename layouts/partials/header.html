@@ -12,6 +12,10 @@
 <div id="about" class="banner-image"></div>
 {{ else if eq $kind "plausible" }}
 <div id="plausible" class="banner-image"></div>
+{{ else if eq $kind "2020" }}
+<div id="year-2020" class="banner-image"></div>
+{{ else if eq $kind "2021" }}
+<div id="year-2021" class="banner-image"></div>
 {{ else }}
 {{ if and (eq $kind "categories") (not .IsPage) }}
 {{ $category := index $parts 2 }}
