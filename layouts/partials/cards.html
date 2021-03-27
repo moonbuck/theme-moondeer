@@ -76,8 +76,6 @@
   {{ .Scratch.Set "updated_time" (.Date.Format $iso8601 | safeHTML) }}
 {{ end }}
 
-{{ printf "<!-- Scratch: %v -->" .Scratch | safeHTML }}
-
 {{/* Create meta tags using the values stored in `.Scratch` */}}
 <meta property="og:url" content="{{ .Scratch.Get "url" }}" />
 <meta property="og:site_name" content="{{ .Scratch.Get "site_name" }}" />
