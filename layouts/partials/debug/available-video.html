@@ -1,6 +1,6 @@
 {{- $available_video := "" -}}
 {{- with $.Params.video -}}
-  {{- range .-}}
+  {{- range . -}}
     {{- if eq (len $available_video) 0 -}}
       {{- $available_video = (printf "%s" .) -}}
     {{- else -}}
