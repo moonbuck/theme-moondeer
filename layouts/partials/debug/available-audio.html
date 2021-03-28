@@ -1,6 +1,6 @@
 {{- $available_audio := "" -}}
 {{- with $.Params.audio -}}
-  {{- range .-}}
+  {{- range . -}}
     {{- if eq (len $available_audio) 0 -}}
       {{- $available_audio = (printf "%s" .) -}}
     {{- else -}}

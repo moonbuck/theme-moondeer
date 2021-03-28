@@ -1,10 +1,12 @@
 {{- $available_images := "" -}}
 {{- with $.Params.images -}}
-  {{- range .-}}
+  {{- range . -}}
+    {{- $image := resources.Get . -}}
+    {{- $size := len $image.Content -}}
     {{- if eq (len $available_images) 0 -}}
-      {{- $available_images = (printf "%s" .) -}}
+      {{- $available_images = (printf "%s (%v)" . $size) -}}
     {{- else -}}
-      {{- $available_images = (printf "%s, %s" $available_images .) -}}
+      {{- $available_images = (printf "%s, %s (%v)" $available_images . $size) -}}
     {{- end -}}
   {{- end -}}
 {{- end -}}
