@@ -1,12 +1,1 @@
 {{/* A partial for printing out statements as HTML comments */}}
-{{ $available_images := "" }}
-{{ with .Resources.ByType "image" }}
-  {{ range .}}
-    {{ if eq (len $available_images) 0 }}
-      {{ $available_images = (printf "%s" .RelPermalink) }}
-    {{ else }}
-      {{ $available_images = (printf "%s, %s" $available_images .RelPermalink) }}
-    {{ end }}
-  {{ end }}
-{{ end }}
-{{ printf "<!-- Available images: %s -->" $available_images | safeHTML }}
