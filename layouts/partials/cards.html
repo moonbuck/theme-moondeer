@@ -20,41 +20,12 @@
   {{ $.Scratch.Set "image" (index . 0 | absURL) }}
 {{- else -}}
   {{ $url := urls.Parse .Permalink }}
-  {{ $parts := split $url.Path "/" }}
-  {{ $kind := index $parts 1 }}
-  {{ $prefix := "https://moondeer.blog/uploads/2021/" }}
-  {{ if eq $kind "categories" }}
-    {{ $category := index $parts 2 }}
-    {{ if eq $category "perspectives" }}
-    {{- .Scratch.Set "image" (printf "%s/fa637e7fe0.png" $prefix) -}}
-    {{ else if eq $category "projects" }}
-    {{- .Scratch.Set "image" (printf "%s/74512379fa.png" $prefix) -}}
-    {{ else if eq $category "poetry" }}
-    {{- .Scratch.Set "image" (printf "%s/02bec3693a.png" $prefix) -}}
-    {{ else if eq $category "music" }}
-    {{- .Scratch.Set "image" (printf "%s/b604ce0519.png" $prefix) -}}
-    {{ else if eq $category "programming" }}
-    {{- .Scratch.Set "image" (printf "%s/0d2564a5e5.png" $prefix) -}}
-    {{ else if eq $category "critters" }}
-    {{- .Scratch.Set "image" (printf "%s/e0dfd20403.png" $prefix) -}}
-    {{ else if eq $category "stream-of-consciousness" }}
-    {{- .Scratch.Set "image" (printf "%s/b48fce578f.png" $prefix) -}}
-    {{ else if eq $category "biographical-tripe" }}
-    {{- .Scratch.Set "image" (printf "%s/ac4a187662.png" $prefix) -}}
-    {{ else if eq $category "artsy-fartsy" }}
-    {{- .Scratch.Set "image" (printf "%s/608bfd1756.png" $prefix) -}}
-    {{ else if eq $category "personal-favorites" }}
-    {{- .Scratch.Set "image" (printf "%s/7529b05b3e.png" $prefix) -}}
-    {{ else }}
-    {{- .Scratch.Set "image" (printf "%s/8135337116.png" $prefix) -}}
-    {{ end }}
-  {{ else if eq $kind "about" }}
-    {{- .Scratch.Set "image" (printf "%s/87eced620f.png" $prefix) -}}
-  {{ else if eq $kind "cloud" }}
-    {{- .Scratch.Set "image" (printf "%s/bc53f58e45.png" $prefix) -}}
+  {{ $path := $url.Path }}
+  {{ with $.Site.Data.cards $path }}
+    {{ .Scratch.Set "image" . }}
   {{ else }}
-    {{- .Scratch.Set "image" (printf "%s/8135337116.png" $prefix) -}}
-  {{- end -}}
+    {{ .Scratch.Set "image" .Site.Data.cards.default }}
+  {{ end }}  
 {{ end }}
 {{- $iso8601 := "2006-01-02T15:04:05-07:00" -}}
 {{ if .IsPage }}
