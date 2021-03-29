@@ -1,17 +1,15 @@
-{{/*
-
-$.Params = map[type:post categories:[Stream of Consciousness] microblog:true guid:http://Moondeer.micro.blog/2021/03/28/if-theres-a.html draft:false iscjklanguage:false date:2021-03-28 08:39:54 -0700 -0700 lastmod:2021-03-28 08:39:54 -0700 -0700 publishdate:2021-03-28 08:39:54 -0700 -0700 url:/2021/03/28/if-theres-a.html layout:post]
-
-$.Params = map[guid:http://Moondeer.micro.blog/2021/03/27/hashtag-sfw.html images:[https://moondeer.blog/uploads/2021/e6e23292c2.jpg] categories:[Stream of Consciousness] draft:false layout:post type:post url:/2021/03/27/hashtag-sfw.html date:2021-03-27 17:58:54 -0700 -0700 lastmod:2021-03-27 17:58:54 -0700 -0700 publishdate:2021-03-27 17:58:54 -0700 -0700 microblog:true photos:[https://moondeer.blog/uploads/2021/e6e23292c2.jpg] iscjklanguage:false]
-
-$.Params = map[iscjklanguage:false date:2021-03-17 12:21:08 -0700 -0700 type:post categories:[Music Stream of Consciousness] audio:[https://moondeer.blog/uploads/2021/b7b2490b5c.mp3] layout:post microblog:true guid:http://Moondeer.micro.blog/2021/03/17/every-time-i.html lastmod:2021-03-17 12:21:08 -0700 -0700 publishdate:2021-03-17 12:21:08 -0700 -0700 url:/2021/03/17/every-time-i.html draft:false]
-
-$.Params = map[aliases:[/artsy-fartsy/] title:Artsy Fartsy draft:false iscjklanguage:false description:Stuff nearer to art than anything else.]
-
-*/}}
-{{- $params_description := "\n$.Params = {" -}}
-{{- range $elem_key, $elem_val := $.Params -}}
-  {{- $params_description = printf "%s\n%s: %v" $params_description $elem_key $elem_val -}}
+{{- $desc := "\n$.Site.Params = {" -}}
+{{- range $key, $val := $.Site.Params -}}
+  {{- $desc = printf "%s\n  %s: %v" $desc $key $val -}}
 {{ end }}
-{{- $params_description = printf "%s\n}\n" -}}
-{{- printf "<!-- %s -->" $params_description | safeHTML -}}
+{{- $desc = printf "%s\n}" $desc -}}
+{{- if eq (len $.Params) 0 -}}
+  {{- $desc = printf "%s\n$.Params = {}\n" $desc -}}
+{{- else -}}
+  {{- $desc = printf "%s\n$.Params = {" $desc -}}
+  {{- range $key, $val := $.Params -}}
+    {{- $desc = printf "%s\n  %s: %v" $desc $key $val -}}
+  {{ end }}
+  {{- $desc = printf "%s\n}\n" $desc -}}
+ {{- end -}}
+{{- printf "<!-- %s -->" $desc | safeHTML -}}
