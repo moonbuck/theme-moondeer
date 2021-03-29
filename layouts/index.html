@@ -2,9 +2,7 @@
 {{ define "main" }}
 <ul id="post-list">
 
-{{/* Pagination currently ignoring the setting in config.json */}}
-{{ $paginator := .Paginate (where .Pages "Type" "post") 10 }}
-{{ range $paginator.Pages  }}
+{{ range .Paginator.Pages  }}
 
   <li>
     <article>

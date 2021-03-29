@@ -98,7 +98,7 @@
   },
   "enableRobotsTXT": true,
   "languageCode": "[LANGUAGE]",
-  "paginate": 10,
+  "paginate": 25,
   "params": {
       "description": "All the latest thoughts to fall out my head.",
       "itunes_description": "[ITUNES_DESCRIPTION]",
