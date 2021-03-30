@@ -2,7 +2,7 @@
 {{ define "main" }}
 <ul id="post-list">
 
-{{ range .Paginator.Pages  }}
+{{ range where .Paginator.Pages "Type" "post" }}
 
   <li>
     <article>
