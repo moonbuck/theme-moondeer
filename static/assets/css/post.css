@@ -1,0 +1,164 @@
+/* Post */
+
+.post-body li:last-child {
+  margin-bottom: 1.5em;
+}
+
+.post-body ol li {
+  list-style-type: decimal !important;
+}
+
+.post-body ul li {
+  list-style-type: disc !important;
+}
+
+.post header {
+  text-align:center;
+}
+
+#post-meta {
+  font-size: 20px; /*13px;*/
+  font-weight: 200;
+  line-height: 1.5;
+  border-top: 1px solid #eee;
+  padding-top: 40px;
+  padding-bottom: 40px;
+  margin-top: 60px;
+  color:#444;
+  border-bottom: 1px solid #eee;
+}
+
+#post-meta div span {
+  color: #aaa;
+  font-weight: 100;
+  display: block;
+}
+
+#post-meta div span.dark {
+  color: #1E2025;
+
+}
+
+#post-meta div {
+  float: left;
+}
+
+#post-meta img.avatar {
+  height: 36px;
+  width: 36px;
+  float: left;
+  margin-right: 15px;
+  box-shadow: 0 0 0 3px #fff, 0 0 0 4px #eee;
+  border-radius: 50%;
+}
+
+/* Post Page */
+#header {
+  border-bottom: 1px solid #eee;
+}
+
+.post {
+  margin: 120px 0 0 0;
+}
+
+/* Post Navigation */
+#post-nav {
+  text-align:center;
+  padding-top:20px;
+  font-size: 20px; /*13px;*/
+  font-weight:400;
+  margin-top: 40px;
+}
+
+#post-nav span {
+  position: relative;
+}
+
+#post-nav span.prev {
+  float: left;
+}
+
+#post-nav span.next {
+  float: right;
+}
+
+#post-nav span .arrow {
+  position: relative;
+  padding: 1px;
+}
+
+/* Nav */
+
+nav.main-nav {
+  background: #fff;
+  background: rgba(255,255,255,.90);
+}
+
+nav.main-nav a {
+  color: #FFF;
+}
+
+.microblog_conversation {
+  margin-top: 50px;
+  padding-top: 20px;
+  border-top: 0.5px solid lightgray;
+}
+
+.microblog_post {
+  padding-top: 20px;
+  padding-bottom: 20px;
+}
+div.microblog_post + div.microblog_post {
+  border-top: 0.5px solid lightgray;
+}
+
+div.microblog_text p  a {
+  text-decoration: none;
+  box-shadow: none;
+}
+
+.microblog_avatar {
+  border-radius: 10px;
+  vertical-align: middle;
+}
+
+.microblog_time {
+  font-size: 13px;
+  padding-top: 10px;
+  color: gray;
+}
+
+.microblog_time a {
+  color: gray;
+  text-decoration: none;
+}
+
+/* Media Queries */
+@media screen and (max-width: 540px) {
+
+  #post-meta {
+    padding-top: 30px;
+    padding-bottom: 30px;
+    margin-top: 60px;
+  }
+
+  .post {
+    margin: 50px 0;
+  }  
+  
+}
+
+@media (prefers-color-scheme: dark) {
+  body {
+    color: white;
+    background: #1c1c1e;
+  }
+
+  nav.main-nav {
+    background: #1c1c1e;
+  }
+  
+  a, nav.main-nav a, #footer a, #post-nav a, p a, ul a, ol a, h1, h2, h3 {
+    color: white;
+  }
+}

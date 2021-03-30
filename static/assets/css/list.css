@@ -1,0 +1,217 @@
+/*=========================================
+Post List
+=========================================== */
+
+
+#post-list li {
+  list-style-type: none;
+}
+
+#post-list li:last-child {
+  margin-bottom: 0;
+}
+
+#post-list h2 {
+  margin-top: 0;
+  line-height: 1.35;
+}
+
+/* Profile */
+
+.profile #wrapper {
+  margin: 0 auto;
+  text-align: center;
+  padding: 80px 0;
+}
+
+.profile #avatar {
+  display: inline-block;
+  /*width: 320px; 80px;*/
+  /*height: 320px; 80px;*/
+  margin-bottom: 1em;
+  /*border-radius: 40px;*/
+}
+
+.profile h4 {
+  color: #aaa;
+  margin-top: 0;
+  font-weight: 400;
+}
+
+/* The main wrapper for pagination links */
+.pagination {
+    position: relative;
+    margin-top: 3rem;
+    margin-bottom: 0rem;
+    margin-left: auto;
+    margin-right: auto;
+  font-size: 20px; /*13px;*/
+  color: #bbb;
+    text-align: center;
+}
+
+/* Push the previous/next links out to the left/right */
+.older-posts,
+.newer-posts {
+    position: absolute;
+    display: inline-block;
+}
+
+.older-posts {
+    right: 0;
+}
+
+.page-number {
+    display: inline-block;
+    padding: 2px 0;
+    min-width: 100px;
+}
+
+.newer-posts {
+    left: 0;
+}
+
+.extra-pagination {
+    display: none;
+}
+
+.extra-pagination .pagination {
+    width: auto;
+}
+
+/* On page2+ show extra pagination controls at the top of post list */
+.paged .extra-pagination {
+    display: block;
+}
+
+div#latest {
+  background-image: url(https://moondeer.blog/uploads/2021/7c412827ad.jpg)
+}
+
+div#perspectives {
+  background-image: url(https://moondeer.blog/uploads/2021/45d159bbd8.jpg)
+}
+
+div#projects {
+  background-image: url(https://moondeer.blog/uploads/2021/a0c8728c89.jpg)
+}
+
+div#poetry {
+  background-image: url(https://moondeer.blog/uploads/2021/23a2035cdc.jpg)
+}
+
+div#music {
+  background-image: url(https://moondeer.blog/uploads/2021/8d0a055caa.jpg)
+}
+
+div#programming {
+  background-image: url(https://moondeer.blog/uploads/2021/47e02e5e74.jpg)
+}
+
+div#critters {
+  background-image: url(https://moondeer.blog/uploads/2021/0a37500db6.jpg)
+}
+
+div#stream-of-consciousness {
+  background-image: url(https://moondeer.blog/uploads/2021/c11b3de2ff.jpg)
+}
+
+div#biographical-tripe {
+  background-image: url(https://moondeer.blog/uploads/2021/92a565154b.jpg)
+}
+
+div#artsy-fartsy {
+  background-image: url(https://moondeer.blog/uploads/2021/76f1f5d0d6.jpg)
+}
+
+div#personal-favorites {
+  background-image: url(https://moondeer.blog/uploads/2021/328c442bd6.jpg)
+}
+
+div#cloud {
+  background-image: url(https://moondeer.blog/uploads/2021/603feff919.jpg)
+}
+
+div#about {
+  background-image: url(https://moondeer.blog/uploads/2021/952e12123d.jpg)
+}
+
+div#plausible {
+  background-image: url(https://moondeer.blog/uploads/2021/e71e7d47c1.jpg)
+}
+
+div#year-2020 {
+  background-image: url(https://moondeer.blog/uploads/2021/24760a1062.jpg)
+}
+
+div#year-2021 {
+  background-image: url(https://moondeer.blog/uploads/2021/98295e13a8.jpg)
+}
+
+.banner-image {
+  background-color: #516189;
+  height: 300px;
+  width: 100%;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  position: relative;
+}
+
+div#banner {
+  background: #516189;
+}
+
+div#banner > img {
+  border-radius: 0px;
+  width: auto;
+  max-height: 400px;
+  margin-left: auto;
+  margin-right: auto;
+  display: block;
+}
+
+/* Nav */
+
+nav.main-nav {
+  background: #516189;
+}
+
+nav.main-nav a {
+  color: #FFF;
+}
+
+/* Media Queries */
+@media screen and (max-width: 540px) {
+  
+  .profile #wrapper {
+    margin: 0 auto;
+    text-align: center;
+    padding: 70px 0 40px 0;
+  } 
+  
+}
+
+@media screen and (max-width: 540px) {
+  div#artsy-fartsy {
+     background-position: 35% 50%;
+  }
+  div#critters {
+     background-position: 35% 50%;
+  }
+}
+
+@media (prefers-color-scheme: dark) {
+  body {
+    color: white;
+    background: #1c1c1e;
+  }
+
+  nav.main-nav {
+    background: #1c1c1e;
+  }
+  
+  a, nav.main-nav a, #footer a, #post-nav a, p a, ul a, ol a, h1, h2, h3 {
+    color: white;
+  }
+}
