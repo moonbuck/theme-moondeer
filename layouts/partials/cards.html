@@ -9,7 +9,7 @@
 {{ else }} 
   {{ .Scratch.Set "title" (.Scratch.Get "site_name") }}
 {{ end }}
-{{ if .Description }}
+{ if .Description }
   {{ .Scratch.Set "description" .Description }}
 {{ else if .IsPage }}
   {{ .Scratch.Set "description" .Summary }}
@@ -23,11 +23,11 @@
   {{ $path := $url.Path }}
   {{ $cards := $.Site.Data.cards }}
   {{ printf "<!-- cards = %v -->" $cards | safeHTML }}
-  {{/* with $.Site.Data.cards $path }}
+  {{ with (index $.Site.Data.cards $path) }}
     {{ .Scratch.Set "image" . }}
   {{ else }}
     {{ .Scratch.Set "image" .Site.Data.cards.default }}
-  {{ end */}}  
+  {{ end }}  
 {{ end }}
 {{- $iso8601 := "2006-01-02T15:04:05-07:00" -}}
 {{ if .IsPage }}
