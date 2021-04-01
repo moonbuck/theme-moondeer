@@ -9,4 +9,6 @@ menu:
     identifier: "favorites"
     url: "/personal-favorites/"
     weight: -90
+    params:
+      banner: "https://moondeer.blog/uploads/2021/328c442bd6.jpg"
 ---

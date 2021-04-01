@@ -8,4 +8,6 @@ menu:
     identifier: "poetry"
     url: "/poetry/"
     weight: -20
+    params:
+      banner: "https://moondeer.blog/uploads/2021/23a2035cdc.jpg"
 ---

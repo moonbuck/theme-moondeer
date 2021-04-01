@@ -8,4 +8,6 @@ menu:
     identifier: "music"
     url: "/music/"
     weight: -30
+    params:
+      banner: "https://moondeer.blog/uploads/2021/8d0a055caa.jpg"
 ---

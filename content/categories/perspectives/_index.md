@@ -9,4 +9,6 @@ menu:
     identifier: "perspectives"
     url: "/perspectives/"
     weight: 0
+    params:
+      banner: "https://moondeer.blog/uploads/2021/45d159bbd8.jpg"
 ---

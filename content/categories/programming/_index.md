@@ -9,4 +9,6 @@ menu:
     identifier: "programming"
     url: "/programming/"
     weight: -40
+    params:
+      banner: "https://moondeer.blog/uploads/2021/47e02e5e74.jpg"
 ---

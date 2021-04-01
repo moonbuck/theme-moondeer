@@ -9,4 +9,6 @@ menu:
     identifier: "biographical"
     url: "/biographical-tripe/"
     weight: -70
+    params:
+      banner: "https://moondeer.blog/uploads/2021/92a565154b.jpg"
 ---

@@ -9,4 +9,6 @@ menu:
     identifier: "cloud"
     url: "/cloud/"
     weight: -100
+    params:
+      banner: "https://moondeer.blog/uploads/2021/603feff919.jpg"
 ---

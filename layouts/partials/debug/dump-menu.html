@@ -6,11 +6,15 @@
     {{- $desc = printf "%s\n    name: %v" $desc .Name -}}
     {{- $desc = printf "%s\n    title: %v" $desc .Title -}}
     {{- $desc = printf "%s\n    url: %v" $desc .URL -}}
-    {{- $desc = printf "%s\n    weight: %v\n" $desc .Weight -}}    
+    {{- $desc = printf "%s\n    weight: %v" $desc .Weight -}}    
+    {{- with .Params.banner -}}
+      {{- $desc = printf "%s\n    banner: %v" $desc . -}}
+    {{- end -}}
     {{- if $current_page.IsMenuCurrent "main" . -}}
       {{- $desc = printf "%s\n    current: yes\n" $desc -}}
     {{- else -}}
       {{- $desc = printf "%s\n    current: no\n" $desc -}}
+    {{- end -}}
     {{ end }}
   {{- $desc = printf "%s\n}\n" $desc -}}
 {{- else -}}
