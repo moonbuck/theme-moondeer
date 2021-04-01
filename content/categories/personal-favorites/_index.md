@@ -5,6 +5,7 @@ aliases: [/personal-favorites/]
 menu:
   main:
     name: "Personal Favorites"
+    title: "Personal Favorites"
     identifier: "favorites"
     url: "/personal-favorites/"
     weight: -90

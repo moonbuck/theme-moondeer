@@ -5,6 +5,7 @@ aliases: [/critters/]
 menu:
   main:
     name: "Critters"
+    title: "Critters"
     identifier: "critters"
     url: "/critters/"
     weight: -50

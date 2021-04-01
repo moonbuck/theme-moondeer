@@ -5,6 +5,7 @@ aliases: [/programming/]
 menu:
   main:
     name: "Programming"
+    title: "Programming"
     identifier: "programming"
     url: "/programming/"
     weight: -40

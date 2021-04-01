@@ -5,6 +5,7 @@ type: cloud
 menu:
   main:
     name: "Cloud"
+    title: "Cloud"
     identifier: "cloud"
     url: "/cloud/"
     weight: -100

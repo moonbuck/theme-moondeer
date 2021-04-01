@@ -5,6 +5,7 @@ aliases: [/artsy-fartsy/]
 menu:
   main:
     name: "Artsy Fartsy"
+    title: "Artsy Fartsy"
     identifier: "artsy"
     url: "/artsy-fartsy/"
     weight: -80

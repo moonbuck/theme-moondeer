@@ -5,6 +5,7 @@ aliases: [/perspectives/]
 menu:
   main:
     name: "Perspectives"
+    title: "Perspectives"
     identifier: "perspectives"
     url: "/perspectives/"
     weight: 0

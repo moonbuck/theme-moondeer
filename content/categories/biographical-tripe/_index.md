@@ -5,6 +5,7 @@ aliases: [/biographical-tripe/]
 menu:
   main:
     name: "Biographical Tripe"
+    title: "Biographical Tripe"
     identifier: "biographical"
     url: "/biographical-tripe/"
     weight: -70
