@@ -36,19 +36,15 @@
 {{/* link Adobe typekit */}}
 <link rel="stylesheet"
       href="https://use.typekit.net/nmn4mcn.css">
-{{/* link the common stylesheets */}}
-<link rel="stylesheet" href="assets/css/reset.css">
-<link rel="stylesheet" href="assets/css/baseof.css">
-
 {{/* determine whether this is a post page or banner page */}}
 {{- $url := urls.Parse .Permalink -}}
 {{- $parts := split $url.Path "/" -}}
 {{- $kind := index $parts 1 -}}
 {{- $matched := findRE "[0-9]{4}" $kind 1 -}}
 {{- $matchedYear := index $matched 0 -}}
-{{- $style := "assets/css/list.css" -}}
+{{- $style := "assets/css/style.css" -}}
 {{- if and $matchedYear .IsPage -}}
-  {{- $style = "assets/css/post.css" -}}
+{{- $style = "assets/css/post-style.css" -}}
 {{- end -}}
 {{- $seconds := .Site.Params.theme_seconds }}
 {{/* link the core stylesheet for the theme */}}
