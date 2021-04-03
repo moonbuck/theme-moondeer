@@ -10,3 +10,5 @@ menu:
     url: "/perspectives/"
     weight: 0
 ---
+
+Essays off the beaten path, mostly political in nature at the moment.

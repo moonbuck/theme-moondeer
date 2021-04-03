@@ -10,3 +10,5 @@ menu:
     url: "/biographical-tripe/"
     weight: -70
 ---
+
+The deeply personal stuff, lots of over-sharing.

@@ -8,6 +8,8 @@ menu:
     title: "Artsy Fartsy"
     identifier: "artsy"
     url: "/artsy-fartsy/"
-    weight: -80
-    
+    weight: -80    
 ---
+
+
+Stuff nearer to art than anything else.

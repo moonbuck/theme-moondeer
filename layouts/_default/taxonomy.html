@@ -1,0 +1,10 @@
+{{ define "main" }}
+<div style="margin-bottom: 8vw;"  class="category-content">
+<em>{{ .Content }}</em>
+{{ $favorites := where .Site.Pages "Params.categories" "personal-favorites" }}
+{{ $pages := where .Data.Pages.ByDate.Reverse "Type" "post" }}
+{{ $pinned := $favorites | intersect $pages }}
+{{ printf "<!-- pinned: %v -->" $pinned | safeHTML }}
+</div>
+  {{ partial "post-list.html" . }}
+{{ end }}

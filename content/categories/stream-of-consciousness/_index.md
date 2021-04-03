@@ -10,3 +10,5 @@ menu:
     url: "/stream-of-consciousness/"
     weight: -60
 ---
+
+Random thoughts and one-offs.

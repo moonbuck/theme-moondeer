@@ -1,6 +1,6 @@
 ---
 title: "Music"
-description: "Original songs and music-related software."
+description: "Original songs and music-related stuffs."
 aliases: [/music/]
 menu:
   main:
@@ -9,3 +9,5 @@ menu:
     url: "/music/"
     weight: -30
 ---
+
+Original songs and music-related stuffs.

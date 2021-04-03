@@ -10,3 +10,5 @@ menu:
     url: "/critters/"
     weight: -50
 ---
+
+All things critter-related.

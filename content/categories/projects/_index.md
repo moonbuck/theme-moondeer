@@ -9,3 +9,5 @@ menu:
     url: "/projects/"
     weight: -10
 ---
+
+Various knotting and woodworking projects I have managed to complete.

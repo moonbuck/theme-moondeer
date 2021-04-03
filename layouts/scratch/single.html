@@ -1,21 +1,12 @@
 {{ define "main" }}
 
 <section>
-  <ul>
-    {{ range $taxonomyname, $taxonomy := .Site.Taxonomies }}
-      <li><a href="{{ "/" | relLangURL}}{{ $taxonomyname | urlize }}">{{ $taxonomyname }}</a>
-        <ul>
-          {{ range $key, $value := $taxonomy }}
-          <li> {{ $key }} </li>
-                <ul>
-                {{ range $value.Pages }}
-                    <li><a href="{{ .Permalink}}"> {{ .LinkTitle }} </a> </li>
-                {{ end }}
-                </ul>
-          {{ end }}
-        </ul>
-      </li>
+    {{ $taxonomy := site.Taxonomies.categories }}
+    {{ $category := $taxonomy.Get("perspectives")}}
+    <ul id="post-list">
+    {{ range $category.Pages }}
+      {{ partial "truncated-post-item.html" . }}
     {{ end }}
-  </ul>
-  </section>
-{{ end }}
+    </ul>
+</section>
+ {{ end }}
