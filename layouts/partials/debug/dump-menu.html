@@ -12,6 +12,7 @@
     {{- else -}}
       {{- $desc = printf "%s\n    current: no\n" $desc -}}
     {{ end }}
+    {{ end }}
   {{- $desc = printf "%s\n}\n" $desc -}}
 {{- else -}}
 {{- $desc = printf "%s}\n" $desc -}}

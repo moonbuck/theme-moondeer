@@ -5,7 +5,7 @@ type: about
 menu:
   main:
     name: "About"
-    title: "About
+    title: "About"
     identifier: "about"
     url: "/about/"
     weight: -110
