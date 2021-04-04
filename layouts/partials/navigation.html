@@ -1,68 +1,10 @@
-{{/* Modified to fully control the menu items as well as create a hook for per-page banners */}}
-{{/* Also added logic to mark items representing a category within which a post is include as "selected" */}}
 {{/* partial "debug/dump-menu.html" . */}}
-{{ $categories := .Page.Params.categories }}
 <nav class="main-nav">
-{{- $this_page := .Title -}}
-{{- $class := "unselected" -}}
-{{- if eq .Site.Home.Title $this_page -}}{{- $class = "selected" -}}{{ end }}
-<a class="{{ $class }}" href="https://moondeer.blog">Latest</a>
-{{- $current_page := "" -}}
-{{ $url := urls.Parse .URL }}
-{{- $class = "unselected" -}}
-{{ if or (eq .Title "Perspectives") (in $categories "Perspectives") }}
-{{- $class = "selected" -}}
-{{ end }}
-<a class="{{ $class }}" href="https://moondeer.blog/categories/perspectives/">Perspectives</a> 
-{{- $class = "unselected" -}}
-{{ if or (eq .Title "Projects")  (in $categories "Projects") }}
-{{- $class = "selected" -}}
-{{ end }}
-<a class="{{ $class }}" href="https://moondeer.blog/categories/projects/">Projects</a> 
-{{- $class = "unselected" -}}
-{{ if or (eq .Title "Poetry") (in $categories "Poetry") }}
-{{- $class = "selected" -}}
-{{ end }}
-<a class="{{ $class }}" href="https://moondeer.blog/categories/poetry/">Poetry</a> 
-{{- $class = "unselected" -}}
-{{ if or (eq .Title "Music") (in $categories "Music") }}
-{{- $class = "selected" -}}
-{{ end }}
-<a class="{{ $class }}" href="https://moondeer.blog/categories/music/">Music</a>        
-{{- $class = "unselected" -}}
-{{ if or (eq .Title "Programming") (in $categories "Programming") }}
-{{- $class = "selected" -}}
-{{ end }}
-<a class="{{ $class }}" href="https://moondeer.blog/categories/programming/">Programming</a> 
-{{- $class = "unselected" -}}
-{{ if or (eq .Title "Critters") (in $categories "Critters") }}
-{{- $class = "selected" -}}
-{{ end }}
-<a class="{{ $class }}" href="https://moondeer.blog/categories/critters/">Critters</a> 
-{{- $class = "unselected" -}}
-{{ if or (eq .Title "Stream of Consciousness") (in $categories "Stream of Consciousness") }}
-{{- $class = "selected" -}}
-{{ end }}
-<a class="{{ $class }}" href="https://moondeer.blog/categories/stream-of-consciousness/">Stream of Consciousness</a> 
-{{- $class = "unselected" -}}
-{{ if or (eq .Title "Biographical Tripe") (in $categories "Biographical Tripe") }}
-{{- $class = "selected" -}}
-{{ end }}
-<a class="{{ $class }}" href="https://moondeer.blog/categories/biographical-tripe/">Biographical Tripe</a> 
-{{- $class = "unselected" -}}
-{{ if or (eq .Title "Artsy Fartsy") (in $categories "Artsy Fartsy") }}
-{{- $class = "selected" -}}
-{{ end }}
-<a class="{{ $class }}" href="https://moondeer.blog/categories/artsy-fartsy/">Artsy Fartsy</a> 
-{{- $class = "unselected" -}}
-{{ if or (eq .Title "Personal Favorites") (in $categories "Personal Favorites") }}
-{{- $class = "selected" -}}
-{{ end }}
-<a class="{{ $class }}" href="https://moondeer.blog/categories/personal-favorites/">Personal Favorites</a>              
-{{- $class = "unselected" -}}
-{{ if eq .Title "Cloud" }} {{- $class = "selected" -}} {{ end }}
-<a class="{{ $class }}" href="https://moondeer.blog/cloud/">Cloud</a>
-{{- $class = "unselected" -}}
-{{ if eq .Title "About" }}{{- $class = "selected" -}}{{ end }}
-<a class="{{ $class }}" href="https://moondeer.blog/about/">About</a>         
+{{- if .Page.IsHome -}}
+  {{- partial "home-page-navigation.html" . -}}
+{{- else if eq .Page.Type "post" -}}
+  {{- partial "single-post-navigation.html" . -}}
+{{- else -}}
+  {{- partial "menu-page-navigation.html" . }}
+{{- end -}}
 </nav>
