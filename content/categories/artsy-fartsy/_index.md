@@ -8,7 +8,7 @@ menu:
     title: "Artsy Fartsy"
     identifier: "artsy"
     url: "/artsy-fartsy/"
-    weight: -80    
+    weight: 40
 ---
 
 

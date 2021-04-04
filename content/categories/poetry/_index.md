@@ -7,7 +7,7 @@ menu:
     name: "Poetry"
     identifier: "poetry"
     url: "/poetry/"
-    weight: -20
+    weight: 90
 ---
 
 *Poems I have written, mostly dug out from ages ago (before my ADHD/Dysthymia diagnosis).*

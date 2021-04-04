@@ -8,7 +8,7 @@ menu:
     title: "Biographical Tripe"
     identifier: "biographical"
     url: "/biographical-tripe/"
-    weight: -70
+    weight: 30
 ---
 
 *The deeply personal stuff, lots of over-sharing.*

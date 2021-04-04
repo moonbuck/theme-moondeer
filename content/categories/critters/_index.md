@@ -8,7 +8,7 @@ menu:
     title: "Critters"
     identifier: "critters"
     url: "/critters/"
-    weight: -50
+    weight: 60
 ---
 
 *All things critter-related.*

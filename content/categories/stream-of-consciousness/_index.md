@@ -8,7 +8,7 @@ menu:
     title: "Stream of Consciousness"
     identifier: "stream"
     url: "/stream-of-consciousness/"
-    weight: -60
+    weight: 50
 ---
 
 *Random thoughts and one-offs.*

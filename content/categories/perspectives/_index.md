@@ -8,7 +8,7 @@ menu:
     title: "Perspectives"
     identifier: "perspectives"
     url: "/perspectives/"
-    weight: 0
+    weight: 110
 ---
 
 *Essays off the beaten path, mostly political in nature at the moment.*

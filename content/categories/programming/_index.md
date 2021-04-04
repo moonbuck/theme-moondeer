@@ -8,7 +8,7 @@ menu:
     title: "Programming"
     identifier: "programming"
     url: "/programming/"
-    weight: -40
+    weight: 70
 ---
 
 *All things programming, from applications I have created to applications I admire.*

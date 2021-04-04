@@ -6,6 +6,6 @@
     {{- if in $categories .Title -}}
       {{ $class = "selected" }}
     {{- end -}}
-<a class="{{ $class }}" href="{{ .URL }}">.Title</a>    
+<a class="{{ $class }}" href="{{ .URL }}">{{ .Title }}</a>    
   {{- end -}}
 {{- end -}}
