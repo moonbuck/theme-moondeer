@@ -1,10 +1,31 @@
 {{ define "main" }}
-<div style="margin-bottom: 8vw;"  class="category-content">
-<em>{{ .Content }}</em>
-{{ $favorites := where .Site.Pages "Params.categories" "personal-favorites" }}
-{{ $pages := where .Data.Pages.ByDate.Reverse "Type" "post" }}
-{{ $pinned := $favorites | intersect $pages }}
-{{ printf "<!-- pinned: %v -->" $pinned | safeHTML }}
+<div style="margin-bottom: 8vw;line-height: 26px; text-align: left;"  class="category-content">
+{{ .Content }}
 </div>
-  {{ partial "post-list.html" . }}
+{{ printf "<!-- categories = %v -->" .Site.Taxonomies.categories | safeHTML }}
+{{ $pinned := .Site.Taxonomies.categories.pinned }}
+{{ $pages := where .Data.Pages.ByDate.Reverse "Type" "post" }}
+{{ $pinned_pages := $pinned.Pages | intersect $pages }}
+{{ $remaining_pages := $pages | symdiff $pinned_pages }}
+{{ printf "<!--\npages = %v\npinned_pages = %v\nremaining_pages = %v\n-->" $pages $pinned_pages $remaining_pages | safeHTML }}
+<ul id="post-list">
+{{- range $pinned_pages -}}
+{{ partial "truncated-post-item.html" . }}
+{{ end }}
+{{- if .Site.Params.paginate_categories -}}
+  {{- $paginator := .Paginate $remaining_pages -}}
+  {{- $list := $paginator.Pages -}}
+  {{- range $list -}}
+    {{ partial "truncated-post-item.html" . }}
+  {{- end -}}
+{{- else -}}
+  {{- range $remaining_pages -}}
+    {{ partial "truncated-post-item.html" . }}
+  {{- end -}}
+{{- end -}}
+</ul>
+
+{{- if .Site.Params.paginate_categories -}}
+  {{ partial "pagination" . }}
+{{ end }}
 {{ end }}

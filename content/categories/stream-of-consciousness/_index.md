@@ -11,4 +11,4 @@ menu:
     weight: -60
 ---
 
-Random thoughts and one-offs.
+*Random thoughts and one-offs.*

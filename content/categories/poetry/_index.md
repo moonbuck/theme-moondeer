@@ -10,4 +10,4 @@ menu:
     weight: -20
 ---
 
-Poems I have written, mostly dug out from ages ago (before my ADHD/Dysthymia diagnosis).
+*Poems I have written, mostly dug out from ages ago (before my ADHD/Dysthymia diagnosis).*

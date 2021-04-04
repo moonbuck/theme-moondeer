@@ -16,7 +16,7 @@
 
     <div id="category-cloud">
         {{ range $name, $taxonomy := $.Site.Taxonomies.categories }}
-        {{ if not (eq $name "crossing") }}
+        {{ if not (or (eq $name "crossing") (eq $name "pinned")) }}
           {{ $currentCategoryCount := len $taxonomy.Pages }}
           {{ $showCategoryCount := len $taxonomy.Pages }}
           {{ $currentFontSize := (add $smallestFontSize (mul (sub $currentCategoryCount $min) $fontStep) ) }}

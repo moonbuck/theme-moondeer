@@ -11,4 +11,4 @@ menu:
     weight: -70
 ---
 
-The deeply personal stuff, lots of over-sharing.
+*The deeply personal stuff, lots of over-sharing.*

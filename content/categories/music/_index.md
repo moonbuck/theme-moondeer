@@ -10,4 +10,4 @@ menu:
     weight: -30
 ---
 
-Original songs and music-related stuffs.
+*Original songs and music-related stuffs.*

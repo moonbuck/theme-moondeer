@@ -10,4 +10,4 @@ menu:
     weight: -10
 ---
 
-Various knotting and woodworking projects I have managed to complete.
+*Various knotting and woodworking projects I have managed to complete.*

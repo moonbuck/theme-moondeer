@@ -11,4 +11,4 @@ menu:
     weight: -40
 ---
 
-All things programming, from applications I have created to applications I admire.
+*All things programming, from applications I have created to applications I admire.*

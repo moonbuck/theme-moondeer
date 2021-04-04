@@ -11,4 +11,4 @@ menu:
     weight: -50
 ---
 
-All things critter-related.
+*All things critter-related.*

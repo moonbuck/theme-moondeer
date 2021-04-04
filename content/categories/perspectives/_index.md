@@ -11,4 +11,4 @@ menu:
     weight: 0
 ---
 
-Essays off the beaten path, mostly political in nature at the moment.
+*Essays off the beaten path, mostly political in nature at the moment.*

@@ -11,4 +11,4 @@ menu:
     weight: -90
 ---
 
-A curated list of the ones I still come back to on occasion.
+*A curated list of the ones I still come back to on occasion.*
