@@ -8,5 +8,5 @@ menu:
     title: "Cloud"
     identifier: "cloud"
     url: "/cloud/"
-    weight: 10
+    weight: 110
 ---

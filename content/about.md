@@ -8,5 +8,5 @@ menu:
     title: "About"
     identifier: "about"
     url: "/about/"
-    weight: 0
+    weight: 120
 ---

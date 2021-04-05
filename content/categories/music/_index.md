@@ -7,7 +7,7 @@ menu:
     name: "Music"
     identifier: "music"
     url: "/music/"
-    weight: 80
+    weight: 50
 ---
 
 *Original songs and music-related stuffs.*

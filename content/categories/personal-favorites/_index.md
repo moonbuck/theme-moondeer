@@ -8,7 +8,7 @@ menu:
     title: "Personal Favorites"
     identifier: "favorites"
     url: "/personal-favorites/"
-    weight: 20
+    weight: 100
 ---
 
 *A curated list of the ones I still come back to on occasion.*

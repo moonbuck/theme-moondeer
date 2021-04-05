@@ -7,7 +7,7 @@ menu:
     name: "Projects"
     identifier: "projects"
     url: "/projects/"
-    weight: 100
+    weight: 30
 ---
 
 *Various knotting and woodworking projects I have managed to complete.*
