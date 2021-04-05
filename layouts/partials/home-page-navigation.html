@@ -1,6 +1,6 @@
 <a class="selected" href="/">Latest</a>
-{{- with $.Site.Menus.main -}}
-  {{- range . -}}
+{{ with $.Site.Menus.main }}
+  {{ range . }}
 <a href="{{ .URL }}">{{ .Title }}</a>    
-  {{- end -}}
-{{- end -}}
+  {{ end }}
+{{ end }}

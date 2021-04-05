@@ -1,11 +1,11 @@
 <a href="/">Latest</a>
 {{ $categories := .Page.Params.categories }}
-{{- with $.Site.Menus.main -}}
-  {{- range . -}}
-    {{- $class := "" -}}
-    {{- if in $categories .Title -}}
+{{ with $.Site.Menus.main }}
+  {{ range . }}
+    {{ $class := "" }}
+    {{ if in $categories .Title }}
       {{ $class = "selected" }}
-    {{- end -}}
+    {{ end }}
 <a class="{{ $class }}" href="{{ .URL }}">{{ .Title }}</a>    
-  {{- end -}}
-{{- end -}}
+  {{ end }}
+{{ end }}

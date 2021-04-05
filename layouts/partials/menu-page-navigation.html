@@ -1,11 +1,11 @@
 <a href="/">Latest</a>
-{{- $current_page := . -}}
-{{- with $.Site.Menus.main -}}
-  {{- range . -}}
-    {{- $class := "" -}}
-    {{- if $current_page.IsMenuCurrent "main" . -}}
+{{ $current_page := . }}
+{{ with $.Site.Menus.main }}
+  {{ range . }}
+    {{ $class := "" }}
+    {{ if $current_page.IsMenuCurrent "main" . }}
       {{ $class = "selected" }}
-    {{- end -}}
+    {{ end }}
 <a class="{{ $class }}" href="{{ .URL }}">{{ .Title }}</a>    
-  {{- end -}}
-{{- end -}}
+  {{ end }}
+{{ end }}
