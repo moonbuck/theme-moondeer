@@ -16,7 +16,6 @@
 
     <div id="category-cloud">
         {{ range $name, $taxonomy := $.Site.Taxonomies.categories }}
-        {{ if not (or (eq $name "crossing") (eq $name "pinned")) }}
           {{ $currentCategoryCount := len $taxonomy.Pages }}
           {{ $showCategoryCount := len $taxonomy.Pages }}
           {{ $currentFontSize := (add $smallestFontSize (mul (sub $currentCategoryCount $min) $fontStep) ) }}
@@ -27,7 +26,6 @@
           {{ $currentFontWeight := (add $smallestFontWeight (mul (sub $largestFontWeight $smallestFontWeight) $fontW) ) }}
           <a href="{{ "/categories/" | relLangURL }}{{ $name | urlize }}" 
              style="font-size:{{$currentFontSize}}{{$fontUnit}}; font-weight:{{$currentFontWeight}}">{{ $name }}({{$showCategoryCount}})</a>
-          {{ end }}
         {{ end }}
     </div>
   <style>
