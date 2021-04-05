@@ -95,7 +95,7 @@ nav.main-nav {
 }
 
 nav.main-nav a {
-  color: #FFF;
+  color: #000;
 }
 
 .microblog_conversation {
@@ -148,7 +148,7 @@ div.microblog_text p  a {
   
 }
 
-@media (prefers-color-scheme: dark) {
+/*@media (prefers-color-scheme: dark) {
   body {
     color: white;
     background: #1c1c1e;
@@ -161,4 +161,4 @@ div.microblog_text p  a {
   a, nav.main-nav a, #footer a, #post-nav a, p a, ul a, ol a, h1, h2, h3 {
     color: white;
   }
-}
+}*/

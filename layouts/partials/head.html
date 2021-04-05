@@ -36,20 +36,20 @@
 {{/* link Adobe typekit */}}
 <link rel="stylesheet"
       href="https://use.typekit.net/nmn4mcn.css">
-{{/* determine whether this is a post page or banner page */}}
-{{- $url := urls.Parse .Permalink -}}
-{{- $parts := split $url.Path "/" -}}
-{{- $kind := index $parts 1 -}}
-{{- $matched := findRE "[0-9]{4}" $kind 1 -}}
-{{- $matchedYear := index $matched 0 -}}
-{{- $style := "assets/css/style.css" -}}
-{{- if and $matchedYear .IsPage -}}
-{{- $style = "assets/css/post-style.css" -}}
-{{- end -}}
 {{- $seconds := .Site.Params.theme_seconds }}
-{{/* link the core stylesheet for the theme */}}
-<link href="{{ $style | relURL }}?{{ $seconds }}"
+{{/* link the reset and basof stylesheets for the theme */}}
+<link href="{{ "assets/css/reset.css" | relURL }}?{{ $seconds }}"
+rel="stylesheet">
+<link href="{{ "assets/css/baseof.css" | relURL }}?{{ $seconds }}"
       rel="stylesheet">
+{{/* link the list or post style sheet */}}
+{{ if eq .Page.Type "post" }}
+<link href="{{ "assets/css/post.css" | relURL }}?{{ $seconds }}"
+rel="stylesheet">
+{{ else }}
+<link href="{{ "assets/css/list.css" | relURL }}?{{ $seconds }}"
+      rel="stylesheet">
+{{ end }}
 {{/* link the code highlighting stylesheet and the custom override */}}
 <link href="{{ "assets/css/highlight.css" | relURL }}?{{ $seconds }}"
       rel="stylesheet">
