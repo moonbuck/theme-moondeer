@@ -11,4 +11,4 @@ menu:
     weight: 100
 ---
 
-*A curated list of the ones I still come back to on occasion.*
+*The ones I still come back to on occasion.*
