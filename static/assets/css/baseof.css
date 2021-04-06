@@ -324,7 +324,7 @@ header.h-card p.p-note {
   text-align: left;
 }
 
-#wrapper p {
+div#wrapper p {
   line-height: 26px;
   text-align: left;
 }
