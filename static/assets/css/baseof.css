@@ -263,6 +263,20 @@ footer #wrapper {
   padding: 0 10px;
 }
 
+#footer #indieweb {
+  display: flex;
+  justify-content: center;
+  padding-bottom: 2em;
+}
+
+#footer #indieweb a:first-child {
+  margin-right: 20px;
+}
+
+#footer #indieweb a:last-child {
+  margin-left: 20px;
+}
+
 video {
   max-width: 100%;
 }
@@ -280,6 +294,39 @@ a.glightbox, a.img-link {
   box-shadow: none;
   display: block;
   margin-top: 8vw;
+}
+
+/* Profile */
+
+.profile #wrapper {
+  margin: 0 auto;
+  text-align: center;
+  padding: 80px 0;
+}
+
+.profile #avatar {
+  display: inline-block;
+  /*width: 320px; 80px;*/
+  /*height: 320px; 80px;*/
+  margin-bottom: 1em;
+  /*border-radius: 40px;*/
+}
+
+header.h-card h4.p-role {
+  color: #aaa;
+  margin-top: -0.75em;
+  font-size: 24px;
+  font-weight: 200;
+}
+
+header.h-card p.p-note {
+  line-height: 26px;
+  text-align: left;
+}
+
+#wrapper p {
+  line-height: 26px;
+  text-align: left;
 }
 
 /* Nav */
