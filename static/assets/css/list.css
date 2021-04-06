@@ -165,11 +165,6 @@ div.category-content {
   text-align: left;
 }
 
-div#wrapper p {
-  line-height: 26px;
-  text-align: left;
-}
-
 /* Media Queries */
 @media screen and (max-width: 540px) {
   
