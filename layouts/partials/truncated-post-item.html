@@ -1,27 +1,23 @@
 {{/* Created as an alterative to post-item.html that truncates posts with titles. */}}
 <li>
-<article>
+  <article>
+    <section class="post-body">
   {{ if .Title }}
-  <section class="post-body">
-  <header>
-	<h2><a href="{{ .Permalink }}">{{ .Title }}</a></h2>
-  </header>
-  <section class="post-body">
-	{{ .Summary }}
+      <header><h2 class="post-title"><a href="{{ .Permalink }}">{{ .Title }}</a></h2></header>
+      <p class="post-summary">{{ .Summary }}</p>
     {{ if .Truncated }}
       <p><a href="{{ .RelPermalink }}">Read More</a></p>
     {{ end }}
-  </section>
-  </section>
   {{ else }}
-	{{ .Content }}
+      <p class="post-content">{{ .Content }}</p>
   {{ end }}
-  <a href="{{ .Permalink }}" class="u-url">
-	<aside class="dates">
-	  <time datetime="{{ .Date.Format "2006-01-02 15:04:05 -0700" }}" class="dt-published">→ {{ .Date.Format "3:04 PM, Jan 2" }}</time>
-	</aside>
-  </a>
-</article>
+    </section>
+    <a href="{{ .Permalink }}" class="u-url">
+      <aside class="dates">
+        <time datetime="{{ .Date.Format "2006-01-02 15:04:05 -0700" }}" class="dt-published">→ {{ .Date.Format "3:04 PM, Jan 2" }}</time>
+      </aside>
+    </a>
+  </article>
 </li>
 <span class="separator"><span class="divider"></span></span>
 
