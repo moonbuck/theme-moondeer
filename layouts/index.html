@@ -1,40 +1,10 @@
 {{/* Created for more control over the home page */}}
 {{ define "main" }}
 <ul id="post-list">
-
 {{ range where .Paginator.Pages "Type" "post" }}
-
-  <li>
-    <article>
-    {{/* Truncate posts with titles */}}
-      {{ if .Title }}
-      <section class="post-body">
-        <header>
-          <h2><a href="{{ .Permalink }}">{{ .Title }}</a></h2>
-        </header>
-        <section class="post-body">
-          {{ .Summary }}
-            {{ if .Truncated }}
-              <p><a href="{{ .RelPermalink }}">Read More</a></p>
-            {{ end }}
-        </section>
-      </section>
-      {{ else }}
-        {{ .Content }}
-      {{ end }}
-      <a href="{{ .Permalink }}" class="u-url">
-        <aside class="dates">
-          <time datetime="{{ .Date.Format "2006-01-02 15:04:05 -0700" }}" class="dt-published">→ {{ .Date.Format "3:04 PM, Jan 2" }}</time>
-        </aside>
-      </a>
-    </article>
-  </li>
-  <span class="separator"><span class="divider"></span></span>
-
+{{ partial "truncated-post-item.html" . }}
 {{ end }}
-
 </ul>
-
 {{ partial "pagination.html" . }}
 {{/* Include bio so there is an h-card on the home page. */}}
 {{ partial "profile.html" . }}

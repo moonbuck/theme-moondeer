@@ -4,12 +4,12 @@
     <section class="post-body">
   {{ if .Title }}
       <header><h2 class="post-title"><a href="{{ .Permalink }}">{{ .Title }}</a></h2></header>
-      <p class="post-summary">{{ .Summary }}</p>
+      {{ .Summary }}
     {{ if .Truncated }}
       <p><a href="{{ .RelPermalink }}">Read More</a></p>
     {{ end }}
   {{ else }}
-      <p class="post-content">{{ .Content }}</p>
+      {{ .Content }}
   {{ end }}
     </section>
     <a href="{{ .Permalink }}" class="u-url">
