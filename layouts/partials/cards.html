@@ -2,31 +2,26 @@
 {{/* Currently configured for posts with a title and image, category list pages, and falls back to something suitable for the homepage. Gave up on video support but audio is supported */}}
 
 {{/* Retrieve what is needed and store it in `.Scratch` */}}
-{{ .Scratch.Set "url" .Permalink }}
-{{ .Scratch.Set "site_name" .Site.Title }}
-{{ if .Title }} 
-  {{ .Scratch.Set "title" .Title }}
-{{ else }} 
-  {{ .Scratch.Set "title" (.Scratch.Get "site_name") }}
-{{ end }}
+{{ $url := .Permalink }}
+{{ $site_name := .Site.Title }}
+{{ $title := $site_name }}
+{{ if .Title }}{{ $title = .Title }}{{ end }}
+{{ $description := "All the latest things to fall out my head." }}
 {{ if .Description }}
-  {{ .Scratch.Set "description" .Description }}
+  {{ $description = .Description }}
 {{ else if .IsPage }}
-  {{ .Scratch.Set "description" .Summary }}
-{{ else }}
-  {{ .Scratch.Set "description" "All the latest things to fall out my head." }}
+  {{ $description = .Summary }}
 {{ end }}
+{{ $image := .Site.Data.cards.default }}
 {{ with $.Params.images }}
-  {{ $.Scratch.Set "image" (index . 0 | absURL) }}
+  {{ $image = (index . 0 | absURL) }}
 {{- else -}}
   {{ $url := urls.Parse .Permalink }}
   {{ $path := $url.Path }}
   {{ $cards := $.Site.Data.cards }}
   {{ with (index $.Site.Data.cards $path) }}
-    {{ $.Scratch.Set "image" . }}
-  {{ else }}
-    {{ .Scratch.Set "image" .Site.Data.cards.default }}
-  {{ end }}  
+    {{ $image = . }}
+    {{ end }}  
 {{ end }}
 {{- $iso8601 := "2006-01-02T15:04:05-07:00" -}}
 {{ if .IsPage }}
@@ -47,23 +42,17 @@
 {{ else if not .Date.IsZero }}
   {{ .Scratch.Set "updated_time" (.Date.Format $iso8601 | safeHTML) }}
 {{ end }}
-
+{{ printf "<!-- \n.Scratch = %v\n-->" .Scratch | safeHTML }}
 {{/* Create meta tags using the values stored in `.Scratch` */}}
-<meta property="og:url" content="{{ .Scratch.Get "url" }}" />
-<meta property="og:site_name" content="{{ .Scratch.Get "site_name" }}" />
-{{ with .Scratch.Get "title "}}
-<meta name="twitter:title" content="{{ . }}" />
-<meta property="og:title" content="{{ . }}" />
-{{ end }}
-{{ with .Scratch.Get "description" }}
-<meta property="og:description" content="{{ . }}" />
-<meta name="twitter:description" content="{{ . }}" />
-{{ end }}
-{{ with .Scratch.Get "image" }}
+<meta property="og:url" content="{{ $url }}" />
+<meta property="og:site_name" content="{{ $site_name }}" />
+<meta name="twitter:title" content="{{ $title }}" />
+<meta property="og:title" content="{{ $title }}" />
+<meta property="og:description" content="{{ $description }}" />
+<meta name="twitter:description" content="{{ $description }}" />
 <meta name="twitter:card" content="summary_large_image"/>
-<meta name="twitter:image" content="{{ . }}" />
-<meta property="og:image" content="{{ . }}" />
-{{ end }}
+<meta name="twitter:image" content="{{ $image }}" />
+<meta property="og:image" content="{{ $image }}" />
 {{ with .Scratch.Get "published_time" }}
 <meta property="article:published_time" content="{{ . }}" />
 {{ end }}
