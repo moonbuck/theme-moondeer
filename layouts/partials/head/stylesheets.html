@@ -1,19 +1,15 @@
 {{- if .Site.Params.include_debug_comments }}
 {{ printf "<!-- BEGIN layouts/partials/head/stylesheets.html -->" | safeHTML }}
 {{ end -}}
-{{ /* link Adobe typekit */ }}
 <link rel="stylesheet" href="https://use.typekit.net/nmn4mcn.css">
 {{ $seconds := .Site.Params.theme_seconds }}
-{{ /* link the reset and basof stylesheets for the theme */ }}
 <link href="{{ "assets/css/reset.css" | relURL }}?{{ $seconds }}" rel="stylesheet">
 <link href="{{ "assets/css/baseof.css" | relURL }}?{{ $seconds }}" rel="stylesheet">
-{{ /* link the list or post style sheet */ }}
 {{ if eq .Page.Type "post" }}
 <link href="{{ "assets/css/post.css" | relURL }}?{{ $seconds }}" rel="stylesheet">
 {{ else }}
 <link href="{{ "assets/css/list.css" | relURL }}?{{ $seconds }}" rel="stylesheet">
 {{ end }}
-{{ /* link the code highlighting stylesheet and the custom override */ }}
 <link href="{{ "assets/css/highlight.css" | relURL }}?{{ $seconds }}" rel="stylesheet">
 <link rel="stylesheet" href="{{ "custom.css" | relURL }}?{{ $seconds }}">
 {{- if .Site.Params.include_debug_comments }}
