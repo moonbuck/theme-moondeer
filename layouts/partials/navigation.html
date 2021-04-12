@@ -1,10 +1,12 @@
-{{/* partial "debug/dump-menu.html" . */}}
+{{- if .Site.Params.include_debug_comments -}}
+{{ partial "debug/dump-menu.html" . }}
+{{- end -}}
 <nav class="main-nav">
-{{ if .Page.IsHome }}
+{{- if .Page.IsHome -}}
   {{ partial "home-page-navigation.html" . }}
-{{ else if eq .Page.Type "post" }}
+{{- else if eq .Page.Type "post" -}}
   {{ partial "single-post-navigation.html" . }}
-{{ else }}
+{{- else -}}
   {{ partial "menu-page-navigation.html" . }}
-{{  end }}
+{{- end -}}
 </nav>

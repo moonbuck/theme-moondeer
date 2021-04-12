@@ -110,7 +110,8 @@
   "languageCode": "[LANGUAGE]",
   "paginate": 25,
   "params": {
-      "theme_version": "v18",
+      "theme_version": "v19",
+      "include_debug_comments": true,
       "description": "All the latest thoughts to fall out my head.",
       "itunes_description": "[ITUNES_DESCRIPTION]",
       "itunes_category": "[ITUNES_CATEGORY]",

@@ -1,49 +1,55 @@
 {{/* Created after learning from the twitter cards plugin and the Hugo open graph template */}}
 {{/* Currently configured for posts with a title and image, category list pages, and falls back to something suitable for the homepage. Gave up on video support but audio is supported */}}
 
-{{/* Retrieve what is needed and store it in `.Scratch` */}}
-{{ $url := .Permalink }}
-{{ $site_name := .Site.Title }}
-{{ $title := $site_name }}
-{{ if .Title }}{{ $title = .Title }}{{ end }}
-{{ $description := "All the latest things to fall out my head." }}
-{{ if .Description }}
-  {{ $description = .Description }}
-{{ else if .IsPage }}
-  {{ $description = .Summary }}
-{{ end }}
-{{ $image := .Site.Data.cards.default }}
-{{ with $.Params.images }}
-  {{ $image = (index . 0 | absURL) }}
+{{/* Retrieve what is needed and store in local variables */}}
+{{- if .Site.Params.include_debug_comments -}}
+{{ printf "<!-- BEGIN layouts/partials/cards.html -->" | safeHTML }}
+{{- end -}}
+{{- $url := .Permalink -}}
+{{- $site_name := .Site.Title -}}
+{{- $title := $site_name -}}
+{{- if .Title }}{{ $title = .Title }}{{ end -}}
+{{- $description := "All the latest things to fall out my head." -}}
+{{- if .Description -}}
+  {{- $description = .Description -}}
+{{- else if .IsPage -}}
+  {{- $description = .Summary -}}
+{{- end -}}
+{{- $image := .Site.Data.cards.default -}}
+{{- with .Params.images -}}
+  {{- $image = (index . 0 | absURL) -}}
 {{- else -}}
-  {{ $url := urls.Parse .Permalink }}
-  {{ $path := $url.Path }}
-  {{ $cards := $.Site.Data.cards }}
-  {{ with (index $.Site.Data.cards $path) }}
-    {{ $image = . }}
-    {{ end }}  
-{{ end }}
+  {{- $path := (urls.Parse .Permalink).Path -}}
+  {{- with (index .Site.Data.cards $path) -}}{{- $image = . -}}{{- end -}}  
+{{- end -}}
 {{- $iso8601 := "2006-01-02T15:04:05-07:00" -}}
-{{ if .IsPage }}
+{{- $published_time := nil -}}
+{{- $modified_time := nil -}}
+{{- $section := nil -}}
+{{- $categories := nil -}}
+{{- $updated_time := nil -}}
+{{- if .IsPage -}}
   {{- if not .PublishDate.IsZero }}
-    {{ .Scratch.Set "published_time" (.PublishDate.Format $iso8601 | safeHTML) }}
-  {{- else if not .Date.IsZero }}
-    {{ .Scratch.Set "published_time" (.Date.Format $iso8601 | safeHTML) }}
+    {{- $published_time = (.PublishDate.Format $iso8601 | safeHTML) -}}
+  {{- else if not .Date.IsZero -}}
+    {{ $published_time = (.Date.Format $iso8601 | safeHTML) -}}
   {{- end -}}
-  {{- if not .Lastmod.IsZero }}
-    {{ .Scratch.Set "modified_time" (.Lastmod.Format $iso8601 | safeHTML) }}
-  {{- end -}}
-  {{ if ne (len .Section) 0 }}
-    {{ .Scratch.Set "section" .Section }}
-  {{ end }}
-  {{- if .Page.Params.categories -}}
-    {{- .Scratch.Set "categories" .Page.Params.categories -}}
-  {{ end }}
-{{ else if not .Date.IsZero }}
-  {{ .Scratch.Set "updated_time" (.Date.Format $iso8601 | safeHTML) }}
-{{ end }}
-{{ printf "<!-- \n.Scratch = %v\n-->" .Scratch | safeHTML }}
-{{/* Create meta tags using the values stored in `.Scratch` */}}
+  {{- if not .Lastmod.IsZero }}{{- $modified_time = (.Lastmod.Format $iso8601 | safeHTML) -}}{{- end -}}
+  {{- if ne (len .Section) 0 -}}{{- $section = .Section -}}{{- end -}}
+  {{- if .Page.Params.categories -}}{{- $categories = .Page.Params.categories -}}{{- end -}}
+{{- else if not .Date.IsZero -}}
+  {{- $updated_time = (.Date.Format $iso8601 | safeHTML) -}}
+{{- end -}}
+{{- $audio := nil -}}
+{{- $type := "website" -}}
+{{- with .Params.audio -}}
+{{- $audio = (index . 0 | absURL) -}}
+{{- $type = "music.song" -}}
+{{- else if .Title -}}
+{{- $type = "article" -}}
+{{- end -}}
+
+{{/* Create meta tags using the variable values. */}}
 <meta property="og:url" content="{{ $url }}" />
 <meta property="og:site_name" content="{{ $site_name }}" />
 <meta name="twitter:title" content="{{ $title }}" />
@@ -53,23 +59,13 @@
 <meta name="twitter:card" content="summary_large_image"/>
 <meta name="twitter:image" content="{{ $image }}" />
 <meta property="og:image" content="{{ $image }}" />
-{{ with .Scratch.Get "published_time" }}
-<meta property="article:published_time" content="{{ . }}" />
-{{ end }}
-{{ with .Scratch.Get "modified_time" }}
-<meta property="article:modified_time" content="{{ . }}" />
-{{ end }}
-{{ with .Scratch.Get "section" }}
-<meta property="article:section" content="{{ . }}" />
-{{ end }}
-{{ with .Scratch.Get "categories" }}
-  {{ range first 6 . }}
-<meta property="article:tag" content="{{ . }}" />
-  {{ end }}
-{{ end }}
-{{ with .Scratch.Get "updated_time" }}
-<meta property="og:updated_time" content="{{ . }}" />
-{{ end }}
-
-{{/* Feed the entire context to generate the content and time tags */}}
-{{ partial "cards/content.html" . }}
+{{ with $published_time }}<meta property="article:published_time" content="{{ . }}" />{{ end }}
+{{ with $modified_time }}<meta property="article:modified_time" content="{{ . }}" />{{ end }}
+{{ with $section }}<meta property="article:section" content="{{ . }}" />{{ end }}
+{{ with $categories }}{{ range first 6 . }}<meta property="article:tag" content="{{ . }}" />{{ end }}{{ end }}
+{{ with $updated_time }}<meta property="og:updated_time" content="{{ . }}" />{{ end }}
+{{ with $audio }}<meta property="og:audio" content="{{ . }}" />{{ end }}
+<meta property="og:type" content="{{ $type }}" />
+{{- if .Site.Params.include_debug_comments -}}
+{{ printf "<!-- END layouts/partials/cards.html -->" | safeHTML }}
+{{- end -}}
