@@ -1,6 +1,6 @@
-{{- if .Site.Params.include_debug_comments -}}
+{{- if .Site.Params.include_debug_comments }}
 {{ printf "<!-- BEGIN layouts/partials/navigation/menu-page-navigation.html -->" | safeHTML }}
-{{- end -}}
+{{ end -}}
 <a href="/">Latest</a>
 {{ $current_page := . }}
 {{- with $.Site.Menus.main }}
@@ -12,6 +12,6 @@
 <a class="{{ $class }}" href="{{ .URL }}">{{ .Title }}</a>
   {{ end -}}
 {{ end -}}
-{{- if .Site.Params.include_debug_comments -}}
+{{- if .Site.Params.include_debug_comments }}
 {{ printf "<!-- END layouts/partials/navigation/menu-page-navigation.html -->" | safeHTML }}
-{{- end -}}
+{{ end -}}

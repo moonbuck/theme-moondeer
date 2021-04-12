@@ -1,6 +1,6 @@
-{{- if .Site.Params.include_debug_comments -}}
+{{- if .Site.Params.include_debug_comments }}
 {{ printf "<!-- BEGIN layouts/partials/navigation.html -->" | safeHTML }}
-{{- end -}}
+{{ end -}}
 <nav class="main-nav">
 {{- if .Page.IsHome -}}
   {{ partial "navigation/home-page-navigation.html" . }}
@@ -10,6 +10,6 @@
   {{ partial "navigation/menu-page-navigation.html" . }}
 {{- end -}}
 </nav>
-{{- if .Site.Params.include_debug_comments -}}
+{{- if .Site.Params.include_debug_comments }}
 {{ printf "<!-- END layouts/partials/navigation.html -->" | safeHTML }}
-{{- end -}}
+{{ end -}}

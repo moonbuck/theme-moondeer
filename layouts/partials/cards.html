@@ -2,9 +2,9 @@
 {{- /* Currently configured for posts with a title and image, category list pages, and falls back to something suitable for the homepage. Gave up on video support but audio is supported */ -}}
 
 {{- /* Retrieve what is needed and store in local variables */ -}}
-{{- if .Site.Params.include_debug_comments -}}
+{{- if .Site.Params.include_debug_comments }}
 {{ printf "<!-- BEGIN layouts/partials/cards.html -->" | safeHTML }}
-{{- end -}}
+{{ end -}}
 {{- $url := .Permalink -}}
 {{- $site_name := .Site.Title -}}
 {{- $title := $site_name -}}
@@ -20,7 +20,7 @@
   {{- $image = (index . 0 | absURL) -}}
 {{- else -}}
   {{- $path := (urls.Parse .Permalink).Path -}}
-  {{- with (index .Site.Data.cards $path) -}}{{- $image = . -}}{{- end -}}  
+  {{- with (index .Site.Data.cards $path) -}}{{- $image = . -}}{{- end -}}
 {{- end -}}
 {{- $iso8601 := "2006-01-02T15:04:05-07:00" -}}
 {{- $published_time := false -}}

@@ -1,7 +1,7 @@
 {{- /* Modifed to create hooks for the banners of non-list pages, these are set as  background images via CSS */ -}}
-{{- if .Site.Params.include_debug_comments -}}
+{{- if .Site.Params.include_debug_comments }}
 {{ printf "<!-- BEGIN layouts/partials/header.html -->" | safeHTML }}
-{{- end -}}
+{{ end -}}
 {{ partial "navigation.html" . }}
 {{- if .IsHome -}}
 <div id="latest" class="banner-image"></div>
@@ -26,6 +26,6 @@
     {{- end -}}
   {{- end -}}
 {{- end -}}
-{{- if .Site.Params.include_debug_comments -}}
+{{- if .Site.Params.include_debug_comments }}
 {{ printf "<!-- END layouts/partials/header.html -->" | safeHTML }}
-{{- end -}}
+{{ end -}}

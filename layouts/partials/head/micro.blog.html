@@ -1,12 +1,12 @@
-{{- if .Site.Params.include_debug_comments -}}
+{{- if .Site.Params.include_debug_comments }}
 {{ printf "<!-- BEGIN layouts/partials/head/micro.blog.html -->" | safeHTML }}
-{{- end -}}
+{{ end -}}
 <link rel="authorization_endpoint" href="https://micro.blog/indieauth/auth" />
 <link rel="token_endpoint" href="https://micro.blog/indieauth/token" />
 <link rel="micropub" href="https://micro.blog/micropub" />
 <link rel="microsub" href="https://micro.blog/microsub" />
 <link rel="webmention" href="https://micro.blog/webmention" />
 <link rel="subscribe" href="https://micro.blog/users/follow" />
-{{- if .Site.Params.include_debug_comments -}}
+{{- if .Site.Params.include_debug_comments }}
 {{ printf "<!-- END layouts/partials/head/micro.blog.html -->" | safeHTML }}
-{{- end -}}
+{{ end -}}

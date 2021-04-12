@@ -1,6 +1,6 @@
-{{- if .Site.Params.include_debug_comments -}}
+{{- if .Site.Params.include_debug_comments }}
 {{ printf "<!-- BEGIN layouts/partials/footer-javascript.html -->" | safeHTML }}
-{{- end -}}
+{{ end -}}
 {{- /* Include theme JavaScript */ -}}
   <script src="/assets/js/glightbox.js"></script>
   <script src="/assets/js/prettyurl.js"></script>
@@ -8,6 +8,6 @@
 {{- range .Site.Params.plugins_js }}
   <script src="{{ . }}"></script>
 {{ end -}}
-{{- if .Site.Params.include_debug_comments -}}
+{{- if .Site.Params.include_debug_comments }}
 {{ printf "<!-- END layouts/partials/footer-javascript.html -->" | safeHTML }}
-{{- end -}}
+{{ end -}}

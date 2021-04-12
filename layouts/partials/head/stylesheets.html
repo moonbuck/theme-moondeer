@@ -1,6 +1,6 @@
-{{- if .Site.Params.include_debug_comments -}}
+{{- if .Site.Params.include_debug_comments }}
 {{ printf "<!-- BEGIN layouts/partials/head/stylesheets.html -->" | safeHTML }}
-{{- end -}}
+{{ end -}}
 {{- /* link Adobe typekit */ -}}
 <link rel="stylesheet" href="https://use.typekit.net/nmn4mcn.css">
 {{- $seconds := .Site.Params.theme_seconds }}
@@ -16,6 +16,6 @@
 {{- /* link the code highlighting stylesheet and the custom override */ -}}
 <link href="{{ "assets/css/highlight.css" | relURL }}?{{ $seconds }}" rel="stylesheet">
 <link rel="stylesheet" href="{{ "custom.css" | relURL }}?{{ $seconds }}">
-{{- if .Site.Params.include_debug_comments -}}
+{{- if .Site.Params.include_debug_comments }}
 {{ printf "<!-- END layouts/partials/head/stylesheets.html -->" | safeHTML }}
-{{- end -}}
+{{ end -}}

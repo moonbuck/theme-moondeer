@@ -1,7 +1,7 @@
 {{- /* Modifed for stylistic changes and to use username rather than description in config.json */ -}}
-{{- if .Site.Params.include_debug_comments -}}
+{{- if .Site.Params.include_debug_comments }}
 {{ printf "<!-- BEGIN layouts/partials/profile.html -->" | safeHTML }}
-{{- end -}}
+{{ end -}}
 <div class="profile" id="wrapper">
   <section id="wrapper">
     <header class="h-card">
@@ -15,6 +15,6 @@
     </header>
   </section>
 </div>
-{{- if .Site.Params.include_debug_comments -}}
+{{- if .Site.Params.include_debug_comments }}
 {{ printf "<!-- END layouts/partials/profile.html -->" | safeHTML }}
-{{- end -}}
+{{ end -}}
