@@ -9,7 +9,7 @@
 {{- $site_name := .Site.Title -}}
 {{- $title := $site_name -}}
 {{- if .Title }}{{ $title = .Title }}{{ end -}}
-{{- $description := "All the latest things to fall out my head." -}}
+{{- $description := .Site.Params.description -}}
 {{- if .Description -}}
   {{- $description = .Description -}}
 {{- else if .IsPage -}}
