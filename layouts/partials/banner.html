@@ -1,4 +1,7 @@
 {{- /* Created to hold the switch logic for assigning category banner images, These are set as background images via CSS  */ -}}
+{{- if .Site.Params.include_debug_comments -}}
+{{ printf "<!-- BEGIN layouts/partials/banner.html -->" | safeHTML }}
+{{- end -}}
 {{- $category := . -}}
 {{- if eq $category "perspectives" }}
 <div id="perspectives" class="banner-image"></div>
@@ -30,3 +33,6 @@
 {{- if eq $category "personal-favorites" }}
 <div id="personal-favorites" class="banner-image"></div>
 {{ end -}}
+{{- if .Site.Params.include_debug_comments -}}
+{{ printf "<!-- END layouts/partials/banner.html -->" | safeHTML }}
+{{- end -}}

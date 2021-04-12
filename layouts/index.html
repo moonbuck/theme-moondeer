@@ -1,4 +1,4 @@
-{{/* Created for more control over the home page */}}
+{{- /* Created for more control over the home page */ -}}
 {{ define "main" }}
 <ul id="post-list">
 {{ range where .Paginator.Pages "Type" "post" }}
@@ -6,6 +6,6 @@
 {{ end }}
 </ul>
 {{ partial "pagination.html" . }}
-{{/* Include bio so there is an h-card on the home page. */}}
+{{- /* Include bio so there is an h-card on the home page. */ -}}
 {{ partial "profile.html" . }}
 {{ end }}

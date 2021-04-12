@@ -10,7 +10,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <meta content="{{ .Site.Author.name }}" name="author">
 <title>
-{{- block "title" . -}}
+{{- /* block "title" . */ -}}
   {{- .Site.Title -}}
   {{- with .Title -}}
     {{- if eq $.Site.Title . -}}
@@ -19,66 +19,13 @@
       {{- printf " - %s" . -}}
     {{- end -}}
   {{- end -}}
-{{- end -}}
+{{- /* end */ -}}
 </title>
-{{- with .Description -}}
-<meta name="description" content="{{ . }}">
-{{- else -}}
-<meta name="description" content="All the latest thoughts to fall out my head.">    
-{{- end -}}
-<link rel="shortcut icon" href="https://moondeer.blog/uploads/2021/5260d2013e.png" type="image/x-icon" />
-<link rel="apple-touch-icon" sizes="180x180" href="https://moondeer.blog/uploads/2021/5260d2013e.png">
-<link rel="icon" type="image/png" sizes="32x32" href="https://moondeer.blog/uploads/2021/91b72102d1.png">
-<link rel="icon" type="image/png" sizes="16x16" href="https://moondeer.blog/uploads/2021/df2e80d9c3.png">
-<link rel="mask-icon" href="https://moondeer.blog/uploads/2021/3b64fed44b.svg" color="#4a577c">
-<meta name="msapplication-TileColor" content="#da532c">
-<meta name="theme-color" content="#da532c">
-{{- /* link Adobe typekit */ -}}
-<link rel="stylesheet" href="https://use.typekit.net/nmn4mcn.css">
-{{- $seconds := .Site.Params.theme_seconds }}
-{{- /* link the reset and basof stylesheets for the theme */ -}}
-<link href="{{ "assets/css/reset.css" | relURL }}?{{ $seconds }}" rel="stylesheet">
-<link href="{{ "assets/css/baseof.css" | relURL }}?{{ $seconds }}" rel="stylesheet">
-{{- /* link the list or post style sheet */ -}}
-{{- if eq .Page.Type "post" }}
-<link href="{{ "assets/css/post.css" | relURL }}?{{ $seconds }}" rel="stylesheet">
-{{- else }}
-<link href="{{ "assets/css/list.css" | relURL }}?{{ $seconds }}" rel="stylesheet">
-{{ end -}}
-{{- /* link the code highlighting stylesheet and the custom override */ -}}
-<link href="{{ "assets/css/highlight.css" | relURL }}?{{ $seconds }}" rel="stylesheet">
-<link rel="stylesheet" href="{{ "custom.css" | relURL }}?{{ $seconds }}">
-{{- /* link the feeds */ -}}
-{{- if .RSSLink }}
-<link href="{{ .RSSLink }}" rel="alternate" type="application/rss+xml" title="{{ .Site.Title }}" />
-<link href="{{ "podcast.xml" | absURL }}" rel="alternate" type="application/rss+xml" title="Podcast" />
-<link rel="alternate" type="application/json" title="{{ .Site.Title }}" href="{{ "feed.json" | absURL }}" />
-<link rel="EditURI" type="application/rsd+xml" href="{{ "rsd.xml" | absURL }}" />
-{{ end -}}
-<link rel="me" href="https://micro.blog/{{ .Site.Author.username }}" />
-{{- with .Site.Params.twitter_username }}
-<link rel="me" href="https://twitter.com/{{ . }}" />
-{{ end -}}
-{{- with .Site.Params.github_username }}
-<link rel="me" href="https://github.com/{{ . }}" />
-{{ end -}}
-<link rel="authorization_endpoint" href="https://micro.blog/indieauth/auth" />
-<link rel="token_endpoint" href="https://micro.blog/indieauth/token" />
-<link rel="micropub" href="https://micro.blog/micropub" />
-<link rel="microsub" href="https://micro.blog/microsub" />
-<link rel="webmention" href="https://micro.blog/webmention" />
-<link rel="subscribe" href="https://micro.blog/users/follow" />
-{{- /* link plugin stylesheets and insert plugin head elements */ -}}
-{{- range .Site.Params.plugins_css -}}
-<link rel="stylesheet" href="{{ . }}" />
-{{- end -}}
-{{- /* plausible analytics */ -}}
-{{ partial "plausible.html" }}
-{{- /* glightbox */ -}}
-{{ partial "glightbox.html" }}
-{{- /* cards */ -}}
-{{ partial "cards.html" . }}
-{{- range $filename := .Site.Params.plugins_html }}
-{{ partial $filename $ }}
-{{ end -}}
+<meta name="description" content="{{ .Description | default .Site.Params.description }}">
+{{ partial "head/favicons.html" . }}
+{{ partial "head/stylesheets.html" . }}
+{{ partial "head/feeds.html" . }}
+{{ partial "head/me.html" . }}
+{{ partial "head/micro.blog.html" . }}
+{{ partial "head/plugins.html" . }}
 </head>

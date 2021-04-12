@@ -1,0 +1,12 @@
+{{- if .Site.Params.include_debug_comments -}}
+{{ printf "<!-- BEGIN layouts/partials/navigation/home-page-navigation.html -->" | safeHTML }}
+{{- end -}}
+<a class="selected" href="/">Latest</a>
+{{- with $.Site.Menus.main }}
+  {{- range . }}
+<a href="{{ .URL }}">{{ .Title }}</a>
+  {{ end -}}
+{{ end -}}
+{{- if .Site.Params.include_debug_comments -}}
+{{ printf "<!-- END layouts/partials/navigation/home-page-navigation.html -->" | safeHTML }}
+{{- end -}}

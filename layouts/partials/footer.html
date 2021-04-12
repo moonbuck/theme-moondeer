@@ -1,5 +1,8 @@
 {{- /* Modifed to remove the search box I was unsatisfied with and to add the IndieWeb Webring code */ -}}
 {{- /* Also modifed the RSS link to be category specific on category list pages */ -}}
+{{- if .Site.Params.include_debug_comments -}}
+{{ printf "<!-- BEGIN layouts/partials/footer.html -->" | safeHTML }}
+{{- end -}}
 <footer id="footer">
   <section id="wrapper">
     <ul>
@@ -23,3 +26,6 @@
     <a href="https://xn--sr8hvo.ws/%F0%9F%85%BF%EF%B8%8F%F0%9F%99%86%E2%AD%90%EF%B8%8F/next">⇨</a>
   </div>
 </footer>
+{{- if .Site.Params.include_debug_comments -}}
+{{ printf "<!-- END layouts/partials/footer.html -->" | safeHTML }}
+{{- end -}}

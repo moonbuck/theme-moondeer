@@ -1,4 +1,7 @@
 {{- /* Modified to call the truncated post item partial */ -}}
+{{- if .Site.Params.include_debug_comments -}}
+{{ printf "<!-- BEGIN layouts/partials/post-list.html -->" | safeHTML }}
+{{- end -}}
 <ul id="post-list">
 {{- if or .IsHome .Site.Params.paginate_categories -}}
   {{- $paginator := .Paginate (where .Data.Pages.ByDate.Reverse "Type" "post") -}}
@@ -12,13 +15,14 @@
     {{ partial "truncated-post-item.html" . }}
   {{ end -}}
 {{- end -}}
-
 </ul>
-
 {{- if .IsHome -}}
   {{- if .Site.Params.paginate_home }}
-    {{ partial "pagination" . }}
+{{ partial "pagination" . }}
   {{ end -}}
 {{- else if .Site.Params.paginate_categories }}
-  {{ partial "pagination" . }}
+{{ partial "pagination" . }}
 {{ end -}}
+{{- if .Site.Params.include_debug_comments -}}
+{{ printf "<!-- END layouts/partials/post-list.html -->" | safeHTML }}
+{{- end -}}

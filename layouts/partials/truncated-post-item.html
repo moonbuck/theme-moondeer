@@ -1,4 +1,7 @@
 {{- /* Created as an alterative to post-item.html that truncates posts with titles. */ -}}
+{{- if .Site.Params.include_debug_comments -}}
+{{ printf "<!-- BEGIN layouts/partials/truncated-post-item.html -->" | safeHTML }}
+{{- end -}}
 <li>
   <article>
     <section class="post-body">
@@ -20,4 +23,6 @@
   </article>
 </li>
 <span class="separator"><span class="divider"></span></span>
-
+{{- if .Site.Params.include_debug_comments -}}
+{{ printf "<!-- END layouts/partials/truncated-post-item.html -->" | safeHTML }}
+{{- end -}}

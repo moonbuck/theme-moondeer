@@ -8,13 +8,7 @@
   </section>
 {{ partial "footer.html" . }}
 {{ partial "custom_footer.html" . }}
-{{- /* Include theme JavaScript */ -}}
-  <script src="/assets/js/glightbox.js"></script>
-  <script src="/assets/js/prettyurl.js"></script>
-{{- /* Include plugin JavaScript */ -}}
-{{- range .Site.Params.plugins_js }}
-  <script src="{{ . }}"></script>
-{{ end -}}
+{{ partial "footer-javascript.html" . }}
 </body>
 </html>
 

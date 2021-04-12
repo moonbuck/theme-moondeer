@@ -1,0 +1,13 @@
+{{- if .Site.Params.include_debug_comments -}}
+{{ printf "<!-- BEGIN layouts/partials/head/me.html -->" | safeHTML }}
+{{- end -}}
+<link rel="me" href="https://micro.blog/{{ .Site.Author.username }}" />
+{{- with .Site.Params.twitter_username }}
+<link rel="me" href="https://twitter.com/{{ . }}" />
+{{ end -}}
+{{- with .Site.Params.github_username }}
+<link rel="me" href="https://github.com/{{ . }}" />
+{{ end -}}
+{{- if .Site.Params.include_debug_comments -}}
+{{ printf "<!-- END layouts/partials/head/me.html -->" | safeHTML }}
+{{- end -}}

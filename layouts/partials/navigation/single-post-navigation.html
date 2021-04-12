@@ -1,0 +1,17 @@
+{{- if .Site.Params.include_debug_comments -}}
+{{ printf "<!-- BEGIN layouts/partials/navigation/single-post-navigation.html -->" | safeHTML }}
+{{- end -}}
+<a href="/">Latest</a>
+{{- $categories := .Page.Params.categories -}}
+{{- with $.Site.Menus.main }}
+  {{- range . }}
+    {{- $class := "" -}}
+    {{- if in $categories .Title -}}
+      {{- $class = "selected" -}}
+    {{- end -}}
+<a class="{{ $class }}" href="{{ .URL }}">{{ .Title }}</a>
+  {{ end -}}
+{{ end -}}
+{{- if .Site.Params.include_debug_comments -}}
+{{ printf "<!-- END layouts/partials/navigation/single-post-navigation.html -->" | safeHTML }}
+{{- end -}}

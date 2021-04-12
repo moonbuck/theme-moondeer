@@ -84,14 +84,14 @@
   },
   "outputs": {
       "home": [ "HTML",
-                "RSS", 
-                "JSON", 
-                "RSD", 
-                "ArchiveHTML", 
-                "ArchiveJSON", 
-                "PhotosJSON", 
-                "PodcastXML", 
-                "PodcastJSON", 
+                "RSS",
+                "JSON",
+                "RSD",
+                "ArchiveHTML",
+                "ArchiveJSON",
+                "PhotosJSON",
+                "PodcastXML",
+                "PodcastJSON",
                 "CrossingJSON" ],
       "page": [ "HTML" ],
       "section": [ "HTML" ],
@@ -100,7 +100,7 @@
   },
   "taxonomies": {
       "category": "categories"
-  },    
+  },
   "rssLimit": 25,
   "uglyURLs": false,
   "blackfriday": {
@@ -110,7 +110,7 @@
   "languageCode": "[LANGUAGE]",
   "paginate": 25,
   "params": {
-      "theme_version": "v20",
+      "theme_version": "v21",
       "include_debug_comments": true,
       "description": "All the latest thoughts to fall out my head.",
       "itunes_description": "[ITUNES_DESCRIPTION]",

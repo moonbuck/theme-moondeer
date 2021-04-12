@@ -1,9 +1,12 @@
 {{- /* Modifed for stylistic changes and to use username rather than description in config.json */ -}}
+{{- if .Site.Params.include_debug_comments -}}
+{{ printf "<!-- BEGIN layouts/partials/profile.html -->" | safeHTML }}
+{{- end -}}
 <div class="profile" id="wrapper">
   <section id="wrapper">
     <header class="h-card">
       <a class="u-url" rel="me" href="https://moondeer.blog/about">
-      <img id="avatar" class="u-photo" 
+      <img id="avatar" class="u-photo"
  src="https://moondeer.blog/uploads/2021/d2728f1610.jpg" />
       </a>
       <h1 class="p-name" rel="me">{{ .Site.Author.name }}</h1>
@@ -12,3 +15,6 @@
     </header>
   </section>
 </div>
+{{- if .Site.Params.include_debug_comments -}}
+{{ printf "<!-- END layouts/partials/profile.html -->" | safeHTML }}
+{{- end -}}
