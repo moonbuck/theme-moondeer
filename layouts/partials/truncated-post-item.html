@@ -1,16 +1,16 @@
-{{/* Created as an alterative to post-item.html that truncates posts with titles. */}}
+{{- /* Created as an alterative to post-item.html that truncates posts with titles. */ -}}
 <li>
   <article>
     <section class="post-body">
-  {{ if .Title }}
+  {{- if .Title -}}
       <header><h2 class="post-title"><a href="{{ .Permalink }}">{{ .Title }}</a></h2></header>
       {{ .Summary }}
-    {{ if .Truncated }}
+    {{- if .Truncated -}}
       <p><a href="{{ .RelPermalink }}">Read More</a></p>
-    {{ end }}
-  {{ else }}
+    {{- end -}}
+  {{- else -}}
       {{ .Content }}
-  {{ end }}
+  {{- end -}}
     </section>
     <a href="{{ .Permalink }}" class="u-url">
       <aside class="dates">

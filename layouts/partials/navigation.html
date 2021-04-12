@@ -1,6 +1,3 @@
-{{- if .Site.Params.include_debug_comments -}}
-{{ partial "debug/dump-menu.html" . }}
-{{- end -}}
 <nav class="main-nav">
 {{- if .Page.IsHome -}}
   {{ partial "home-page-navigation.html" . }}

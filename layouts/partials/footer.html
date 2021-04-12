@@ -1,36 +1,25 @@
-{{/* Modifed to remove the search box I was unsatisfied with and to add the IndieWeb Webring code */}}
-{{/* Also modifed the RSS link to be category specific on category list pages */}}
+{{- /* Modifed to remove the search box I was unsatisfied with and to add the IndieWeb Webring code */ -}}
+{{- /* Also modifed the RSS link to be category specific on category list pages */ -}}
 <footer id="footer">
-
-<section id="wrapper">
-  <ul>
-  {{ $url := urls.Parse .Permalink }}
-  {{ $parts := split $url.Path "/" }}
-  {{ $kind := index $parts 1 }}
-  {{ if eq $kind "categories" }}
-    {{ $category := index $parts 2 }}
-    <li><a href="/categories/{{ $category }}/feed.xml">RSS</a></li>
-  {{ else }}
-    <li><a href="/feed.xml">RSS</a></li>
-  {{ end }}
-    <li><a href="/feed.json">JSON Feed</a></li>
-    <li><a href="https://micro.blog/{{ .Site.Author.username }}" rel="me">Micro.blog</a></li>
-    <li><a class="u-email" href="mailto:moondeer@moondeer.blog" rel="me">Email</a></li>
-  </ul>
- <!-- <form method="get" id="search" action="https://duckduckgo.com/">
-    <input type="hidden" name="sites" value="{{ "/" | absURL }}"/>
-    <input type="hidden" name="k8" value="#444444"/>
-    <input type="hidden" name="k9" value="#ee4792"/>
-    <input type="hidden" name="kt" value="h"/>
-    <input class="field" type="text" name="q" maxlength="255" placeholder="To search, type and hit Enter…"/>
-    <input type="submit" value="Search" style="display: none;" />
-  </form>-->
-</section>
-
- <div id="indieweb">
-  <a href="https://xn--sr8hvo.ws/%F0%9F%85%BF%EF%B8%8F%F0%9F%99%86%E2%AD%90%EF%B8%8F/previous">⇦</a>
-  An IndieWeb Webring
-  <a href="https://xn--sr8hvo.ws/%F0%9F%85%BF%EF%B8%8F%F0%9F%99%86%E2%AD%90%EF%B8%8F/next">⇨</a>
-</div>
-   
+  <section id="wrapper">
+    <ul>
+{{- $url := urls.Parse .Permalink -}}
+{{- $parts := split $url.Path "/" -}}
+{{- $kind := index $parts 1 -}}
+{{- if eq $kind "categories" -}}
+  {{- $category := index $parts 2 -}}
+      <li><a href="/categories/{{ $category }}/feed.xml">RSS</a></li>
+{{- else -}}
+      <li><a href="/feed.xml">RSS</a></li>
+{{- end -}}
+      <li><a href="/feed.json">JSON Feed</a></li>
+      <li><a href="https://micro.blog/{{ .Site.Author.username }}" rel="me">Micro.blog</a></li>
+      <li><a class="u-email" href="mailto:moondeer@moondeer.blog" rel="me">Email</a></li>
+    </ul>
+  </section>
+  <div id="indieweb">
+    <a href="https://xn--sr8hvo.ws/%F0%9F%85%BF%EF%B8%8F%F0%9F%99%86%E2%AD%90%EF%B8%8F/previous">⇦</a>
+    An IndieWeb Webring
+    <a href="https://xn--sr8hvo.ws/%F0%9F%85%BF%EF%B8%8F%F0%9F%99%86%E2%AD%90%EF%B8%8F/next">⇨</a>
+  </div>
 </footer>
