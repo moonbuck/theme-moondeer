@@ -1,18 +1,18 @@
 {{- if .Site.Params.include_debug_comments }}
 {{ printf "<!-- BEGIN layouts/partials/head/plugins.html -->" | safeHTML }}
 {{ end -}}
-{{- /* link plugin stylesheets */ -}}
-{{- range .Site.Params.plugins_css -}}
+{{ /* link plugin stylesheets */ }}
+{{- range .Site.Params.plugins_css }}
 <link rel="stylesheet" href="{{ . }}" />
-{{- end -}}
-{{- /* plausible analytics */ -}}
+{{ end -}}
+{{ /* plausible analytics */ }}
 <script async defer data-domain="moondeer.blog" src="https://plausible.io/js/plausible.js"></script>
-{{- /* glightbox */ -}}
+{{ /* glightbox */ }}
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/glightbox/dist/css/glightbox.min.css" />
 <script src="https://cdn.jsdelivr.net/gh/mcstudios/glightbox/dist/js/glightbox.min.js"></script>
-{{- /* cards */ -}}
+{{ /* cards */ }}
 {{ partial "cards.html" . }}
-{{- /* Include any plugin HTML */ -}}
+{{ /* Include any plugin HTML */ }}
 {{- range $filename := .Site.Params.plugins_html }}
 {{ partial $filename $ }}
 {{ end -}}
