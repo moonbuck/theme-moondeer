@@ -165,6 +165,18 @@ div.category-content {
   text-align: left;
 }
 
+#category-cloud {
+ margin-top: 1em;
+}
+
+#category-cloud a {
+  color: #666;
+}
+
+#category-cloud a:hover {
+  color: #000;
+}
+
 /* Media Queries */
 @media screen and (max-width: 540px) {
   
