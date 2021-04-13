@@ -1,5 +1,4 @@
 {
-  "disqusShortname": "moondeer",
   "menu": {
     "main": [
     {
@@ -111,8 +110,9 @@
   "languageCode": "[LANGUAGE]",
   "paginate": 25,
   "params": {
-      "theme_version": "v26",
+      "theme_version": "v27",
       "include_debug_comments": false,
+      "disqus_shortname": "moondeer",
       "description": "All the latest thoughts to fall out my head.",
       "itunes_description": "[ITUNES_DESCRIPTION]",
       "itunes_category": "[ITUNES_CATEGORY]",
