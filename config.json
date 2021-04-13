@@ -111,7 +111,7 @@
   "paginate": 25,
   "params": {
       "theme_version": "v24",
-      "include_debug_comments": true,
+      "include_debug_comments": false,
       "description": "All the latest thoughts to fall out my head.",
       "itunes_description": "[ITUNES_DESCRIPTION]",
       "itunes_category": "[ITUNES_CATEGORY]",
