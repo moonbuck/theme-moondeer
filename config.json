@@ -110,7 +110,7 @@
   "languageCode": "[LANGUAGE]",
   "paginate": 25,
   "params": {
-      "theme_version": "v30",
+      "theme_version": "v31",
       "include_debug_comments": false,
       "disqus_shortname": "moondeer",
       "description": "All the latest thoughts to fall out my head.",

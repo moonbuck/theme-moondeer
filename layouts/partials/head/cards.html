@@ -49,11 +49,6 @@
 {{- end -}}
 
 {{- /* Create meta tags using the variable values. */ -}}
-<!--<meta name="twitter:card" content="summary_large_image"/>-->
-{{- with .Site.Params.twitter_username }}
-<meta name="twitter:site" content="@{{ . }}" />
-<meta name="twitter:creator" content="@{{ . }}" />
-{{ end -}}
 <meta property="og:url" content="{{ $url }}" />
 <meta property="og:site_name" content="{{ $site_name }}" />
 <meta property="og:title" content="{{ $title }}" />
@@ -80,6 +75,17 @@
 <meta property="og:audio" content="{{ . }}" />
 {{ end -}}
 <meta property="og:type" content="{{ $type }}" />
+
+<meta name="twitter:card" content="summary_large_image"/>
+{{- with .Site.Params.twitter_username }}
+<meta name="twitter:site" content="@{{ . }}" />
+<meta name="twitter:creator" content="@{{ . }}" />
+{{ end -}}
+<meta name="twitter:card" content="summary_large_image">
+<meta property="twitter:domain" content="moondeer.blog">
+<meta property="twitter:url" content="{{ $url }}">
+<meta name="twitter:title" content="{{ $title }}" />
+<meta name="twitter:description" content="{{ $description }}" />
 {{- if .Site.Params.include_debug_comments }}
 {{ printf "<!-- END layouts/partials/cards.html -->" | safeHTML }}
 {{ end -}}
