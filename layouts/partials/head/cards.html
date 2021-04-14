@@ -81,11 +81,12 @@
 <meta name="twitter:site" content="@{{ . }}" />
 <meta name="twitter:creator" content="@{{ . }}" />
 {{ end -}}
-<meta name="twitter:card" content="summary_large_image">
 <meta property="twitter:domain" content="moondeer.blog">
 <meta property="twitter:url" content="{{ $url }}">
 <meta name="twitter:title" content="{{ $title }}" />
 <meta name="twitter:description" content="{{ $description }}" />
+<meta name="twitter:image" content="{{ $image }}" />
+
 {{- if .Site.Params.include_debug_comments }}
 {{ printf "<!-- END layouts/partials/cards.html -->" | safeHTML }}
 {{ end -}}
