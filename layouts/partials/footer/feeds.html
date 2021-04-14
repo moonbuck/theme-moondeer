@@ -1,0 +1,17 @@
+{{- if .Site.Params.include_debug_comments -}}
+{{ printf "\n<!-- BEGIN layouts/partials/footer/feeds.html -->\n" | safeHTML }}
+{{- end -}}
+{{- $url := urls.Parse .Permalink -}}
+{{- $parts := split $url.Path "/" -}}
+{{- $kind := index $parts 1 -}}
+{{- if eq $kind "categories" -}}
+  {{- $category := index $parts 2 -}}
+      <li><a href="/categories/{{ $category }}/feed.xml">RSS</a></li>
+{{- else -}}
+      <li><a href="/feed.xml">RSS</a></li>
+{{- end -}}
+      <li><a href="/feed.json">JSON Feed</a></li>
+      <li><a href="https://micro.blog/{{ .Site.Author.username }}" rel="me">Micro.blog</a></li>
+{{- if .Site.Params.include_debug_comments -}}
+{{ printf "\n<!-- END layouts/partials/footer/feeds.html -->\n" | safeHTML }}
+{{- end -}}

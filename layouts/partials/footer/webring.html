@@ -1,0 +1,11 @@
+{{- if .Site.Params.include_debug_comments -}}
+{{ printf "\n<!-- BEGIN layouts/partials/footer/webring.html -->\n" | safeHTML }}
+{{- end -}}
+  <div id="indieweb">
+    <a href="https://xn--sr8hvo.ws/%F0%9F%85%BF%EF%B8%8F%F0%9F%99%86%E2%AD%90%EF%B8%8F/previous">⇦</a>
+    An IndieWeb Webring
+    <a href="https://xn--sr8hvo.ws/%F0%9F%85%BF%EF%B8%8F%F0%9F%99%86%E2%AD%90%EF%B8%8F/next">⇨</a>
+  </div>
+{{- if .Site.Params.include_debug_comments -}}
+{{ printf "\n<!-- END layouts/partials/footer/webring.html -->\n" | safeHTML }}
+{{- end -}}

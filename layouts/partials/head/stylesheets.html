@@ -1,6 +1,6 @@
-{{- if .Site.Params.include_debug_comments }}
-{{ printf "<!-- BEGIN layouts/partials/head/stylesheets.html -->" | safeHTML }}
-{{ end -}}
+{{- if .Site.Params.include_debug_comments -}}
+{{ printf "\n<!-- BEGIN layouts/partials/head/stylesheets.html -->\n" | safeHTML }}
+{{- end -}}
 <link rel="stylesheet" href="https://use.typekit.net/nmn4mcn.css">
 {{- $seconds := .Site.Params.theme_seconds }}
 <link href="{{ "assets/css/reset.css" | relURL }}?{{ $seconds }}" rel="stylesheet">
@@ -12,6 +12,6 @@
 {{ end -}}
 <link href="{{ "assets/css/highlight.css" | relURL }}?{{ $seconds }}" rel="stylesheet">
 <link rel="stylesheet" href="{{ "custom.css" | relURL }}?{{ $seconds }}">
-{{- if .Site.Params.include_debug_comments }}
-{{ printf "<!-- END layouts/partials/head/stylesheets.html -->" | safeHTML }}
-{{ end -}}
+{{- if .Site.Params.include_debug_comments -}}
+{{ printf "\n<!-- END layouts/partials/head/stylesheets.html -->\n" | safeHTML }}
+{{- end -}}

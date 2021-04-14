@@ -1,9 +1,9 @@
-{{- if .Site.Params.include_debug_comments }}
-{{ printf "<!-- BEGIN layouts/partials/header/navigation/menu-page-navigation.html -->" | safeHTML }}
-{{ end -}}
+{{- if .Site.Params.include_debug_comments -}}
+{{ printf "\n<!-- BEGIN layouts/partials/header/navigation/menu-page-navigation.html -->\n" | safeHTML }}
+{{- end -}}
 <a href="/">Latest</a>
 {{ $current_page := . }}
-{{- with $.Site.Menus.main }}
+{{- with $.Site.Menus.main -}}
   {{- range . }}
     {{- $class := "" -}}
     {{- if $current_page.IsMenuCurrent "main" . -}}
@@ -11,7 +11,7 @@
     {{- end -}}
 <a class="{{ $class }}" href="{{ .URL }}"><nobr>{{ .Title }}</nobr></a>
   {{ end -}}
-{{ end -}}
-{{- if .Site.Params.include_debug_comments }}
-{{ printf "<!-- END layouts/partials/header/navigation/menu-page-navigation.html -->" | safeHTML }}
-{{ end -}}
+{{- end -}}
+{{- if .Site.Params.include_debug_comments -}}
+{{ printf "\n<!-- END layouts/partials/header/navigation/menu-page-navigation.html -->\n" | safeHTML }}
+{{- end -}}

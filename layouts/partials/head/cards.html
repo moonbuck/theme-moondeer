@@ -3,7 +3,7 @@
 
 {{- /* Retrieve what is needed and store in local variables */ -}}
 {{- if .Site.Params.include_debug_comments -}}
-{{ printf "<!-- BEGIN layouts/partials/head/cards.html -->" | safeHTML }}
+{{ printf "\n<!-- BEGIN layouts/partials/head/cards.html -->\n" | safeHTML }}
 {{- end -}}
 {{- $url := .Permalink -}}
 {{- $site_name := .Site.Title -}}
@@ -88,5 +88,5 @@
 <meta name="twitter:image" content="{{ $image }}" />
 
 {{- if .Site.Params.include_debug_comments -}}
-{{ printf "<!-- END layouts/partials/head/cards.html -->" | safeHTML }}
+{{ printf "\n<!-- END layouts/partials/head/cards.html -->\n" | safeHTML }}
 {{- end -}}

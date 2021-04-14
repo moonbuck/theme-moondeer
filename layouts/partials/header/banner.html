@@ -1,11 +1,11 @@
 {{- /* Created to hold the switch logic for assigning banner images, These are set as background images via CSS  */ -}}
-{{- if site.Params.include_debug_comments }}
-{{ printf "<!-- BEGIN layouts/partials/header/banner.html -->" | safeHTML }}
-{{ end -}}
+{{- if site.Params.include_debug_comments -}}
+{{ printf "\n<!-- BEGIN layouts/partials/header/banner.html -->\n" | safeHTML }}
+{{- end -}}
 {{- $path := (urls.Parse .Permalink).Path -}}
 {{- with (index .Site.Data.banners $path) -}}
 <div id="{{ anchorize $path }}" class="banner-image" style="background-image: url({{ . }});"></div>
 {{- end -}}
-{{- if site.Params.include_debug_comments }}
-{{ printf "<!-- END layouts/partials/header/banner.html -->" | safeHTML }}
-{{ end -}}
+{{- if site.Params.include_debug_comments -}}
+{{ printf "\n<!-- END layouts/partials/header/banner.html -->\n" | safeHTML }}
+{{- end -}}

@@ -1,5 +1,5 @@
 {{- if .Site.Params.include_debug_comments -}}
-{{ printf "<!-- BEGIN layouts/partials/head/favicons.html -->" | safeHTML }}
+{{ printf "\n<!-- BEGIN layouts/partials/head/favicons.html -->\n" | safeHTML }}
 {{- end -}}
 <link rel="shortcut icon" href="https://moondeer.blog/uploads/2021/5260d2013e.png" type="image/x-icon" />
 <link rel="apple-touch-icon" sizes="180x180" href="https://moondeer.blog/uploads/2021/5260d2013e.png">
@@ -9,5 +9,5 @@
 <meta name="msapplication-TileColor" content="#da532c">
 <meta name="theme-color" content="#da532c">
 {{- if .Site.Params.include_debug_comments -}}
-{{ printf "<!-- END layouts/partials/head/favicons.html -->" | safeHTML }}
+{{ printf "\n<!-- END layouts/partials/head/favicons.html -->\n" | safeHTML }}
 {{- end -}}
