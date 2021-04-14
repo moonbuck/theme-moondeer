@@ -5,39 +5,7 @@
 {{- $path := (urls.Parse .Permalink).Path -}}
 {{- with (index .Site.Data.banners $path) -}}
 <div id="{{ anchorize $path }}" class="banner-image" style="background-image: url({{ . }});"></div>
-  {{- $image = . -}}
 {{- end -}}
-{{- /* $category := . -}}
-{{- if eq $category "perspectives" }}
-<div id="perspectives" class="banner-image"></div>
-{{ end -}}
-{{- if eq $category "projects" }}
-<div id="projects" class="banner-image"></div>
-{{ end -}}
-{{- if eq $category "poetry" }}
-<div id="poetry" class="banner-image"></div>
-{{ end -}}
-{{- if eq $category "music" }}
-<div id="music" class="banner-image"></div>
-{{ end -}}
-{{- if eq $category "programming" }}
-<div id="programming" class="banner-image"></div>
-{{ end -}}
-{{- if eq $category "critters" }}
-<div id="critters" class="banner-image"></div>
-{{ end -}}
-{{- if eq $category "stream-of-consciousness" }}
-<div id="stream-of-consciousness" class="banner-image"></div>
-{{ end -}}
-{{- if eq $category "biographical-tripe" }}
-<div id="biographical-tripe" class="banner-image"></div>
-{{ end -}}
-{{- if eq $category "artsy-fartsy" }}
-<div id="artsy-fartsy" class="banner-image"></div>
-{{ end -}}
-{{- if eq $category "personal-favorites" }}
-<div id="personal-favorites" class="banner-image"></div>
-{{ end */ -}}
 {{- if site.Params.include_debug_comments }}
 {{ printf "<!-- END layouts/partials/banner.html -->" | safeHTML }}
 {{ end -}}
