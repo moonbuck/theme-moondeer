@@ -1,0 +1,13 @@
+
+{{ range $array }}
+    {{ . }}
+{{else}}
+    <!-- This is only evaluated if $array is empty -->
+{{ end }}
+
+
+{{ index .Params "disqus_url" | html }}
+
+{{ if isset .Params "caption" | or isset .Params "title" | or isset .Params "attr" }}
+Stuff Here
+{{ end }}

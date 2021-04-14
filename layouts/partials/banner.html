@@ -1,8 +1,13 @@
-{{- /* Created to hold the switch logic for assigning category banner images, These are set as background images via CSS  */ -}}
+{{- /* Created to hold the switch logic for assigning banner images, These are set as background images via CSS  */ -}}
 {{- if site.Params.include_debug_comments }}
 {{ printf "<!-- BEGIN layouts/partials/banner.html -->" | safeHTML }}
 {{ end -}}
-{{- $category := . -}}
+{{- $path := (urls.Parse .Permalink).Path -}}
+{{- with (index .Site.Data.banners $path) -}}
+<div id="{{ anchorize $path }}" class="banner-image" style="background-image: url({{ . }});"></div>
+  {{- $image = . -}}
+{{- end -}}
+{{- /* $category := . -}}
 {{- if eq $category "perspectives" }}
 <div id="perspectives" class="banner-image"></div>
 {{ end -}}
@@ -32,7 +37,7 @@
 {{ end -}}
 {{- if eq $category "personal-favorites" }}
 <div id="personal-favorites" class="banner-image"></div>
-{{ end -}}
+{{ end */ -}}
 {{- if site.Params.include_debug_comments }}
 {{ printf "<!-- END layouts/partials/banner.html -->" | safeHTML }}
 {{ end -}}

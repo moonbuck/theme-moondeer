@@ -9,7 +9,7 @@
     {{- if in $categories .Title -}}
       {{- $class = "selected" -}}
     {{- end -}}
-<a class="{{ $class }}" href="{{ .URL }}">{{ .Title }}</a>
+<a class="{{ $class }}" href="{{ .URL }}"><nobr>{{ .Title }}</nobr></a>
   {{ end -}}
 {{ end -}}
 {{- if .Site.Params.include_debug_comments }}
