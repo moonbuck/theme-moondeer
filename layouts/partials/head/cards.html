@@ -2,9 +2,9 @@
 {{- /* Currently configured for posts with a title and image, category list pages, and falls back to something suitable for the homepage. Gave up on video support but audio is supported */ -}}
 
 {{- /* Retrieve what is needed and store in local variables */ -}}
-{{- if .Site.Params.include_debug_comments }}
+{{- if .Site.Params.include_debug_comments -}}
 {{ printf "<!-- BEGIN layouts/partials/head/cards.html -->" | safeHTML }}
-{{ end -}}
+{{- end -}}
 {{- $url := .Permalink -}}
 {{- $site_name := .Site.Title -}}
 {{- $title := .Title | default $site_name -}}
@@ -87,6 +87,6 @@
 <meta name="twitter:description" content="{{ $description }}" />
 <meta name="twitter:image" content="{{ $image }}" />
 
-{{- if .Site.Params.include_debug_comments }}
+{{- if .Site.Params.include_debug_comments -}}
 {{ printf "<!-- END layouts/partials/head/cards.html -->" | safeHTML }}
-{{ end -}}
+{{- end -}}

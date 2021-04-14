@@ -3,9 +3,9 @@
 {{ partial "head/head.html" . }}
 <body>
 {{ partial "header/header.html" . }}
-  <section id="wrapper" {{ if eq .File.Dir "about/" }} class="bio" {{ end }}>
+<section id="wrapper" {{ if eq .File.Dir "about/" }} class="bio" {{ end }}>
 {{ block "main" . }}{{ end }}
-  </section>
+</section>
 {{ partial "footer/footer.html" . }}
 </body>
 </html>
