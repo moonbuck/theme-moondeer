@@ -1,0 +1,15 @@
+{{- if .Site.Params.include_debug_comments }}
+{{ printf "<!-- BEGIN layouts/partials/header/navigation/navigation.html -->" | safeHTML }}
+{{ end -}}
+<nav class="main-nav">
+{{- if .Page.IsHome -}}
+  {{ partial "header/navigation/home-page-navigation.html" . }}
+{{- else if eq .Page.Type "post" -}}
+  {{ partial "header/navigation/single-post-navigation.html" . }}
+{{- else -}}
+  {{ partial "header/navigation/menu-page-navigation.html" . }}
+{{- end -}}
+</nav>
+{{- if .Site.Params.include_debug_comments }}
+{{ printf "<!-- END layouts/partials/header/navigation/navigation.html -->" | safeHTML }}
+{{ end -}}

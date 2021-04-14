@@ -1,6 +1,6 @@
 {{- /* Modified to include custom links and metadata, branch linked CSS by whether page is a list, and include partials for the absorbed plugins … for starters */ -}}
 <head>
-{{ partial "theme-version.html" . }}
+{{ partial "head/theme-version.html" . }}
 {{- if .Site.Params.include_debug_comments }}
 {{ partial "debug/dump-params.html" . }}
 {{ end -}}
@@ -21,11 +21,11 @@
 {{- /* end */ -}}
 </title>
 <meta name="description" content="{{ .Description | default .Site.Params.description }}">
-{{ partial "head/favicons.html" . }}
-{{ partial "head/stylesheets.html" . }}
-{{ partial "head/feeds.html" . }}
-{{ partial "head/me.html" . }}
-{{ partial "head/micro.blog.html" . }}
-{{ partial "head/plugins.html" . }}
-{{ partial "head/cards.html" . }}
+{{- partial "head/favicons.html" . -}}
+{{- partial "head/stylesheets.html" . -}}
+{{- partial "head/feeds.html" . -}}
+{{- partial "head/me.html" . -}}
+{{- partial "head/micro.blog.html" . -}}
+{{- partial "head/plugins.html" . -}}
+{{- partial "head/cards.html" . -}}
 </head>

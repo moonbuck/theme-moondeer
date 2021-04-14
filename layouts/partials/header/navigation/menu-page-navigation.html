@@ -1,5 +1,5 @@
 {{- if .Site.Params.include_debug_comments }}
-{{ printf "<!-- BEGIN layouts/partials/navigation/menu-page-navigation.html -->" | safeHTML }}
+{{ printf "<!-- BEGIN layouts/partials/header/navigation/menu-page-navigation.html -->" | safeHTML }}
 {{ end -}}
 <a href="/">Latest</a>
 {{ $current_page := . }}
@@ -13,5 +13,5 @@
   {{ end -}}
 {{ end -}}
 {{- if .Site.Params.include_debug_comments }}
-{{ printf "<!-- END layouts/partials/navigation/menu-page-navigation.html -->" | safeHTML }}
+{{ printf "<!-- END layouts/partials/header/navigation/menu-page-navigation.html -->" | safeHTML }}
 {{ end -}}
