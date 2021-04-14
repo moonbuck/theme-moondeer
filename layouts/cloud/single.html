@@ -15,7 +15,7 @@
     {{- $weightStep := 100 -}}
 
     <div id="category-cloud">
-        {{- range $name, $taxonomy := $.Site.Taxonomies.categories -}}
+        {{ range $name, $taxonomy := $.Site.Taxonomies.categories }}
           {{- $currentCategoryCount := len $taxonomy.Pages -}}
           {{- $showCategoryCount := len $taxonomy.Pages -}}
           {{- $currentFontSize := (add $smallestFontSize (mul (sub $currentCategoryCount $min) $fontStep) ) -}}
@@ -24,9 +24,9 @@
           {{- $fontW := div (sub (math.Log $count) (math.Log $min)) (sub (math.Log $max) (math.Log $min)) -}}
           {{- $currentFontSize := (add $smallestFontSize (mul (sub $largestFontSize $smallestFontSize) $fontW) ) -}}
           {{- $currentFontWeight := (add $smallestFontWeight (mul (sub $largestFontWeight $smallestFontWeight) $fontW) ) -}}
-          <a href="{{ "/categories/" | relLangURL }}{{ $name | urlize }}" 
+          <a href="{{ "/categories/" | relLangURL }}{{ $name | urlize }}"
              style="font-size:{{ $currentFontSize }}{{ $fontUnit }}; font-weight:{{ $currentFontWeight }}">{{ $name }}({{$showCategoryCount}})</a>
-        {{- end -}}
+        {{ end }}
     </div>
     {{- end -}}
 {{ end }}
