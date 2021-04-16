@@ -1,28 +1,12 @@
-{{- /* Modified to call the truncated post item partial */ -}}
-{{- if .Site.Params.include_debug_comments }}
-{{ printf "<!-- BEGIN layouts/partials/post-list.html -->" | safeHTML }}
-{{ end -}}
-<ul id="post-list">
-{{- if or .IsHome .Site.Params.paginate_categories -}}
-  {{- $paginator := .Paginate (where .Data.Pages.ByDate.Reverse "Type" "post") -}}
-  {{- $list := $paginator.Pages -}}
-  {{- range $list  }}
-    {{ partial "truncated-post-item.html" . }}
-  {{ end -}}
-{{- else -}}
-  {{- $list := where .Data.Pages.ByDate.Reverse "Type" "post" -}}
-  {{- range $list  }}
-    {{ partial "truncated-post-item.html" . }}
-  {{ end -}}
+{{- if .Site.Params.include_debug_comments -}}
+{{ printf "\n<!-- BEGIN layouts/partials/post-list.html -->\n" | safeHTML }}
 {{- end -}}
+<ul id="post-list">
+{{- $list := where .Data.Pages.ByDate.Reverse "Type" "post" -}}
+{{- range $list  }}
+  {{ partial "truncated-post-item.html" . }}
+{{ end -}}
 </ul>
-{{- if .IsHome -}}
-  {{- if .Site.Params.paginate_home }}
-{{ partial "pagination" . }}
-  {{ end -}}
-{{- else if .Site.Params.paginate_categories }}
-{{ partial "pagination" . }}
-{{ end -}}
-{{- if .Site.Params.include_debug_comments }}
-{{ printf "<!-- END layouts/partials/post-list.html -->" | safeHTML }}
-{{ end -}}
+{{- if .Site.Params.include_debug_comments -}}
+{{ printf "\n<!-- END layouts/partials/post-list.html -->\n" | safeHTML }}
+{{- end -}}

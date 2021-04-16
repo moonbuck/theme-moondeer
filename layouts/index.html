@@ -1,11 +1,8 @@
-{{- /* Created for more control over the home page */ -}}
 {{ define "main" }}
-<ul id="post-list">
-{{ range where .Paginator.Pages "Type" "post" }}
-{{ partial "truncated-post-item.html" . }}
-{{ end }}
-</ul>
-{{ partial "pagination.html" . }}
-{{- /* Include bio so there is an h-card on the home page. */ -}}
+{{- if .Site.Params.paginate_home -}}
+{{ partial "paginated-post-list.html" . }}
+{{- else -}}
+{{ partial "post-list.html" . }}
+{{- end -}}
 {{ partial "profile.html" . }}
 {{ end }}

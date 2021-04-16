@@ -1,0 +1,15 @@
+{{- if .Site.Params.include_debug_comments -}}
+{{ printf "\n<!-- BEGIN layouts/partials/paginated-post-list.html -->\n" | safeHTML }}
+{{ printf "<!--\n.Scratch = %v\n-->\n" .Scratch | safeHTML }}
+{{- end -}}
+<ul id="post-list">
+{{- $paginator := .Paginate (where .Data.Pages.ByDate.Reverse "Type" "post") -}}
+{{- $list := $paginator.Pages -}}
+{{- range $list }}
+    {{ partial "truncated-post-item.html" . }}
+{{ end -}}
+</ul>
+{{ partial "pagination" . }}
+{{- if .Site.Params.include_debug_comments -}}
+{{ printf "\n<!-- END layouts/partials/paginated-post-list.html -->\n" | safeHTML }}
+{{- end -}}
