@@ -1,7 +1,7 @@
 {{- /* Modifed for stylistic changes and to use username rather than description in config.json */ -}}
-{{- if .Site.Params.include_debug_comments }}
-{{ printf "<!-- BEGIN layouts/partials/profile.html -->" | safeHTML }}
-{{ end -}}
+{{- if .Site.Params.include_debug_comments -}}
+{{ printf "\n<!-- BEGIN layouts/partials/profile.html -->\n" | safeHTML }}
+{{- end -}}
 <div class="profile" id="wrapper">
   <section id="wrapper">
     <header class="h-card">
@@ -10,11 +10,17 @@
  src="https://moondeer.blog/uploads/2021/d2728f1610.jpg" />
       </a>
       <h1 class="p-name" rel="me">{{ .Site.Author.name }}</h1>
-      <h4 class="p-role"><a href="https://micro.blog/{{ .Site.Author.username }}">@{{ .Site.Author.username }}</a></h4>
+      <h4 class="p-role">
+        <a rel="me" href="https://micro.blog/Moondeer">@Moondeer</a> (Micro.blog)<br />
+        <a rel="me" href="https://mastodon.online/@moondeer">@moondeer</a> (Mastodon)<br />
+        <a rel="me" href="https://twitter.com/@moondeerdotblog">@moondeerdotblog</a> (Twitter)<br />
+        <a rel="me" href="https://github.com/@moonbuck">@moonbuck</a> (Github)<br />
+        <a rel="me" href="https://moondeerdotblog.tumblr.com">@moondeerdotblog</a> (Tumblr)
+      </h4>
       <p class="p-note"><em>Northside Hospital baby proudly indoctrinated into the radical left at the University of Georgia in the Deep South where I received a Bachelor of Arts in English while minoring in Mass Communications as well as a Bachelor of Science in Computer Science.</em></p>
     </header>
   </section>
 </div>
-{{- if .Site.Params.include_debug_comments }}
-{{ printf "<!-- END layouts/partials/profile.html -->" | safeHTML }}
-{{ end -}}
+{{- if .Site.Params.include_debug_comments -}}
+{{ printf "\n<!-- END layouts/partials/profile.html -->\n" | safeHTML }}
+{{- end -}}
