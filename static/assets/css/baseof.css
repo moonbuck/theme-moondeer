@@ -314,9 +314,11 @@ a.glightbox, a.img-link {
 
 header.h-card h4.p-role {
   color: #aaa;
-  margin-top: -0.75em;
+  /*margin-top: -0.75em;*/
   font-size: 24px;
   font-weight: 200;
+  line-height: 26px;
+  text-align: left;
 }
 
 header.h-card p.p-note {
