@@ -5,7 +5,7 @@
 {{- if .Site.Params.include_debug_comments -}}
 {{ printf "\n<!-- BEGIN layouts/partials/head/cards.html -->\n" | safeHTML }}
 {{- end -}}
-{{- $url := .Permalink -}}
+{{- $url := replace .Permalink "moondeer.blog" "moondeer.micro.blog" -}}
 {{- $site_name := .Site.Title -}}
 {{- $title := .Title | default $site_name -}}
 {{- $description := .Site.Params.description -}}

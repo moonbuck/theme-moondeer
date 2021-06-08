@@ -1,7 +1,7 @@
 {
   "params": {
-      "theme_version": "v40",
-      "include_debug_comments": false,
+      "theme_version": "v41",
+      "include_debug_comments": true,
       "disqus_shortname": "moondeer",
       "description": "All the latest thoughts to fall out my head.",
       "paginate_home": true,
