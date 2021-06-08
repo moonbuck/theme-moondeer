@@ -85,7 +85,7 @@
 <meta property="twitter:url" content="{{ $url }}">
 <meta name="twitter:title" content="{{ $title }}" />
 <meta name="twitter:description" content="{{ $description }}" />
-<meta name="twitter:image" content="{{ $image }}" />
+<meta name="twitter:image" content="{{ replace $image "moondeer.blog" "moondeer.micro.blog" }}" />
 
 {{- if .Site.Params.include_debug_comments -}}
 {{ printf "\n<!-- END layouts/partials/head/cards.html -->\n" | safeHTML }}
