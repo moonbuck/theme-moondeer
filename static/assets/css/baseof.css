@@ -33,7 +33,7 @@ p, li {
   line-height: 1.7;
 }
 
-h1, h2, h3 {
+h1, h2, h3, h4 {
   color: #000;
 }
 
@@ -50,6 +50,12 @@ h2 {
 h3 {
   font-size: 27px; /*20px;*/
   font-weight: 400;
+}
+
+h4 {
+  font-size: 24px;
+  font-weight: 200;
+  line-height: 26px;
 }
 
 p.small {
@@ -283,7 +289,7 @@ video {
 
 .emo { font-size: 75%; }
 
-p > a {
+p > a, figure > a {
   box-shadow: inset 0 -2px 0 #000;
 }
 
@@ -387,6 +393,10 @@ nav.main-nav a, #footer a, #post-nav a, p a {
   h3 {
     font-size: 27px; /*19px;*/
   }  
+  
+  h4 {
+    font-size: 24px;
+  }
   
 }
 
