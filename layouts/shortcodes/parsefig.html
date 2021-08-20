@@ -1,32 +1,29 @@
 {{/* Generates figure from generated markdown. */}}
 <figure>
-{{ $inner := .Inner }}
-{{ $caption := "" }}
-{{ with (findRE "[[][^]]+[]]" $inner) 1 }}
-{{ $caption = index . 0 | replaceRE "[[]([^]]+)[]]" "$1"  | safeHTML }}
-{{ end }}
-{{ with .Get "caption" }} {{ $caption =  .  }} {{ end }}
-{{ .Inner | markdownify }}
-{{ if gt (len $caption) 0 }}
+{{- $inner := .Inner -}}
+{{- $caption := "" -}}
+{{- with (findRE "[[][^]]+[]]" $inner) 1 -}}
+{{- $caption = index . 0 | replaceRE "[[]([^]]+)[]]" "$1"  | safeHTML -}}
+{{- end -}}
+{{- with .Get "caption" }} {{ $caption =  .  }} {{ end -}}
+{{- .Inner | markdownify -}}
+{{- if gt (len $caption) 0 -}}
 <figcaption>
-{{ with .Get "link" }}
-  {{ $saneLink := "" }}
-  {{ with (findRE "[(][^)]+[)]" .) 1 }}
-    {{ if gt (len .) 0 }}
-      {{ $saneLink = index . 0 | replaceRE "[(]([^)]+)[)]" "$1" }}
-		<a {{ printf "href=%q" $saneLink | safeHTMLAttr }}>{{ $caption  | safeHTML }}</a>
-    {{ else }}
-
-<a {{ printf "href=%q" $saneLink | safeHTMLAttr }}>{{ $caption  | safeHTML }}</a>
-    {{ end }}
-   
-  {{ else }}
-    {{ .  }} <br />
-    <a {{ printf "href=%q" . | safeHTMLAttr }}>{{ $caption  | safeHTML }}</a>
-  {{ end }}
-{{ else }}
-{{ $caption  | safeHTML }}
-{{ end }}
+{{- with .Get "link" -}}
+  {{- $saneLink := "" -}}
+  {{- with (findRE "[(][^)]+[)]" .) 1 -}}
+    {{- if gt (len .) 0 -}}
+      {{- $saneLink = index . 0 | replaceRE "[(]([^)]+)[)]" "$1" -}}
+		<a {{ printf "href=%q" $saneLink | safeHTMLAttr }}><h4>{{ $caption | safeHTML }}</h4></a>
+    {{- else -}}
+<a {{ printf "href=%q" $saneLink | safeHTMLAttr }}><h4>{{ $caption | safeHTML }}</h4></a>
+    {{- end -}}
+  {{- else -}}
+    <a {{ printf "href=%q" . | safeHTMLAttr }}><h4>{{ $caption | safeHTML  }}</h4></a>
+  {{- end -}}
+{{- else -}}
+<h4>{{ $caption | safeHTML }}</h4>
+{{- end -}}
 </figcaption>
-{{ end }}
+{{- end -}}
 </figure>
