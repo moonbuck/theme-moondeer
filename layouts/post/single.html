@@ -28,7 +28,7 @@
       <span><a href="https://micro.blog/{{ .Params.author.username }}">@{{ .Params.author.username }}</a></span>
     </div>
     {{ else }}
-    <img class="u-photo avatar" src="https://moondeer.blog/uploads/2021/3014652aa8.jpg" width="192" height="192">
+    <img class="u-photo avatar" src="https://micro.blog/{{ .Site.Author.username }}/avatar.jpg" />
     <div>
       <span class="p-name dark">{{ .Site.Author.name }}</span>
       <span><a href="https://micro.blog/{{ .Site.Author.username }}">@{{ .Site.Author.username }}</a></span>
