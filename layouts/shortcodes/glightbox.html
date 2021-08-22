@@ -9,7 +9,7 @@
    {{end}}
 >
 <img {{ if .Get "gallery"}} 
-        src = "https://micro.blog/photos/260x/{{ .Get "src" }}" style="border-radius: 5px; width: 260px; height: auto; max-width: 100%"
+        src = "https://micro.blog/photos/260x/{{ .Get "src" }}" style="width: 260px; height: auto; max-width: 100%"
      {{ else }}
         src = "{{ .Get "src" }}" style="max-width: 100%"
      {{ end }}
