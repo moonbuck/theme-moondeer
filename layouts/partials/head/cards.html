@@ -14,13 +14,13 @@
 {{- /* Determine description */ -}}
 {{- $description := default (default .Site.Params.description .Description) .Summary -}}
 
-{{- $image := default (default .Site.Data.cards.default (index .Site.Data.cards (urls.Parse .Permalink).Path)) (index .Params.images 0) -}}
-{{- /*with .Params.images -}}
+{{- $image := false -}}
+{{- with .Params.images -}}
   {{- $image = (index . 0 | absURL) -}}
 {{- else -}}
   {{- $path := (urls.Parse .Permalink).Path -}}
   {{- with (index .Site.Data.cards $path) -}}{{- $image = . -}}{{- end -}}
-{{- end */ -}}
+{{- end -}}
 
 {{- $section := false -}}
 {{- $categories := false -}}
@@ -55,7 +55,7 @@
 {{- end -}}
 
 {{- /* Create meta tags using the variable values. */ -}}
-<meta property="og:url" content="{{ $url }}" />
+<meta property="og:url" content="{{ .Permalink }}" />
 <meta property="og:site_name" content="{{ $site_name }}" />
 <meta property="og:title" content="{{ $title }}" />
 <meta property="og:description" content="{{ $description }}" />
@@ -87,11 +87,11 @@
 <meta name="twitter:site" content="@{{ . }}" />
 <meta name="twitter:creator" content="@{{ . }}" />
 {{ end -}}
-<meta property="twitter:domain" content="moondeer.micro.blog">
-<meta property="twitter:url" content="{{ $url }}">
-<meta name="twitter:title" content="{{ $title }}" />
+<meta property="twitter:domain" content="moondeer.blog">
+<meta property="twitter:url" content="{{ .Permalink }}">
+<meta name="twitter:title" content="{{ default $description $title }}" />
 <meta name="twitter:description" content="{{ $description }}" />
-<meta name="twitter:image" content="{{ replace $image "moondeer.blog" "moondeer.micro.blog" }}" />
+<meta name="twitter:image" content="{{ $image }}" />
 
 {{- if .Site.Params.include_debug_comments -}}
 {{ printf "\n<!-- END layouts/partials/head/cards.html -->\n" | safeHTML }}
