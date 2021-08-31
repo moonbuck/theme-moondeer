@@ -1,32 +1,37 @@
-{{- /* Created after learning from the twitter cards plugin and the Hugo open graph template */ -}}
-{{- /* Currently configured for posts with a title and image, category list pages, and falls back to something suitable for the homepage. Gave up on video support but audio is supported */ -}}
-
 {{- /* Retrieve what is needed and store in local variables */ -}}
+
+{{- /* Print debug statement if flag is set */ -}}
 {{- if .Site.Params.include_debug_comments -}}
 {{ printf "\n<!-- BEGIN layouts/partials/head/cards.html -->\n" | safeHTML }}
 {{- end -}}
-{{- $url := replace .Permalink "moondeer.blog" "moondeer.micro.blog" -}}
+
+{{- /* Determine site name */ -}}
 {{- $site_name := .Site.Title -}}
-{{- $title := .Title | default $site_name -}}
-{{- $description := .Site.Params.description -}}
-{{- if .Description -}}
-  {{- $description = .Description -}}
-{{- else if .IsPage -}}
-  {{- $description = .Summary -}}
-{{- end -}}
-{{- $image := .Site.Data.cards.default -}}
-{{- with .Params.images -}}
+
+{{- /* Determine the title */ -}}
+{{- $title := .Title -}}
+
+{{- /* Determine description */ -}}
+{{- $description := default (default .Site.Params.description .Description) .Summary -}}
+
+{{- $image := default (default .Site.Data.cards.default (index .Site.Data.cards (urls.Parse .Permalink).Path)) (index .Params.images 0) -}}
+{{- /*with .Params.images -}}
   {{- $image = (index . 0 | absURL) -}}
 {{- else -}}
   {{- $path := (urls.Parse .Permalink).Path -}}
   {{- with (index .Site.Data.cards $path) -}}{{- $image = . -}}{{- end -}}
-{{- end -}}
+{{- end */ -}}
+
+{{- $section := false -}}
+{{- $categories := false -}}
+
+
 {{- $iso8601 := "2006-01-02T15:04:05-07:00" -}}
 {{- $published_time := false -}}
 {{- $modified_time := false -}}
-{{- $section := false -}}
-{{- $categories := false -}}
+
 {{- $updated_time := false -}}
+
 {{- if .IsPage -}}
   {{- if not .PublishDate.IsZero }}
     {{- $published_time = (.PublishDate.Format $iso8601 | safeHTML) -}}
@@ -39,6 +44,7 @@
 {{- else if not .Date.IsZero -}}
   {{- $updated_time = (.Date.Format $iso8601 | safeHTML) -}}
 {{- end -}}
+
 {{- $audio := false -}}
 {{- $type := "website" -}}
 {{- with .Params.audio -}}
