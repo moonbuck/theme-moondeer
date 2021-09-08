@@ -2,7 +2,7 @@
 {{ define "main" }}
 <article class="h-entry post">
   <header>
-  {{ with .Title }}
+  {{ with .Title | markdownify }}
     <h1 class="p-name">{{ . }}</h1>
     {{ end }}
     <h2 class="headline">

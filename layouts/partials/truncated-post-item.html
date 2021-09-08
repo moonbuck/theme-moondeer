@@ -6,7 +6,7 @@
   <article>
     <section class="post-body">
   {{- if .Title -}}
-      <header><h2 class="post-title"><a href="{{ .Permalink }}">{{ .Title }}</a></h2></header>
+      <header><h2 class="post-title"><a href="{{ .Permalink }}">{{ .Title | markdownify }}</a></h2></header>
       {{ .Summary }}
     {{- if .Truncated -}}
       <p><a href="{{ .RelPermalink }}">Read More</a></p>
