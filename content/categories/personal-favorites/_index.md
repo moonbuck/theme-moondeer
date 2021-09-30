@@ -11,4 +11,4 @@ menu:
     weight: 100
 ---
 
-*The ones I still come back to on occasion.*
+*The ones I lift to the top of the list.*
