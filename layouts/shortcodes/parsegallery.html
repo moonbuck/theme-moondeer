@@ -7,7 +7,7 @@
   {{- with (findRE "[[][^]]+[]]" .) 1 -}}
     {{- $caption = index . 0 | replaceRE "[[]([^]]+)[]]" "$1"  | safeHTML -}}
   {{- end -}}
-  {{- $src := findRE "http[^]]+" . -}}
+  {{- $src := findRE "http[^)]+" . | index 0 -}}
   {{- printf "caption = '%s' src = '%s'\n" $caption $src -}}
 {{- end -}}
 
