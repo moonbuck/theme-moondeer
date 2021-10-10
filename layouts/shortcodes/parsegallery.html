@@ -8,7 +8,6 @@
     {{- $caption = index . 0 | replaceRE "[[]([^]]+)[]]" "$1"  | safeHTML -}}
   {{- end -}}
   {{- $src := index (findRE "http[^)]+" .) 0 -}}
-  {{- printf "caption = '%s' src = '%s'\n" $caption $src -}}
   <a href="{{ $src }}" 
    class="glightbox"
      data-gallery="{{ $gallery }}"
@@ -16,7 +15,7 @@
      data-glightbox="description:{{ $caption }}"
    {{end}}
 >
-<img src = "https://micro.blog/photos/260x/{{ $src }}" style="width: 260px; height: auto; max-width: 100%" />
+<img src="https://micro.blog/photos/260x/{{ $src }}" style="width: 260px; height: auto; max-width: 100%" />
      </a>
 {{- end -}}
 
