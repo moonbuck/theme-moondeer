@@ -1,12 +1,14 @@
-<div class="{{ .Get 0 }}" style="display: flex;">
+{{- $gallery := .Get 0 -}}
+<div class="{{ $gallery }}" style="display: flex;">
 {{- $inner := .Inner -}}
 {{- $images := findRE "[!][[][^]]*[]][(][^)]+[)]" $inner -}}
-{{- printf "images = %s" $images -}}
-{{/*
-{{- $caption := "" -}}
-{{- with (findRE "[[][^]]+[]]" $inner) 1 -}}
-{{- $caption = index . 0 | replaceRE "[[]([^]]+)[]]" "$1"  | safeHTML -}}
+{{- range $images -}}
+  {{- $caption := "" -}}
+  {{- with (findRE "[[][^]]+[]]" .) 1 -}}
+    {{- $caption = index . 0 | replaceRE "[[]([^]]+)[]]" "$1"  | safeHTML -}}
+  {{- end -}}
+  {{- $src := findRE "http[^]]+" . -}}
+  {{- printf "caption = '%s' src = '%s'\n" $caption $src -}}
 {{- end -}}
 
-  {{ .Inner }}*/}}
-  </div>
+</div>
