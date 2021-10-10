@@ -1,3 +1,12 @@
 <div class="{{ .Get 0 }}" style="display: flex;">
-  {{ .Inner }}
+{{- $inner := .Inner -}}
+{{- $images := findRE "[!][[][^]]*[]][(][^)]+[)]" $inner -}}
+{{- printf "images = %s" $images -}}
+{{/*
+{{- $caption := "" -}}
+{{- with (findRE "[[][^]]+[]]" $inner) 1 -}}
+{{- $caption = index . 0 | replaceRE "[[]([^]]+)[]]" "$1"  | safeHTML -}}
+{{- end -}}
+
+  {{ .Inner }}*/}}
   </div>
