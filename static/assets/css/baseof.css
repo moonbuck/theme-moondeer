@@ -29,6 +29,79 @@ body {
 
 /* Typography */
 
+.thin {
+  font-family: mr-eaves-sans, sans-serif;
+  font-weight: 100;
+  font-style: normal;
+}
+
+.thin-italic {
+  font-family: mr-eaves-sans, sans-serif;
+  font-weight: 100;
+  font-style: italic;
+}
+
+.light {
+  font-family: mr-eaves-sans, sans-serif;
+  font-weight: 200;
+  font-style: normal;
+}
+
+.light-italic {
+  font-family: mr-eaves-sans, sans-serif;
+  font-weight: 200;
+  font-style: italic;
+}
+
+.book {
+  font-family: mr-eaves-sans, sans-serif;
+  font-weight: 300;
+  font-style: normal;
+}
+
+.book-italic {
+  font-family: mr-eaves-sans, sans-serif;
+  font-weight: 300;
+  font-style: italic;
+}
+
+.regular {
+  font-family: mr-eaves-sans, sans-serif;
+  font-weight: 400;
+  font-style: normal;
+}
+
+.regular-italic {
+  font-family: mr-eaves-sans, sans-serif;
+  font-weight: 400;
+  font-style: italic;
+}
+
+.bold {
+  font-family: mr-eaves-sans, sans-serif;
+  font-weight: 700;
+  font-style: normal;
+}
+
+.bold-italic {
+  font-family: mr-eaves-sans, sans-serif;
+  font-weight: 700;
+  font-style: italic;
+}
+
+.heavy {
+  font-family: mr-eaves-sans, sans-serif;
+  font-weight: 800;
+  font-style: normal;
+}
+
+.heavy-italic {
+  font-family: mr-eaves-sans, sans-serif;
+  font-weight: 800;
+  font-style: italic;
+}
+
+
 p, li {
   line-height: 1.1;
 }
@@ -39,12 +112,12 @@ h1, h2, h3, h4 {
 
 h1 {
   font-size: 32px; /*30px;*/
-  font-weight: 700; /*bold;*/
+  font-weight: 800; /*bold;*/
 }
 
 h2 {
   font-size: 30px; /*25px;*/
-  font-weight: 400;
+  font-weight: 700;
 }
 
 h3 {
@@ -55,6 +128,12 @@ h3 {
 h4 {
   font-size: 24px;
   font-weight: 200;
+  line-height: 26px;
+}
+
+h5 {
+  font-size: 24px;
+  font-weight: 100;
   line-height: 26px;
 }
 
@@ -92,12 +171,27 @@ div.img-gallery {
   margin-top: 1em;
 }
 
-b, strong {
+b {
   font-weight: 800;
   color: #1E2025;
 }
-em, i {
+
+strong {
+  font-weight: 400;
+  color: #1E2025;
+}
+
+em {
   font-style: italic;
+  font-weight: 400
+}
+
+i {
+  font-style: italic;
+}
+
+strong > em, em > strong {
+  font-weight: 100;
 }
 
 sup {
@@ -144,14 +238,13 @@ span.separator:last-child {
 span.code { font-family:Menlo, Monaco, Courier; background-color:#EEE; font-size:14px; }
 
 pre  {
-  font-family:Menlo, Monaco, Courier;
   white-space:pre-wrap;
   padding:20px;
   background-color:#fdfdfd;
   overflow:auto;
   border-radius: 5px;
   background: #272b2d;
-  font-family: "Source Code Pro",Menlo,monospace;
+  font-family: "Source Code Pro", Menlo, Monaco, Courier,monospace;
   font-size: 13px;
   line-height: 1.5em;
   font-weight: 500;
@@ -224,14 +317,14 @@ h2.headline {
 }
 
 #wrapper {
-  max-width: 600px;
+  max-width: 80vw; /*600px;*/
   margin: 0 auto;
   padding: 25px;
 }
 
 a {
   text-decoration: none;
-  color: #000;
+  color: #516189; /* #000 */
 }
 
 code.highlighter-rouge {
