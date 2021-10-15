@@ -6,7 +6,7 @@
 {{ end -}}
 <meta charset="utf-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-<!--<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">-->
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <meta content="{{ .Site.Author.name }}" name="author">
 <title>
 {{- /* block "title" . */ -}}
@@ -28,4 +28,6 @@
 {{- partial "head/micro.blog.html" . -}}
 {{- partial "head/plugins.html" . -}}
 {{- partial "head/cards.html" . -}}
+<meta name="theme-color" content="#da532c" media="(prefers-color-scheme: light)">
+<meta name="theme-color" content="#da532c" media="(prefers-color-scheme: dark)">
 </head>
