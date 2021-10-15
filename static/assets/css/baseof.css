@@ -317,14 +317,14 @@ h2.headline {
 }
 
 #wrapper {
-  max-width: 80vw; /*600px;*/
+  max-width: 600px;
   margin: 0 auto;
   padding: 25px;
 }
 
 a {
   text-decoration: none;
-  color: #516189; /* #000 */
+  color: #000; /* #516189 */
 }
 
 code.highlighter-rouge {
