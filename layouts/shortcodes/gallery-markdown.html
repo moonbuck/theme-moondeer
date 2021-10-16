@@ -1,16 +1,23 @@
 {{/* Gallery name should be passed as first parameter */}}
 {{- $gallery := .Get 0 -}}
+{{/* Specify grid columns with named parameter 'col' */}}
+{{- $col_count := .Get "col" | default 3 -}}
+{{/* Specify grid rows with named parameter 'row' */}}
 {{/* Create a flex box container for the images */}}
 <div class="gallery grid {{ $gallery }}" style="display: flex;">
 {{/* Parse out markdown image declarations from `.Inner` and iterate */}}
-{{- range $elem_index, $elem_val := findRE "[!][[][^]]*[]][(][^)]+[)]" .Inner -}}
+{{- $image_md_pattern := "[!][[][^]]*[]][(][^)]+[)]" -}}
+{{- $url_pattern := "http[^)]+" -}}
+{{- $caption_pattern := "[!][[]([^]]*)[]].+" -}}
+{{- range $elem_index, $elem_val := findRE $image_md_pattern .Inner -}}
   {{/* Parse the image URL */}}
-  {{- $src := index (findRE "http[^)]+" $elem_val) 0 -}}
-  {{/* Parse the caption */}}
-  {{- $caption := replaceRE "[!][[]([^]]*)[]].+" "$1" $elem_val -}}
+  {{- $src := index (findRE $url_pattern $elem_val) 0 -}}
+  {{/* Parse the description */}}
+  {{- $description := replaceRE $caption_pattern "$1" $elem_val -}}
   <div class="item item-{{ $elem_index }}">
     <a href="{{ $src }}" class="glightbox" 
-       data-gallery="{{ $gallery }}" data-glightbox="description:{{ $caption }}">
+       data-gallery="{{ $gallery }}" 
+       data-glightbox="description:{{ $description }}">
       <img src="{{ $src }}" />
     </a>
   </div>
