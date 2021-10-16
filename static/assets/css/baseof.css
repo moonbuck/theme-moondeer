@@ -324,7 +324,7 @@ h2.headline {
 
 a {
   text-decoration: none;
-  color: #000; /* #516189 */
+  color: #516189; /* #000 */
 }
 
 code.highlighter-rouge {
@@ -383,7 +383,7 @@ video {
 .emo { font-size: 75%; }
 
 p > a, figure > a {
-  box-shadow: inset 0 -2px 0 #000;
+  box-shadow: none; /*inset 0 -2px 0 #000;*/
 }
 
 figure { padding-top: 8vw; }
@@ -455,7 +455,7 @@ nav.main-nav a {
 }
 
 nav.main-nav a:hover, #footer a:hover, #post-nav a:hover, p a:hover {
-  box-shadow: inset 0 -2px 0 #9FADBF;
+  box-shadow: none; /*inset 0 -2px 0 #9FADBF;*/
 }
 
 nav.main-nav a.selected {
