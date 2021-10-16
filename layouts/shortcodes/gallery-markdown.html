@@ -1,24 +1,18 @@
 {{/* Gallery name should be passed as first parameter */}}
 {{- $gallery := .Get 0 -}}
 {{/* Create a flex box container for the images */}}
-<div class="gallery {{ $gallery }}" style="display: flex;">
+<div class="gallery grid {{ $gallery }}" style="display: flex;">
 {{/* Parse out markdown image declarations from `.Inner` and iterate */}}
-{{- range findRE "[!][[][^]]*[]][(][^)]+[)]" .Inner -}}
+{{- range $elem_index, $elem_val := findRE "[!][[][^]]*[]][(][^)]+[)]" .Inner -}}
   {{/* Parse the image URL */}}
-  {{- $src := index (findRE "http[^)]+" .) 0 -}}
+  {{- $src := index (findRE "http[^)]+" $elem_val) 0 -}}
   {{/* Parse the caption */}}
-  {{- $caption := replaceRE "[!][[]([^]]*)[]].+" "$1" . -}}
-  
-  <a 
-    href="{{ $src }}" 
-    class="glightbox" 
-    data-gallery="{{ $gallery }}" 
-    data-glightbox="description:{{ $caption }}">
-    
-    <img 
-      src="https://micro.blog/photos/260x/{{ $src }}" 
-      style="width: 260px; height: auto; max-width: 100%" />
-  </a>
+  {{- $caption := replaceRE "[!][[]([^]]*)[]].+" "$1" $elem_val -}}
+  <div class="item item-{{ $elem_index }}">
+    <a href="{{ $src }}" class="glightbox" 
+       data-gallery="{{ $gallery }}" data-glightbox="description:{{ $caption }}">
+      <img src="{{ $src }}" />
+    </a>
+  </div>
 {{- end -}}
-
 </div>

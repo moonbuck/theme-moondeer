@@ -1,0 +1,5 @@
+/* Styling for layout utilizing the CSS grid module */
+
+.grid {
+  display: grid;
+}
