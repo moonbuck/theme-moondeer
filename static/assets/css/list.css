@@ -72,6 +72,15 @@ Post List
   position: relative;
 }
 
+.post-title > a {
+  color: #000;
+}
+
+.post-body > p > a {
+  color: #000;
+  text-decoration: underline;
+}
+
 /* Nav */
 
 nav.main-nav {

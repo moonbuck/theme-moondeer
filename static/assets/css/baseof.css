@@ -386,6 +386,10 @@ p > a, figure > a {
   box-shadow: none; /*inset 0 -2px 0 #000;*/
 }
 
+p > a:hover, figure > a:hover {
+  text-decoration: underline;
+}
+
 figure { padding-top: 8vw; }
 
 a.glightbox, a.img-link {
