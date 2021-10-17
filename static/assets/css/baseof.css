@@ -392,7 +392,7 @@ p > a:hover, figure > a:hover {
 
 figure { padding-top: 8vw; }
 
-a.glightbox, a.img-link {
+/*a.glightbox,*/ a.img-link {
   text-decoration:none;
   box-shadow: none;
   display: block;
