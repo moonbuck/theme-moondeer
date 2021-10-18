@@ -7,7 +7,7 @@ menu:
     name: "Critters"
     title: "Critters"
     identifier: "critters"
-    url: "/critters/"
+    url: "/categories/critters/"
     weight: 60
 ---
 

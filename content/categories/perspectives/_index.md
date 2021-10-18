@@ -7,7 +7,7 @@ menu:
     name: "Perspectives"
     title: "Perspectives"
     identifier: "perspectives"
-    url: "/perspectives/"
+    url: "/categories/perspectives/"
     weight: 10
 ---
 
