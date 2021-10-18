@@ -11,10 +11,10 @@
       {{with .Site.Author.username}}
         <a rel="me" href="https://micro.blog/{{.}}">@{{.}}</a> (Micro.blog)<br />
       {{end}}
-        {{with .Site.Params.mastodon_server}}
-          {{$server := .}}
-          {{with .Site.Params.mastodon_username}}
-        <a rel="me" href="https://{{$server}}/@{{.}}">@{{.}}</a> (Mastodon)<br />
+      {{ if and (isset .Site.Params "mastodon_server") (isset .Site.Params "mastodon_username")}}
+      {{$mastodon_server := .Site.Params.mastodon_server}}
+      {{with .Site.Params.mastodon_username}}
+        <a rel="me" href="https://{{$mastodon_server}}/@{{.}}">@{{.}}</a> (Mastodon)<br />
         {{end}}
         {{end}}
         {{with .Site.Params.twitter_username}}
