@@ -1,19 +1,11 @@
-{{- /* Modifed to remove the search box I was unsatisfied with and to add the IndieWeb Webring code */ -}}
-{{- /* Also modifed the RSS link to be category specific on category list pages */ -}}
-{{- if .Site.Params.include_debug_comments -}}
-{{ printf "\n<!-- BEGIN layouts/partials/footer/footer.html -->\n" | safeHTML }}
-{{- end -}}
 <footer id="footer">
   <section id="wrapper">
     <ul>
-{{ partial "footer/feeds.html" . }}
-{{ partial "footer/email.html" . }}
+{{ partial "footer/feed-list-items.html" . }}
+    <li><a class="u-email" href="mailto:{{.Site.Params.mailto_email}}" rel="me">Email</a></li>
     </ul>
   </section>
 {{ partial "footer/webring.html" . }}
 </footer>
 {{ partial "custom_footer.html" . }}
 {{ partial "footer/footer-javascript.html" . }}
-{{- if .Site.Params.include_debug_comments -}}
-{{ printf "\n<!-- END layouts/partials/footer/footer.html -->\n" | safeHTML }}
-{{- end -}}

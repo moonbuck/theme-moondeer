@@ -1,30 +1,43 @@
 {{- /* Modifed for stylistic changes and to use username rather than description in config.json */ -}}
-{{- if .Site.Params.include_debug_comments -}}
-{{ printf "\n<!-- BEGIN layouts/partials/profile.html -->\n" | safeHTML }}
-{{- end -}}
 <div class="profile" id="wrapper">
   <section id="wrapper">
     <header class="h-card">
       <a class="u-url" rel="me" href="https://moondeer.blog/about">
-      <img id="avatar" class="u-photo"
- src="https://moondeer.blog/uploads/2021/d2728f1610.jpg" />
+      {{with .Site.Params.profile_avatar}}<img id="avatar" class="u-photo" src="{{.}}" />{{end}}
       </a>
       <h1 class="p-name" rel="me">{{ .Site.Author.name }}</h1>
       <h4 class="p-role">
       <div id="social-media-links">
-        <a rel="me" href="https://micro.blog/Moondeer">@Moondeer</a> (Micro.blog)<br />
-        <a rel="me" href="https://mastodon.online/@moondeer">@moondeer</a> (Mastodon)<br />
-        <a rel="me" href="https://twitter.com/@moondeerdotblog">@moondeerdotblog</a> (Twitter)<br />
-        <a rel="me" href="https://github.com/moonbuck">@moonbuck</a> (Github)<br />
-        <a rel="me" href="https://moondeerdotblog.tumblr.com">@moondeerdotblog</a> (Tumblr)<br />
-        <a rel="me" href="https://moondeer.medium.com">@Moondeer</a> (Medium)<br />
-        <a rel="me" href="https://folio.procreate.art/moonbuck">@Moonbuck</a> (Procreate)
+      {{with .Site.Author.username}}
+        <a rel="me" href="https://micro.blog/{{.}}">@{{.}}</a> (Micro.blog)<br />
+      {{end}}
+        {{with .Site.Params.mastodon_server}}
+          {{$server := .}}
+          {{with .Site.Params.mastodon_username}}
+        <a rel="me" href="https://{{$server}}/@{{.}}">@{{.}}</a> (Mastodon)<br />
+        {{end}}
+        {{end}}
+        {{with .Site.Params.twitter_username}}
+        <a rel="me" href="https://twitter.com/@{{.}}">@{{.}}</a> (Twitter)<br />
+        {{end}}
+        {{with .Site.Params.github_username}}
+        <a rel="me" href="https://github.com/{{.}}">@{{.}}</a> (Github)<br />
+        {{end}}
+        {{with .Site.Params.tumblr_username}}
+        <a rel="me" href="https://{{.}}.tumblr.com">@{{.}}</a> (Tumblr)<br />
+        {{end}}
+        {{with .Site.Params.medium_username}}
+        <a rel="me" href="https://{{.}}.medium.com">@{{.}}</a> (Medium)<br />
+        {{end}}
+        {{with .Site.Params.facebook_username}}
+        <a rel="me" href="https://www.facebook.com/{{.}}">@{{.}}</a> (Facebook)<br />
+        {{end}}
+        {{with .Site.Params.instagram_username}}
+        <a rel="me" href="https://www.instagram.com/{{.}}">@{{.}}</a> (Instagram)<br />
+        {{end}}
         </div>
       </h4>
-      <p class="p-note"><em>Northside Hospital baby proudly indoctrinated into the radical left at the University of Georgia in the Deep South where I received a Bachelor of Arts in English while minoring in Mass Communications as well as a Bachelor of Science in Computer Science.</em></p>
+      <p class="p-note"><em>{{.Site.Params.brief_bio}}</em></p>
     </header>
   </section>
 </div>
-{{- if .Site.Params.include_debug_comments -}}
-{{ printf "\n<!-- END layouts/partials/profile.html -->\n" | safeHTML }}
-{{- end -}}

@@ -1,8 +1,20 @@
 {
   "params": {
-      "theme_version": "v68",
+      "theme_version": "v69",
+      "mailto_email": "moondeer@moondeer.blog",
+      "profile_avatar": "https://moondeer.blog/uploads/2021/d2728f1610.jpg",
+      "brief_bio": "Northside Hospital baby proudly indoctrinated into the radical left at the University of Georgia in the Deep South where I received a Bachelor of Arts in English while minoring in Mass Communications as well as a Bachelor of Science in Computer Science.",
       "include_debug_comments": false,
       "disqus_shortname": "moondeer",
+      "github_username": "moonbuck",
+      "twitter_username": "moondeerdotblog",
+      "instagram_username": "moondeerdotblog",
+      "facebook_username": "moondeerdotblog",
+      "tumblr_username": "moondeerdotblog",
+      "medium_username": "Moondeer",
+      "mastodon_username": "moondeer",
+      "mastodon_server": "mastodon.online",
+      "webring_url": "https://xn--sr8hvo.ws/%F0%9F%85%BF%EF%B8%8F%F0%9F%99%86%E2%AD%90%EF%B8%8F",
       "description": "All the latest thoughts to fall out my head.",
       "paginate_home": true,
       "paginate_categories": true

@@ -1,6 +1,3 @@
-{{- if .Site.Params.include_debug_comments -}}
-{{ printf "\n<!-- BEGIN layouts/partials/head/plugins.html -->\n" | safeHTML }}
-{{- end -}}
 {{- range .Site.Params.plugins_css }}
 <link rel="stylesheet" href="{{ . }}" />
 {{ end -}}
@@ -18,6 +15,3 @@
 {{- range $filename := .Site.Params.plugins_html }}
 {{ partial $filename $ }}
 {{ end -}}
-{{- if .Site.Params.include_debug_comments -}}
-{{ printf "\n<!-- END layouts/partials/head/plugins.html -->\n" | safeHTML }}
-{{- end -}}

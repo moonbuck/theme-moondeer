@@ -1,6 +1,3 @@
-{{- if .Site.Params.include_debug_comments -}}
-{{ printf "\n<!-- BEGIN layouts/partials/head/stylesheets.html -->\n" | safeHTML }}
-{{- end -}}
 <link rel="stylesheet" href="https://use.typekit.net/nmn4mcn.css">
 {{/*{{- $seconds := .Site.Params.theme_seconds }}*/}}
 <link href="{{ "assets/css/reset.css" | relURL }}" rel="stylesheet">
@@ -14,6 +11,3 @@
 <link href="{{ "assets/css/grid.css" | relURL }}" rel="stylesheet">
 <link href="{{ "assets/css/flexbox.css" | relURL }}" rel="stylesheet">
 <link rel="stylesheet" href="{{ "custom.css" | relURL }}">
-{{- if .Site.Params.include_debug_comments -}}
-{{ printf "\n<!-- END layouts/partials/head/stylesheets.html -->\n" | safeHTML }}
-{{- end -}}

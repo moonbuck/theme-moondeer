@@ -1,9 +1,3 @@
 {{- /* Modifed to create hooks for the banners of non-list pages, these are set as  background images via CSS */ -}}
-{{- if .Site.Params.include_debug_comments -}}
-{{ printf "\n<!-- BEGIN layouts/partials/header/header.html -->\n" | safeHTML }}
-{{- end -}}
 {{ partial "header/navigation/navigation.html" . }}
 {{ partial "header/banner.html" . }}
-{{- if .Site.Params.include_debug_comments -}}
-{{ printf "\n<!-- END layouts/partials/header/header.html -->\n" | safeHTML }}
-{{- end -}}
