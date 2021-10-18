@@ -405,6 +405,7 @@ figure { padding-top: 8vw; }
   margin: 0 auto;
   text-align: center;
   padding: 80px 0;
+  width: 100%;
 }
 
 .profile #avatar {
