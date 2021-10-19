@@ -1,5 +1,6 @@
 {{ define "main" }}
-<div style="display: flex; flex-wrap: wrap;">
+{{ .Content }}
+<div style="display: flex; flex-wrap: wrap; padding-top: 2em;">
 {{- range (index .Site.Data.signedart "images") -}}
 {{- $src := index (findRE "http[^)]+" .) 0 -}}
 {{- $desc := replaceRE "[!][[]([^]]*)[]].+" "$1" . -}}
