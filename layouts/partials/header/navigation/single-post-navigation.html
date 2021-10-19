@@ -1,6 +1,3 @@
-{{- if .Site.Params.include_debug_comments -}}
-{{ printf "\n<!-- BEGIN layouts/partials/header/navigation/single-post-navigation.html -->\n" | safeHTML }}
-{{- end -}}
 <a href="/">Latest</a>
 {{- $categories := .Page.Params.categories -}}
 {{- with $.Site.Menus.main -}}
@@ -11,7 +8,4 @@
     {{- end -}}
 <a class="{{ $class }}" href="{{ .URL }}"><nobr>{{ .Title }}</nobr></a>
   {{ end -}}
-{{- end -}}
-{{- if .Site.Params.include_debug_comments -}}
-{{ printf "\n<!-- END layouts/partials/header/navigation/single-post-navigation.html -->\n" | safeHTML }}
 {{- end -}}

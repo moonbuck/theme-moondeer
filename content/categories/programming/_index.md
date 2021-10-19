@@ -7,7 +7,7 @@ menu:
     name: "Programming"
     title: "Programming"
     identifier: "programming"
-    url: "/programming/"
+    url: "/categories/programming/"
     weight: 40
 ---
 

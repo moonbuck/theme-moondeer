@@ -1,0 +1,22 @@
+{{ with .Get 0 }}
+  {{ with $.Site.GetPage . }}
+  <a class="post-card" href="{{ .Permalink }}">
+    <header class="post-card-header">
+      {{ with .Params.images }}
+    <img class="post-card-image" src="{{ index . 0 }}" />
+      {{ end }}
+      {{ if gt (len .LinkTitle) 0 }}
+      <h3 class="post-card-title">{{ .LinkTitle }}</h3>
+      {{ end }}
+     </header>
+     <p class="post-card-summary">{{ plainify .Summary | truncate 70 }}</p>
+     <footer class="post-card-footer">
+        <div class="post-card-reading-time">
+          <h4>reading time</h4>
+          <span>{{ printf "%v minute" .ReadingTime }}{{ if gt 1 .ReadingTime }}{{ printf "s" }}{{ end }}</span>
+        </div>
+        <span class="post-card-publish-date">{{ .PublishDate.Format "2 Jan 2006"}}</span>
+     </footer>
+  </a>
+  {{ end }}
+  {{ end }}

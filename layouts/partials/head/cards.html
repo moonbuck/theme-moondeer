@@ -12,11 +12,6 @@ For Twitter cards:
 
 */ -}}
 
-{{- /* Print debug statement if flag is set */ -}}
-{{- if .Site.Params.include_debug_comments -}}
-{{ printf "\n<!-- BEGIN layouts/partials/head/cards.html -->\n" | safeHTML }}
-{{- end -}}
-
 {{- /* Determine site name */ -}}
 {{- $site_name := .Site.Title -}}
 
@@ -112,8 +107,4 @@ For Twitter cards:
 <meta property="twitter:image" content="{{ $image }}" />
 {{- else -}}
 <meta property="twitter:image" content="{{ $image_default }}" />
-{{- end -}}
-
-{{- if .Site.Params.include_debug_comments -}}
-{{ printf "\n<!-- END layouts/partials/head/cards.html -->\n" | safeHTML }}
 {{- end -}}

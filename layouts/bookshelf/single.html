@@ -1,0 +1,74 @@
+{{ define "main" }}
+
+<article class="h-entry post">
+<section class="e-content post-body">
+<p><em>Books I am somewhat in the process of reading</em></p> 
+
+{{ range .Site.Data.bookshelves.currentlyreading }}
+<p class="bookshelf_book" style="clear: both;">
+<a href="https://micro.blog/books/{{ .isbn }}">
+<img 
+  src="https://micro.blog/photos/100px/{{ .cover_url }}"
+  align="left" 
+  style="max-width: 50px; border-radius: 0px; padding-right: 5px;" />
+</a>
+<span class="bookshelf_title">{{ .title }}</span><br>
+<span class="bookshelf_author">by {{ .author }}</span>
+</p>
+{{ end }}
+
+<br />
+<p><em>Books I've managed to get myself to read</em></p>
+
+{{ range .Site.Data.bookshelves.finishedreading }}
+<p class="bookshelf_book" style="clear: both;">
+<a href="https://micro.blog/books/{{ .isbn }}">
+<img 
+  src="https://micro.blog/photos/100px/{{ .cover_url }}"
+  align="left" 
+  style="max-width: 50px; border-radius: 0px; padding-right: 5px;" />
+</a>
+<span class="bookshelf_title">{{ .title }}</span><br>
+<span class="bookshelf_author">by {{ .author }}</span>
+</p>
+{{ end }}
+
+<br />
+<p><em>Books that gaze at me judingly from beneath the television, 
+where they currently live, for having yet to crack their
+spine (f$&amp;kers).</em></p>
+
+{{ range .Site.Data.bookshelves.wanttoread }}
+<p class="bookshelf_book" style="clear: both;">
+<a href="https://micro.blog/books/{{ .isbn }}">
+<img 
+  src="https://micro.blog/photos/100px/{{ .cover_url }}"
+  align="left" 
+  style="max-width: 50px; border-radius: 0px; padding-right: 5px;" />
+</a>
+<span class="bookshelf_title">{{ .title }}</span><br>
+<span class="bookshelf_author">by {{ .author }}</span>
+</p>
+{{ end }}
+
+<br />
+<p><em>Books whose gaze of judgement I've kinda become okay with
+as my interest in reading them has waned.</em></p>
+
+{{ range .Site.Data.bookshelves.didwanttoread }}
+<p class="bookshelf_book" style="clear: both;">
+<a href="https://micro.blog/books/{{ .isbn }}">
+<img 
+  src="https://micro.blog/photos/100px/{{ .cover_url }}"
+  align="left" 
+  style="max-width: 50px; border-radius: 0px; padding-right: 5px;" />
+</a>
+<span class="bookshelf_title">{{ .title }}</span><br>
+<span class="bookshelf_author">by {{ .author }}</span>
+</p>
+{{ end }}
+
+</section>
+</article>
+
+{{ end }}

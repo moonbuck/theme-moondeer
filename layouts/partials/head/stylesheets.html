@@ -1,18 +1,13 @@
-{{- if .Site.Params.include_debug_comments -}}
-{{ printf "\n<!-- BEGIN layouts/partials/head/stylesheets.html -->\n" | safeHTML }}
-{{- end -}}
 <link rel="stylesheet" href="https://use.typekit.net/nmn4mcn.css">
-{{- $seconds := .Site.Params.theme_seconds }}
-{{/* <link href="{{ "assets/css/reset.css" | relURL }}?{{ $seconds }}" rel="stylesheet">
-<link href="{{ "assets/css/baseof.css" | relURL }}?{{ $seconds }}" rel="stylesheet">
+{{/*{{- $seconds := .Site.Params.theme_seconds }}*/}}
+<link href="{{ "assets/css/reset.css" | relURL }}" rel="stylesheet">
+<link href="{{ "assets/css/baseof.css" | relURL }}" rel="stylesheet">
 {{- if eq .Page.Type "post" }}
-<link href="{{ "assets/css/post.css" | relURL }}?{{ $seconds }}" rel="stylesheet">
+<link href="{{ "assets/css/post.css" | relURL }}" rel="stylesheet">
 {{- else }}
-<link href="{{ "assets/css/list.css" | relURL }}?{{ $seconds }}" rel="stylesheet">
-{{ end -}} */}}
-<link href="{{ "assets/css/VW-experiment.css" | relURL }}?{{ $seconds }}" rel="stylesheet">
-<link href="{{ "assets/css/highlight.css" | relURL }}?{{ $seconds }}" rel="stylesheet">
-<link rel="stylesheet" href="{{ "custom.css" | relURL }}?{{ $seconds }}">
-{{- if .Site.Params.include_debug_comments -}}
-{{ printf "\n<!-- END layouts/partials/head/stylesheets.html -->\n" | safeHTML }}
-{{- end -}}
+<link href="{{ "assets/css/list.css" | relURL }}" rel="stylesheet">
+{{ end -}}
+<link href="{{ "assets/css/highlight.css" | relURL }}" rel="stylesheet">
+<link href="{{ "assets/css/grid.css" | relURL }}" rel="stylesheet">
+<link href="{{ "assets/css/flexbox.css" | relURL }}" rel="stylesheet">
+<link rel="stylesheet" href="{{ "custom.css" | relURL }}">

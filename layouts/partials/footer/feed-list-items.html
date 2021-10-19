@@ -1,6 +1,3 @@
-{{- if .Site.Params.include_debug_comments -}}
-{{ printf "\n<!-- BEGIN layouts/partials/footer/feeds.html -->\n" | safeHTML }}
-{{- end -}}
 {{- $url := urls.Parse .Permalink -}}
 {{- $parts := split $url.Path "/" -}}
 {{- $kind := index $parts 1 -}}
@@ -12,6 +9,4 @@
 {{- end -}}
       <li><a href="/feed.json">JSON Feed</a></li>
       <li><a href="https://micro.blog/{{ .Site.Author.username }}" rel="me">Micro.blog</a></li>
-{{- if .Site.Params.include_debug_comments -}}
-{{ printf "\n<!-- END layouts/partials/footer/feeds.html -->\n" | safeHTML }}
-{{- end -}}
+      

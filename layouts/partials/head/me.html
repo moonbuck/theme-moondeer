@@ -1,13 +1,25 @@
-{{- if .Site.Params.include_debug_comments -}}
-{{ printf "\n<!-- BEGIN layouts/partials/head/me.html -->\n" | safeHTML }}
-{{- end -}}
 <link rel="me" href="https://micro.blog/{{ .Site.Author.username }}" />
-{{- with .Site.Params.twitter_username }}
-<link rel="me" href="https://twitter.com/{{ . }}" />
-{{- end -}}
-{{- with .Site.Params.github_username }}
-<link rel="me" href="https://github.com/{{ . }}" />
-{{- end -}}
-{{- if .Site.Params.include_debug_comments -}}
-{{ printf "\n<!-- END layouts/partials/head/me.html -->\n" | safeHTML }}
-{{- end -}}
+{{ if and (isset .Site.Params "mastodon_server") (isset .Site.Params "mastodon_username")}}
+{{$mastodon_server := .Site.Params.mastodon_server}}
+{{with .Site.Params.mastodon_username}}
+<link rel="me" href="https://{{$mastodon_server}}/@{{.}}" />
+{{end}}
+{{end}}
+{{with .Site.Params.twitter_username}}
+<link rel="me" href="https://twitter.com/@{{.}}" />
+{{end}}
+{{with .Site.Params.github_username}}
+<link rel="me" href="https://github.com/{{.}}" />
+{{end}}
+{{with .Site.Params.tumblr_username}}
+<link rel="me" href="https://{{.}}.tumblr.com" />
+{{end}}
+{{with .Site.Params.medium_username}}
+<link rel="me" href="https://{{.}}.medium.com" />
+{{end}}
+{{with .Site.Params.facebook_username}}
+<link rel="me" href="https://www.facebook.com/{{.}}" />
+{{end}}
+{{with .Site.Params.instagram_username}}
+<link rel="me" href="https://www.instagram.com/{{.}}" />
+{{end}}

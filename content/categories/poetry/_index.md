@@ -6,7 +6,7 @@ menu:
   main:
     name: "Poetry"
     identifier: "poetry"
-    url: "/poetry/"
+    url: "/categories/poetry/"
     weight: 20
 ---
 

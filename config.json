@@ -1,8 +1,20 @@
 {
   "params": {
-      "theme_version": "v52",
+      "theme_version": "v69",
+      "mailto_email": "moondeer@moondeer.blog",
+      "profile_avatar": "https://moondeer.blog/uploads/2021/d2728f1610.jpg",
+      "brief_bio": "Creative nonfiction, art, poetry, apps, philosophy, music, wood work, knots, political culture critiques … some of the things I make.",
       "include_debug_comments": false,
       "disqus_shortname": "moondeer",
+      "github_username": "moonbuck",
+      "twitter_username": "moondeerdotblog",
+      "instagram_username": "moondeerdotblog",
+      "facebook_username": "moondeerdotblog",
+      "tumblr_username": "moondeerdotblog",
+      "medium_username": "Moondeer",
+      "mastodon_username": "moondeer",
+      "mastodon_server": "mastodon.online",
+      "webring_url": "https://xn--sr8hvo.ws/%F0%9F%85%BF%EF%B8%8F%F0%9F%99%86%E2%AD%90%EF%B8%8F",
       "description": "All the latest thoughts to fall out my head.",
       "paginate_home": true,
       "paginate_categories": true

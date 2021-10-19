@@ -72,6 +72,19 @@ Post List
   position: relative;
 }
 
+#about.banner-image {
+  background-position: center top;
+}
+
+.post-title > a {
+  color: #000;
+}
+
+.post-body > p > a {
+  color: #000;
+  text-decoration: underline;
+}
+
 /* Nav */
 
 nav.main-nav {
@@ -118,7 +131,7 @@ article.post header h1.p-name {
 }
 
 /* Media Queries */
-@media screen and (max-width: 540px) {
+/*@media screen and (max-width: 540px) {
   
   .profile #wrapper {
     margin: 0 auto;
@@ -126,7 +139,7 @@ article.post header h1.p-name {
     padding: 70px 0 40px 0;
   } 
   
-}
+}*/
 
 @media screen and (max-width: 540px) {
   div#categories-artsy-fartsy {

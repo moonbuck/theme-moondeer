@@ -1,12 +1,6 @@
-{{- if .Site.Params.include_debug_comments -}}
-{{ printf "\n<!-- BEGIN layouts/partials/post-list.html -->\n" | safeHTML }}
-{{- end -}}
 <ul id="post-list">
 {{- $list := where .Data.Pages.ByDate.Reverse "Type" "post" -}}
 {{- range $list  }}
   {{ partial "truncated-post-item.html" . }}
 {{ end -}}
 </ul>
-{{- if .Site.Params.include_debug_comments -}}
-{{ printf "\n<!-- END layouts/partials/post-list.html -->\n" | safeHTML }}
-{{- end -}}
