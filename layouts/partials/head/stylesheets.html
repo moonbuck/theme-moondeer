@@ -1,7 +1,6 @@
 <link rel="stylesheet" href="https://use.typekit.net/nmn4mcn.css">
-{{/*{{- $seconds := .Site.Params.theme_seconds }}*/}}
 <link href="{{ "assets/css/reset.css" | relURL }}" rel="stylesheet">
-<link href="{{ "assets/css/baseof.css" | relURL }}" rel="stylesheet">
+<link href="{{ "assets/css/base.css" | relURL }}" rel="stylesheet">
 {{- if eq .Page.Type "post" }}
 <link href="{{ "assets/css/post.css" | relURL }}" rel="stylesheet">
 {{- else }}
@@ -9,5 +8,4 @@
 {{ end -}}
 <link href="{{ "assets/css/highlight.css" | relURL }}" rel="stylesheet">
 <link href="{{ "assets/css/grid.css" | relURL }}" rel="stylesheet">
-<link href="{{ "assets/css/flexbox.css" | relURL }}" rel="stylesheet">
 <link rel="stylesheet" href="{{ "custom.css" | relURL }}">

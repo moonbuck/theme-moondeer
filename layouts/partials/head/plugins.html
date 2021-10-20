@@ -1,15 +1,6 @@
 {{- range .Site.Params.plugins_css }}
 <link rel="stylesheet" href="{{ . }}" />
 {{ end -}}
-<!-- Global site tag (gtag.js) - Google Analytics -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-GW176BX9D1"></script>
-<script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
-
-  gtag('config', 'G-GW176BX9D1');
-  </script>
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/glightbox/dist/css/glightbox.min.css" />
 <script src="https://cdn.jsdelivr.net/gh/mcstudios/glightbox/dist/js/glightbox.min.js"></script>
 {{- range $filename := .Site.Params.plugins_html }}

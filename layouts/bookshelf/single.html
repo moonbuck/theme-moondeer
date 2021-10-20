@@ -1,10 +1,11 @@
 {{ define "main" }}
 <article class="h-entry post">
 <section class="e-content post-body">
-{{ range $bookshelf, $description := .Site.Data.bookshelfdescriptions }}
+{{ range $bookshelf, $description := .Site.Data.bookshelf_descriptions }}
 <p><em>{{ $description }}</em></p> 
-{{ range .Site.Data.bookshelves $bookshelf }}
+{{ range index $.Site.Data.bookshelves $bookshelf }}
 {{ partial "bookshelf-book.html" . }}<br />
+{{ end }}
 {{ end }}
 </section>
 </article>
