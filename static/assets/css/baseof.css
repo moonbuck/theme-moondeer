@@ -235,7 +235,11 @@ span.separator:last-child {
   display: none;
 }
 
-span.code { font-family:Menlo, Monaco, Courier; background-color:#EEE; font-size:14px; }
+span.code, code {
+  font-family: "Source Code Pro", Menlo, Monaco, Courier,monospace;
+  background-color:#EEE; 
+  font-size:14px; 
+}
 
 pre  {
   white-space:pre-wrap;
