@@ -431,9 +431,9 @@ header.h-card h4.p-role {
   justify-content: center;
 }
 
-h4.p-role div#social-media-links {
+/*h4.p-role div#social-media-links {
   margin-left: 2em;
-}
+}*/
 
 header.h-card p.p-note {
   line-height: 26px;
