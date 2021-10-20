@@ -13,7 +13,7 @@
   style="max-width: 50px; border-radius: 0px; padding-right: 5px;" />
 </a>
 <span class="bookshelf_title">{{ .title }}</span><br>
-<span class="bookshelf_author">by {{ .author }}</span>
+{{ if gt 0 (len .author) }} <span class="bookshelf_author">by {{ .author }}</span>{{ end }}
 </p>
 {{ end }}
 
@@ -29,7 +29,7 @@
   style="max-width: 50px; border-radius: 0px; padding-right: 5px;" />
 </a>
 <span class="bookshelf_title">{{ .title }}</span><br>
-<span class="bookshelf_author">by {{ .author }}</span>
+{{ if gt 0 (len .author) }}<span class="bookshelf_author">by {{ .author }}</span>{{ end }}
 </p>
 {{ end }}
 
@@ -47,7 +47,7 @@ spine (f$&amp;kers).</em></p>
   style="max-width: 50px; border-radius: 0px; padding-right: 5px;" />
 </a>
 <span class="bookshelf_title">{{ .title }}</span><br>
-<span class="bookshelf_author">by {{ .author }}</span>
+{{ if gt 0 (len .author) }}<span class="bookshelf_author">by {{ .author }}</span>{{ end }}
 </p>
 {{ end }}
 
@@ -64,7 +64,7 @@ as my interest in reading them has waned.</em></p>
   style="max-width: 50px; border-radius: 0px; padding-right: 5px;" />
 </a>
 <span class="bookshelf_title">{{ .title }}</span><br>
-<span class="bookshelf_author">by {{ .author }}</span>
+{{ if gt 0 (len .author) }}<span class="bookshelf_author">by {{ .author }}</span>{{ end }}
 </p>
 {{ end }}
 
