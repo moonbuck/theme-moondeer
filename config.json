@@ -1,6 +1,6 @@
 {
   "params": {
-      "theme_version": "v74",
+      "theme_version": "v75",
       "mailto_email": "moondeer@moondeer.blog",
       "profile_avatar": "https://moondeer.blog/uploads/2021/d2728f1610.jpg",
       "brief_bio": "[ITUNES_DESCRIPTION]",
@@ -17,6 +17,12 @@
       "webring_url": "https://xn--sr8hvo.ws/%F0%9F%85%BF%EF%B8%8F%F0%9F%99%86%E2%AD%90%EF%B8%8F",
       "description": "All the latest thoughts to fall out my head.",
       "paginate_home": true,
-      "paginate_categories": true
+      "paginate_categories": true,
+      "supported_plugin_html_prefixes":
+        [
+         "FOOTER_INJECTION", 
+         "HEAD_TOP",
+         "ABOVE_HEADER"
+       ]
   }
 }
