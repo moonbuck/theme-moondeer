@@ -1,7 +1,9 @@
 {{ define "main" }}
 {{ .Content }}
 <div style="display: flex; flex-wrap: wrap; padding-top: 2em;">
-{{- range $desc, $src := .Site.Data.signedart -}}
+{{- range index .Site.Data.signedart "art" -}}
+  {{ $desc := index . "name" }}
+  {{ $src := index . "url" }}
   <a 
     href="{{ $src }}" 
     class="glightbox" 
@@ -10,8 +12,8 @@
     data-glightbox="description:{{ $desc }}">
 {{ if eq (path.Ext $src) ".mov" }}
   <video 
-    style="max-height: 100%; min-height: 100%; min-width: 100%; object-fit: cover; vertical-align: bottom;"
-    src="{{ $src }}" playsinline autoplay muted loop />
+    style="margin-top: 0; max-height: 100%; min-height: 100%; min-width: 100%; object-fit: cover; vertical-align: bottom;"
+    src="{{ $src }}" playsinline autoplay muted loop></video>
 {{ else }}
   <img 
     style="max-height: 100%; min-height: 100%; min-width: 100%; object-fit: cover; vertical-align: bottom;"
