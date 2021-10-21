@@ -10,7 +10,7 @@
 {{ partial "custom_footer.html" . }}
 {{ partial "footer/footer-javascript.html" . }}
 {{- range $filename := .Site.Params.plugins_html }}
-{{ $prefix := "FOOTER_INJECTION." }}
+{{ $prefix := "BELOW_FOOTER." }}
 {{ if (hasPrefix $filename $prefix) }}
 {{ $filename = strings.TrimPrefix $prefix $filename }}
 {{ partial $filename $ }}

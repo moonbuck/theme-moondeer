@@ -20,7 +20,7 @@
       "paginate_categories": true,
       "supported_plugin_html_prefixes":
         [
-         "FOOTER_INJECTION", 
+         "BELOW_FOOTER", 
          "HEAD_TOP",
          "ABOVE_HEADER"
        ]
