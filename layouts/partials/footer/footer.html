@@ -9,3 +9,11 @@
 </footer>
 {{ partial "custom_footer.html" . }}
 {{ partial "footer/footer-javascript.html" . }}
+{{- range $filename := .Site.Params.plugins_html }}
+{{ $prefix := "FOOTER_INJECTION." }}
+{{ if (hasPrefix $filename $prefix) }}
+{{ $filename = strings.TrimPrefix $prefix $filename }}
+{{ partial $filename $ }}
+{{ end }}
+{{ end -}}
+

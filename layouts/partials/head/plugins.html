@@ -4,5 +4,7 @@
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/glightbox/dist/css/glightbox.min.css" />
 <script src="https://cdn.jsdelivr.net/gh/mcstudios/glightbox/dist/js/glightbox.min.js"></script>
 {{- range $filename := .Site.Params.plugins_html }}
+{{ if not (hasPrefix $filename "FOOTER_INJECTION.") }}
 {{ partial $filename $ }}
+{{ end }}
 {{ end -}}
