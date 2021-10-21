@@ -3,7 +3,7 @@
 {{ end -}}
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/glightbox/dist/css/glightbox.min.css" />
 <script src="https://cdn.jsdelivr.net/gh/mcstudios/glightbox/dist/js/glightbox.min.js"></script>
-{{- range $filename := .Site.Params.plugins_html }}
+{{- range $filename := $.Site.Params.plugins_html }}
 {{ $file_prefix := index (split $filename ".") 0 }}
 {{ if not (in .Site.Params.supported_plugin_html_prefixes $file_prefix) }}
 {{ partial $filename $ }}
