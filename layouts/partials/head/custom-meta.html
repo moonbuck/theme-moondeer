@@ -1,1 +1,5 @@
 <meta id="reading-time" minutes={{ .ReadingTime }} milliseconds={{ mul .ReadingTime 60000 }} />
+<script>
+var window.readingTimeMilliseconds = {{ mul .ReadingTime 60000 }};\
+var window.readingTimeMinutes = {{ .ReadingTime }};
+</script>
