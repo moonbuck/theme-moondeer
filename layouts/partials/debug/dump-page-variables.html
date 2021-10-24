@@ -1,0 +1,49 @@
+{{- printf "<!--\nPage Variables\n--------------\n" | safeHTML -}}
+{{- printf ".AlternativeOutputFormats = %s\n" .AlternativeOutputFormats -}}
+{{- printf ".Aliases = %s\n" .Aliases -}}
+{{- printf "len .Content = %s\n" (len .Content) -}}
+{{- printf ".Data = %s\n" .Data -}}
+{{- printf ".Date = %s\n" .Date -}}
+{{- printf ".Description = %s\n" .Description -}}
+{{- printf ".Dir = %s\n" .Dir -}}
+{{- printf ".Draft = %s\n" .Draft -}}
+{{- printf ".ExpiryDate = %s\n" .ExpiryDate -}}
+{{- printf ".File = %s\n" .File -}}
+{{- printf ".FuzzyWordCount = %s\n" .FuzzyWordCount -}}
+{{- printf ".IsHome = %s\n" .IsHome -}}
+{{- printf ".IsNode = %s\n" .IsNode -}}
+{{- printf ".IsPage = %s\n" .IsPage -}}
+{{- printf ".IsSection = %s\n" .IsSection -}}
+{{- printf ".IsTranslated = %s\n" .IsTranslated -}}
+{{- printf ".Keywords = %s\n" .Keywords -}}
+{{- printf ".Kind = %s\n" .Kind -}}
+{{- printf ".Language = %s\n" .Language -}}
+{{- printf ".Lastmod = %s\n" .Lastmod -}}
+{{- printf ".LinkTitle = %s\n" .LinkTitle -}}
+{{- printf ".Next = %s" .Next -}}
+{{- printf ".NextInSection = %s\n" .NextInSection -}}
+{{- printf ".OutputFormats = %s\n" .OutputFormats -}}
+{{- printf ".Pages = %s\n" .Pages -}}
+{{- printf ".Permalink = %s\n" .Permalink -}}
+{{- printf "len .Plain = %s\n" (len .Plain) -}}
+{{- printf "len .PlainWords = %s\n" (len .PlainWords) -}}
+{{- printf ".Prev = %s\n" .Prev -}}
+{{- printf ".PrevInSection = %s\n" .PrevInSection -}}
+{{- printf ".PublishDate = %s\n" .PublishDate -}}
+{{- printf "len .RawContent = %s\n" (len .RawContent) -}}
+{{- printf ".ReadingTime = %s\n" .ReadingTime -}}
+{{- printf ".Resources = %s\n" .Resources -}}
+{{- printf ".RelPermalink = %s\n" .RelPermalink -}}
+{{- printf ".Sites = %s\n" .Sites -}}
+{{- printf ".Summary = %s\n" .Summary -}}
+{{- printf ".TableOfContents = %s\n" .TableOfContents -}}
+{{- printf ".Title = %s\n" .Title -}}
+{{- printf ".Translations = %s\n" .Translations -}}{{- printf ".ReadingTime = %s\n" .ReadingTime -}}
+{{- printf ".Truncated = %s\n" .Truncated -}}
+{{- printf ".Type = %s\n" .Type -}}
+{{- printf ".Weight = %s\n" .Weight -}}
+{{- printf ".WordCount = %s\n" .WordCount -}}
+{{- range $key, $val := .Params -}}
+{{- printf ".Params.%s = %v\n" $key $val -}}
+{{- end -}}
+{{- printf "-->" | safeHTML -}}
