@@ -1,7 +1,7 @@
 <script>
-var readingTimeMilliseconds = {{ mul .ReadingTime 60000 }};
+var readingTimeMinutes = {{ .ReadingTime }};
+var readingTimeMilliseconds = readingTimeMinutes * 60000;
 var readingTimeMilliseconds_75 = Math.round(readingTimeMilliseconds * 0.75);
 var readingTimeMilliseconds_50 = Math.round(readingTimeMilliseconds * 0.5);
 var readingTimeMilliseconds_25 = Math.round(readingTimeMilliseconds * 0.25);
-var readingTimeMinutes = {{ .ReadingTime }};
 </script>
