@@ -1,29 +1,5 @@
 {{ define "main" }}
 {{ .Content }}
 {{ $slide_data := index .Site.Data.signedart "art" }}
-{{ partial "gallery.html" (dict "gallery" "art-gallery" "title_key" "name" "src_key" "url" "photo_width" "500" "slide_data" $slide_data) }}
-
-{{/*<div style="display: flex; flex-wrap: wrap; padding-top: 2em;">
-{{- range index .Site.Data.signedart "art" -}}
-  {{ $name := index . "name" }}
-  {{ $src := index . "url" }}
-  <a 
-    href="{{ $src }}" 
-    class="glightbox" 
-    style="height: 30vh; width: 20%; flex-grow: 1;"
-    data-gallery="art-gallery" 
-    data-title="{{ $name }}">
-{{ if eq (path.Ext $src) ".mov" }}
-  <video 
-    style="margin-top: 0; max-height: 100%; min-height: 100%; min-width: 100%; object-fit: cover; vertical-align: bottom;"
-    src="{{ $src }}" playsinline autoplay muted loop></video>
-{{ else }}
-  <img 
-    style="max-height: 100%; min-height: 100%; min-width: 100%; object-fit: cover; vertical-align: bottom;"
-    src="https://micro.blog/photos/500x/{{ $src }}" />
-{{ end }}
-    </a>
-{{- end -}}
-</div>*/}}
-
+{{ partial "gallery.html" (dict "gallery" "art-gallery" "title_key" "name" "src_key" "url" "photo_width" "500" "div_style" "padding-top: 2em;" "link_style" "height: 30vh; width: 20%; flex-grow: 1;" "video_style" "margin-top: 0; max-height: 100%; min-height: 100%; min-width: 100%; object-fit: cover; vertical-align: bottom;" "img_style" "max-height: 100%; min-height: 100%; min-width: 100%; object-fit: cover; vertical-align: bottom;" "slide_data" $slide_data) }}
 {{ end }}
