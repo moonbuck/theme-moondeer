@@ -1,6 +1,9 @@
 {{ define "main" }}
 {{ .Content }}
-<div style="display: flex; flex-wrap: wrap; padding-top: 2em;">
+{{ $slide_data := index .Site.Data.signedart "art" }}
+{{ partial "gallery.html" (dict "gallery" "art-gallery" "title_key" "name" "src_key" "url" "photo_width" "500" "slide_data" $slide_data) }}
+
+{{/*<div style="display: flex; flex-wrap: wrap; padding-top: 2em;">
 {{- range index .Site.Data.signedart "art" -}}
   {{ $name := index . "name" }}
   {{ $src := index . "url" }}
@@ -21,6 +24,6 @@
 {{ end }}
     </a>
 {{- end -}}
-</div>
+</div>*/}}
 
 {{ end }}
