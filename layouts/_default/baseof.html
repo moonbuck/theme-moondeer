@@ -60,7 +60,9 @@
 <link rel="stylesheet" href="/assets/css/highlight.css">
 
 {{/* Create a block for including any additional stylesheets */}}
-{{ block "stylesheets" . }}{{ end }}
+{{ block "stylesheets" . }}
+<link rel="stylesheet" href="/assets/css/dark-nav.css">
+{{ end }}
 
 {{/* Include plugin stylesheets */}}
 {{ range site.Params.plugins_css }}
