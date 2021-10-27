@@ -2,11 +2,74 @@
 <html lang="en">
 
 {{/* Define the page head */}}
-{{ block "head" . }}
+<head>
 
-{{ partial "head/head.html" . }}
+{{/* Include plugins with HTML meant for the top of the head */}}
+{{ partial "head/priority-plugins.html" . }}
 
-{{ end }}
+{{/* Include the theme version */}}
+{{ partial "head/theme-version.html" . }}
+
+{{/* Define character set and viewport */}}
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+
+{{/* Define a theme color */}}
+<meta name="theme-color" content="#516189">
+
+{{/* Define site author and link social media */}}
+<meta name="author" content="{{ .Site.Author.name }}">
+{{- partial "head/me.html" . -}}
+
+{{/* Define the title */}}
+<title>
+
+{{/* Create a block with a workable default */}}
+{{- block "title" . -}}
+{{- .Site.Title -}}
+{{- with .Title -}}
+  {{- if eq $.Site.Title . -}}
+    {{- printf " - Latest" -}}
+  {{- else -}}
+    {{- printf " - %s" . -}}
+  {{- end -}}
+{{- end -}}
+{{- end -}}
+</title>
+
+{{/* Create the page description */}}
+<meta name="description" content="{{ .Description | default .Site.Params.description }}">
+
+{{/* Include links for favicons */}}
+{{- partial "head/favicons.html" . -}}
+
+{{/* Include links for the feeds */}}
+{{- partial "head/feeds.html" . -}}
+
+{{/* Include links for the micropub, microsub, webmention, etc. */}}
+{{- partial "head/micro.blog.html" . -}}
+
+{{/* Include Required stylesheets */}}
+<link rel="stylesheet" href="https://use.typekit.net/nmn4mcn.css">
+<link rel="stylesheet" href="assets/css/reset.css">
+<link rel="stylesheet" href="assets/css/base.css">
+<link rel="stylesheet" href="assets/css/highlight.css">
+
+{{/* Create a block for including additional stylesheets */}}
+{{ block "stylesheets" . }}{{ end }}
+
+{{/* Include the custom stylesheet last */}}
+<link rel="stylesheet" href="{{ "custom.css" | relURL }}">
+
+{{/* Include HTML for plugins where location was unspecified */}}
+{{- partial "head/plugins.html" . -}}
+
+{{/* Include meta for Twitter/OG cards */}}
+{{- partial "head/cards.html" . -}}
+
+{{/* Create a block for including any additional head elements */}}
+{{ block "head" . }}{{ end }}
 
 {{/* Define the page body */}}
 <body>
