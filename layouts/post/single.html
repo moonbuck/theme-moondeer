@@ -1,6 +1,18 @@
+{{/* Template for post pages */}}
 {{ define "stylesheets" }}
-<link rel="stylesheet" href="/assets/css/post.css">
+<link rel="stylesheet" href="assets/css/post.css">
 {{ end }}
+
+{{ define "head" }}
+<script type="application/ld+json">
+{
+  "@context" : "http://schema.org",
+  "@type" : "BlogPosting",
+  "image" : {{ apply .Params.images "absURL" "." }}
+}
+</script>
+{{ end }}
+
 {{ define "navigation" }}
 <nav class="main-nav">
 <a href="/">Latest</a>

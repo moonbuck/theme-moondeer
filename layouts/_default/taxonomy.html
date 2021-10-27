@@ -1,7 +1,15 @@
+{{/* Template for category pages */}}
+{{ define "stylesheets" }}
+<link rel="stylesheet" href="/assets/css/list.css">
+{{ end }}
+
 {{ define "main" }}
+
 <section id="wrapper">
+
 {{- /* Display any content provided for the category */ -}}
 <div class="category-content">{{ .Content }}</div>
+
 {{- /* Generate the pinned/remaining collections.  */ -}}
 {{- $pinned := .Site.Taxonomies.categories.Get "personal-favorites" -}}
 {{- $all_pinned_pages := $pinned.Pages -}}
@@ -9,8 +17,10 @@
 {{- $pinned_pages := $all_pinned_pages | intersect $pages -}}
 {{- $remaining_pages := $pages | symdiff $pinned_pages -}}
 {{- $pages_dict := dict "pinned" $pinned_pages "remaining" $remaining_pages -}}
+
 {{- /* Display the list of posts. */ -}}
 <ul id="post-list">
+
 {{- /* Handle pagination. */ -}}
 {{- if .Site.Params.paginate_categories -}}
   {{- $paginator := .Paginate $remaining_pages -}}
@@ -31,8 +41,11 @@
   {{- end -}}
 {{- end -}}
 </ul>
+
 {{- if .Site.Params.paginate_categories -}}
   {{ partial "pagination" . }}
 {{- end -}}
+
 </section>
+
 {{ end }}

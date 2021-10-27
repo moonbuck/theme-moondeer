@@ -1,11 +1,14 @@
+{{/* Template for the homepage */}}
+{{ define "stylesheets" }}
+<link rel="stylesheet" href="/assets/css/list.css">
+{{ end }}
+
 {{ define "navigation" }}
 <nav class="main-nav">
 <a class="selected" href="/">Latest</a>
-{{- with $.Site.Menus.main -}}
-  {{- range . }}
+{{- range site.Menus.main }}
 <a href="{{ .URL }}"><nobr>{{ .Title }}</nobr></a>
-  {{ end -}}
-{{- end -}}
+{{- end }}
 </nav>
 {{ partial "header/banner.html" . }}
 {{ end }}

@@ -1,8 +1,9 @@
 {
   "params": {
-      "theme_version": "v91",
+      "theme_version": "v92",
       "mailto_email": "moondeer@moondeer.blog",
-      "profile_avatar": "https://moondeer.blog/uploads/2021/d2728f1610.jpg",
+      "profile_avatar": 
+        "https://moondeer.blog/uploads/2021/d2728f1610.jpg",
       "brief_bio": "[ITUNES_DESCRIPTION]",
       "include_debug_comments": false,
       "disqus_shortname": "moondeer",
@@ -14,7 +15,16 @@
       "medium_username": "Moondeer",
       "mastodon_username": "moondeer",
       "mastodon_server": "mastodon.online",
-      "webring_url": "https://xn--sr8hvo.ws/%F0%9F%85%BF%EF%B8%8F%F0%9F%99%86%E2%AD%90%EF%B8%8F",
+      "theme_color": "#516189",
+      "shortcut_icon": 
+        "https://moondeer.blog/uploads/2021/5260d2013e.png",
+      "apple_touch_icon": 
+        "https://moondeer.blog/uploads/2021/5260d2013e.png",
+      "icon_32": "https://moondeer.blog/uploads/2021/91b72102d1.png",
+      "icon_16": "https://moondeer.blog/uploads/2021/df2e80d9c3.png",
+      "mask_icon": "https://moondeer.blog/uploads/2021/3b64fed44b.svg",
+      "webring_url": 
+        "https://xn--sr8hvo.ws/%F0%9F%85%BF%EF%B8%8F%F0%9F%99%86%E2%AD%90%EF%B8%8F",
       "description": "All the latest thoughts to fall out my head.",
       "paginate": 25,
       "paginate_home": true,

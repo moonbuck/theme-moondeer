@@ -1,7 +1,0 @@
-{{- range $filename := .Site.Params.plugins_html }}
-{{ $prefix := "HEAD_TOP." }}
-{{ if (hasPrefix $filename $prefix) }}
-{{ $filename = strings.TrimPrefix $prefix $filename }}
-{{ partial $filename $ }}
-{{ end }}
-{{ end -}}

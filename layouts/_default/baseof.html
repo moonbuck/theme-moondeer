@@ -5,108 +5,119 @@
 <head>
 
 {{/* Include plugins with HTML meant for the top of the head */}}
-{{ partial "head/priority-plugins.html" . }}
+{{ range $filename := site.Params.plugins_html }}
+{{ $prefix := "HEAD_TOP." }}
+{{ if (hasPrefix $filename $prefix) }}
+{{ $filename = strings.TrimPrefix $prefix $filename }}
+{{ partial $filename $ }}
+{{ end }}
+{{ end }}
 
 {{/* Include the theme version */}}
-{{ partial "head/theme-version.html" . }}
+{{ 
+  printf "<!-- theme: Moondeer %s -->" 
+  site.Params.theme_version | safeHTML 
+}}
 
 {{/* Define character set and viewport */}}
 <meta charset="utf-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="viewport" 
+      content="width=device-width, initial-scale=1, viewport-fit=cover">
 
-{{/* Define a theme color */}}
-<meta name="theme-color" content="#516189">
+{{/* Favicons and theme color */}}
+{{ partial "head/favicons-and-theme-color.html" . }}
 
-{{/* Define site author and link social media */}}
-<meta name="author" content="{{ .Site.Author.name }}">
-{{- partial "head/me.html" . -}}
+{{/* Define site author */}}
+<meta name="author" content="{{ site.Author.name }}">
 
-{{/* Define the title */}}
-<title>
+{{/* Include social media links */}}
+{{ partial "head/social-media-links.html" . }}
 
-{{/* Create a block with a workable default */}}
-{{- block "title" . -}}
-{{- .Site.Title -}}
-{{- with .Title -}}
-  {{- if eq $.Site.Title . -}}
-    {{- printf " - Latest" -}}
-  {{- else -}}
-    {{- printf " - %s" . -}}
-  {{- end -}}
-{{- end -}}
-{{- end -}}
-</title>
+{{/* Create a block defining the page title */}}
+{{ block "title" . }}{{ partial "head/page-title.html" . }}{{ end }}
 
-{{/* Create the page description */}}
-<meta name="description" content="{{ .Description | default .Site.Params.description }}">
-
-{{/* Include links for favicons */}}
-{{- partial "head/favicons.html" . -}}
+{{/* Create a block defining the page description */}}
+{{ block "description" . }}
+{{ partial "head/page-description.html" . }}
+{{ end }}
 
 {{/* Include links for the feeds */}}
-{{- partial "head/feeds.html" . -}}
+{{ partial "head/feeds.html" . }}
 
 {{/* Include links for the micropub, microsub, webmention, etc. */}}
-{{- partial "head/micro.blog.html" . -}}
+<link rel="authorization_endpoint" 
+      href="https://micro.blog/indieauth/auth" />
+<link rel="token_endpoint" href="https://micro.blog/indieauth/token" />
+<link rel="micropub" href="https://micro.blog/micropub" />
+<link rel="microsub" href="https://micro.blog/microsub" />
+<link rel="webmention" href="https://micro.blog/webmention" />
+<link rel="subscribe" href="https://micro.blog/users/follow" />
 
+
+{{/* Include core stylesheets */}}
 <link rel="stylesheet" href="https://use.typekit.net/nmn4mcn.css">
 <link rel="stylesheet" href="/assets/css/reset.css">
 <link rel="stylesheet" href="/assets/css/base.css">
 <link rel="stylesheet" href="/assets/css/highlight.css">
 
-{{/* Create a block for including additional stylesheets */}}
-{{ block "stylesheets" . }}
-<link rel="stylesheet" href="/assets/css/list.css">
+{{/* Create a block for including any additional stylesheets */}}
+{{ block "stylesheets" . }}{{ end }}
+
+{{/* Include plugin stylesheets */}}
+{{ range site.Params.plugins_css }}
+<link rel="stylesheet" href="{{ . }}" />
 {{ end }}
 
 {{/* Include the custom stylesheet last */}}
 <link rel="stylesheet" href="{{ "custom.css" | relURL }}">
 
 {{/* Include HTML for plugins where location was unspecified */}}
-{{- partial "head/plugins.html" . -}}
-
-{{/* Include meta for Twitter/OG cards */}}
-{{- partial "head/cards.html" . -}}
-
-{{/* Create a block for including any additional head elements */}}
-{{ block "head" . }}
-
+{{ $supported := site.Params.supported_plugin_html_prefixes }}
+{{ range $filename := site.Params.plugins_html }}
+{{ $file_prefix := index (split $filename ".") 0 }}
+{{ if not (in $supported $file_prefix) }}
+{{ partial $filename $ }}
+{{ end }}
 {{ end }}
 
+{{/* Include meta for Twitter/OG cards */}}
+{{ partial "head/cards.html" . }}
+
+{{/* Create a block for including any additional head elements */}}
+{{ block "head" . }}{{ end }}
+
+{{/* Close the page head */}}
 </head>
 
 {{/* Define the page body */}}
 <body>
 
 {{/* Iterate over plugin HTML to find any prefixed with ABOVE_HEADER */}}
-{{- range $filename := .Site.Params.plugins_html }}
+{{ range $filename := .Site.Params.plugins_html }}
 {{ $prefix := "ABOVE_HEADER." }}
 {{ if (hasPrefix $filename $prefix) }}
 {{ $filename = strings.TrimPrefix $prefix $filename }}
 {{ partial $filename $ }}
 {{ end }}
-{{ end -}}
+{{ end }}
 
 {{/* Create a block for encapsulating navigation */}}
 {{ block "navigation" . }}
 
-{{/* Include default that handles everything but home and post pages */}}
+{{/* Include default that handles most pages */}}
 <nav class="main-nav">
 <a href="/">Latest</a>
-{{ $current_page := . }}
-{{- with $.Site.Menus.main -}}
-  {{- range . }}
-  <a 
-  class="{{ cond ($current_page.IsMenuCurrent "main" .) "selected" "" }}" 
-  href="{{ .URL }}">
-  <nobr>{{ .Title }}</nobr>
-  </a>
-  {{ end -}}
-{{- end -}}
+{{ $page := . }}
+{{ range site.Menus.main }}
+<a class="{{ cond ($page.IsMenuCurrent "main" .) "selected" "" }}" 
+   href="{{ .URL }}">
+<nobr>{{ .Title }}</nobr>
+</a>
+{{ end }}
 </nav>
 
-{{ partial "header/banner.html" . }}
+{{ partial "banner.html" . }}
 
 {{ end }}
 
@@ -115,7 +126,34 @@
 
 {{/* Create a block for the page footer */}}
 {{ block "footer" . }}
-{{ partial "footer/footer.html" . }}
+<footer id="footer">
+
+{{/* Create a list with feed links and email */}}
+{{ partial "footer/link-list.html" . }}
+
+{{/* Include IndieWeb Webring navigation */}}
+{{ partial "footer/webring.html" . }}
+
+</footer>
 {{ end }}
+
+{{/* Include the custom footer */}}
+{{ partial "custom_footer.html" . }}
+
+{{/* Include plugin HTML marked for insertion below footer */}}
+{{ range $filename := .Site.Params.plugins_html }}
+{{ $prefix := "BELOW_FOOTER." }}
+{{ if (hasPrefix $filename $prefix) }}
+{{ $filename = strings.TrimPrefix $prefix $filename }}
+{{ partial $filename $ }}
+{{ end }}
+{{ end }}
+
+{{/* Insert plugin Javascript includes */}}
+{{ range site.Params.plugins_js }}
+<script src="{{ . }}"></script>
+{{ end }}
+
+{{/* Close the page body and html */}}
 </body>
 </html>

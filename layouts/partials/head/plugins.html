@@ -1,9 +1,0 @@
-{{- range .Site.Params.plugins_css }}
-<link rel="stylesheet" href="{{ . }}" />
-{{ end -}}
-{{- range $filename := .Site.Params.plugins_html }}
-{{ $file_prefix := index (split $filename ".") 0 }}
-{{ if not (in $.Site.Params.supported_plugin_html_prefixes $file_prefix) }}
-{{ partial $filename $ }}
-{{ end }}
-{{ end -}}

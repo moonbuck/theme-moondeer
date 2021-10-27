@@ -1,4 +1,8 @@
-{{- /* Code from the Category Cloud plugin, modified to exclude "crossing" category */ -}}
+{{/* Template for the gallery page */}}
+{{ define "stylesheets" }}
+<link rel="stylesheet" href="/assets/css/cloud.css">
+{{ end }}
+
 {{ define "main" }}
 <section id="wrapper">
 {{- if not (eq (len $.Site.Taxonomies.categories) 0) -}}

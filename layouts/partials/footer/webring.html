@@ -1,6 +1,7 @@
+{{ with site.Params.webring_url }}
 <div id="indieweb">
-  <a href="{{ .Site.Params.webring_url }}/previous">⇦</a>
+  <a href="{{ . }}/previous">⇦</a>
   An IndieWeb Webring
-  <a href="{{ .Site.Params.webring_url }}/next">⇨</a>
+  <a href="{{ . }}/next">⇨</a>
 </div>
-  
+{{ end }}
