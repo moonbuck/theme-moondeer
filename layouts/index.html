@@ -1,3 +1,15 @@
+{{ define "navigation" }}
+<nav class="main-nav">
+<a class="selected" href="/">Latest</a>
+{{- with $.Site.Menus.main -}}
+  {{- range . }}
+<a href="{{ .URL }}"><nobr>{{ .Title }}</nobr></a>
+  {{ end -}}
+{{- end -}}
+</nav>
+{{ partial "header/banner.html" . }}
+{{ end }}
+
 {{ define "main" }}
 {{- if .Site.Params.paginate_home -}}
 {{ partial "paginated-post-list.html" . }}

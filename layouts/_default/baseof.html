@@ -1,11 +1,43 @@
 <!DOCTYPE html>
 <html lang="en">
+{{ block "head" . }}
+
 {{ partial "head/head.html" . }}
+
+{{ end }}
+
 <body>
-{{ partial "header/header.html" . }}
-<section id="wrapper" {{ if eq .File.Dir "about/" }} class="bio" {{ end }}>
-{{ block "main" . }}{{ end }}
-</section>
+{{/* Iterate over plugin HTML to find any prefixed with ABOVE_HEADER */}}
+{{- range $filename := .Site.Params.plugins_html }}
+{{ $prefix := "ABOVE_HEADER." }}
+{{ if (hasPrefix $filename $prefix) }}
+{{ $filename = strings.TrimPrefix $prefix $filename }}
+{{ partial $filename $ }}
+{{ end }}
+{{ end -}}
+
+{{ block "navigation" . }}
+<nav class="main-nav">
+<a href="/">Latest</a>
+{{ $current_page := . }}
+{{- with $.Site.Menus.main -}}
+  {{- range . }}
+  <a 
+  class="{{ cond ($current_page.IsMenuCurrent "main" .) "selected" "" }}" 
+  href="{{ .URL }}">
+  <nobr>{{ .Title }}</nobr>
+  </a>
+  {{ end -}}
+{{- end -}}
+</nav>
+{{ partial "header/banner.html" . }}
+{{ end }}
+
+{{ block "main" . }}
+
+{{ end }}
+{{ block "footer" . }}
 {{ partial "footer/footer.html" . }}
+{{ end }}
 </body>
 </html>

@@ -1,4 +1,19 @@
-{{- /* Modifed to include disqus code and make minor stylistic changes */ -}}
+{{ define "navigation" }}
+<nav class="main-nav">
+<a href="/">Latest</a>
+{{- $categories := .Page.Params.categories -}}
+{{- with $.Site.Menus.main -}}
+  {{- range . }}
+  <a 
+    class="{{ cond (in $categories .Title) "selected" "" }}"
+    href="{{ .URL }}">
+  <nobr>{{ .Title }}</nobr>
+  </a>
+  {{ end -}}
+  {{- end -}}
+</nav>
+{{ end }}
+
 {{ define "main" }}
 <article class="h-entry post">
   <header>

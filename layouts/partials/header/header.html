@@ -1,9 +1,2 @@
-{{- range $filename := .Site.Params.plugins_html }}
-{{ $prefix := "ABOVE_HEADER." }}
-{{ if (hasPrefix $filename $prefix) }}
-{{ $filename = strings.TrimPrefix $prefix $filename }}
-{{ partial $filename $ }}
-{{ end }}
-{{ end -}}
 {{ partial "header/navigation/navigation.html" . }}
 {{ partial "header/banner.html" . }}
