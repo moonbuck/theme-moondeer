@@ -50,14 +50,10 @@
 {{/* Include links for the micropub, microsub, webmention, etc. */}}
 {{- partial "head/micro.blog.html" . -}}
 
-{{/* Include Required stylesheets */}}
-<link rel="stylesheet" href="https://use.typekit.net/nmn4mcn.css">
-<link rel="stylesheet" href="assets/css/reset.css">
-<link rel="stylesheet" href="assets/css/base.css">
-<link rel="stylesheet" href="assets/css/highlight.css">
-
 {{/* Create a block for including additional stylesheets */}}
-{{ block "stylesheets" . }}{{ end }}
+{{ block "stylesheets" . }}
+{{ partial "head/stylesheets.html" . }}
+{{ end }}
 
 {{/* Include the custom stylesheet last */}}
 <link rel="stylesheet" href="{{ "custom.css" | relURL }}">
@@ -69,7 +65,9 @@
 {{- partial "head/cards.html" . -}}
 
 {{/* Create a block for including any additional head elements */}}
-{{ block "head" . }}{{ end }}
+{{ block "head" . }}
+
+{{ end }}
 
 {{/* Define the page body */}}
 <body>
