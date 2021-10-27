@@ -50,9 +50,14 @@
 {{/* Include links for the micropub, microsub, webmention, etc. */}}
 {{- partial "head/micro.blog.html" . -}}
 
+<link rel="stylesheet" href="https://use.typekit.net/nmn4mcn.css">
+<link rel="stylesheet" href="assets/css/reset.css">
+<link rel="stylesheet" href="assets/css/base.css">
+<link rel="stylesheet" href="assets/css/highlight.css">
+
 {{/* Create a block for including additional stylesheets */}}
 {{ block "stylesheets" . }}
-{{ partial "head/stylesheets.html" . }}
+<link rel="stylesheet" href="assets/css/list.css">
 {{ end }}
 
 {{/* Include the custom stylesheet last */}}
