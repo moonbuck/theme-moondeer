@@ -1,4 +1,5 @@
 {{ define "main" }}
+<section id="wrapper">
 {{- /* Display any content provided for the category */ -}}
 <div class="category-content">{{ .Content }}</div>
 {{- /* Generate the pinned/remaining collections.  */ -}}
@@ -33,4 +34,5 @@
 {{- if .Site.Params.paginate_categories -}}
   {{ partial "pagination" . }}
 {{- end -}}
+</section>
 {{ end }}

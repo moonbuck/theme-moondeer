@@ -1,12 +1,16 @@
 <!DOCTYPE html>
 <html lang="en">
+
+{{/* Define the page head */}}
 {{ block "head" . }}
 
 {{ partial "head/head.html" . }}
 
 {{ end }}
 
+{{/* Define the page body */}}
 <body>
+
 {{/* Iterate over plugin HTML to find any prefixed with ABOVE_HEADER */}}
 {{- range $filename := .Site.Params.plugins_html }}
 {{ $prefix := "ABOVE_HEADER." }}
@@ -16,7 +20,10 @@
 {{ end }}
 {{ end -}}
 
+{{/* Create a block for encapsulating navigation */}}
 {{ block "navigation" . }}
+
+{{/* Include default that handles everything but home and post pages */}}
 <nav class="main-nav">
 <a href="/">Latest</a>
 {{ $current_page := . }}
@@ -30,12 +37,15 @@
   {{ end -}}
 {{- end -}}
 </nav>
+
 {{ partial "header/banner.html" . }}
-{{ end }}
-
-{{ block "main" . }}
 
 {{ end }}
+
+{{/* Define a block for the primary page content */}}
+{{ block "main" . }}{{ end }}
+
+{{/* Create a block for the page footer */}}
 {{ block "footer" . }}
 {{ partial "footer/footer.html" . }}
 {{ end }}

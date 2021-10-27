@@ -1,4 +1,5 @@
 {{ define "main" }}
+<section id="wrapper">
 <article class="h-entry post">
 <section class="e-content post-body">
 {{ range $bookshelf, $description := .Site.Data.bookshelf_descriptions }}
@@ -9,4 +10,5 @@
 {{ end }}
 </section>
 </article>
+</section>
 {{ end }}

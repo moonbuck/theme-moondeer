@@ -15,6 +15,7 @@
 {{ end }}
 
 {{ define "main" }}
+<section id="wrapper">
 <article class="h-entry post">
   <header>
   {{ with .Title | markdownify }}
@@ -52,4 +53,5 @@
     </a>
   </section>
 </article>
+</section>
 {{ end }}

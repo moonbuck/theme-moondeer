@@ -11,10 +11,12 @@
 {{ end }}
 
 {{ define "main" }}
+<section id="wrapper">
 {{- if .Site.Params.paginate_home -}}
 {{ partial "paginated-post-list.html" . }}
 {{- else -}}
 {{ partial "post-list.html" . }}
 {{- end -}}
 {{ partial "profile.html" . }}
+</section>
 {{ end }}
