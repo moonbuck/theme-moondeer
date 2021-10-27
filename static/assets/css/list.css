@@ -90,6 +90,10 @@ article.post header h1.p-name {
   display: none;
 }
 
+div#categories-stream-of-consciousness {
+  background-position: 5% 50%;
+}
+
 /* Media Queries */
 
 @media screen and (max-width: 540px) {
