@@ -31,8 +31,8 @@
       "paginate_home": true,
       "paginate_categories": true,
       "cloud_max_rem": 1.34,
-      "cloud_min_rem": 0.9167,
-      "cloud_min_weight": 100,
+      "cloud_min_rem": 1.0,
+      "cloud_min_weight": 300,
       "cloud_max_weight": 800,
       "supported_plugin_html_prefixes":
         [

@@ -1,5 +1,19 @@
-#category-cloud { margin-top: 1em; }
+#category-cloud { 
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-content: center;
+  align-items: baseline;
+  gap: 0px 10px;
+  width: 90%;
+  max-width: 900px;
+  margin: 40px 20px; 
+}
 
-#category-cloud a { color: #666; }
+#category-cloud a { 
+  color: #666; 
+  margin: 0px;
+  padding: 0px;
+}
 
 #category-cloud a:hover { color: #000; }
