@@ -1,5 +1,3 @@
-/* Post */
-
 .post-body li:last-child {
   margin-bottom: 1.5em;
 }
@@ -87,17 +85,6 @@
   padding: 1px;
 }
 
-/* Nav */
-
-nav.main-nav {
-  background: #fff;
-  background: rgba(255,255,255,.90);
-}
-
-nav.main-nav a {
-  color: #000;
-}
-
 .microblog_conversation {
   margin-top: 50px;
   padding-top: 20px;
@@ -147,18 +134,3 @@ div.microblog_text p  a {
   }  
   
 }
-
-/*@media (prefers-color-scheme: dark) {
-  body {
-    color: white;
-    background: #1c1c1e;
-  }
-
-  nav.main-nav {
-    background: #1c1c1e;
-  }
-  
-  a, nav.main-nav a, #footer a, #post-nav a, p a, ul a, ol a, h1, h2, h3 {
-    color: white;
-  }
-}*/

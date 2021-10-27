@@ -1,5 +1,6 @@
 {{/* Template for the bookshelf page */}}
 {{ define "stylesheets" }}
+<link rel="stylesheet" href="/assets/css/dark-nav.css">
 <link rel="stylesheet" href="/assets/css/bookshelf.css">
 {{ end }}
 
@@ -9,8 +10,21 @@
 <section class="e-content post-body">
 {{ range $bookshelf, $description := .Site.Data.bookshelf_descriptions }}
 <p><em>{{ $description }}</em></p> 
-{{ range index $.Site.Data.bookshelves $bookshelf }}
-{{ partial "bookshelf-book.html" . }}<br />
+{{ range index site.Data.bookshelves $bookshelf }}
+<p class="bookshelf-book">
+<a href="https://micro.blog/books/{{ .isbn }}">
+<img 
+  class="bookshelf-book-cover"
+  src="https://micro.blog/photos/100px/{{ .cover_url }}"
+  align="left" />
+</a>
+<span class="bookshelf-title">{{ .title }}</span>
+{{ with .author }}
+<br>
+<span class="bookshelf-author">by {{ . }}
+{{ end }}
+</p>
+<br />
 {{ end }}
 {{ end }}
 </section>

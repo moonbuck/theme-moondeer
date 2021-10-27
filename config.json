@@ -1,6 +1,7 @@
 {
   "params": {
-      "theme_version": "v92",
+      "theme_version": "v93",
+      "visible_theme_version": true,
       "mailto_email": "moondeer@moondeer.blog",
       "profile_avatar": 
         "https://moondeer.blog/uploads/2021/d2728f1610.jpg",
@@ -29,6 +30,10 @@
       "paginate": 25,
       "paginate_home": true,
       "paginate_categories": true,
+      "cloud_max_rem": 1.34,
+      "cloud_min_rem": 0.9167,
+      "cloud_min_weight": 100,
+      "cloud_max_weight": 800,
       "supported_plugin_html_prefixes":
         [
          "BELOW_FOOTER", 

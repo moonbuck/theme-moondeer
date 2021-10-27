@@ -1,8 +1,5 @@
 <link rel="me" href="https://micro.blog/{{ site.Author.username }}" />
-{{ if and 
-  (isset site.Params "mastodon_server") 
-  (isset site.Params "mastodon_username")
-}}
+{{ if and (isset site.Params "mastodon_server") (isset site.Params "mastodon_username") }}
   {{$mastodon_server := site.Params.mastodon_server}}
   {{with site.Params.mastodon_username}}
 <link rel="me" href="https://{{$mastodon_server}}/@{{.}}" />

@@ -1,0 +1,8 @@
+nav.main-nav {
+  background: #fff;
+  background: rgba(255,255,255,.90);
+}
+
+nav.main-nav a {
+  color: #000;
+}
