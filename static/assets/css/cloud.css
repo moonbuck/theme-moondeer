@@ -7,7 +7,8 @@
   gap: 0px 10px;
   width: 90%;
   max-width: 900px;
-  margin: 40px 20px; 
+  padding: 0px 20px;
+  margin: 40px auto; 
 }
 
 #category-cloud a { 
