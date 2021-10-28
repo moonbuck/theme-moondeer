@@ -12,7 +12,7 @@
 <div class="category-content">{{ .Content }}</div>
 
 {{- /* Generate the pinned/remaining collections.  */ -}}
-{{- $pinned := .Site.Taxonomies.categories.Get "personal-favorites" -}}
+{{- $pinned := .Site.Taxonomies.categories.Get "pinned" -}}
 {{- $all_pinned_pages := $pinned.Pages -}}
 {{- $pages := where .Data.Pages.ByDate.Reverse "Type" "post" -}}
 {{- $pinned_pages := $all_pinned_pages | intersect $pages -}}
