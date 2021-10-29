@@ -207,10 +207,6 @@
 
 .small-font-size { font-size: 0.875rem; }
 
-.code-font-size { font-size: 0.5834rem; }
-
-.pre-font-size { font-size: 0.54167rem; }
-
 .h1-font-weight { font-weight: 800; }
 .h2-font-weight { font-weight: 700; }
 .h3-font-weight { font-weight: 400; }
@@ -219,10 +215,6 @@
 
 .body-font-weight { font-weight: 300; }
 
-.code-font-weight { font-weight: 400;}
-
-.pre-font-weight { font-weight: 400;}
-
 .h1-font-family { font-family: mr-eaves-sans, sans-serif; }
 .h2-font-family { font-family: mr-eaves-sans, sans-serif; }
 .h3-font-family { font-family: mr-eaves-sans, sans-serif; }
@@ -230,10 +222,6 @@
 .h5-font-family { font-family: mr-eaves-sans, sans-serif; }
 
 .body-font-family { font-family: mr-eaves-sans, sans-serif; }
-
-.code-font-family { font-family: "Source Code Pro", monospace; }
-
-.pre-font-family { font-family: "Source Code Pro", monospace; }
 
 /* HTML element styles */
 
@@ -272,15 +260,3 @@ em > strong
 sup { vertical-align: super; font-size: smaller; }
 
 small { font-size: 0.875rem; }
-
-code { 
-  font-family: "Sources Code Pro", monospace; 
-  font-weight: 400;
-  font-size: 0.5834rem; 
-}
-
-pre { 
-  font-family: "Sources Code Pro", monospace; 
-  font-weight: 400;
-  font-size: 0.54167rem; 
-}

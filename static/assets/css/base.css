@@ -39,7 +39,6 @@ b { color: #1E2025; }
 
 strong { color: #1E2025; }
 
-
 blockquote {
   padding-left: 15px;
   border-left: 2px solid #eee;
@@ -69,8 +68,6 @@ span.divider {
 }
 
 span.separator:last-child { display: none; }
-
-span.code, code { background-color:#EEE; }
 
 pre  {
   white-space:pre-wrap;
@@ -140,17 +137,6 @@ h2.headline { margin-top: 0; margin-bottom: 50px; }
 #wrapper { max-width: 600px; margin: 0 auto; padding: 25px; }
 
 a { text-decoration: none; color: #516189; }
-
-code.highlighter-rouge {
-  background-color: #F5F5F5;
-  border-radius: 5px;
-  display: inline-block;
-  padding: 5px 8px;
-  color: #7F7F7F;
-  font-size: 0.9167rem;
-  line-height: 1.35;
-  font-style: italic;
-}
 
 /* Footer */
 
