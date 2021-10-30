@@ -11,8 +11,7 @@ p,
 .dates,
 .post-body li,
 .bio li,
-video, 
-pre ::before {
+video {
   margin-top: 1em;
 }
 
