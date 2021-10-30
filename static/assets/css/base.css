@@ -80,6 +80,17 @@ pre  {
   margin-top: 15px;
 }
 
+code {
+  background-color: #F5F5F5;
+  border-radius: 5px;
+  display: inline-block;
+  padding: 5px 8px;
+  color: #7F7F7F;
+  font-size: 0.9167rem;
+  line-height: 1.35;
+  font-family:Consolas,Monaco,'Andale Mono','Ubuntu Mono',monospace;
+}
+
 table {
   width: 100%;
   margin: 40px 0;
