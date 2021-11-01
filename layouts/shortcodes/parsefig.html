@@ -14,15 +14,15 @@
   {{- with (findRE "[(][^)]+[)]" .) 1 -}}
     {{- if gt (len .) 0 -}}
       {{- $saneLink = index . 0 | replaceRE "[(]([^)]+)[)]" "$1" -}}
-		<a {{ printf "href=%q" $saneLink | safeHTMLAttr }}><h4>{{ $caption | safeHTML }}</h4></a>
+		<a {{ printf "href=%q" $saneLink | safeHTMLAttr }}><h4>{{ $caption | markdownify | safeHTML }}</h4></a>
     {{- else -}}
-<a {{ printf "href=%q" $saneLink | safeHTMLAttr }}><h4>{{ $caption | safeHTML }}</h4></a>
+<a {{ printf "href=%q" $saneLink | safeHTMLAttr }}><h4>{{ $caption | markdownify | safeHTML }}</h4></a>
     {{- end -}}
   {{- else -}}
-    <a {{ printf "href=%q" . | safeHTMLAttr }}><h4>{{ $caption | safeHTML  }}</h4></a>
+    <a {{ printf "href=%q" . | safeHTMLAttr }}><h4>{{ $caption | markdownify | safeHTML  }}</h4></a>
   {{- end -}}
 {{- else -}}
-<h4>{{ $caption | safeHTML }}</h4>
+<h4>{{ $caption | markdownify | safeHTML }}</h4>
 {{- end -}}
 </figcaption>
 {{- end -}}
