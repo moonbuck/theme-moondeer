@@ -274,7 +274,7 @@ mark#theme-version-overlay {
   color: white;
 }
 
-.banner-image {
+/*.banner-image {
   background-color: #516189;
   height: 300px;
   width: 100%;
@@ -282,7 +282,7 @@ mark#theme-version-overlay {
   background-repeat: no-repeat;
   background-size: cover;
   position: relative;
-}
+}*/
 
 /* Media Queries */
 @media screen and (max-width: 540px) {

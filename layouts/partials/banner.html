@@ -1,7 +1,0 @@
-{{- /* Created to hold the switch logic for assigning banner images, These are set as background images via CSS  */ -}}
-{{- $path := (urls.Parse .Permalink).Path -}}
-{{- with (index .Site.Data.banners $path) -}}
-<div id="{{ anchorize $path }}" 
-     class="banner-image" 
-     style="background-image: url({{ . }});"></div>
-{{- end -}}

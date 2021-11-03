@@ -114,7 +114,9 @@
 {{ end }}
 </nav>
 
-{{ partial "banner.html" . }}
+{{ if templates.Exists "partials/plugin_banner.html" }}
+{{ partial "plugin_banner.html" . }}
+{{ end }}
 
 {{ end }}
 
