@@ -2,82 +2,313 @@
   "description": "*An interactive grid of my signed digital art in the order I created them. To see these little f$&kers being merched head on over [here](https://moondeer.art) (seriously … it's insane. Here's an abbreviated list of what [Fine Art America](https://fineartamerica.com) will stick my art on and ship to you: art prints, canvas prints, metal prints, wood prints, tapestries, throw pillows, blankets, duvet covers, shower curtains, towels, coffee mugs, bags, pouches, yoga mats, t-shirts, jigsaw puzzles, stationary, notebooks, stickers, iPhone cases, sweatshirts, face masks, and last, but not least, the one the spousal-type and I continue to crack up over … baby onesies.)*",
   "photo_width": 500,
   "slides": [
-    {"title": "American Fabric", "src": "https://moondeer.blog/uploads/2021/80b124a294.jpg"},
-    {"title": "Cold Race War", "src": "https://moondeer.blog/uploads/2021/76c82b757c.jpg"},
-    {"title": "Representation", "src": "https://moondeer.blog/uploads/2021/95e03999ff.jpg"},
-    {"title": "Josh", "src": "https://moondeer.blog/uploads/2021/f706dce000.jpg"},
-    {"title": "South Carolina Tokens", "src": "https://moondeer.blog/uploads/2021/10c1206ccb.jpg"},
-    {"title": "Fodder", "src": "https://moondeer.blog/uploads/2021/7c1a92896a.jpg"},
-    {"title": "Damn Good Dawg", "src": "https://moondeer.blog/uploads/2021/f9ba3905ca.jpg"},
-    {"title": "Murphy", "src": "https://moondeer.blog/uploads/2021/f8b4727edc.jpg"},
-    {"title": "Demography and The GOP", "src": "https://moondeer.blog/uploads/2021/07f16097b2.jpg"},
-    {"title": "Bubble Merger", "src": "https://moondeer.blog/uploads/2021/57cccbe268.jpg"},
-    {"title": "Euler Diagram", "src": "https://moondeer.blog/uploads/2021/f1ed034c78.jpg"},
-    {"title": "Follower's Count", "src": "https://moondeer.blog/uploads/2021/2c5884abec.jpg"},
-    {"title": "Shanti", "src": "https://moondeer.blog/uploads/2021/869813b580.jpg"},
-    {"title": "Obstacles", "src": "https://moondeer.blog/uploads/2021/54a798a76b.jpg"},
-    {"title": "Linchpin", "src": "https://moondeer.blog/uploads/2021/86cc33eb96.jpg"},
-    {"title": "Snake Oil", "src": "https://moondeer.blog/uploads/2021/573e0c430d.jpg"},
-    {"title": "Programming", "src": "https://moondeer.blog/uploads/2021/69decd9ec3.jpg"},
-    {"title": "House of Cards", "src": "https://moondeer.blog/uploads/2021/57da10e35f.jpg"},
-    {"title": "GOP Affiliations Deck", "src": "https://moondeer.blog/uploads/2021/c27515570a.png"},
-    {"title": "Thin Blue Line", "src": "https://moondeer.blog/uploads/2021/51cd2fc27e.jpg"},
-    {"title": "Options", "src": "https://moondeer.blog/uploads/2021/43a471d429.jpg"},
-    {"title": "American Audit", "src": "https://moondeer.blog/uploads/2021/033aae94f8.jpg"},
-    {"title": "Base Sculpting 101", "src": "https://moondeer.blog/uploads/2021/e0c894684d.mov"},
-    {"title": "Light Box", "src": "https://moondeer.blog/uploads/2021/c44aa7d2f2.jpg"},
-    {"title": "Sand Castle (Part One)", "src": "https://moondeer.blog/uploads/2021/360d254bd0.jpg"},
-    {"title": "Sand Castle (Part Two)", "src": "https://moondeer.blog/uploads/2021/61bfd623d3.jpg"},
-    {"title": "Tours and Activities", "src": "https://moondeer.blog/uploads/2021/d9931f883c.jpg"},
-    {"title": "Gated Reality", "src": "https://moondeer.blog/uploads/2021/f75fad2350.jpg"},
-    {"title": "That's Entertainment", "src": "https://moondeer.blog/uploads/2021/9ef72635e0.jpg"},
-    {"title": "Avatar", "src": "https://moondeer.blog/uploads/2021/5e6ce53e7e.jpg"},
-    {"title": "Existential Outlaw", "src": "https://moondeer.blog/uploads/2021/5402e1b7d0.jpg"},
-    {"title": "Senate Ideology Scores", "src": "https://moondeer.blog/uploads/2021/e36136773a.jpg"},
-    {"title": "House Ideology Scores", "src": "https://moondeer.blog/uploads/2021/0978747333.jpg"},
-    {"title": "Simulation Hypothesis", "src": "https://moondeer.blog/uploads/2021/11f2c54196.jpg"},
-    {"title": "Chris", "src": "https://moondeer.blog/uploads/2021/59278750cd.jpg"},
-    {"title": "Patch One", "src": "https://moondeer.blog/uploads/2021/3bbd0e981d.jpg"},
-    {"title": "Patch Two", "src": "https://moondeer.blog/uploads/2021/52609c82a1.jpg"},
-    {"title": "Patch Three", "src": "https://moondeer.blog/uploads/2021/689398ecea.jpg"},
-    {"title": "Patch Four", "src": "https://moondeer.blog/uploads/2021/c3d9889fac.jpg"},
-    {"title": "Patch Five", "src": "https://moondeer.blog/uploads/2021/9e74ae2ddf.jpg"},
-    {"title": "Patch Six", "src": "https://moondeer.blog/uploads/2021/8b3c34bd4f.jpg"},
-    {"title": "Patch Seven", "src": "https://moondeer.blog/uploads/2021/b95dc00312.jpg"},
-    {"title": "City Hall", "src": "https://moondeer.blog/uploads/2021/7f6c0ae67d.jpg"},
-    {"title": "Minor-Mulholland", "src": "https://moondeer.blog/uploads/2021/1f457406b2.jpg"},
-    {"title": "Moondeer's Bane", "src": "https://moondeer.blog/uploads/2021/05a8b9f020.jpg"},
-    {"title": "Perpetual Tribalism Machine", "src": "https://moondeer.blog/uploads/2021/ffde3a47aa.jpg"},
-    {"title": "Unable to Connect", "src": "https://moondeer.blog/uploads/2021/be84daec38.jpg"},
-    {"title": "Marionettes", "src": "https://moondeer.blog/uploads/2021/a7380c9bda.jpg"},
-    {"title": "Inspiration", "src": "https://moondeer.blog/uploads/2021/10b8759ffd.jpg"},
-    {"title": "Stranger Stone Mountain", "src": "https://moondeer.blog/uploads/2021/ec8f505ddc.jpg"},
-    {"title": "The Upside Down House", "src": "https://moondeer.blog/uploads/2021/26f230be93.jpg"},
-    {"title": "The Upside Down Senate", "src": "https://moondeer.blog/uploads/2021/7fa33f11f7.jpg"},
-    {"title": "The Upside Down Nation State", "src": "https://moondeer.blog/uploads/2021/e3d599422e.jpg"},
-    {"title": "The Upside Down Pandemic", "src": "https://moondeer.blog/uploads/2021/3efd99b549.jpg"},
-    {"title": "Propaganda Cover", "src": "https://moondeer.blog/uploads/2021/c2ac772a85.jpg"},
-    {"title": "Chapter I: Organizing Chaos", "src": "https://moondeer.blog/uploads/2021/5bac80cd57.jpg"},
-    {"title": "Chapter II: The New Propaganda", "src": "https://moondeer.blog/uploads/2021/4c70f3f057.jpg"},
-    {"title": "Chapter III: The New Propagandists", "src": "https://moondeer.blog/uploads/2021/32c74a5f09.jpg"},
-    {"title": "Chapter IV: The Psychology of Public Relations", "src": "https://moondeer.blog/uploads/2021/f33c2bd3cc.jpg"},
-    {"title": "Chapter V: Business and the Public", "src": "https://moondeer.blog/uploads/2021/842078b4cd.jpg"},
-    {"title": "Chapter VI: Propaganda and Political Leadership", "src": "https://moondeer.blog/uploads/2021/41b12bb2ee.jpg"},
-    {"title": "Chapter VII: Women's Activities and Propaganda", "src": "https://moondeer.blog/uploads/2021/18536c5e2a.jpg"},
-    {"title": "Chapter VIII: Propaganda for Education", "src": "https://moondeer.blog/uploads/2021/7e56dccc15.jpg"},
-    {"title": "Chapter IX: Propaganda in Social Service", "src": "https://moondeer.blog/uploads/2021/86a530498f.jpg"},
-    {"title": "Chapter X: Art and Science", "src": "https://moondeer.blog/uploads/2021/8f5057e4ec.jpg"},
-    {"title": "Chapter XI: The Mechanics of Propaganda", "src": "https://moondeer.blog/uploads/2021/58dedf116d.jpg"},
-    {"title": "Earth One", "src": "https://moondeer.blog/uploads/2021/1c25af5cdc.jpg"},
-    {"title": "Earth Two", "src": "https://moondeer.blog/uploads/2021/87dd1dbf5f.jpg"},
-    {"title": "Dual Reality Diagram", "src": "https://moondeer.blog/uploads/2021/ff60e654de.jpg"},
-    {"title": "Confirmation Bias", "src": "https://moondeer.blog/uploads/2021/877d7b191e.mov"},
-    {"title": "Obstruction", "src": "https://moondeer.blog/uploads/2021/a442eecdaa.jpg"},
-    {"title": "Bird Raising", "src": "https://moondeer.blog/uploads/2021/88aa16bfe5.mov"},
-    {"title": "Clean Electricity", "src": "https://moondeer.blog/uploads/2021/5d2f1b33ec.jpg"},
-    {"title": "Communal Heartwood", "src": "https://moondeer.blog/uploads/2021/782087f3c2.jpg"},
-    {"title": "Biomedical Research Agency", "src": "https://moondeer.blog/uploads/2021/2bbf729358.jpg"},
-    {"title": "Child Tax Credit", "src": "https://moondeer.blog/uploads/2021/9f83590077.jpg"},
-    {"title": "Community College", "src": "https://moondeer.blog/uploads/2021/6f94b46f98.jpg"}
+    {
+      "title": "American Fabric",
+      "src": "https://moondeer.blog/uploads/2021/80b124a294.jpg"
+    },
+    {
+      "title": "Cold Race War",
+      "src": "https://moondeer.blog/uploads/2021/76c82b757c.jpg"
+    },
+    {
+      "title": "Representation",
+      "src": "https://moondeer.blog/uploads/2021/95e03999ff.jpg"
+    },
+    {
+      "title": "Josh",
+      "src": "https://moondeer.blog/uploads/2021/f706dce000.jpg"
+    },
+    {
+      "title": "South Carolina Tokens",
+      "src": "https://moondeer.blog/uploads/2021/10c1206ccb.jpg"
+    },
+    {
+      "title": "Fodder",
+      "src": "https://moondeer.blog/uploads/2021/7c1a92896a.jpg"
+    },
+    {
+      "title": "Damn Good Dawg",
+      "src": "https://moondeer.blog/uploads/2021/f9ba3905ca.jpg"
+    },
+    {
+      "title": "Murphy",
+      "src": "https://moondeer.blog/uploads/2021/f8b4727edc.jpg"
+    },
+    {
+      "title": "Demography and The GOP",
+      "src": "https://moondeer.blog/uploads/2021/07f16097b2.jpg"
+    },
+    {
+      "title": "Bubble Merger",
+      "src": "https://moondeer.blog/uploads/2021/57cccbe268.jpg"
+    },
+    {
+      "title": "Euler Diagram",
+      "src": "https://moondeer.blog/uploads/2021/f1ed034c78.jpg"
+    },
+    {
+      "title": "Follower's Count",
+      "src": "https://moondeer.blog/uploads/2021/2c5884abec.jpg"
+    },
+    {
+      "title": "Shanti",
+      "src": "https://moondeer.blog/uploads/2021/869813b580.jpg"
+    },
+    {
+      "title": "Obstacles",
+      "src": "https://moondeer.blog/uploads/2021/54a798a76b.jpg"
+    },
+    {
+      "title": "Linchpin",
+      "src": "https://moondeer.blog/uploads/2021/86cc33eb96.jpg"
+    },
+    {
+      "title": "Snake Oil",
+      "src": "https://moondeer.blog/uploads/2021/573e0c430d.jpg"
+    },
+    {
+      "title": "Programming",
+      "src": "https://moondeer.blog/uploads/2021/69decd9ec3.jpg"
+    },
+    {
+      "title": "House of Cards",
+      "src": "https://moondeer.blog/uploads/2021/57da10e35f.jpg"
+    },
+    {
+      "title": "GOP Affiliations Deck",
+      "src": "https://moondeer.blog/uploads/2021/c27515570a.png"
+    },
+    {
+      "title": "Thin Blue Line",
+      "src": "https://moondeer.blog/uploads/2021/51cd2fc27e.jpg"
+    },
+    {
+      "title": "Options",
+      "src": "https://moondeer.blog/uploads/2021/43a471d429.jpg"
+    },
+    {
+      "title": "American Audit",
+      "src": "https://moondeer.blog/uploads/2021/033aae94f8.jpg"
+    },
+    {
+      "title": "Base Sculpting 101",
+      "src": "https://moondeer.blog/uploads/2021/e0c894684d.mov"
+    },
+    {
+      "title": "Light Box",
+      "src": "https://moondeer.blog/uploads/2021/c44aa7d2f2.jpg"
+    },
+    {
+      "title": "Sand Castle (Part One)",
+      "src": "https://moondeer.blog/uploads/2021/360d254bd0.jpg"
+    },
+    {
+      "title": "Sand Castle (Part Two)",
+      "src": "https://moondeer.blog/uploads/2021/61bfd623d3.jpg"
+    },
+    {
+      "title": "Tours and Activities",
+      "src": "https://moondeer.blog/uploads/2021/d9931f883c.jpg"
+    },
+    {
+      "title": "Gated Reality",
+      "src": "https://moondeer.blog/uploads/2021/f75fad2350.jpg"
+    },
+    {
+      "title": "That's Entertainment",
+      "src": "https://moondeer.blog/uploads/2021/9ef72635e0.jpg"
+    },
+    {
+      "title": "Avatar",
+      "src": "https://moondeer.blog/uploads/2021/5e6ce53e7e.jpg"
+    },
+    {
+      "title": "Existential Outlaw",
+      "src": "https://moondeer.blog/uploads/2021/5402e1b7d0.jpg"
+    },
+    {
+      "title": "Senate Ideology Scores",
+      "src": "https://moondeer.blog/uploads/2021/e36136773a.jpg"
+    },
+    {
+      "title": "House Ideology Scores",
+      "src": "https://moondeer.blog/uploads/2021/0978747333.jpg"
+    },
+    {
+      "title": "Simulation Hypothesis",
+      "src": "https://moondeer.blog/uploads/2021/11f2c54196.jpg"
+    },
+    {
+      "title": "Chris",
+      "src": "https://moondeer.blog/uploads/2021/59278750cd.jpg"
+    },
+    {
+      "title": "Patch One",
+      "src": "https://moondeer.blog/uploads/2021/3bbd0e981d.jpg"
+    },
+    {
+      "title": "Patch Two",
+      "src": "https://moondeer.blog/uploads/2021/52609c82a1.jpg"
+    },
+    {
+      "title": "Patch Three",
+      "src": "https://moondeer.blog/uploads/2021/689398ecea.jpg"
+    },
+    {
+      "title": "Patch Four",
+      "src": "https://moondeer.blog/uploads/2021/c3d9889fac.jpg"
+    },
+    {
+      "title": "Patch Five",
+      "src": "https://moondeer.blog/uploads/2021/9e74ae2ddf.jpg"
+    },
+    {
+      "title": "Patch Six",
+      "src": "https://moondeer.blog/uploads/2021/8b3c34bd4f.jpg"
+    },
+    {
+      "title": "Patch Seven",
+      "src": "https://moondeer.blog/uploads/2021/b95dc00312.jpg"
+    },
+    {
+      "title": "City Hall",
+      "src": "https://moondeer.blog/uploads/2021/7f6c0ae67d.jpg"
+    },
+    {
+      "title": "Minor-Mulholland",
+      "src": "https://moondeer.blog/uploads/2021/1f457406b2.jpg"
+    },
+    {
+      "title": "Moondeer's Bane",
+      "src": "https://moondeer.blog/uploads/2021/05a8b9f020.jpg"
+    },
+    {
+      "title": "Perpetual Tribalism Machine",
+      "src": "https://moondeer.blog/uploads/2021/ffde3a47aa.jpg"
+    },
+    {
+      "title": "Unable to Connect",
+      "src": "https://moondeer.blog/uploads/2021/be84daec38.jpg"
+    },
+    {
+      "title": "Marionettes",
+      "src": "https://moondeer.blog/uploads/2021/a7380c9bda.jpg"
+    },
+    {
+      "title": "Inspiration",
+      "src": "https://moondeer.blog/uploads/2021/10b8759ffd.jpg"
+    },
+    {
+      "title": "Stranger Stone Mountain",
+      "src": "https://moondeer.blog/uploads/2021/ec8f505ddc.jpg"
+    },
+    {
+      "title": "The Upside Down House",
+      "src": "https://moondeer.blog/uploads/2021/26f230be93.jpg"
+    },
+    {
+      "title": "The Upside Down Senate",
+      "src": "https://moondeer.blog/uploads/2021/7fa33f11f7.jpg"
+    },
+    {
+      "title": "The Upside Down Nation State",
+      "src": "https://moondeer.blog/uploads/2021/e3d599422e.jpg"
+    },
+    {
+      "title": "The Upside Down Pandemic",
+      "src": "https://moondeer.blog/uploads/2021/3efd99b549.jpg"
+    },
+    {
+      "title": "Propaganda Cover",
+      "src": "https://moondeer.blog/uploads/2021/c2ac772a85.jpg"
+    },
+    {
+      "title": "Chapter I: Organizing Chaos",
+      "src": "https://moondeer.blog/uploads/2021/5bac80cd57.jpg"
+    },
+    {
+      "title": "Chapter II: The New Propaganda",
+      "src": "https://moondeer.blog/uploads/2021/4c70f3f057.jpg"
+    },
+    {
+      "title": "Chapter III: The New Propagandists",
+      "src": "https://moondeer.blog/uploads/2021/32c74a5f09.jpg"
+    },
+    {
+      "title": "Chapter IV: The Psychology of Public Relations",
+      "src": "https://moondeer.blog/uploads/2021/f33c2bd3cc.jpg"
+    },
+    {
+      "title": "Chapter V: Business and the Public",
+      "src": "https://moondeer.blog/uploads/2021/842078b4cd.jpg"
+    },
+    {
+      "title": "Chapter VI: Propaganda and Political Leadership",
+      "src": "https://moondeer.blog/uploads/2021/41b12bb2ee.jpg"
+    },
+    {
+      "title": "Chapter VII: Women's Activities and Propaganda",
+      "src": "https://moondeer.blog/uploads/2021/18536c5e2a.jpg"
+    },
+    {
+      "title": "Chapter VIII: Propaganda for Education",
+      "src": "https://moondeer.blog/uploads/2021/7e56dccc15.jpg"
+    },
+    {
+      "title": "Chapter IX: Propaganda in Social Service",
+      "src": "https://moondeer.blog/uploads/2021/86a530498f.jpg"
+    },
+    {
+      "title": "Chapter X: Art and Science",
+      "src": "https://moondeer.blog/uploads/2021/8f5057e4ec.jpg"
+    },
+    {
+      "title": "Chapter XI: The Mechanics of Propaganda",
+      "src": "https://moondeer.blog/uploads/2021/58dedf116d.jpg"
+    },
+    {
+      "title": "Earth One",
+      "src": "https://moondeer.blog/uploads/2021/1c25af5cdc.jpg"
+    },
+    {
+      "title": "Earth Two",
+      "src": "https://moondeer.blog/uploads/2021/87dd1dbf5f.jpg"
+    },
+    {
+      "title": "Dual Reality Diagram",
+      "src": "https://moondeer.blog/uploads/2021/ff60e654de.jpg"
+    },
+    {
+      "title": "Confirmation Bias",
+      "src": "https://moondeer.blog/uploads/2021/877d7b191e.mov"
+    },
+    {
+      "title": "Obstruction",
+      "src": "https://moondeer.blog/uploads/2021/a442eecdaa.jpg"
+    },
+    {
+      "title": "Bird Raising",
+      "src": "https://moondeer.blog/uploads/2021/88aa16bfe5.mov"
+    },
+    {
+      "title": "Clean Electricity",
+      "src": "https://moondeer.blog/uploads/2021/5d2f1b33ec.jpg"
+    },
+    {
+      "title": "Communal Heartwood",
+      "src": "https://moondeer.blog/uploads/2021/782087f3c2.jpg"
+    },
+    {
+      "title": "Biomedical Research Agency",
+      "src": "https://moondeer.blog/uploads/2021/2bbf729358.jpg"
+    },
+    {
+      "title": "Child Tax Credit",
+      "src": "https://moondeer.blog/uploads/2021/9f83590077.jpg"
+    },
+    {
+      "title": "Community College",
+      "src": "https://moondeer.blog/uploads/2021/6f94b46f98.jpg"
+    }
   ]
 }
