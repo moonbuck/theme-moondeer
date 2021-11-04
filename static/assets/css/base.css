@@ -196,7 +196,11 @@ figure > a:hover { text-decoration: underline; }
 
 dd > p { margin: 0px 0px 1em 0px; padding: 0px 0px 0px 1em; }
 
-dd > p > dl { margin: 0px 0px 2em; }
+dd > p > dl,
+dd > p  dt,
+dd > p dd {
+  margin: 0px 0px 2em 0px; 
+}
 
 figure { padding-top: 8vw; }
 
