@@ -194,6 +194,10 @@ figure > a { box-shadow: none; }
 p > a:hover, 
 figure > a:hover { text-decoration: underline; }
 
+dd > p { margin: 0px 0px 1em 0px; padding: 0px 0px 0px 1em; }
+
+dd > p > dl { margin: 0px 0px 2em; }
+
 figure { padding-top: 8vw; }
 
 a.img-link {

@@ -262,5 +262,3 @@ sup { vertical-align: super; font-size: smaller; }
 small { font-size: 0.875rem; }
 
 dt { font-weight: 400; }
-
-dd > p { margin: 0px 0px 1em 0px; padding: 0px 0px 0px 1em; }
