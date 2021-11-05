@@ -11,9 +11,7 @@
 <a href="{{ .URL }}"><nobr>{{ .Title }}</nobr></a>
 {{- end }}
 </nav>
-{{ if templates.Exists "partials/plugin_banner.html" }}
-{{ partial "plugin_banner.html" . }}
-{{ end }}
+{{ partial "header/banner.html" . }}
 {{ end }}
 
 {{ define "main" }}

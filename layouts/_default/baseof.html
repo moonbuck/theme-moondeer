@@ -99,11 +99,7 @@
 {{ end }}
 </nav>
 
-{{ if templates.Exists "partials/plugin_banner.html" }}
-{{ partial "plugin_banner.html" . }}
-{{ else if templates.Exists "partials/plugin-banner.html" }}
-{{ partial "plugin-banner.html" . }}
-{{ end }}
+{{ partial "header/banner.html" . }}
 
 {{ end }}
 
