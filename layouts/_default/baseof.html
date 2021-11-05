@@ -4,7 +4,7 @@
 {{/* Define the page head */}}
 <head>
 
-{{ partial "inject-plugin.html" "HEAD_TOP" }}
+{{ partial "utility/inject-plugin.html" "HEAD_TOP" }}
 
 {{/* Include the theme version */}}
 {{ printf "<!-- theme: Moondeer %s -->" site.Params.theme_version | safeHTML }}
@@ -65,7 +65,7 @@
 {{/* Include the custom stylesheet last */}}
 <link rel="stylesheet" href="{{ "custom.css" | relURL }}">
 
-{{ partial "inject-plugin.html" }}
+{{ partial "utility/inject-plugin.html" }}
 
 {{/* Create a block for including any additional head elements */}}
 {{ block "head" . }}{{ end }}
@@ -76,7 +76,7 @@
 {{/* Define the page body */}}
 <body>
 
-{{ partial "inject-plugin.html" "ABOVE_HEADER" }}
+{{ partial "utility/inject-plugin.html" "ABOVE_HEADER" }}
 
 {{/* Create a block for encapsulating navigation */}}
 {{ block "navigation" . }}
@@ -115,7 +115,7 @@
 {{/* Include the custom footer */}}
 {{ partial "custom_footer.html" . }}
 
-{{ partial "inject-plugin.html" "BELOW_FOOTER" }}
+{{ partial "utility/inject-plugin.html" "BELOW_FOOTER" }}
 
 {{/* Insert plugin Javascript includes */}}
 {{ range site.Params.plugins_js }}
