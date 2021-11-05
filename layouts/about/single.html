@@ -1,12 +1,12 @@
 {{/* Template for the about page */}}
-{{ define "stylesheets" }}
+{{- define "stylesheets" }}
 <link rel="stylesheet" href="/assets/css/dark-nav.css">
 <link rel="stylesheet" href="/assets/css/about.css">
-{{ end }}
+{{- end }}
 
-{{ define "main" }}
+{{- define "main" }}
 <section id="wrapper">
-{{ partial "profile.html" . }}
+{{- partial "profile.html" . }}
 
 <div id="wrapper"><p>
 What? Y’all want something not constructed as a Trumpian dig for an itty bitty Twitter bio box?</p>
@@ -43,4 +43,4 @@ Fine. Let me think on it (and yes, my father had to remind me that I was born at
 <p>So there’s a rough sketch for ya. No doubt I will comeback later and overhaul the f$&k out of this little sh$t show.</p>
 </div>
 </section>
-{{ end }}
+{{- end }}

@@ -1,8 +1,8 @@
 <ul id="post-list">
-{{- $paginator := .Paginate (where .Data.Pages.ByDate.Reverse "Type" "post") -}}
-{{- $list := $paginator.Pages -}}
+{{- $paginator := .Paginate (where .Data.Pages.ByDate.Reverse "Type" "post") }}
+{{- $list := $paginator.Pages }}
 {{- range $list }}
-    {{ partial "truncated-post-item.html" . }}
-{{ end -}}
+    {{- partial "truncated-post-item.html" . }}
+{{- end }}
 </ul>
-{{ partial "pagination" . }}
+{{- partial "pagination" . }}

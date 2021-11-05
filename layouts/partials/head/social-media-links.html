@@ -1,25 +1,25 @@
 <link rel="me" href="https://micro.blog/{{ site.Author.username }}" />
-{{ if and (isset site.Params "mastodon_server") (isset site.Params "mastodon_username") }}
-  {{$mastodon_server := site.Params.mastodon_server}}
-  {{with site.Params.mastodon_username}}
-<link rel="me" href="https://{{$mastodon_server}}/@{{.}}" />
-  {{end}}
-{{end}}
-{{with site.Params.twitter_username}}
-<link rel="me" href="https://twitter.com/@{{.}}" />
-{{end}}
-{{with site.Params.github_username}}
-<link rel="me" href="https://github.com/{{.}}" />
-{{end}}
-{{with site.Params.tumblr_username}}
-<link rel="me" href="https://{{.}}.tumblr.com" />
-{{end}}
-{{with site.Params.medium_username}}
-<link rel="me" href="https://{{.}}.medium.com" />
-{{end}}
-{{with site.Params.facebook_username}}
-<link rel="me" href="https://www.facebook.com/{{.}}" />
-{{end}}
-{{with site.Params.instagram_username}}
-<link rel="me" href="https://www.instagram.com/{{.}}" />
-{{end}}
+{{- if and (isset site.Params "mastodon_server") (isset site.Params "mastodon_username") }}
+  {{- $mastodon_server := site.Params.mastodon_server }}
+  {{- with site.Params.mastodon_username }}
+<link rel="me" href="https://{{$mastodon_server}}/@{{ . }}" />
+  {{- end }}
+{{- end }}
+{{- with site.Params.twitter_username }}
+<link rel="me" href="https://twitter.com/@{{ . }}" />
+{{- end }}
+{{- with site.Params.github_username }}
+<link rel="me" href="https://github.com/{{ . }}" />
+{{- end }}
+{{- with site.Params.tumblr_username }}
+<link rel="me" href="https://{{ . }}.tumblr.com" />
+{{- end }}
+{{- with site.Params.medium_username }}
+<link rel="me" href="https://{{ . }}.medium.com" />
+{{- end }}
+{{- with site.Params.facebook_username }}
+<link rel="me" href="https://www.facebook.com/{{ . }}" />
+{{ end }}
+{{- with site.Params.instagram_username }}
+<link rel="me" href="https://www.instagram.com/{{ . }}" />
+{{- end }}

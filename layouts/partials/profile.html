@@ -3,41 +3,41 @@
   <section id="wrapper">
     <header class="h-card">
       <a class="u-url" rel="me" href="https://moondeer.blog/about">
-      {{with .Site.Params.profile_avatar}}<img id="avatar" class="u-photo" src="{{.}}" />{{end}}
+      {{- with site.Params.profile_avatar}}<img id="avatar" class="u-photo" src="{{ . }}" />{{ end }}
       </a>
-      <h1 class="p-name" rel="me">{{ .Site.Author.name }}</h1>
+      <h1 class="p-name" rel="me">{{ site.Author.name }}</h1>
       <h4 class="p-role">
       <div id="social-media-links">
-      {{with .Site.Author.username}}
-        <a rel="me" href="https://micro.blog/{{.}}">@{{.}}</a> (Micro.blog)<br />
-      {{end}}
-      {{ if and (isset .Site.Params "mastodon_server") (isset .Site.Params "mastodon_username")}}
-      {{$mastodon_server := .Site.Params.mastodon_server}}
-      {{with .Site.Params.mastodon_username}}
-        <a rel="me" href="https://{{$mastodon_server}}/@{{.}}">@{{.}}</a> (Mastodon)<br />
-        {{end}}
-        {{end}}
-        {{with .Site.Params.twitter_username}}
-        <a rel="me" href="https://twitter.com/@{{.}}">@{{.}}</a> (Twitter)<br />
-        {{end}}
-        {{with .Site.Params.github_username}}
-        <a rel="me" href="https://github.com/{{.}}">@{{.}}</a> (Github)<br />
-        {{end}}
-        {{with .Site.Params.tumblr_username}}
-        <a rel="me" href="https://{{.}}.tumblr.com">@{{.}}</a> (Tumblr)<br />
-        {{end}}
-        {{with .Site.Params.medium_username}}
-        <a rel="me" href="https://{{.}}.medium.com">@{{.}}</a> (Medium)<br />
-        {{end}}
-        {{with .Site.Params.facebook_username}}
-        <a rel="me" href="https://www.facebook.com/{{.}}">@{{.}}</a> (Facebook)<br />
-        {{end}}
-        {{with .Site.Params.instagram_username}}
-        <a rel="me" href="https://www.instagram.com/{{.}}">@{{.}}</a> (Instagram)<br />
-        {{end}}
+      {{- with site.Author.username}}
+        <a rel="me" href="https://micro.blog/{{ . }}">@{{ . }}</a> (Micro.blog)<br />
+      {{- end }}
+      {{- if and (isset site.Params "mastodon_server") (isset site.Params "mastodon_username")}}
+      {{- $mastodon_server := site.Params.mastodon_server }}
+      {{- with site.Params.mastodon_username }}
+        <a rel="me" href="https://{{ $mastodon_server }}/@{{ . }}">@{{ . }}</a> (Mastodon)<br />
+        {{- end }}
+        {{- end }}
+        {{- with site.Params.twitter_username}}
+        <a rel="me" href="https://twitter.com/@{{ . }}">@{{ . }}</a> (Twitter)<br />
+        {{- end }}
+        {{- with site.Params.github_username}}
+        <a rel="me" href="https://github.com/{{ . }}">@{{ . }}</a> (Github)<br />
+        {{- end }}
+        {{- with site.Params.tumblr_username}}
+        <a rel="me" href="https://{{ . }}.tumblr.com">@{{ . }}</a> (Tumblr)<br />
+        {{- end }}
+        {{- with site.Params.medium_username}}
+        <a rel="me" href="https://{{ . }}.medium.com">@{{ . }}</a> (Medium)<br />
+        {{- end }}
+        {{- with site.Params.facebook_username}}
+        <a rel="me" href="https://www.facebook.com/{{ . }}">@{{ . }}</a> (Facebook)<br />
+        {{- end }}
+        {{- with site.Params.instagram_username}}
+        <a rel="me" href="https://www.instagram.com/{{ . }}">@{{ . }}</a> (Instagram)<br />
+        {{- end }}
         </div>
       </h4>
-      <p class="p-note"><em>{{.Site.Params.brief_bio}}</em></p>
+      <p class="p-note"><em>{{ site.Params.brief_bio }}</em></p>
     </header>
   </section>
 </div>

@@ -1,10 +1,8 @@
 <article class="post">
-  <header>
-    <h2><a href='{{ .Permalink }}'> {{ .Title | markdownify }}</a> </h2>
-    <div class="post-meta">{{ .Date.Format "Mon, Jan 2, 2006" }} - {{ .FuzzyWordCount }} Words </div>
-  </header>
-  {{ .Summary }}
-  <footer>
-  <a href='{{ .Permalink }}'><nobr>Read more →</nobr></a>
-  </footer>
-  </article>
+<header>
+  <h2><a href='{{ .Permalink }}'> {{ .Title | markdownify }}</a> </h2>
+  <div class="post-meta">{{ .Date.Format "Mon, Jan 2, 2006" }} - {{ .FuzzyWordCount }} Words </div>
+</header>
+{{ .Summary }}
+<footer><a href='{{ .Permalink }}'><nobr>Read more →</nobr></a></footer>
+</article>

@@ -1,6 +1,6 @@
 <ul id="post-list">
-{{- $list := where .Data.Pages.ByDate.Reverse "Type" "post" -}}
+{{- $list := where .Data.Pages.ByDate.Reverse "Type" "post" }}
 {{- range $list  }}
-  {{ partial "truncated-post-item.html" . }}
-{{ end -}}
+  {{- partial "truncated-post-item.html" . }}
+{{- end }}
 </ul>

@@ -1,52 +1,52 @@
 {{/* Template for category pages */}}
-{{ define "stylesheets" }}
+{{- define "stylesheets" }}
 <link rel="stylesheet" href="/assets/css/dark-nav.css">
 <link rel="stylesheet" href="/assets/css/list.css">
-{{ end }}
+{{- end }}
 
-{{ define "main" }}
+{{- define "main" }}
 
 <section id="wrapper">
 
-{{- /* Display any content provided for the category */ -}}
+{{- /* Display any content provided for the category */}}
 <div class="category-content">{{ .Content }}</div>
 
-{{- /* Generate the pinned/remaining collections.  */ -}}
-{{- $pinned := .Site.Taxonomies.categories.Get "pinned" -}}
-{{- $all_pinned_pages := $pinned.Pages -}}
-{{- $pages := where .Data.Pages.ByDate.Reverse "Type" "post" -}}
-{{- $pinned_pages := $all_pinned_pages | intersect $pages -}}
-{{- $remaining_pages := $pages | symdiff $pinned_pages -}}
-{{- $pages_dict := dict "pinned" $pinned_pages "remaining" $remaining_pages -}}
+{{- /* Generate the pinned/remaining collections.  */}}
+{{- $pinned := .Site.Taxonomies.categories.Get "pinned" }}
+{{- $all_pinned_pages := $pinned.Pages }}
+{{- $pages := where .Data.Pages.ByDate.Reverse "Type" "post" }}
+{{- $pinned_pages := $all_pinned_pages | intersect $pages }}
+{{- $remaining_pages := $pages | symdiff $pinned_pages }}
+{{- $pages_dict := dict "pinned" $pinned_pages "remaining" $remaining_pages }}
 
-{{- /* Display the list of posts. */ -}}
+{{- /* Display the list of posts. */}}
 <ul id="post-list">
 
-{{- /* Handle pagination. */ -}}
-{{- if .Site.Params.paginate_categories -}}
-  {{- $paginator := .Paginate $remaining_pages -}}
-  {{- if not $paginator.HasPrev -}}
-    {{- range $pinned_pages -}}
-      {{ partial "truncated-post-item.html" . }}
-    {{- end -}}
-  {{- end -}}
-  {{- range $paginator.Pages -}}
-    {{ partial "truncated-post-item.html" . }}
-  {{- end -}}
-{{- else -}}
-  {{- range $pinned_pages -}}
-    {{ partial "truncated-post-item.html" . }}
-  {{- end -}}
-  {{- range $remaining_pages -}}
-    {{ partial "truncated-post-item.html" . }}
-  {{- end -}}
-{{- end -}}
+{{- /* Handle pagination. */}}
+{{- if .Site.Params.paginate_categories }}
+  {{- $paginator := .Paginate $remaining_pages }}
+  {{- if not $paginator.HasPrev }}
+    {{- range $pinned_pages }}
+      {{- partial "truncated-post-item.html" . }}
+    {{- end }}
+  {{- end }}
+  {{- range $paginator.Pages }}
+    {{- partial "truncated-post-item.html" . }}
+  {{- end }}
+{{- else }}
+  {{- range $pinned_pages }}
+    {{- partial "truncated-post-item.html" . }}
+  {{- end }}
+  {{- range $remaining_pages }}
+    {{- partial "truncated-post-item.html" . }}
+  {{- end }}
+{{- end }}
 </ul>
 
-{{- if .Site.Params.paginate_categories -}}
+{{- if .Site.Params.paginate_categories }}
   {{ partial "pagination" . }}
-{{- end -}}
+{{- end }}
 
 </section>
 
-{{ end }}
+{{- end }}

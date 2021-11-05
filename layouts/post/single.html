@@ -1,10 +1,10 @@
 {{/* Template for post pages */}}
-{{ define "stylesheets" }}
+{{- define "stylesheets" }}
 <link rel="stylesheet" href="/assets/css/light-nav.css">
 <link rel="stylesheet" href="/assets/css/post.css">
-{{ end }}
+{{- end }}
 
-{{ define "head" }}
+{{- define "head" }}
 <script type="application/ld+json">
 {
   "@context" : "http://schema.org",
@@ -12,31 +12,31 @@
   "image" : {{ apply .Params.images "absURL" "." }}
 }
 </script>
-{{ end }}
+{{- end }}
 
-{{ define "navigation" }}
+{{- define "navigation" }}
 <nav class="main-nav">
 <a href="/">Latest</a>
-{{- $categories := .Page.Params.categories -}}
-{{- with $.Site.Menus.main -}}
+{{- $categories := .Page.Params.categories }}
+{{- with site.Menus.main }}
   {{- range . }}
   <a 
     class="{{ cond (in $categories .Title) "selected" "" }}"
     href="{{ .URL }}">
   <nobr>{{ .Title }}</nobr>
   </a>
-  {{ end -}}
-  {{- end -}}
+  {{- end }}
+  {{- end }}
 </nav>
-{{ end }}
+{{- end }}
 
-{{ define "main" }}
+{{- define "main" }}
 <section id="wrapper">
 <article class="h-entry post">
   <header>
-  {{ with .Title | markdownify }}
+  {{- with .Title | markdownify }}
     <h1 class="p-name">{{ . }}</h1>
-    {{ end }}
+    {{- end }}
     <h2 class="headline">
       <time class="dt-published" datetime="{{ .Date.Format "2006-01-02 15:04:05 -0700" }}">
         <a class="u-url dates" href="{{ .Permalink }}">{{ .Date.Format "Jan 2, 2006" }}</a>
@@ -47,27 +47,27 @@
       {{ .Content }}
   </section>
 
-  {{ if .Site.Params.include_conversation }}
+  {{- if site.Params.include_conversation }}
   <script type="text/javascript" src="https://micro.blog/conversation.js?url={{ .Permalink }}"></script>
-  {{ end }}
+  {{- end }}
 
   <section id="post-meta" class="clearfix p-author h-card">
     <a href="/" class="u-url">
-    {{ if .Params.author }}
+    {{- if .Params.author }}
     <img class="u-photo avatar" src="https://moondeer.blog/uploads/2021/3014652aa8.jpg" width="192" height="192">
     <div>
       <span class="p-name dark">{{ .Params.author.name }}</span>
       <span><a href="https://micro.blog/{{ .Params.author.username }}">@{{ .Params.author.username }}</a></span>
     </div>
-    {{ else }}
+    {{- else }}
     <img class="u-photo avatar" src="https://micro.blog/{{ .Site.Author.username }}/avatar.jpg" />
     <div>
       <span class="p-name dark">{{ .Site.Author.name }}</span>
       <span><a href="https://micro.blog/{{ .Site.Author.username }}">@{{ .Site.Author.username }}</a></span>
     </div>
-  {{ end }}
+  {{- end }}
     </a>
   </section>
 </article>
 </section>
-{{ end }}
+{{- end }}

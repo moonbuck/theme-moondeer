@@ -1,26 +1,26 @@
 {{/* Template for the homepage */}}
-{{ define "stylesheets" }}
+{{- define "stylesheets" }}
 <link rel="stylesheet" href="/assets/css/dark-nav.css">
 <link rel="stylesheet" href="/assets/css/list.css">
-{{ end }}
+{{- end }}
 
-{{ define "navigation" }}
+{{- define "navigation" }}
 <nav class="main-nav">
 <a class="selected" href="/">Latest</a>
 {{- range site.Menus.main }}
 <a href="{{ .URL }}"><nobr>{{ .Title }}</nobr></a>
 {{- end }}
 </nav>
-{{ partial "header/banner.html" . }}
-{{ end }}
+{{- partial "header/banner.html" . }}
+{{- end }}
 
 {{ define "main" }}
 <section id="wrapper">
-{{- if .Site.Params.paginate_home -}}
+{{- if .Site.Params.paginate_home }}
 {{ partial "paginated-post-list.html" . }}
-{{- else -}}
+{{- else }}
 {{ partial "post-list.html" . }}
-{{- end -}}
-{{ partial "profile.html" . }}
+{{- end }}
+{{- partial "profile.html" . }}
 </section>
-{{ end }}
+{{- end }}
