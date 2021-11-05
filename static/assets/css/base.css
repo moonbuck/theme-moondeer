@@ -156,7 +156,10 @@ footer #wrapper {
   padding: 35px 0 80px 0;
 }
 
-#footer { text-align: center; }
+#footer { 
+  text-align: center; 
+  margin-bottom: 2em;
+}
 
 #footer a {
   color: #000;
@@ -168,20 +171,6 @@ footer #wrapper {
 #footer li {
   display: inline;
   padding: 0 10px;
-}
-
-#footer #indieweb {
-  display: flex;
-  justify-content: center;
-  padding-bottom: 2em;
-}
-
-#footer #indieweb a:first-child {
-  margin-right: 20px;
-}
-
-#footer #indieweb a:last-child {
-  margin-left: 20px;
 }
 
 video { max-width: 100%; }

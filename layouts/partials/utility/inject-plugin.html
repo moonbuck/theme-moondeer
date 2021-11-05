@@ -3,7 +3,7 @@
 {{ $prefix := printf "%s." . }}
 {{ range site.Params.plugins_html }}
 {{ if (hasPrefix . $prefix) }}
-{{ partial strings.TrimPrefix $prefix . $ }}
+{{ partial (strings.TrimPrefix $prefix .) $ }}
 {{ end }}
 {{ end }}
 {{ else }}
