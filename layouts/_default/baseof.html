@@ -4,12 +4,14 @@
 {{/* Define the page head */}}
 <head>
 
-{{ if templates.Exists "partials/plugin-precision-injection.html" }}
-{{ partial "plugin-precision-injection.html" (dict "prefix" "HEAD_TOP" "context" .) }}
-{{ end }}
-
 {{/* Include the theme version */}}
 {{ printf "<!-- theme: Moondeer %s -->" site.Params.theme_version | safeHTML }}
+
+{{ printf "<!-- plugin HTML files: %s -->" site.Params.plugins_html | safeHTML }}
+
+{{ if templates.Exists "partials/plugin-precision-injection.html" }}
+{{ partial "plugin-precision-injection.html" (dict "prefix" "HEAD_TOP" "context" $) }}
+{{ end }}
 
 {{/* Define character set and viewport */}}
 <meta charset="utf-8">
@@ -68,7 +70,7 @@
 <link rel="stylesheet" href="{{ "custom.css" | relURL }}">
 
 {{ if templates.Exists "partials/plugin-precision-injection.html" }}
-{{ partial "plugin-precision-injection.html" (dict "context" .)}}
+{{ partial "plugin-precision-injection.html" (dict "context" $)}}
 {{ end }}
 
 {{/* Create a block for including any additional head elements */}}
@@ -81,7 +83,7 @@
 <body>
 
 {{ if templates.Exists "partials/plugin-precision-injection.html" }}
-{{ partial "plugin-precision-injection.html" (dict "prefix" "ABOVE_HEADER" "context" .) }}
+{{ partial "plugin-precision-injection.html" (dict "prefix" "ABOVE_HEADER" "context" $) }}
 {{ end }}
 
 {{/* Create a block for encapsulating navigation */}}
@@ -114,7 +116,7 @@
 {{ partial "footer/link-list.html" . }}
 
 {{ if templates.Exists "partials/plugin-precision-injection.html" }}
-{{ partial "plugin-precision-injection.html" (dict "prefix" "FOOTER" "context" .) }}
+{{ partial "plugin-precision-injection.html" (dict "prefix" "FOOTER" "context" $) }}
 {{ end }}
 
 </footer>
@@ -124,7 +126,7 @@
 {{ partial "custom_footer.html" . }}
 
 {{ if templates.Exists "partials/plugin-precision-injection.html" }}
-{{ partial "plugin-precision-injection.html" (dict "prefix" "BELOW_FOOTER" "context" .) }}
+{{ partial "plugin-precision-injection.html" (dict "prefix" "BELOW_FOOTER" "context" $) }}
 {{ end }}
 
 {{/* Insert plugin Javascript includes */}}
