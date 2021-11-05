@@ -27,12 +27,6 @@
       "description": "All the latest thoughts to fall out my head.",
       "paginate": 25,
       "paginate_home": true,
-      "paginate_categories": true,
-      "supported_plugin_html_prefixes":
-        [
-         "BELOW_FOOTER", 
-         "HEAD_TOP",
-         "ABOVE_HEADER"
-       ]
+      "paginate_categories": true
   }
 }
