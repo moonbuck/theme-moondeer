@@ -4,7 +4,9 @@
 {{/* Define the page head */}}
 <head>
 
-{{ partial "utility/inject-plugin.html" "HEAD_TOP" }}
+{{ if templates.Exists "partials/plugin-precision-injection.html" }}
+{{ partial "plugin-precision-injection.html" "HEAD_TOP" }}
+{{ end }}
 
 {{/* Include the theme version */}}
 {{ printf "<!-- theme: Moondeer %s -->" site.Params.theme_version | safeHTML }}
@@ -65,7 +67,9 @@
 {{/* Include the custom stylesheet last */}}
 <link rel="stylesheet" href="{{ "custom.css" | relURL }}">
 
-{{ partial "utility/inject-plugin.html" }}
+{{ if templates.Exists "partials/plugin-precision-injection.html" }}
+{{ partial "plugin-precision-injection.html" }}
+{{ end }}
 
 {{/* Create a block for including any additional head elements */}}
 {{ block "head" . }}{{ end }}
@@ -76,7 +80,9 @@
 {{/* Define the page body */}}
 <body>
 
-{{ partial "utility/inject-plugin.html" "ABOVE_HEADER" }}
+{{ if templates.Exists "partials/plugin-precision-injection.html" }}
+{{ partial "plugin-precision-injection.html" "ABOVE_HEADER" }}
+{{ end }}
 
 {{/* Create a block for encapsulating navigation */}}
 {{ block "navigation" . }}
@@ -95,6 +101,8 @@
 
 {{ if templates.Exists "partials/plugin_banner.html" }}
 {{ partial "plugin_banner.html" . }}
+{{ else if templates.Exists "partials/plugin-banner.html" }}
+{{ partial "plugin-banner.html" . }}
 {{ end }}
 
 {{ end }}
@@ -109,7 +117,9 @@
 {{/* Create a list with feed links and email */}}
 {{ partial "footer/link-list.html" . }}
 
-{{ partial "utility/inject-plugin.html" "FOOTER" }}
+{{ if templates.Exists "partials/plugin-precision-injection.html" }}
+{{ partial "plugin-precision-injection.html" "FOOTER" }}
+{{ end }}
 
 </footer>
 {{ end }}
@@ -117,7 +127,9 @@
 {{/* Include the custom footer */}}
 {{ partial "custom_footer.html" . }}
 
-{{ partial "utility/inject-plugin.html" "BELOW_FOOTER" }}
+{{ if templates.Exists "partials/plugin-precision-injection.html" }}
+{{ partial "plugin-precision-injection.html" "BELOW_FOOTER" }}
+{{ end }}
 
 {{/* Insert plugin Javascript includes */}}
 {{ range site.Params.plugins_js }}
