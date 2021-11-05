@@ -4,14 +4,7 @@
 {{/* Define the page head */}}
 <head>
 
-{{/* Include plugins with HTML meant for the top of the head */}}
-{{ range $filename := site.Params.plugins_html }}
-{{ $prefix := "HEAD_TOP." }}
-{{ if (hasPrefix $filename $prefix) }}
-{{ $filename = strings.TrimPrefix $prefix $filename }}
-{{ partial $filename $ }}
-{{ end }}
-{{ end }}
+{{ partial "inject-plugin.html" "HEAD_TOP" }}
 
 {{/* Include the theme version */}}
 {{ printf "<!-- theme: Moondeer %s -->" site.Params.theme_version | safeHTML }}
@@ -72,14 +65,7 @@
 {{/* Include the custom stylesheet last */}}
 <link rel="stylesheet" href="{{ "custom.css" | relURL }}">
 
-{{/* Include HTML for plugins where location was unspecified */}}
-{{ $supported := site.Params.supported_plugin_html_prefixes }}
-{{ range $filename := site.Params.plugins_html }}
-{{ $file_prefix := index (split $filename ".") 0 }}
-{{ if not (in $supported $file_prefix) }}
-{{ partial $filename $ }}
-{{ end }}
-{{ end }}
+{{ partial "inject-plugin.html" }}
 
 {{/* Create a block for including any additional head elements */}}
 {{ block "head" . }}{{ end }}
@@ -90,14 +76,7 @@
 {{/* Define the page body */}}
 <body>
 
-{{/* Iterate over plugin HTML to find any prefixed with ABOVE_HEADER */}}
-{{ range $filename := .Site.Params.plugins_html }}
-{{ $prefix := "ABOVE_HEADER." }}
-{{ if (hasPrefix $filename $prefix) }}
-{{ $filename = strings.TrimPrefix $prefix $filename }}
-{{ partial $filename $ }}
-{{ end }}
-{{ end }}
+{{ partial "inject-plugin.html" "ABOVE_HEADER" }}
 
 {{/* Create a block for encapsulating navigation */}}
 {{ block "navigation" . }}
@@ -130,23 +109,13 @@
 {{/* Create a list with feed links and email */}}
 {{ partial "footer/link-list.html" . }}
 
-{{/* Include IndieWeb Webring navigation */}}
-{{ partial "footer/webring.html" . }}
-
 </footer>
 {{ end }}
 
 {{/* Include the custom footer */}}
 {{ partial "custom_footer.html" . }}
 
-{{/* Include plugin HTML marked for insertion below footer */}}
-{{ range $filename := .Site.Params.plugins_html }}
-{{ $prefix := "BELOW_FOOTER." }}
-{{ if (hasPrefix $filename $prefix) }}
-{{ $filename = strings.TrimPrefix $prefix $filename }}
-{{ partial $filename $ }}
-{{ end }}
-{{ end }}
+{{ partial "inject-plugin.html" "BELOW_FOOTER" }}
 
 {{/* Insert plugin Javascript includes */}}
 {{ range site.Params.plugins_js }}
