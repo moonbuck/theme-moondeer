@@ -5,7 +5,7 @@
 <head>
 
 {{ if templates.Exists "partials/plugin-precision-injection.html" }}
-{{ partial "plugin-precision-injection.html" "HEAD_TOP" }}
+{{ partial "plugin-precision-injection.html" (dict "prefix" "HEAD_TOP" "context" .) }}
 {{ end }}
 
 {{/* Include the theme version */}}
@@ -68,7 +68,7 @@
 <link rel="stylesheet" href="{{ "custom.css" | relURL }}">
 
 {{ if templates.Exists "partials/plugin-precision-injection.html" }}
-{{ partial "plugin-precision-injection.html" }}
+{{ partial "plugin-precision-injection.html" (dict "context" .)}}
 {{ end }}
 
 {{/* Create a block for including any additional head elements */}}
@@ -81,7 +81,7 @@
 <body>
 
 {{ if templates.Exists "partials/plugin-precision-injection.html" }}
-{{ partial "plugin-precision-injection.html" "ABOVE_HEADER" }}
+{{ partial "plugin-precision-injection.html" (dict "prefix" "ABOVE_HEADER" "context" .) }}
 {{ end }}
 
 {{/* Create a block for encapsulating navigation */}}
@@ -114,7 +114,7 @@
 {{ partial "footer/link-list.html" . }}
 
 {{ if templates.Exists "partials/plugin-precision-injection.html" }}
-{{ partial "plugin-precision-injection.html" "FOOTER" }}
+{{ partial "plugin-precision-injection.html" (dict "prefix" "FOOTER" "context" .) }}
 {{ end }}
 
 </footer>
@@ -124,7 +124,7 @@
 {{ partial "custom_footer.html" . }}
 
 {{ if templates.Exists "partials/plugin-precision-injection.html" }}
-{{ partial "plugin-precision-injection.html" "BELOW_FOOTER" }}
+{{ partial "plugin-precision-injection.html" (dict "prefix" "BELOW_FOOTER" "context" .) }}
 {{ end }}
 
 {{/* Insert plugin Javascript includes */}}
