@@ -4,26 +4,18 @@
     "brief_bio": "[ITUNES_DESCRIPTION]",
     "description": "All the latest thoughts to fall out my head.",
     "disqus_shortname": "moondeer",
-    "facebook_username": "moondeerdotblog",
     "github_username": "moonbuck",
     "icon_16": "https://moondeer.blog/uploads/2021/df2e80d9c3.png",
     "icon_32": "https://moondeer.blog/uploads/2021/91b72102d1.png",
     "include_debug_comments": false,
-    "instagram_username": "moondeerdotblog",
     "mailto_email": "moondeer@moondeer.blog",
     "mask_icon": "https://moondeer.blog/uploads/2021/3b64fed44b.svg",
-    "mastodon_server": "mastodon.online",
-    "mastodon_username": "moondeer",
-    "medium_username": "Moondeer",
     "paginate": 25,
     "paginate_categories": true,
     "paginate_home": true,
     "profile_avatar": "https://moondeer.blog/uploads/2021/d2728f1610.jpg",
     "shortcut_icon": "https://moondeer.blog/uploads/2021/5260d2013e.png",
     "theme_color": "#516189",
-    "theme_version": "v107",
-    "tumblr_username": "moondeerdotblog",
-    "twitter_username": "moondeerdotblog",
-    "visible_theme_version": true
+    "twitter_username": "moondeerdotblog"
   }
 }

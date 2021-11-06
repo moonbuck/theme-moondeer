@@ -5,7 +5,7 @@
 <head>
 
 {{- /* Include the theme version */}}
-{{ printf "<!-- theme: Moondeer %s -->" site.Params.theme_version | safeHTML }}
+{{ printf "<!-- theme: Moondeer %s -->" site.Data.theme_moondeer.config.ThemeVersion | safeHTML }}
 {{ printf "<!-- plugin HTML files: %s -->" (site.Params.plugins_html | uniq) | safeHTML }}
 
 {{- if templates.Exists "partials/plugin-precision-injection.html" }}
@@ -129,13 +129,8 @@
 {{- end }}
 
 {{- /* Include visible theme version if flagged */}}
-{{- if site.Params.visible_theme_version }}
-<mark 
-  id="theme-version-overlay" 
-  class="book"
-  style="position:absolute;top:0;left:0;padding:0 1em;background-color:black;color:white;font-size:21px;opacity:0.5;">
-Moondeer {{ site.Params.theme_version }}
-</mark>
+{{- if site.Data.theme_moondeer.config.VisibleThemeVersion }}
+{{- partial "header/theme-version.html" . }}
 {{- end }}
 
 {{- /* Close the page body and html */}}
