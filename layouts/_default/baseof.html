@@ -24,11 +24,6 @@
 {{- /* Define site author */}}
 <meta name="author" content="{{ site.Author.name }}">
 
-{{- /* Include social media links */}}
-{{- if template.Exists "partials/head/social-media-links.html" }}
-{{ partial "head/social-media-links.html" . }}
-{{- end }}
-
 {{- /* Create a block defining the page title */}}
 {{- block "title" . }}{{ partial "head/page-title.html" . }}{{ end }}
 

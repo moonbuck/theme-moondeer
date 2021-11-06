@@ -6,9 +6,9 @@
       {{- with site.Params.profile_avatar}}<img id="avatar" class="u-photo" src="{{ . }}" />{{ end }}
       </a>
       <h1 class="p-name" rel="me">{{ site.Author.name }}</h1>
-{{- if template.Exists "profile-social-media-links.html" }}
+{{- if templates.Exists "partials/profile-social-media-links.html" }}
       <h4 class="p-role">
-      {{ partial "partials/profile-social-media-links.html" . }}
+      {{ partial "profile-social-media-links.html" . }}
       </h4>
 {{- end }}
       <p class="p-note"><em>{{ site.Params.brief_bio }}</em></p>
