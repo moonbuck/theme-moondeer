@@ -5,9 +5,8 @@
 <head>
 
 {{- /* Include the theme version */}}
-{{- printf "<!-- theme: Moondeer %s -->" site.Params.theme_version | safeHTML }}
-
-{{- printf "<!-- plugin HTML files: %s -->" (site.Params.plugins_html | uniq) | safeHTML }}
+{{ printf "<!-- theme: Moondeer %s -->" site.Params.theme_version | safeHTML }}
+{{ printf "<!-- plugin HTML files: %s -->" (site.Params.plugins_html | uniq) | safeHTML }}
 
 {{- if templates.Exists "partials/plugin-precision-injection.html" }}
 {{- partial "plugin-precision-injection.html" (dict "prefix" "HEAD_TOP" "context" $) }}
@@ -26,18 +25,20 @@
 <meta name="author" content="{{ site.Author.name }}">
 
 {{- /* Include social media links */}}
-{{- partial "head/social-media-links.html" . }}
+{{- if template.Exists "partials/head/social-media-links.html" }}
+{{ partial "head/social-media-links.html" . }}
+{{- end }}
 
 {{- /* Create a block defining the page title */}}
 {{- block "title" . }}{{ partial "head/page-title.html" . }}{{ end }}
 
 {{- /* Create a block defining the page description */}}
 {{- block "description" . }}
-{{- partial "head/page-description.html" . }}
+{{ partial "head/page-description.html" . }}
 {{- end }}
 
 {{- /* Include links for the feeds */}}
-{{- partial "head/feeds.html" . }}
+{{ partial "head/feeds.html" . }}
 
 {{- /* Include links for the micropub, microsub, webmention, etc. */}}
 <link rel="authorization_endpoint" 
@@ -70,7 +71,7 @@
 <link rel="stylesheet" href="{{ "custom.css" | relURL }}">
 
 {{- if templates.Exists "partials/plugin-precision-injection.html" }}
-{{- partial "plugin-precision-injection.html" (dict "context" $)}}
+{{ partial "plugin-precision-injection.html" (dict "context" $)}}
 {{- end }}
 
 {{- /* Create a block for including any additional head elements */}}
@@ -92,12 +93,10 @@
 {{- /* Include default that handles most pages */}}
 <nav class="main-nav">
 <a href="/">Latest</a>
-{{ $page := . }}
+{{- $page := . }}
 {{- range site.Menus.main }}
 <a class="{{ cond ($page.IsMenuCurrent "main" .) "selected" "" }}" 
-   href="{{ .URL }}">
-<nobr>{{ .Title }}</nobr>
-</a>
+   href="{{ .URL }}"><nobr>{{ .Title }}</nobr></a>
 {{- end }}
 </nav>
 

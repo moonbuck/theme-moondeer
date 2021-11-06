@@ -6,37 +6,11 @@
       {{- with site.Params.profile_avatar}}<img id="avatar" class="u-photo" src="{{ . }}" />{{ end }}
       </a>
       <h1 class="p-name" rel="me">{{ site.Author.name }}</h1>
+{{- if template.Exists "profile-social-media-links.html" }}
       <h4 class="p-role">
-      <div id="social-media-links">
-      {{- with site.Author.username}}
-        <a rel="me" href="https://micro.blog/{{ . }}">@{{ . }}</a> (Micro.blog)<br />
-      {{- end }}
-      {{- if and (isset site.Params "mastodon_server") (isset site.Params "mastodon_username")}}
-      {{- $mastodon_server := site.Params.mastodon_server }}
-      {{- with site.Params.mastodon_username }}
-        <a rel="me" href="https://{{ $mastodon_server }}/@{{ . }}">@{{ . }}</a> (Mastodon)<br />
-        {{- end }}
-        {{- end }}
-        {{- with site.Params.twitter_username}}
-        <a rel="me" href="https://twitter.com/@{{ . }}">@{{ . }}</a> (Twitter)<br />
-        {{- end }}
-        {{- with site.Params.github_username}}
-        <a rel="me" href="https://github.com/{{ . }}">@{{ . }}</a> (Github)<br />
-        {{- end }}
-        {{- with site.Params.tumblr_username}}
-        <a rel="me" href="https://{{ . }}.tumblr.com">@{{ . }}</a> (Tumblr)<br />
-        {{- end }}
-        {{- with site.Params.medium_username}}
-        <a rel="me" href="https://{{ . }}.medium.com">@{{ . }}</a> (Medium)<br />
-        {{- end }}
-        {{- with site.Params.facebook_username}}
-        <a rel="me" href="https://www.facebook.com/{{ . }}">@{{ . }}</a> (Facebook)<br />
-        {{- end }}
-        {{- with site.Params.instagram_username}}
-        <a rel="me" href="https://www.instagram.com/{{ . }}">@{{ . }}</a> (Instagram)<br />
-        {{- end }}
-        </div>
+      {{ partial "partials/profile-social-media-links.html" . }}
       </h4>
+{{- end }}
       <p class="p-note"><em>{{ site.Params.brief_bio }}</em></p>
     </header>
   </section>

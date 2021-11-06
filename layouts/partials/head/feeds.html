@@ -1,10 +1,9 @@
-{{- with .RSSLink }}
-{{- $title := site.Title }}
+{{- with .RSSLink -}}
 <link href="{{ . }}" rel="alternate" 
-      type="application/rss+xml"title="{{ $title }}">
+      type="application/rss+xml"title="{{ site.Title }}">
 <link href="/podcast.xml" rel="alternate" 
       type="application/rss+xml" title="Podcast">
 <link rel="alternate" type="application/json" 
-      title="{{ $title }}"  href="/feed.json">
+      title="{{ site.Title }}"  href="/feed.json">
 <link rel="EditURI" type="application/rsd+xml" href="/rsd.xml">
 {{- end }}
