@@ -1,0 +1,19 @@
+{
+    "name": "Moondeer",
+    "short_name": "Moondeer",
+    "icons": [
+        {
+            "src": "https://moondeer.blog/uploads/2021/a893f9ebc9.png",
+            "sizes": "192x192",
+            "type": "image/png"
+        },
+        {
+            "src": "https://moondeer.blog/uploads/2021/e4cfc0ba68.png",
+            "sizes": "512x512",
+            "type": "image/png"
+        }
+    ],
+    "theme_color": "#51618",
+    "background_color": "#51618",
+    "display": "standalone"
+}
