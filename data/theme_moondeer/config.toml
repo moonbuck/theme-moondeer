@@ -1,2 +1,3 @@
 ThemeVersion = "v109"
 VisibleThemeVersion = true
+InjectionSiteComments = true

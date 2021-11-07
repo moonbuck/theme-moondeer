@@ -1,0 +1,49 @@
+# Parameters derived from the use of https://realfavicongenerator.net
+# to generate favicon assets. 
+
+# General theme color for the site (used by Mobile Safari in iOS 15 to paint the background of the status bar).
+ThemeColor = "#516189"
+
+[Apple]
+
+# Path to the 180x180 pixel image.
+TouchIcon = "https://moondeer.blog/uploads/2021/0ac094eaf0.png"
+
+# Whether to include the safari-pinned-tab mask-icon file (because you replaced its contents with your own, for example).
+IncludeSVG = true
+
+[Favicon]
+
+# Path to the 32x32 pixel image.
+x32 = "https://moondeer.blog/uploads/2021/6e917ca7cb.png"
+
+# Path to the 16x16 pixel image.
+x16 = "https://moondeer.blog/uploads/2021/cde89be874.png"
+
+# Path to the ico image.
+ico = "https://moondeer.blog/uploads/2021/d7e47b4fbb.jpg"
+
+[AndroidChrome]
+
+# Short name for beneath the icon.
+Name = "Moondeer"
+
+# Path to the 192x192 pixel image.
+x192 = "https://moondeer.blog/uploads/2021/a893f9ebc9.png"
+
+# Path to the 512x512 pixel image.
+x512 = "https://moondeer.blog/uploads/2021/e4cfc0ba68.png"
+
+# Theme color to use in the webmanifest.
+ThemeColor = "#516189"
+
+# Background color to use in the webmanifest.
+BackgroundColor = "#516189"
+
+[MSTile]
+
+# Path to the 150x150 pixel image.
+x150 = "https://moondeer.blog/uploads/2021/c405a6363e.png"
+
+# The tile color behind the 150x150 pixel image.
+TileColor = "#DA532C"
