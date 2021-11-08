@@ -1,6 +1,6 @@
 {{- $precision_injection := templates.Exists "partials/plugin-precision-injection.html" -}}
 {{- $comments := site.Data.theme_moondeer.config.InjectionSiteComments -}}
-{{- $comment := "<!--Injecting HTML files prefixed with %s-->"  -}}
+{{ $comment := "<!--Injecting HTML files prefixed with %s-->"  }}
 {{- $theme_version := site.Data.theme_moondeer.config.ThemeVersion -}}
 
 <!DOCTYPE html>
