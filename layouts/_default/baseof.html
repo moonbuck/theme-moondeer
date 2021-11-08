@@ -127,12 +127,8 @@
 {{- /* Create a list with feed links and email */}}
 {{- partial "footer/link-list.html" . -}}
 
-{{- if $precision_injection -}}
-{{- if $comments -}}
-{{ printf $comment "FOOTER" | safeHTML }}
-{{- end }}
-{{- $params := (dict "prefix" "FOOTER" "context" $) -}}
-{{- partial "plugin-precision-injection.html" $params }}
+{{- if templates.Exists "partials/plugin-webring.html" -}}
+{{- partial "plugin-webring.html" . }}
 {{- end -}}
 
 </footer>
