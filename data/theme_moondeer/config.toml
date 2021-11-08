@@ -1,3 +1,5 @@
-ThemeVersion = "v110"
+ThemeVersion = "v111"
 VisibleThemeVersion = true
 InjectionSiteComments = true
+IncludeDisqus = true
+IncludeConversation = true

@@ -47,8 +47,8 @@
       {{ .Content }}
   </section>
 
-  {{- if site.Params.include_conversation }}
-  <script type="text/javascript" src="https://micro.blog/conversation.js?url={{ .Permalink }}"></script>
+  {{- if (and site.Data.theme_moondeer.config.IncludeConversation (templates.Exists "partials/plugin-conversation.html")) }}
+  {{ partial "plugin-conversation.html" . }}
   {{- end }}
 
   <section id="post-meta" class="clearfix p-author h-card">
@@ -69,5 +69,8 @@
     </a>
   </section>
 </article>
+{{ if (and site.Data.theme_moondeer.config.IncludeDisqus (templates.Exists "partials/plugin-disqus.html")) }}
+{{ partial "plugin-disqus.html" . }}
+{{ end }}
 </section>
 {{- end }}
