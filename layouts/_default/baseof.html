@@ -1,3 +1,8 @@
+{{- $precision_injection := templates.Exists "partials/plugin-precision-injection.html" -}}
+{{- $comments := site.Data.theme_moondeer.config.InjectionSiteComments -}}
+{{- $comment := "<!--Injecting HTML files prefixed with %s-->"  -}}
+{{- $theme_version := site.Data.theme_moondeer.config.ThemeVersion -}}
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -5,11 +10,14 @@
 <head>
 
 {{- /* Include the theme version */}}
-{{ printf "<!-- theme: Moondeer %s -->" site.Data.theme_moondeer.config.ThemeVersion | safeHTML }}
+{{ printf "<!-- theme: Moondeer %s -->" $theme_version | safeHTML }}
 
-{{- if templates.Exists "partials/plugin-precision-injection.html" -}}
-{{- if site.Data.theme_moondeer.config.InjectionSiteComments }}{{ partial "utilities/html-comment.html" "Injecting HTML files prefixed with HEAD_TOP" }}{{ end -}}
-{{ partial "plugin-precision-injection.html" (dict "prefix" "HEAD_TOP" "context" $) }}
+{{- if $precision_injection -}}
+{{- if $comments -}}
+{{ printf $comment "HEAD_TOP" | safeHTML }}
+{{- end -}}
+{{- $params := (dict "prefix" "HEAD_TOP" "context" $) -}}
+{{ partial "plugin-precision-injection.html" $params }}
 {{- end -}}
 
 {{- /* Define character set and viewport */}}
@@ -22,10 +30,14 @@
 <meta name="author" content="{{ site.Author.name }}">
 
 {{- /* Create a block defining the page title */}}
-{{- block "title" . }}{{ partial "head/page-title.html" . }}{{ end -}}
+{{- block "title" . -}}
+{{ partial "head/page-title.html" . }}
+{{- end -}}
 
 {{- /* Create a block defining the page description */}}
-{{ block "description" . }}{{ partial "head/page-description.html" . }}{{- end }}
+{{- block "description" . -}}
+{{ partial "head/page-description.html" . }}
+{{- end -}}
 
 {{- /* Include links for the feeds */}}
 {{- partial "head/feeds.html" . -}}
@@ -48,10 +60,14 @@
 <link rel="stylesheet" href="/assets/css/highlight.css">
 
 {{- /* Create a block for including any additional stylesheets */}}
-{{- block "stylesheets" . }}<link rel="stylesheet" href="/assets/css/dark-nav.css">{{ end -}}
+{{- block "stylesheets" . -}}
+<link rel="stylesheet" href="/assets/css/dark-nav.css">
+{{- end -}}
 
 {{- /* Include plugin stylesheets */}}
-{{- if site.Data.theme_moondeer.config.InjectionSiteComments }}{{ partial "utilities/html-comment.html" "Injecting plugin stylesheets" }}{{ end -}}
+{{- if $comments -}}
+{{ printf "<!--Injecting plugin stylesheets-->" | safeHTML }}
+{{- end -}}
 {{- range site.Params.plugins_css -}}
 <link rel="stylesheet" href="{{ . }}" />
 {{- end -}}
@@ -59,9 +75,12 @@
 {{- /* Include the custom stylesheet last */}}
 <link rel="stylesheet" href="{{ "custom.css" | relURL }}">
 
-{{- if templates.Exists "partials/plugin-precision-injection.html" -}}
-{{ if site.Data.theme_moondeer.config.InjectionSiteComments }}{{ partial "utilities/html-comment.html" "Injecting HTML files without a prefix" }}{{ end }}
-{{ partial "plugin-precision-injection.html" (dict "context" $)}}
+{{- if $precision_injection -}}
+{{- if $comments -}}
+{{ printf "<!--Injecting HTML files without a prefix-->" | safeHTML }}
+{{- end }}
+{{- $params := (dict "context" $) -}}
+{{ partial "plugin-precision-injection.html" $params }}
 {{- end }}
 
 {{- /* Create a block for including any additional head elements */}}
@@ -73,9 +92,12 @@
 {{- /* Define the page body */}}
 <body>
 
-{{- if templates.Exists "partials/plugin-precision-injection.html" -}}
-{{ if site.Data.theme_moondeer.config.InjectionSiteComments }}{{ partial "utilities/html-comment.html" "Injecting HTML files prefixed with ABOVE_HEADER" }}{{ end }}
-{{- partial "plugin-precision-injection.html" (dict "prefix" "ABOVE_HEADER" "context" $) }}
+{{- if $precision_injection -}}
+{{- if $comments -}}
+{{ printf $comment "ABOVE_HEADER" | safeHTML }}
+{{- end }}
+{{- $params := (dict "prefix" "ABOVE_HEADER" "context" $) -}}
+{{- partial "plugin-precision-injection.html" $params }}
 {{- end -}}
 
 {{- /* Create a block for encapsulating navigation */}}
@@ -105,9 +127,12 @@
 {{- /* Create a list with feed links and email */}}
 {{- partial "footer/link-list.html" . -}}
 
-{{- if templates.Exists "partials/plugin-precision-injection.html" -}}
-{{ if site.Data.theme_moondeer.config.InjectionSiteComments }}{{ partial "utilities/html-comment.html" "Injecting HTML files prefixed with FOOTER" }}{{ end }}
-{{- partial "plugin-precision-injection.html" (dict "prefix" "FOOTER" "context" $) }}
+{{- if $precision_injection -}}
+{{- if $comments -}}
+{{ printf $comment "FOOTER" | safeHTML }}
+{{- end }}
+{{- $params := (dict "prefix" "FOOTER" "context" $) -}}
+{{- partial "plugin-precision-injection.html" $params }}
 {{- end -}}
 
 </footer>
@@ -116,9 +141,12 @@
 {{- /* Include the custom footer */}}
 {{- partial "custom_footer.html" . -}}
 
-{{- if templates.Exists "partials/plugin-precision-injection.html" -}}
-{{ if site.Data.theme_moondeer.config.InjectionSiteComments }}{{ partial "utilities/html-comment.html" "Injecting HTML files prefixed with BELOW_FOOTER" }}{{ end }}
-{{- partial "plugin-precision-injection.html" (dict "prefix" "BELOW_FOOTER" "context" $) }}
+{{- if $precision_injection -}}
+{{- if $comments -}}
+{{ printf $comment "BELOW_FOOTER" | safeHTML }}
+{{- end }}
+{{- $params := (dict "prefix" "BELOW_FOOTER" "context" $) -}}
+{{- partial "plugin-precision-injection.html" $params }}
 {{- end -}}
 
 {{- /* Insert plugin Javascript includes */}}

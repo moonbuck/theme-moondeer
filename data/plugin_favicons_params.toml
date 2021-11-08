@@ -58,5 +58,9 @@ BackgroundColor = "#516189"
 # or provide a path to a suitable browserconfig file … otherwise leave it commented out.
 BrowserConfig = "/assets/favicons/browserconfig.xml"
 
+# Path to the 512x512 pixel image.
+# This goes in the browserconfig.xml file but you can store the value here for reference 
+x150 = "https://moondeer.blog/uploads/2021/c405a6363e.png"
+
 # The tile color behind the 150x150 pixel image.
 TileColor = "#DA532C"
