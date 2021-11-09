@@ -282,6 +282,65 @@ mark#theme-version-overlay {
   position: relative;
 }*/
 
+div#next-prev {
+  display: flex;
+  justify-content: space-between; /*center;*/
+  align-items: baseline; /*flex-end;*/
+  margin: 2em auto;
+}
+div#next-prev span#previous-label {
+  padding-left: 1em;
+}
+
+div#next-prev span#empty-space {
+  flex-grow: 2;
+}
+ 
+div#next-prev span#next-label {
+  padding-right: 1em;
+}
+
+div#next-prev svg:not(:root).svg-inline--fa{
+    overflow:visible;
+    -webkit-box-sizing:content-box;
+    box-sizing:content-box
+}
+div#next-prev .svg-inline--fa{
+    display:inline-block;
+    display:var(--fa-display,inline-block);
+    height:1em;
+    overflow:visible;
+    vertical-align:-.125em
+}
+div#next-prev .svg-inline--fa .fa-primary{
+    fill:currentColor;
+    fill:var(--fa-primary-color,currentColor);
+    opacity:1;
+    opacity:var(--fa-primary-opacity,1)
+}
+div#next-prev .svg-inline--fa .fa-secondary{
+    fill:currentColor;
+    fill:var(--fa-secondary-color,currentColor);
+    opacity:.4;
+    opacity:var(--fa-secondary-opacity,.4)
+}
+div#next-prev .svg-inline--fa.fa-swap-opacity .fa-primary{
+    opacity:.4;
+    opacity:var(--fa-secondary-opacity,.4)
+}
+div#next-prev .svg-inline--fa.fa-swap-opacity .fa-secondary{
+    opacity:1;
+    opacity:var(--fa-primary-opacity,1)
+}
+div#next-prev .svg-inline--fa mask .fa-primary,.svg-inline--fa mask .fa-secondary{
+    fill:#000
+}
+div#next-prev .fa-duotone.fa-inverse,.fad.fa-inverse{
+    color:#fff;
+    color:var(--fa-inverse,#fff)
+}
+
+
 /* Media Queries */
 @media screen and (max-width: 540px) {
 

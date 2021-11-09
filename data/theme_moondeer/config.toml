@@ -1,5 +1,6 @@
-ThemeVersion = "v111"
+ThemeVersion = "v112"
 VisibleThemeVersion = true
 InjectionSiteComments = true
 IncludeDisqus = true
 IncludeConversation = true
+NextPrevArrowsReversed = true

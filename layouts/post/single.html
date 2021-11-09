@@ -46,10 +46,10 @@
   <section class="e-content post-body">
       {{ .Content }}
   </section>
+  
+<hr>
 
-  {{- if (and site.Data.theme_moondeer.config.IncludeConversation (templates.Exists "partials/plugin-conversation.html")) }}
-  {{ partial "plugin-conversation.html" . }}
-  {{- end }}
+{{ partial "next-prev.html" (dict "next" .NextInSection "previous" .PrevInSection) }}
 
   <section id="post-meta" class="clearfix p-author h-card">
     <a href="/" class="u-url">
@@ -69,8 +69,13 @@
     </a>
   </section>
 </article>
-{{ if (and site.Data.theme_moondeer.config.IncludeDisqus (templates.Exists "partials/plugin-disqus.html")) }}
+{{- if (and site.Data.theme_moondeer.config.IncludeConversation (templates.Exists "partials/plugin-conversation.html")) }}
+{{ partial "plugin-conversation.html" . }}
+{{- end }}
+
+{{- if (and site.Data.theme_moondeer.config.IncludeDisqus (templates.Exists "partials/plugin-disqus.html")) }}
 {{ partial "plugin-disqus.html" . }}
 {{ end }}
+
 </section>
 {{- end }}

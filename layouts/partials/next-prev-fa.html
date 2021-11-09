@@ -1,0 +1,20 @@
+{{- if (or .next .previous) -}}
+{{- $next := false -}}
+{{- $previous := false -}}
+{{- if site.Data.theme_moondeer.config.NextPrevArrowsReversed -}}
+{{- $next = .previous -}}
+{{- $previous = .next -}}
+{{- else -}}
+{{- $next = .next -}}
+{{- $previous = .previous -}}
+{{- end -}}
+<div id="next-prev">
+{{- with $previous -}}
+<a href="{{ .Permalink }}"><svg class="svg-inline--fa fa-arrow-alt-left" aria-hidden="true" focusable="false" data-prefix="fad" data-icon="arrow-alt-left" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512" data-fa-i2svg=""><g class="fa-group"><path class="fa-secondary" fill="currentColor" d="M448 224v64c0 17.67-14.33 32-32 32h-192V192h192C433.7 192 448 206.3 448 224z"></path><path class="fa-primary" fill="currentColor" d="M224 416c0 12.94-7.797 24.61-19.75 29.56c-11.97 4.953-25.72 2.219-34.88-6.938l-160-160C3.125 272.4 0 264.2 0 256s3.125-16.38 9.375-22.62l160-160c9.156-9.156 22.91-11.89 34.88-6.938C216.2 71.39 224 83.06 224 96V416z"></path></g></svg><!-- <i class="fad fa-arrow-alt-left"></i> -->&nbsp;<span id="previous-label" class="regular" style="padding-left: 1em">Previous Post</span></a>
+{{- end -}}
+<span id="empty-space"></span>
+{{- with $next -}}
+<a href="{{ .Permalink }}"><span id="next-label" class="regular">Next Post</span>&nbsp;<svg class="svg-inline--fa fa-arrow-alt-right" aria-hidden="true" focusable="false" data-prefix="fad" data-icon="arrow-alt-right" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512" data-fa-i2svg=""><g class="fa-group"><path class="fa-secondary" fill="currentColor" d="M224 320H32c-17.67 0-32-14.33-32-32V224c0-17.67 14.33-32 32-32h192V320z"></path><path class="fa-primary" fill="currentColor" d="M448 256c0 8.188-3.125 16.38-9.375 22.62l-160 160c-9.156 9.156-22.91 11.89-34.88 6.938C231.8 440.6 224 428.9 224 416V96c0-12.94 7.797-24.61 19.75-29.56c11.97-4.953 25.72-2.219 34.88 6.938l160 160C444.9 239.6 448 247.8 448 256z"></path></g></svg><!-- <i class="fad fa-arrow-alt-right"></i> --></a>
+{{- end -}}
+</div>
+{{- end -}}
