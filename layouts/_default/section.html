@@ -1,0 +1,24 @@
+{{- /* Template for section pages */}}
+{{- define "stylesheets" }}
+<link rel="stylesheet" href="/assets/css/dark-nav.css">
+<link rel="stylesheet" href="/assets/css/list.css">
+{{- end }}
+
+{{- define "main" }}
+
+<section id="wrapper">
+
+{{- /* Display the list of posts. */}}
+<ul id="post-list">
+
+{{- /* Handle pagination. */}}
+{{- range .Paginator.Pages }}
+    {{- partial "truncated-post-item.html" . }}
+{{- end }}
+</ul>
+
+{{ partial "pagination" . }}
+
+</section>
+
+{{- end }}

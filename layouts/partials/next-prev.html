@@ -10,7 +10,7 @@
 {{- end -}}
 <nav id="next-prev" role="navigation">
 {{- with $previous -}}<a href="{{ .Permalink }}">← Previous Post</a>{{- end -}}
-<span id="breadcrumb">{{ partial "breadcrumb.html" . }}</span>
-{{- with $next -}}<a href="{{ .Permalink }}">Next Post →></a>{{- end -}}
+<span id="breadcrumb">{{ partial "breadcrumb.html" .context }}</span>
+{{- with $next -}}<a href="{{ .Permalink }}">Next Post →</a>{{- end -}}
 </div>
 {{- end -}}
