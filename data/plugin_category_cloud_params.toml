@@ -1,0 +1,9 @@
+ExcludeCategories = ['Pinned']
+
+[Font.Size]
+Max = 1.34
+Min = 0.9
+
+[Font.Weight]
+Max = 800
+Min = 200

@@ -1,0 +1,5 @@
+RegisteredDomain = 'moondeer.blog'
+ScriptExtensions = ''
+ScriptName = 'script.js'
+ScriptSource = '/plausi/js/'
+DataAPI = '/plausi/api/event'

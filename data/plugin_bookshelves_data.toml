@@ -1,3 +1,6 @@
+CoverWidth = 100
+InitialView = 'grid'
+
 [[bookshelves]]
 key = "currentlyreading"
 description = "*Books I am somewhat in the process of reading*"
