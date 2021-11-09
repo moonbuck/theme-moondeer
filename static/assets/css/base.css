@@ -282,6 +282,7 @@ mark#theme-version-overlay {
   position: relative;
 }*/
 
+nav#next-prev,
 div#next-prev {
   display: flex;
   justify-content: space-between; /*center;*/
@@ -292,6 +293,7 @@ div#next-prev span#previous-label {
   padding-left: 1em;
 }
 
+nav#next-prev span#empty-space,
 div#next-prev span#empty-space {
   flex-grow: 2;
 }
