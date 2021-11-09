@@ -7,23 +7,23 @@ ThemeColor = "#516189"
 [Apple]
 
 # Path to the 180x180 pixel image.
-TouchIcon = "https://moondeer.blog/uploads/2021/0ac094eaf0.png"
+TouchIcon = "/apple-touch-icon.png"
 
 # Path to the Safari pinned tab SVG file.
 # Manually copy/paste your SVG content into static/assets/favicons/safari-pinned-tab.svg 
 # or provide a path to a suitable SVG file … otherwise leave it commented out.
-SafariPinnedTab = "/assets/favicons/safari-pinned-tab.svg"
+SafariPinnedTab = "/safari-pinned-tab.svg"
 
 [Favicon]
 
 # Path to the 32x32 pixel image.
-x32 = "https://moondeer.blog/uploads/2021/6e917ca7cb.png"
+x32 = "/favicon-32x32.png"
 
 # Path to the 16x16 pixel image.
-x16 = "https://moondeer.blog/uploads/2021/cde89be874.png"
+x16 = "/favicon-16x16.png"
 
 # Path to regular image. If you upload an ico image it gets converted to jpg
-ico = "https://moondeer.blog/uploads/2021/d7e47b4fbb.jpg"
+ico = "/favicon.ico.png"
 
 # Base64 ico image.
 # You can convert .ico to base64 here: https://base64.guru/converter/encode/image/ico
@@ -33,15 +33,15 @@ ico = "https://moondeer.blog/uploads/2021/d7e47b4fbb.jpg"
 
 # Manually copy/paste your site.webmanifest content into static/assets/favicons/site.webmanifest.txt 
 # or provide a path to a suitable mobile app manifest file … otherwise leave it commented out.
-Webmanifest = "/assets/favicons/site.webmanifest.txt"
+Webmanifest = "/site.webmanifest.txt"
 
 # Path to the 192x192 pixel image. 
 # This goes in the webmanifest but you can store the value here for reference 
-x192 = "https://moondeer.blog/uploads/2021/a893f9ebc9.png"
+x192 = "/android-chrome-192x192.png"
 
 # Path to the 512x512 pixel image.
 # This goes in the webmanifest but you can store the value here for reference 
-x512 = "https://moondeer.blog/uploads/2021/e4cfc0ba68.png"
+x512 = "/android-chrome-512x512.png"
 
 # Theme color to use in the webmanifest.
 # This goes in the webmanifest but you can store the value here for reference 
@@ -56,11 +56,11 @@ BackgroundColor = "#516189"
 
 # Manually copy/paste your browserconfig.xml content into static/assets/favicons/browserconfig.xml 
 # or provide a path to a suitable browserconfig file … otherwise leave it commented out.
-BrowserConfig = "/assets/favicons/browserconfig.xml"
+BrowserConfig = "/browserconfig.xml"
 
 # Path to the 512x512 pixel image.
 # This goes in the browserconfig.xml file but you can store the value here for reference 
-x150 = "https://moondeer.blog/uploads/2021/c405a6363e.png"
+x150 = "/mstile-150x150.png"
 
 # The tile color behind the 150x150 pixel image.
 TileColor = "#DA532C"

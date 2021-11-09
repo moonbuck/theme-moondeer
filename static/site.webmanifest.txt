@@ -3,12 +3,12 @@
     "short_name": "Moondeer",
     "icons": [
         {
-            "src": "https://moondeer.blog/uploads/2021/a893f9ebc9.png",
+            "src": "/android-chrome-192x192.png",
             "sizes": "192x192",
             "type": "image/png"
         },
         {
-            "src": "https://moondeer.blog/uploads/2021/e4cfc0ba68.png",
+            "src": "/android-chrome-512x512.png",
             "sizes": "512x512",
             "type": "image/png"
         }
