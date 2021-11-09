@@ -9,12 +9,37 @@ ThemeColor = "#516189"
 # Path to the 180x180 pixel image.
 TouchIcon = "/apple-touch-icon.png"
 
+x57 = "/apple-touch-icon-57x57.png"
+
+x114 = "/apple-touch-icon-114x114.png"
+
+x72 = "/apple-touch-icon-72x72.png"
+
+x144 = "/apple-touch-icon-144x144.png"
+
+x60 = "/apple-touch-icon-60x60.png"
+
+x120 = "/apple-touch-icon-120x120.png"
+
+x76 = "/apple-touch-icon-76x76.png"
+
+x152 = "/apple-touch-icon-152x152.png"
+
 # Path to the Safari pinned tab SVG file.
 # Manually copy/paste your SVG content into static/assets/favicons/safari-pinned-tab.svg 
 # or provide a path to a suitable SVG file … otherwise leave it commented out.
 SafariPinnedTab = "/safari-pinned-tab.svg"
 
 [Favicon]
+
+# Path to the 196x196 pixel image.
+x196 = "/favicon-196x196.png"
+
+# Path to the 128x128 pixel image.
+x128 = "/favicon-128x128.png"
+
+# Path to the 96x96 pixel image.
+x96 = "/favicon-96x96.png"
 
 # Path to the 32x32 pixel image.
 x32 = "/favicon-32x32.png"
@@ -58,9 +83,14 @@ BackgroundColor = "#516189"
 # or provide a path to a suitable browserconfig file … otherwise leave it commented out.
 BrowserConfig = "/browserconfig.xml"
 
-# Path to the 512x512 pixel image.
-# This goes in the browserconfig.xml file but you can store the value here for reference 
+# Short name for app-like button.
+ApplicationName = "Moondeer"
+
+x70 = "/mstile-70x70.png"
+x144 = "/mstile-144x144.png"
 x150 = "/mstile-150x150.png"
+Widex150 = "/mstile-310x150.png"
+x310 = "/mstile-310x310.png"
 
 # The tile color behind the 150x150 pixel image.
 TileColor = "#DA532C"
