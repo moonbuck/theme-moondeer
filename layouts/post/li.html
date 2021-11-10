@@ -1,4 +1,21 @@
 <li>
-  <a href="{{ .Permalink }}">{{ .Title | markdownify }}</a>
-  <div class="meta">{{ .Date.Format "Mon, Jan 2, 2006" }}</div>
+  <article>
+    <section class="post-body">
+  {{- if .Title }}
+      <header><h2 class="post-title"><a href="{{ .Permalink }}">{{ .Title | markdownify }}</a></h2></header>
+      {{- .Summary }}
+    {{- if .Truncated }}
+      <p><a href="{{ .RelPermalink }}">Read More</a></p>
+    {{- end }}
+  {{- else }}
+      {{- .Content }}
+  {{- end }}
+    </section>
+    <a href="{{ .Permalink }}" class="u-url">
+      <aside class="dates">
+        <time datetime="{{ .Date.Format "2006-01-02 15:04:05 -0700" }}" 
+              class="dt-published">→ {{ .Date.Format "3:04 PM, Jan 2" }}</time>
+      </aside>
+    </a>
+  </article>
 </li>

@@ -14,7 +14,7 @@
   {{- with (findRE "[(][^)]+[)]" .) 1 -}}
     {{- if gt (len .) 0 -}}
       {{- $saneLink = index . 0 | replaceRE "[(]([^)]+)[)]" "$1" -}}
-		<a {{ printf "href=%q" $saneLink | safeHTMLAttr }}><h4>{{ $caption | markdownify | safeHTML }}</h4></a>
+    <a {{ printf "href=%q" $saneLink | safeHTMLAttr }}><h4>{{ $caption | markdownify | safeHTML }}</h4></a>
     {{- else -}}
 <a {{ printf "href=%q" $saneLink | safeHTMLAttr }}><h4>{{ $caption | markdownify | safeHTML }}</h4></a>
     {{- end -}}

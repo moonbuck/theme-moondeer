@@ -27,18 +27,22 @@
   {{- $paginator := .Paginate $remaining_pages }}
   {{- if not $paginator.HasPrev }}
     {{- range $pinned_pages }}
-      {{- partial "truncated-post-item.html" . }}
+    {{ .Render "li" }}
+      {{/*{{- partial "truncated-post-item.html" . }}*/}}
     {{- end }}
   {{- end }}
   {{- range $paginator.Pages }}
-    {{- partial "truncated-post-item.html" . }}
+    {{ .Render "li" }}
+    {{/*{{- partial "truncated-post-item.html" . }}*/}}
   {{- end }}
 {{- else }}
   {{- range $pinned_pages }}
-    {{- partial "truncated-post-item.html" . }}
+    {{ .Render "li" }}
+    {{/*{{- partial "truncated-post-item.html" . }}*/}}
   {{- end }}
   {{- range $remaining_pages }}
-    {{- partial "truncated-post-item.html" . }}
+    {{ .Render "li" }}
+    {{/*{{- partial "truncated-post-item.html" . }}*/}}
   {{- end }}
 {{- end }}
 </ul>
