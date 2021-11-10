@@ -1,4 +1,4 @@
-{{ define "main" }}
+{{- define "main" -}}
 <article class="h-entry post">
   <header>
     <h1 class="p-name">{{ .Title }}</h1>
@@ -7,13 +7,15 @@
       {{ .Content }}
   </section>
 </article>
+{{- with site.Author -}}
 <section id="post-meta" class="clearfix">
   <a href="/">
-    <img class="u-photo avatar" src="{{ .Site.Author.avatar }}" width="96" height="96">
+    <img class="u-photo avatar" src="{{ .avatar }}" width="96" height="96">
     <div>
-      <span class="p-author h-card dark">{{ .Site.Author.name }}</span>
-      <span><a href="https://micro.blog/{{ .Site.Author.username }}">@{{ .Site.Author.username }}</a></span>
+      <span class="p-author h-card dark">{{ .name }}</span>
+      <span><a href="https://micro.blog/{{ .username }}">@{{ .username }}</a></span>
     </div>
   </a>
 </section>
-{{ end }}
+{{- end -}}
+{{- end -}}

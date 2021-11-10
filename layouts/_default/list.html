@@ -7,12 +7,7 @@
 
 {{- define "main" -}}
 
-<ul id="post-list">
-
 {{- $list := where .Data.Pages.ByDate.Reverse "Type" "post" -}}
-
-{{- range $list }}{{ .Render "li" }}{{ end -}}
-
-</ul>
+{{ partial "post-list.html" $list }}
 
 {{- end -}}

@@ -8,11 +8,10 @@
 {{- define "main" -}}
 
 <section id="wrapper">
-  <ul id="post-list">
 
-{{- range .Paginator.Pages }}{{ .Render "li" }}{{ end -}}
+{{- $pages := .Paginator.Pages -}}
 
-  </ul>
+{{- partial "post-list" $pages -}}
 
 {{- partial "navigation/pagination" . -}}
 
