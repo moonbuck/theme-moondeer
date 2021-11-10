@@ -49,8 +49,6 @@
   
 <hr>
 
-{{ partial "navigation/next-prev.html" (dict "next" .NextInSection "previous" .PrevInSection "context" .) }}
-
   <section id="post-meta" class="clearfix p-author h-card">
     <a href="/" class="u-url">
     {{- if .Params.author }}
@@ -69,6 +67,9 @@
     </a>
   </section>
 </article>
+
+{{ partial "navigation/next-prev.html" (dict "next" .NextInSection "current" . "previous" .PrevInSection "context" .) }}
+
 {{- if (and site.Data.theme_moondeer.config.IncludeConversation (templates.Exists "partials/plugin-conversation.html")) }}
 {{ partial "plugin-conversation.html" . }}
 {{- end }}

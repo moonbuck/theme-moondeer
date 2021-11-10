@@ -1,17 +1,32 @@
 {{- if (or .next .previous) -}}
-{{- $next := false -}}
-{{- $previous := false -}}
-{{- if site.Data.theme_moondeer.config.NextPrevArrowsReversed -}}
-{{- $next = .previous -}}
-{{- $previous = .next -}}
-{{- else -}}
-{{- $next = .next -}}
-{{- $previous = .previous -}}
-{{- end -}}
+
+{{- $newer := .next -}}
+{{- $older := .previous -}}
+
 <nav id="next-prev" role="navigation">
-{{- with $previous -}}<a class="mr-eaves-modern-thin" href="{{ .Permalink }}">← Previous Post</a>{{- end -}}
+
+{{- with $newer -}}
+<a class="mr-eaves-modern-thin" href="{{ .Permalink }}">← Newer</a>
+{{- else -}}
 <span id="empty-space"></span>
-{{/*<span id="breadcrumb">{{ partial "breadcrumb.html" .context }}</span>*/}}
-{{- with $next -}}<a class="mr-eaves-modern-thin" href="{{ .Permalink }}">Next Post →</a>{{- end -}}
+{{- end -}}
+
+{{- if (and .current .current.Params.categories) -}}
+
+{{ partial "navigation/categories.html" .current }}
+
+{{- else -}}
+
+<span id="empty-space"></span>
+
+{{- end -}}
+
+{{- with $older -}}
+<a class="mr-eaves-modern-thin" href="{{ .Permalink }}">Older Post →</a>
+{{- else -}}
+<span id="empty-space"></span>
+{{- end -}}
+
 </nav>
+
 {{- end -}}

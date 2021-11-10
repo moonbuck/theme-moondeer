@@ -44,7 +44,18 @@ nav#next-prev {
 nav#next-prev span#empty-space {
   flex-grow: 2;
 }
- 
+
+nav#next-prev nav#category-list {
+  flex-grow: 2;
+  display: flex;
+  gap: 2rem;
+  justify-content: center;
+  align-items: baseline;
+}
+
+/*nav#next-prev nav#category-list span.bullet-divider {
+  margin: 2rem;
+}*/
 
 /* The main wrapper for pagination links */
 
@@ -91,4 +102,4 @@ nav#next-prev span#empty-space {
 /* On page2+ show extra pagination controls at the top of post list */
 .paged .extra-pagination {
     display: block;
-  }
+    }

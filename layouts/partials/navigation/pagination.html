@@ -1,9 +1,30 @@
-{{ $pag := $.Paginator }}
+{{- with $.Paginator -}}
+
+{{- $newer := false -}}
+{{- if .HasPrev }}{{ $newer = .Prev.URL }}{{ end -}}
+
+{{- $older := false -}}
+{{- if .HasNext }}{{ $older = .Next.URL }}{{ end -}}
+
+
+{{- if (or $newer $older) -}}
+
+
 
 <nav class="pagination" role="navigation">
-{{ if or $pag.HasPrev $pag.HasNext }}
-{{ if $pag.HasPrev }}<a class="newer-posts" href="{{ $pag.Prev.URL }}">← Newer Posts</a>{{ end }}
-<span class="page-number">Page {{ $pag.PageNumber }} of {{ $pag.TotalPages }}</span>
-{{ if $pag.HasNext }}<a class="older-posts" href="{{ $pag.Next.URL }}">Older Posts →</a>{{ end }}
-{{ end }}
+
+{{- with $newer -}}
+<a class="newer-posts" href="{{ . }}">← Newer Posts</a>
+{{- end -}}
+
+<span class="page-number">Page {{ .PageNumber }} of {{ .TotalPages }}</span>
+
+{{- with $older -}}
+<a class="older-posts" href="{{ . }}">Older Posts →</a>
+{{- end -}}
+
 </nav>
+
+{{- end -}}
+
+{{- end -}}
