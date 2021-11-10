@@ -1,6 +1,6 @@
-title = "[TITLE]"
+# title = "[TITLE]"
 
-baseURL = "[SCHEME]://[HOSTNAME]/"
+# baseURL = "[SCHEME]://[HOSTNAME]/"
 
 rssLimit = 25
 
@@ -8,7 +8,7 @@ uglyURLs = false
 
 enableRobotsTXT = true
 
-languageCode = "[LANGUAGE]"
+# languageCode = "[LANGUAGE]"
 
 paginate = 25
 

@@ -1,7 +1,7 @@
 {{- $precision_injection := templates.Exists "partials/plugin-precision-injection.html" -}}
 {{- $comments := site.Params.Theme.InjectionSiteComments -}}
 {{ $comment := "<!--Injecting HTML files prefixed with %s-->"  }}
-{{- $theme_version := site.Data.config.ThemeVersion -}}
+{{- $theme_version := site.Params.Theme.ThemeVersion -}}
 
 <!DOCTYPE html>
 <html lang="en">
