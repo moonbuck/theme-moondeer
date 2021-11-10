@@ -17,7 +17,7 @@ div_style = "gap:0px"
 link_class = ""
 
 # Custom style to apply to all <a> tags.
-link_style = "height:20vh;width:20vh;flex-grow:1"
+link_style = "height:20vh;width:20%;flex-grow:1"
 
 # Default description position for all slides.
 desc_position = ""
