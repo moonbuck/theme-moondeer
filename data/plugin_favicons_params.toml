@@ -87,61 +87,24 @@ x16 = "favicon-16x16.png"
 [AndroidChrome]
 
 # Short name for app-like button.
-# This goes in the webmanifest but you can store the value here for reference 
 #
 Name = "Moondeer"
 
 # Path to the 192x192 pixel image. 
-# This goes in the webmanifest but you can store the value here for reference 
 #
 x192 = "android-chrome-192x192.png"
 
 # Path to the 512x512 pixel image.
-# This goes in the webmanifest but you can store the value here for reference 
 #
 x512 = "android-chrome-512x512.png"
 
 # Theme color to use in the webmanifest.
-# This goes in the webmanifest but you can store the value here for reference 
 #
 ThemeColor = "#516189"
 
 # Background color to use in the webmanifest.
-# This goes in the webmanifest but you can store the value here for reference 
 #
 BackgroundColor = "#516189"
-
-# In this plugin or your custom theme, create template 'static/site.webmanifest'
-# If you're using GitHub with your custom them, add a `.txt` extension so the file
-# may be cloned from your repository.
-#
-# Replace bracketed variable names with their values.
-#
-# {
-#     "name": "[AndroidChrome.Name]",
-#     "short_name": "[AndroidChrome.Name]",
-#     "icons": [
-#         {
-#             "src": "[AndroidChrome.x192]",
-#             "sizes": "192x192",
-#             "type": "image/png"
-#         },
-#         {
-#             "src": "[AndroidChrome.x512]",
-#             "sizes": "512x512",
-#             "type": "image/png"
-#         }
-#     ],
-#     "theme_color": "[AndroidChrome.ThemeColor]",
-#     "background_color": "[AndroidChrome.BackgroundColor]",
-#     "display": "standalone"
-# }
-#
-# Once the file is in place, uncomment the appropriate entry below.
-#
-# Webmanifest = "/site.webmanifest"
-Webmanifest = "/site.webmanifest.txt"
-
 
 [MSTile]
 

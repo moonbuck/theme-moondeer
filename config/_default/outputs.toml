@@ -7,8 +7,7 @@ home = [
   "ArchiveJSON",
   "PhotosJSON",
   "PodcastXML",
-  "PodcastJSON",
-  "WebAppManifest"
+  "PodcastJSON"
 ]
 page = [ "HTML" ]
 section = [ "HTML" ]
