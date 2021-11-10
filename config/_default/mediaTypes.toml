@@ -2,4 +2,4 @@
 suffixes = [ "json" ]
 
 ["application/manifest+json"]
-suffixes = [ "webmanifest" ]
+suffixes = [ "json", "webmanifest" ]
