@@ -49,3 +49,10 @@ mediaType = "application/json"
 baseName = "podcast"
 isPlainText = true
 notAlternative = true
+
+[WebAppManifest]
+mediaType = "application/manifest+json"
+baseName = "site"
+rel = "manifest"
+isPlainText = true
+notAlternative = true
