@@ -1,0 +1,94 @@
+/* Nav */
+
+nav.main-nav {
+  padding: 20px 20px 0;
+  margin: 0 auto;
+  text-align: right;
+  z-index: 100;
+}
+
+nav.main-nav a {
+  top: 8px;
+  right: 6px;
+  font-size: 17px;
+  line-height: 1.35;
+  font-weight: 400;
+  margin-left: 12px;
+}
+
+nav.main-nav a:hover, 
+#footer a:hover, 
+#post-nav a:hover, 
+p a:hover {
+  box-shadow: none;
+}
+
+nav.main-nav a.selected {
+  box-shadow: inset 0 -2px 0 #9FADBF;
+}
+
+nav.main-nav a, 
+#post-nav a {
+  font-weight: 400;
+  transition: all .35s;
+  transition-timing-function: cubic-bezier(.7, 0, .3, 1);
+}
+
+nav#next-prev {
+  display: flex;
+  justify-content: space-between; /*center;*/
+  align-items: baseline; /*flex-end;*/
+  margin: 2em auto;
+}
+
+nav#next-prev span#empty-space {
+  flex-grow: 2;
+}
+ 
+
+/* The main wrapper for pagination links */
+
+.pagination {
+    position: relative;
+    margin-top: 3rem;
+    margin-bottom: 0rem;
+    margin-left: auto;
+    margin-right: auto;
+  font-size: 20px; /*13px;*/
+  color: #bbb;
+    text-align: center;
+}
+
+/* Push the previous/next links out to the left/right */
+.older-posts,
+.newer-posts {
+    position: absolute;
+    display: inline-block;
+}
+
+.older-posts {
+    right: 0;
+}
+
+.page-number {
+    display: inline-block;
+    padding: 2px 0;
+    min-width: 100px;
+}
+
+.newer-posts {
+    left: 0;
+}
+
+.extra-pagination {
+    display: none;
+}
+
+.extra-pagination .pagination {
+    width: auto;
+}
+
+/* On page2+ show extra pagination controls at the top of post list */
+.paged .extra-pagination {
+    display: block;
+  }

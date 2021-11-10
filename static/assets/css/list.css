@@ -11,52 +11,6 @@
   line-height: 1.35;
 }
 
-/* The main wrapper for pagination links */
-.pagination {
-    position: relative;
-    margin-top: 3rem;
-    margin-bottom: 0rem;
-    margin-left: auto;
-    margin-right: auto;
-  font-size: 20px; /*13px;*/
-  color: #bbb;
-    text-align: center;
-}
-
-/* Push the previous/next links out to the left/right */
-.older-posts,
-.newer-posts {
-    position: absolute;
-    display: inline-block;
-}
-
-.older-posts {
-    right: 0;
-}
-
-.page-number {
-    display: inline-block;
-    padding: 2px 0;
-    min-width: 100px;
-}
-
-.newer-posts {
-    left: 0;
-}
-
-.extra-pagination {
-    display: none;
-}
-
-.extra-pagination .pagination {
-    width: auto;
-}
-
-/* On page2+ show extra pagination controls at the top of post list */
-.paged .extra-pagination {
-    display: block;
-}
-
 .post-title > a {
   color: #000;
 }

@@ -56,6 +56,7 @@
 <link rel="stylesheet" href="https://use.typekit.net/nmn4mcn.css">
 <link rel="stylesheet" href="/assets/css/reset.css">
 <link rel="stylesheet" href="/assets/css/base.css">
+<link rel="stylesheet" href="/assets/css/nav.css">
 <link rel="stylesheet" href="/assets/css/typography.css">
 <link rel="stylesheet" href="/assets/css/highlight.css">
 
@@ -127,15 +128,15 @@
 {{- /* Create a list with feed links and email */}}
 {{- partial "footer/link-list.html" . -}}
 
-{{- if templates.Exists "partials/plugin-webring.html" -}}
-{{- partial "plugin-webring.html" . }}
-{{- end -}}
-
 </footer>
 {{- end -}}
 
 {{- /* Include the custom footer */}}
 {{- partial "custom_footer.html" . -}}
+
+{{- if templates.Exists "partials/plugin-webring.html" -}}
+{{- partial "plugin-webring.html" . }}
+{{- end -}}
 
 {{- if $precision_injection -}}
 {{- if $comments -}}
