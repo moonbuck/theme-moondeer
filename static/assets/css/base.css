@@ -258,6 +258,20 @@ mark#theme-version-overlay {
 }*/
 
 
+mark#theme-version-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  padding: 0 1em;
+  background-color: black;
+  color: white;
+  font-size: 21px;
+  opacity: 0.5;
+  font-family: mr-eaves-sans, sans-serif;
+  font-weight: 300;
+  font-style: nor
+}
+
 /* Media Queries */
 @media screen and (max-width: 540px) {
 

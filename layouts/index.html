@@ -1,26 +1,57 @@
-{{- /* Template for the homepage */}}
-{{- define "stylesheets" }}
+{{- define "stylesheets" -}}
+
 <link rel="stylesheet" href="/assets/css/dark-nav.css">
 <link rel="stylesheet" href="/assets/css/list.css">
-{{- end }}
 
-{{- define "navigation" }}
+{{- end -}}
+
+{{- define "navigation" -}}
+
 <nav class="main-nav">
 <a class="selected" href="/">Latest</a>
-{{- range site.Menus.main }}
-<a href="{{ .URL }}"><nobr>{{ .Title }}</nobr></a>
-{{- end }}
-</nav>
-{{- partial "header/banner.html" . }}
-{{- end }}
 
-{{ define "main" }}
+{{- range site.Menus.main -}}
+
+<a href="{{ .URL }}"><nobr>{{ .Title }}</nobr></a>
+
+{{- end -}}
+
+</nav>
+
+{{- partial "header/banner.html" . -}}
+
+{{- end -}}
+
+{{- define "main" -}}
+
 <section id="wrapper">
-{{- if .Site.Params.paginate_home }}
-{{ partial "paginated-post-list.html" . }}
-{{- else }}
-{{ partial "post-list.html" . }}
-{{- end }}
-{{- partial "profile.html" . }}
+
+{{- if site.Params.paginate_home -}}
+
+<ul id="post-list">
+
+{{- $paginator := .Paginate (where .Data.Pages.ByDate.Reverse "Type" "post") -}}
+
+{{- range $paginator.Pages }}{{- .Render "li" }}{{ end -}}
+
+</ul>
+
+{{- partial "navigation/pagination" . -}}
+
+{{- else -}}
+
+<ul id="post-list">
+
+{{- $posts := where .Data.Pages.ByDate.Reverse "Type" "post" -}}
+
+{{- range $posts }}{{- .Render "li" }}{{ end -}}
+
+</ul>
+
+{{- end -}}
+
+{{- partial "profile.html" . -}}
+
 </section>
-{{- end }}
+
+{{- end -}}

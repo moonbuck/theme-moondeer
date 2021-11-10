@@ -1,3 +1,18 @@
-{{ define "main" }}
-  {{ partial "post-list.html" . }}
-{{ end }}
+{{- define "stylesheets" -}}
+
+<link rel="stylesheet" href="/assets/css/dark-nav.css">
+<link rel="stylesheet" href="/assets/css/list.css">
+
+{{- end -}}
+
+{{- define "main" -}}
+
+<ul id="post-list">
+
+{{- $list := where .Data.Pages.ByDate.Reverse "Type" "post" -}}
+
+{{- range $list }}{{ .Render "li" }}{{ end -}}
+
+</ul>
+
+{{- end -}}

@@ -1,17 +1,22 @@
-{{- /* Modifed for stylistic changes and to use username rather than description in config.json */ -}}
 <div class="profile" id="wrapper">
-  <section id="wrapper">
-    <header class="h-card">
-      <a class="u-url" rel="me" href="https://moondeer.blog/about">
-      {{- with site.Params.profile_avatar}}<img id="avatar" class="u-photo" src="{{ . }}" />{{ end }}
-      </a>
-      <h1 class="p-name" rel="me">{{ site.Author.name }}</h1>
-{{- if templates.Exists "partials/profile/social-media-links.html" }}
-      <h4 class="p-role">
-      {{ partial "profile/social-media-links.html" . }}
-      </h4>
-{{- end }}
-      <p class="p-note"><em>{{ site.Params.brief_bio }}</em></p>
-    </header>
-  </section>
+<section id="wrapper">
+<header class="h-card">
+<a class="u-url" rel="me" href="https://moondeer.blog/about">
+
+{{- with site.Params.profile_avatar -}}
+<img id="avatar" class="u-photo" src="{{ . }}" />
+{{- end -}}
+
+</a>
+<h1 class="p-name" rel="me">{{ site.Author.name }}</h1>
+
+{{- if templates.Exists "partials/profile/social-media-links.html" -}}
+<h4 class="p-role">
+{{- partial "profile/social-media-links.html" . -}}
+</h4>
+{{- end -}}
+
+<p class="p-note"><em>{{ site.Params.brief_bio }}</em></p>
+</header>
+</section>
 </div>

@@ -1,35 +1,40 @@
 <rss version="2.0">
-  <channel>
-  {{/* Title */}}
-    {{- $title := "" -}}
-    {{- if eq  .Title  .Site.Title -}}
-      {{- $title = .Site.Title -}}
-    {{- else if .Title -}}
-      {{- $title = printf "%s - %s" .Title .Site.Title -}}
-    {{- end -}}
-    <title>{{ $title }}</title>
-    <link>{{ .Permalink }}</link>
-    {{/* Modifed to use page descriptions */}}
-    <description>
-    {{- with .Description }}{{ . }}{{ end -}}
-    </description>
-    {{ with .Site.LanguageCode }}
-    <language>{{.}}</language>
-    {{ end }}
-    <lastBuildDate>{{ .Date.Format "Mon, 02 Jan 2006 15:04:05 -0700" | safeHTML }}</lastBuildDate>
-    {{ range .Pages }}
-    <item>
-      <title>{{ .Title }}</title>
-      <link>{{ .Permalink }}</link>
-      <pubDate>{{ .Date.Format "Mon, 02 Jan 2006 15:04:05 -0700" | safeHTML }}</pubDate>
-      {{ with .Site.Author.email }}<author>{{.}}{{ with $.Site.Author.name }} ({{.}}){{end}}</author>{{end}}
-      {{- if .Params.guid }}
-      <guid>{{ .Params.guid }}</guid>
-      {{- else -}}
-      <guid>{{ .Permalink }}</guid>
-      {{- end }}
-      <description>{{ .Content | html }}</description>
-    </item>
-    {{ end }}
-  </channel>
+<channel>
+
+{{- $title := site.Title -}}
+{{- if (and .Title (not (eq .Title $title))) -}}
+{{- $title = printf "%s - %s" .Title $title -}}
+{{- end -}}
+
+{{- $date_format := site.Data.config.Date.ShortNames -}}
+
+{{- $author := false -}}
+{{- with site.Author.email }}{{ $author = . }}{{ end -}}
+{{- with site.Author.name }}{{ $author = printf "%s (%s)" $author . }}{{ end -}}
+
+<title>{{ $title }}</title>
+<link>{{ .Permalink }}</link>
+
+{{- with .Description }}<description>{{ . }}</description>{{ end -}}
+
+{{- with site.LanguageCode }}<language>{{ . }}</language>{{ end -}}
+
+<lastBuildDate>{{ .Date.Format $date_format | safeHTML }}</lastBuildDate>
+
+{{- range .Pages -}}
+
+<item>
+<title>{{ .Title }}</title>
+<link>{{ .Permalink }}</link>
+<pubDate>{{ .Date.Format $date_format | safeHTML }}</pubDate>
+
+{{- with $author }}<author>{{.}}</author>{{ end -}}
+
+<guid>{{ cond (isset .Params "guid") .Params.guid .Permalink }}</guid>
+<description>{{ .Content | html }}</description>
+</item>
+
+{{- end -}}
+
+</channel>
 </rss>

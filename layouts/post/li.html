@@ -1,20 +1,39 @@
 <li>
   <article>
     <section class="post-body">
-  {{- if .Title }}
-      <header><h2 class="post-title"><a href="{{ .Permalink }}">{{ .Title | markdownify }}</a></h2></header>
-      {{- .Summary }}
-    {{- if .Truncated }}
-      <p><a href="{{ .RelPermalink }}">Read More</a></p>
-    {{- end }}
-  {{- else }}
-      {{- .Content }}
-  {{- end }}
+    
+    {{- if .Title -}}
+    
+    <header>
+      <h2 class="post-title">
+        <a href="{{ .Permalink }}">{{ .Title | markdownify }}</a>
+      </h2>
+    </header>
+    
+     {{- .Summary -}}
+     
+    {{- if .Truncated -}}
+    
+    <p><a href="{{ .RelPermalink }}">Read More</a></p>
+    
+    {{- end -}}
+    
+    {{- else -}}
+    
+    {{- .Content -}}
+    
+    {{- end -}}
+    
     </section>
+    
+    {{- $datetime := .Date.Format site.Data.config.Date.DashDigits -}}
+    {{- $time := .Date.Format site.Data.config.Date.TimeDay -}}
+    
     <a href="{{ .Permalink }}" class="u-url">
       <aside class="dates">
-        <time datetime="{{ .Date.Format "2006-01-02 15:04:05 -0700" }}" 
-              class="dt-published">→ {{ .Date.Format "3:04 PM, Jan 2" }}</time>
+        <time datetime="{{ $datetime }}" class="dt-published">
+        → {{ $time }}
+        </time>
       </aside>
     </a>
   </article>

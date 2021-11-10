@@ -1,0 +1,3 @@
+{{- with site.Copyright -}}
+<span class="copyright">{{ replace . "{year}" now.Year }}</span>
+{{- end -}}

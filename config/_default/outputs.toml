@@ -1,0 +1,15 @@
+home = [
+  "HTML",
+  "RSS",
+  "JSON",
+  "RSD",
+  "ArchiveHTML",
+  "ArchiveJSON",
+  "PhotosJSON",
+  "PodcastXML",
+  "PodcastJSON"
+]
+page = [ "HTML" ]
+section = [ "HTML" ]
+taxonomy = [ "HTML", "RSS", "JSON" ]
+taxonomyTerm = [ "HTML", "RSS", "JSON" ]
