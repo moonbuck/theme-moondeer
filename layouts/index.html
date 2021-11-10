@@ -26,29 +26,24 @@
 
 <section id="wrapper">
 
+
+{{- $pages := slice -}}
+{{- $paginate := false -}}
+
 {{- if site.Params.paginate_home -}}
 
-<ul id="post-list">
-
-{{- $paginator := .Paginate (where .Data.Pages.ByDate.Reverse "Type" "post") -}}
-
-{{- range $paginator.Pages }}{{- .Render "li" }}{{ end -}}
-
-</ul>
-
-{{- partial "navigation/pagination" . -}}
+{{- $paginate = true -}}
+{{- $pages = (.Paginate (where .Data.Pages.ByDate.Reverse "Type" "post")).Pages -}}
 
 {{- else -}}
 
-<ul id="post-list">
-
-{{- $posts := where .Data.Pages.ByDate.Reverse "Type" "post" -}}
-
-{{- range $posts }}{{- .Render "li" }}{{ end -}}
-
-</ul>
+{{- $pages = where .Data.Pages.ByDate.Reverse "Type" "post" -}}
 
 {{- end -}}
+
+{{- with $pages }}{{ partial "post-list.html" . }}{{ end -}}
+
+{{- if (and $pages $paginate) }}{{ partial "navigation/pagination" . }}{{ end -}}
 
 {{- partial "profile.html" . -}}
 

@@ -1,4 +1,13 @@
-<mark id="theme-version-overlay">
-Moondeer {{ site.Data.theme_moondeer.config.ThemeVersion }}
-{{ if (in (site.BaseURL | string) "test") }}(test){{ end }}
-</mark>
+{{- with site.Params.Theme.IncludeThemeVersion -}}
+
+{{- $is_test := in (site.BaseURL | string) "test" -}}
+{{- $version := site.Params.Theme.ThemeVersion -}}
+{{- $text := printf "Moondeer %s%s" $version (cond $is_test " (test)" "") -}}
+
+{{- if (or (not (eq . "test")) $is_test ) -}}
+
+<mark id="theme-version-overlay">{{ $text }}</mark>
+
+{{- end -}}
+
+{{- end -}}

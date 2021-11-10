@@ -1,5 +1,5 @@
 {{- $precision_injection := templates.Exists "partials/plugin-precision-injection.html" -}}
-{{- $comments := site.Data.config.InjectionSiteComments -}}
+{{- $comments := site.Params.Theme.InjectionSiteComments -}}
 {{ $comment := "<!--Injecting HTML files prefixed with %s-->"  }}
 {{- $theme_version := site.Data.config.ThemeVersion -}}
 
@@ -152,9 +152,7 @@
 {{- end -}}
 
 {{- /* Include visible theme version if flagged */}}
-{{- if site.Data.config.VisibleThemeVersion -}}
 {{- partial "header/theme-version.html" . }}
-{{- end -}}
 
 {{- /* Close the page body and html */}}
 </body>

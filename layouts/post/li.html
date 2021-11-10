@@ -26,8 +26,8 @@
     
     </section>
     
-    {{- $datetime := .Date.Format site.Data.config.Date.DashDigits -}}
-    {{- $time := .Date.Format site.Data.config.Date.TimeDay -}}
+    {{- $datetime := .Date.Format site.Params.Theme.Date.DashDigits -}}
+    {{- $time := .Date.Format site.Params.Theme.Date.TimeDay -}}
     
     <a href="{{ .Permalink }}" class="u-url">
       <aside class="dates">

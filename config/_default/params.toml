@@ -1,29 +1,15 @@
-brief_bio = "[ITUNES_DESCRIPTION]"
 description = "All the latest thoughts to fall out my head."
-
 mailto_email = "moondeer@moondeer.blog"
-
-paginate_categories = true
-paginate_home = true
-paginate_replies = false
-
 profile_avatar = "https://moondeer.blog/uploads/2021/d2728f1610.jpg"
 
-itunes_description = "[ITUNES_DESCRIPTION]"
-itunes_category = "[ITUNES_CATEGORY]"
-itunes_subcategory = "[ITUNES_SUBCATEGORY]"
-itunes_author = "[ITUNES_AUTHOR]"
-itunes_email = "[ITUNES_EMAIL]"
-itunes_cover = "[ITUNES_COVER]"
+[Theme]
+ThemeVersion = "v119"
+VisibleThemeVersion = "test"
+InjectionSiteComments = true
+IncludeDisqus = true
+IncludeConversation = true
 
-twitter_username = "[TWITTER_USERNAME]"
-github_username = "[GITHUB_USERNAME]"
-instagram_username = "[INSTAGRAM_USERNAME]"
-
-site_id = "[SITE_ID]"
-
-theme_seconds = "0"
-
-plugins_css = [ ]
-plugins_js = [ ]
-plugins_html = [ ]
+[Theme.Date]
+ShortNames = "Mon, 02 Jan 2006 15:04:05 -0700"
+TimeDay = "3:04 PM, Jan 2"
+DashDigits = "2006-01-02 15:04:05 -0700"
