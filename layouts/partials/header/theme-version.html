@@ -1,4 +1,4 @@
-{{- with site.Params.Theme.IncludeThemeVersion -}}
+{{- with site.Params.Theme.VisibleThemeVersion -}}
 
 {{- $is_test := in (site.BaseURL | string) "test" -}}
 {{- $version := site.Params.Theme.ThemeVersion -}}
