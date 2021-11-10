@@ -146,6 +146,10 @@
 {{- partial "plugin-precision-injection.html" $params }}
 {{- end -}}
 
+{{- with site.Copyright -}}
+<footer id="copyright"><small>{{ replace . "{year}" now.Year }}</small></footer>
+{{- end -}}
+
 {{- /* Insert plugin Javascript includes */}}
 {{- range site.Params.plugins_js -}}
 <script src="{{ . }}"></script>

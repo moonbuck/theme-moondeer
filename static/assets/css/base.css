@@ -272,6 +272,12 @@ mark#theme-version-overlay {
   font-style: nor
 }
 
+footer#copyright {
+  display: flex;
+  justify-content: center;
+  padding-bottom: 20px;
+}
+
 /* Media Queries */
 @media screen and (max-width: 540px) {
 
