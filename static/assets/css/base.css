@@ -181,8 +181,9 @@ p a {
   transition-timing-function: cubic-bezier(.7, 0, .3, 1);
 }
 
-#webring {
-  margin-top: 2em;
+div#webring {
+  margin 2em auto;
+  padding: 0 0 50px 0;
 }
 
 video { max-width: 100%; }
