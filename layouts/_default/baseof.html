@@ -76,12 +76,16 @@
 {{- /* Include the custom stylesheet last */}}
 <link rel="stylesheet" href="{{ "custom.css" | relURL }}">
 
-{{- if $precision_injection -}}
 {{- if $comments -}}
 {{ printf "<!--Injecting HTML files without a prefix-->" | safeHTML }}
 {{- end }}
+{{- if $precision_injection -}}
 {{- $params := (dict "context" $) -}}
 {{ partial "plugin-precision-injection.html" $params }}
+{{- else -}}
+{{- range site.Params.plugin_html -}}
+{{ partial . $ }}
+{{- end -}}
 {{- end }}
 
 {{- /* Create a block for including any additional head elements */}}

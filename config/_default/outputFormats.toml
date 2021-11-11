@@ -61,6 +61,6 @@ notAlternative = true
 [BrowserConfig]
 mediaType = "application/xml"
 baseName = "browserconfig"
-isPlainText = false
+isPlainText = true
 isHTML = false
 notAlternative = true

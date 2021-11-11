@@ -75,15 +75,6 @@ x32 = "favicon-32x32.png"
 #
 x16 = "favicon-16x16.png"
 
-# Path to regular image. If you upload an ico image it gets converted to jpg
-#
-# ico = "favicon.ico"
-
-# Base64 ico image.
-# You can convert .ico to base64 here: https://base64.guru/converter/encode/image/ico
-#
-# icoBase64 = "base64"
-
 [AndroidChrome]
 
 # Short name for app-like button.
@@ -135,28 +126,3 @@ x310 = "/mstile-310x310.png"
 # The tile color behind the 150x150 pixel image.
 #
 TileColor = "#DA532C"
-
-# All of the above (with the exception of ApplicationName) can have 
-# their meta tags replaced with a single link to an XML file. For this
-# to happen, here is what you must to:
-#
-# In this plugin or your custom theme, create template 'static/browserconfig.xml'
-#
-# Replace bracketed variable names with their values.
-#
-# <?xml version="1.0" encoding="utf-8"?>
-# <browserconfig>
-#   <msapplication>
-#     <tile>
-#       <square70x70logo src="[MSTile.x70]"/>
-#       <square144x144logo src="[MSTile.x144]"/>
-#       <square150x150logo src="[MSTile.x150]"/>
-#       <wide310x150logo src="[MSTile.Widex150]"/>
-#       <square310x310logo src="[MSTile.x310]"/>
-#       <TileColor>[MSTile.TileColor]</TileColor>
-#     </tile>
-#   </msapplication>
-# </browserconfig>
-# Once the file is in place, uncomment the entry below.
-#
-# BrowserConfig = "/browserconfig.xml"
