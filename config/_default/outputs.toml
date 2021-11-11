@@ -11,7 +11,3 @@ home = [
   "WebAppManifest",
   "BrowserConfig"
 ]
-page = [ "HTML" ]
-section = [ "HTML" ]
-taxonomy = [ "HTML", "RSS", "JSON" ]
-taxonomyTerm = [ "HTML", "RSS", "JSON" ]

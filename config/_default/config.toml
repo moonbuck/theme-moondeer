@@ -1,15 +1,1 @@
-# title = "[TITLE]"
-
-# baseURL = "[SCHEME]://[HOSTNAME]/"
-
-rssLimit = 25
-
-uglyURLs = false
-
-enableRobotsTXT = true
-
-# languageCode = "[LANGUAGE]"
-
-paginate = 25
-
 copyright = "© {year} Moondeer Studios. All rights reserved."

@@ -1,19 +1,27 @@
 <ul>
-{{- $url := urls.Parse .Permalink }}
-{{- $parts := split $url.Path "/" }}
-{{- $kind := index $parts 1 }}
-{{- if eq $kind "categories" }}
-  {{- $category := index $parts 2 }}
+
+{{- $url := urls.Parse .Permalink -}}
+{{- $parts := split $url.Path "/" -}}
+{{- $kind := index $parts 1 -}}
+
+{{- if eq $kind "categories" -}}
+
+{{- $category := index $parts 2 -}}
+  
   <li><a href="/categories/{{ $category }}/feed.xml">RSS</a></li>
-{{- else }}
+
+{{- else -}}
+  
   <li><a href="/feed.xml">RSS</a></li>
-{{- end }}
+  
+{{- end -}}
+
   <li><a href="/feed.json">JSON Feed</a></li>
-  <li><a href="https://micro.blog/{{ site.Author.username }}"
-         rel="me">Micro.blog</a></li>
-{{- with site.Params.mailto_email }}         
-  <li><a class="u-email" 
-         href="mailto:{{.}}" 
-         rel="me">Email</a></li>
-{{- end }}
+  
+{{- with site.Author.Email -}}         
+
+<li><a class="u-email" href="mailto:{{.}}"rel="me">Email</a></li>
+
+{{- end -}}
+
 </ul>

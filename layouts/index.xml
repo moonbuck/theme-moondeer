@@ -1,11 +1,10 @@
 <rss version="2.0">
   <channel>
-  {{/* Simplified title logic */}}
-  <title>{{ .Site.Title }}</title>
+  <title>{{ if eq  .Title  .Site.Title }}{{ .Site.Title }}{{ else }}{{ with .Title }}{{.}} on {{ end }}{{ .Site.Title }}{{ end }}</title>
     <link>{{ .Permalink }}</link>
     {{/* Modifed to use page description from config.json */}}
     <description>
-    {{- with .Site.Params.description }}{{ . }}{{ end -}}
+    {{- with .Description | default .Site.Params.description }}{{ . }}{{ end -}}
     </description>
     {{ with .Site.LanguageCode }}
     <language>{{.}}</language>

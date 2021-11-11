@@ -26,7 +26,7 @@
     
     </section>
     
-    {{- $datetime := .Date.Format site.Params.Theme.Date.DashDigits -}}
+    {{- $datetime := .Date.Format site.Params.Theme.Date.DateTime -}}
     {{- $time := .Date.Format site.Params.Theme.Date.TimeDay -}}
     
     <a href="{{ .Permalink }}" class="u-url">

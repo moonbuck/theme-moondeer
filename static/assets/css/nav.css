@@ -41,9 +41,7 @@ nav#next-prev {
   margin: 2em auto;
 }
 
-nav#next-prev span#empty-space {
-  flex-grow: 2;
-}
+nav#next-prev span#empty-space { flex-grow: 2 }
 
 nav#next-prev nav#category-list {
   flex-grow: 2;
@@ -60,14 +58,14 @@ nav#next-prev nav#category-list {
 /* The main wrapper for pagination links */
 
 .pagination {
-    position: relative;
-    margin-top: 3rem;
-    margin-bottom: 0rem;
-    margin-left: auto;
-    margin-right: auto;
+  position: relative;
+  margin-top: 3rem;
+  margin-bottom: 0rem;
+  margin-left: auto;
+  margin-right: auto;
   font-size: 20px; /*13px;*/
   color: #bbb;
-    text-align: center;
+  text-align: center;
 }
 
 /* Push the previous/next links out to the left/right */
@@ -77,9 +75,7 @@ nav#next-prev nav#category-list {
     display: inline-block;
 }
 
-.older-posts {
-    right: 0;
-}
+.older-posts { right: 0 }
 
 .page-number {
     display: inline-block;
@@ -87,19 +83,11 @@ nav#next-prev nav#category-list {
     min-width: 100px;
 }
 
-.newer-posts {
-    left: 0;
-}
+.newer-posts { left: 0 }
 
-.extra-pagination {
-    display: none;
-}
+.extra-pagination { display: none }
 
-.extra-pagination .pagination {
-    width: auto;
-}
+.extra-pagination .pagination { width: auto }
 
 /* On page2+ show extra pagination controls at the top of post list */
-.paged .extra-pagination {
-    display: block;
-    }
+.paged .extra-pagination { display: block }

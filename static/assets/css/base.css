@@ -247,17 +247,6 @@ mark#theme-version-overlay {
   color: white;
 }
 
-/*.banner-image {
-  background-color: #516189;
-  height: 300px;
-  width: 100%;
-  background-position: center;
-  background-repeat: no-repeat;
-  background-size: cover;
-  position: relative;
-}*/
-
-
 mark#theme-version-overlay {
   position: absolute;
   top: 0;
