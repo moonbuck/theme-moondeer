@@ -57,3 +57,10 @@ rel = "manifest"
 isPlainText = true
 isHTML = false
 notAlternative = true
+
+[BrowserConfig]
+mediaType = "application/xml"
+baseName = "browserconfig"
+isPlainText = false
+isHTML = false
+notAlternative = true

@@ -159,4 +159,4 @@ TileColor = "#DA532C"
 # </browserconfig>
 # Once the file is in place, uncomment the entry below.
 #
-BrowserConfig = "/browserconfig.xml"
+# BrowserConfig = "/browserconfig.xml"

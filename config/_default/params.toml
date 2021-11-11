@@ -29,7 +29,7 @@ profile_avatar = "https://moondeer.blog/uploads/2021/d2728f1610.jpg"
 # plugins_html = [ ]
 
 [Theme]
-ThemeVersion = "v122"
+ThemeVersion = "v123"
 VisibleThemeVersion = "test"
 InjectionSiteComments = true
 IncludeDisqus = true
