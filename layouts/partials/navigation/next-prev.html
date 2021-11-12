@@ -8,7 +8,7 @@
 {{- with $newer -}}
 <a class="mr-eaves-modern-thin" href="{{ .Permalink }}">← Newer</a>
 {{- else -}}
-<span id="empty-space"></span>
+<span></span>
 {{- end -}}
 
 {{- if (and .current .current.Params.categories) -}}
@@ -24,7 +24,7 @@
 {{- with $older -}}
 <a class="mr-eaves-modern-thin" href="{{ .Permalink }}">Older →</a>
 {{- else -}}
-<span id="empty-space"></span>
+<span></span>
 {{- end -}}
 
 </nav>

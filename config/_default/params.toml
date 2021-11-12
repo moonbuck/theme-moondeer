@@ -1,5 +1,10 @@
 description = "All the latest thoughts to fall out my head."
 
+[Author]
+Avatar = "https://moondeer.blog/uploads/2021/3014652aa8.jpg"
+ProfileAvatar = "https://moondeer.blog/uploads/2021/d2728f1610.jpg"
+Email = "moondeer@moondeer.blog"
+
 [Theme]
 ThemeVersion = "v125"
 VisibleThemeVersion = "test"
