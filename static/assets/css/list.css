@@ -1,8 +1,14 @@
-#post-list li { list-style-type: none }
+ul#post-list li { list-style-type: none }
 
-#post-list li:last-child { margin-bottom: 0 }
+ul#post-list li:last-child { margin-bottom: 0 }
 
-#post-list h2 { margin-top: 0; line-height: 1.35 }
+ul#post-list h2 { margin-top: 0; line-height: 1.35 }
+
+ul#post-list img.post-pin {
+  width: 2rem;
+  height: auto;
+}
+
 
 .post-title > a { color: #000 }
 

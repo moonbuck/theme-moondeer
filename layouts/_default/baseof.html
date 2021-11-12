@@ -138,10 +138,6 @@
 {{- /* Include the custom footer */}}
 {{- partial "custom_footer.html" . -}}
 
-{{- /*if templates.Exists "partials/plugin-webring.html" -}}
-{{- partial "plugin-webring.html" . }}
-{{- end*/ -}}
-
 {{- if $precision_injection -}}
 {{- if $comments -}}
 {{ printf $comment "BELOW_FOOTER" | safeHTML }}

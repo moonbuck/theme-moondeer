@@ -2,6 +2,14 @@
   <article>
     <section class="post-body">
     
+    {{- $categories := .Params.categories -}}
+    
+    {{- if (in $categories "Pinned") -}}
+    
+    <img class="post-pin" src="/assets/png/pushpin.png" />
+    
+    {{- end -}}
+    
     {{- if .Title -}}
     
     <header>
