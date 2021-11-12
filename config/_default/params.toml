@@ -1,7 +1,8 @@
 description = "All the latest thoughts to fall out my head."
+AuthorURL = "https://moondeer.blog/about/"
 
 [Theme]
-ThemeVersion = "v124"
+ThemeVersion = "v125"
 VisibleThemeVersion = "test"
 InjectionSiteComments = true
 IncludeDisqus = true
@@ -12,3 +13,4 @@ ShortNames = "Mon, 02 Jan 2006 15:04:05 -0700"
 TimeDay = "3:04 PM, Jan 2"
 DateTime = "2006-01-02 15:04:05 -0700"
 Headline = "Jan 2, 2006"
+ISO8601 = "2006-01-02T15:04:05-07:00"

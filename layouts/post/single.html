@@ -8,13 +8,7 @@
 
 {{- define "head" -}}
 
-<script type="application/ld+json">
-{
-  "@context" : "http://schema.org",
-  "@type" : "BlogPosting",
-  "image" : {{ apply .Params.images "absURL" "." }}
-}
-</script>
+{{ partial "structured-data.html" . }}
 
 {{- end -}}
 
@@ -63,8 +57,6 @@
       {{ .Content }}
   </section>
   
-<hr>
-
   <section id="post-meta" class="clearfix p-author h-card">
     <a href="/" class="u-url">
     
@@ -84,11 +76,11 @@
 
 {{ partial "navigation/next-prev.html" (dict "next" .NextInSection "current" . "previous" .PrevInSection "context" .) }}
 
-{{- if (and site.Data.theme_moondeer.config.IncludeConversation (templates.Exists "partials/plugin-conversation.html")) }}
+{{- if (and site.Params.Theme.IncludeConversation (templates.Exists "partials/plugin-conversation.html")) }}
 {{ partial "plugin-conversation.html" . }}
 {{- end }}
 
-{{- if (and site.Data.theme_moondeer.config.IncludeDisqus (templates.Exists "partials/plugin-disqus.html")) }}
+{{- if (and site.Params.Theme.IncludeDisqus (templates.Exists "partials/plugin-disqus.html")) }}
 {{ partial "plugin-disqus.html" . }}
 {{ end }}
 
