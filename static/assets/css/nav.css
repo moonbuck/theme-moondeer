@@ -1,10 +1,13 @@
 /* Nav */
 
 nav.main-nav {
-  padding: 20px 20px 0;
+  padding: 1rem 1rem 0.25rem 1rem;
   margin: 0 auto;
   text-align: right;
   z-index: 100;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: flex-end;
 }
 
 nav.main-nav a {
