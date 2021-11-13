@@ -6,7 +6,7 @@ ProfileAvatar = "https://moondeer.blog/uploads/2021/d2728f1610.jpg"
 Email = "moondeer@moondeer.blog"
 
 [Theme]
-ThemeVersion = "v126"
+ThemeVersion = "v127"
 VisibleThemeVersion = "test"
 InjectionSiteComments = true
 IncludeDisqus = true
