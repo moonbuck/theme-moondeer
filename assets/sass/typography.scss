@@ -1,357 +1,97 @@
 /* Typography */
-/* Currently, these values require manually syncing convenience class values with HTML element style values */
 
-/* Convenience Class styles */
+%mr-eaves-modern { font-family: "mr-eaves-modern", san-serif; }
+%mr-eaves-sans { font-family: "mr-eaves-sans", san-serif; }
 
-.mr-eaves-modern-thin {
-  font-family: "mr-eaves-modern", sans-serif;
-  font-weight: 100;
-  font-style: normal;
-}
+$thin-weight: 100;
+$light-weight: 200;
+$book-weight: 300;
+$regular-weight: 400;
+$bold-weight: 700;
+$heavy-weight: 800;
 
-.mr-eaves-sans-thin {
-  font-family: "mr-eaves-sans", sans-serif;
-  font-weight: 100;
-  font-style: normal;
-}
+.mr-eaves-modern-thin { @extend %mr-eaves-modern; font-weight: $thin-weight; }
+.mr-eaves-sans-thin { @extend %mr-eaves-sans; font-weight: $thin-weight; }
+.mr-eaves-modern-thin-italic { @extend .mr-eaves-modern-thin; font-style: italic; }
+.mr-eaves-sans-thin-italic { @extend .mr-eaves-sans-thin; font-style: italic; }
 
-.mr-eaves-modern-thin-italic {
-  font-family: "mr-eaves-modern", sans-serif;
-  font-weight: 100;
-  font-style: italic;
-}
 
-.mr-eaves-sans-thin-italic {
-  font-family: "mr-eaves-sans", sans-serif;
-  font-weight: 100;
-  font-style: italic;
-}
+.mr-eaves-modern-light { @extend %mr-eaves-modern; font-weight: $light-weight; }
+.mr-eaves-sans-light { @extend %mr-eaves-sans; font-weight: $light-weight; }
+.mr-eaves-modern-light-italic { @extend .mr-eaves-modern-light; font-style: italic; }
+.mr-eaves-sans-light-italic { @extend .mr-eaves-sans-light; font-style: italic; }
 
-.mr-eaves-modern-light {
-  font-family: "mr-eaves-modern", sans-serif;
-  font-weight: 200;
-  font-style: normal;
-}
+.mr-eaves-modern-book { @extend %mr-eaves-modern; font-weight: $book-weight; }
+.mr-eaves-sans-book { @extend %mr-eaves-sans; font-weight: $book-weight; }
+.mr-eaves-modern-book-italic { @extend .mr-eaves-modern-book; font-style: italic; }
+.mr-eaves-sans-book-italic { @extend .mr-eaves-sans-book; font-style: italic; }
 
-.mr-eaves-sans-light {
-  font-family: "mr-eaves-sans", sans-serif;
-  font-weight: 200;
-  font-style: normal;
-}
+.mr-eaves-modern-regular { @extend %mr-eaves-modern; font-weight: $regular-weight }
+.mr-eaves-sans-regular { @extend %mr-eaves-sans; font-weight: $regular-weight; }
+.mr-eaves-modern-regular-italic { @extend .mr-eaves-modern-regular; font-style: italic; }
+.mr-eaves-sans-regular-italic { @extend .mr-eaves-sans-regular; font-style: italic; }
 
-.mr-eaves-modern-light-italic {
-  font-family: "mr-eaves-modern", sans-serif;
-  font-weight: 200;
-  font-style: italic;
-}
+.mr-eaves-modern-bold { @extend %mr-eaves-modern; font-weight: $bold-weight; }
+.mr-eaves-sans-bold { @extend %mr-eaves-sans; font-weight: $bold-weight; }
+.mr-eaves-modern-bold-italic { @extend .mr-eaves-modern-bold; font-style: italic; }
+.mr-eaves-sans-bold-italic { @extend .mr-eaves-sans-bold; font-style: italic; }
 
-.mr-eaves-sans-light-italic {
-  font-family: "mr-eaves-sans", sans-serif;
-  font-weight: 200;
-  font-style: italic;
-}
+.mr-eaves-modern-heavy { @extend %mr-eaves-modern; font-weight: $heavy-weight; }
+.mr-eaves-sans-heavy { @extend %mr-eaves-sans; font-weight: $heavy-weight; }
+.mr-eaves-modern-heavy-italic { @extend .mr-eaves-modern-heavy; font-style: italic; }
+.mr-eaves-sans-heavy-italic { @extend .mr-eaves-sans-heavy; font-style: italic; }
 
-.mr-eaves-modern-book {
-  font-family: "mr-eaves-modern", sans-serif;
-  font-weight: 300;
-  font-style: normal;
-}
 
-.mr-eaves-sans-book {
-  font-family: "mr-eaves-sans", sans-serif;
-  font-weight: 300;
-  font-style: normal;
-}
+.thin { @extend .mr-eaves-sans-thin; }
+.thin-italic { @extend .mr-eaves-sans-thin-italic; }
 
-.mr-eaves-modern-book-italic {
-  font-family: "mr-eaves-modern", sans-serif;
-  font-weight: 300;
-  font-style: italic;
-}
+.light { @extend .mr-eaves-sans-light; }
+.light-italic { @extend .mr-eaves-sans-light-italic; }
 
-.mr-eaves-sans-book-italic {
-  font-family: "mr-eaves-sans", sans-serif;
-  font-weight: 300;
-  font-style: italic;
-}
+.book { @extend .mr-eaves-sans-book; }
+.book-italic { @extend .mr-eaves-sans-book-italic; }
 
-.mr-eaves-modern-regular {
-  font-family: "mr-eaves-modern", sans-serif;
-  font-weight: 400;
-  font-style: normal;
-}
+.regular { @extend .mr-eaves-sans-regular; }
+.regular-italic { @extend .mr-eaves-sans-regular-italic; }
 
-.mr-eaves-sans-regular {
-  font-family: "mr-eaves-sans", sans-serif;
-  font-weight: 400;
-  font-style: normal;
-}
+.bold { @extend .mr-eaves-sans-bold; }
+.bold-italic { @extend .mr-eaves-sans-bold-italic; }
 
-.mr-eaves-modern-regular-italic {
-  font-family: "mr-eaves-modern", sans-serif;
-  font-weight: 400;
-  font-style: italic;
-}
+.heavy { @extend .mr-eaves-sans-heavy; }
+.heavy-italic { @extend .mr-eaves-sans-heavy-italic; }
 
-.mr-eaves-sans-regular-italic {
-  font-family: "mr-eaves-sans", sans-serif;
-  font-weight: 400;
-  font-style: italic;
-}
-
-.mr-eaves-modern-bold {
-  font-family: "mr-eaves-modern", sans-serif;
-  font-weight: 700;
-  font-style: normal;
-}
-
-.mr-eaves-sans-bold {
-  font-family: "mr-eaves-sans", sans-serif;
-  font-weight: 700;
-  font-style: normal;
-}
-
-.mr-eaves-modern-bold-italic {
-  font-family: "mr-eaves-modern", sans-serif;
-  font-weight: 700;
-  font-style: italic;
-}
-
-.mr-eaves-sans-bold-italic {
-  font-family: "mr-eaves-sans", sans-serif;
-  font-weight: 700;
-  font-style: italic;
-}
-
-.mr-eaves-modern-heavy {
-  font-family: "mr-eaves-modern", sans-serif;
-  font-weight: 800;
-  font-style: normal;
-}
-
-.mr-eaves-sans-heavy {
-  font-family: "mr-eaves-sans", sans-serif;
-  font-weight: 800;
-  font-style: normal;
-}
-
-.mr-eaves-modern-heavy-italic {
-  font-family: "mr-eaves-modern", sans-serif;
-  font-weight: 800;
-  font-style: italic;
-}
-
-.mr-eaves-sans-heavy-italic {
-  font-family: "mr-eaves-sans", sans-serif;
-  font-weight: 800;
-  font-style: italic;
-}
-
-.thin {
-  font-family: mr-eaves-sans, sans-serif;
-  font-weight: 100;
-  font-style: normal;
-}
-
-.thin-italic {
-  font-family: mr-eaves-sans, sans-serif;
-  font-weight: 100;
-  font-style: italic;
-}
-
-.light {
-  font-family: mr-eaves-sans, sans-serif;
-  font-weight: 200;
-  font-style: normal;
-}
-
-.light-italic {
-  font-family: mr-eaves-sans, sans-serif;
-  font-weight: 200;
-  font-style: italic;
-}
-
-.book {
-  font-family: mr-eaves-sans, sans-serif;
-  font-weight: 300;
-  font-style: normal;
-}
-
-.book-italic {
-  font-family: mr-eaves-sans, sans-serif;
-  font-weight: 300;
-  font-style: italic;
-}
-
-.regular {
-  font-family: mr-eaves-sans, sans-serif;
-  font-weight: 400;
-  font-style: normal;
-}
-
-.regular-italic {
-  font-family: mr-eaves-sans, sans-serif;
-  font-weight: 400;
-  font-style: italic;
-}
-
-.bold {
-  font-family: mr-eaves-sans, sans-serif;
-  font-weight: 700;
-  font-style: normal;
-}
-
-.bold-italic {
-  font-family: mr-eaves-sans, sans-serif;
-  font-weight: 700;
-  font-style: italic;
-}
-
-.heavy {
-  font-family: mr-eaves-sans, sans-serif;
-  font-weight: 800;
-  font-style: normal;
-}
-
-.heavy-italic {
-  font-family: mr-eaves-sans, sans-serif;
-  font-weight: 800;
-  font-style: italic;
-}
-
-.html-font-size {
-  font-size: 24px;
-}
-
-.h1-font-size {
-  font-size: 1.34rem;
-}
-
-.h2-font-size {
-  font-size: 1.25rem;
-}
-
-.h3-font-size {
-  font-size: 1.125rem;
-}
-
-.h4-font-size {
-  font-size: 1rem;
-}
-
-.h5-font-size {
-  font-size: 0.9167rem;
-}
-
-.body-font-size {
-  font-size: 1rem;
-}
-
-.small-font-size {
-  font-size: 0.875rem;
-}
-
-.h1-font-weight {
-  font-weight: 800;
-}
-
-.h2-font-weight {
-  font-weight: 700;
-}
-
-.h3-font-weight {
-  font-weight: 400;
-}
-
-.h4-font-weight {
-  font-weight: 200;
-}
-
-.h5-font-weight {
-  font-weight: 100;
-}
-
-.body-font-weight {
-  font-weight: 300;
-}
-
-.h1-font-family, .h2-font-family, .h3-font-family, .h4-font-family, .h5-font-family, .body-font-family {
-  font-family: mr-eaves-sans, sans-serif;
-}
+$html-size: 24px;
+$h1-size: 1.34rem;
+$h2-size: 1.25rem;
+$h3-size: 1.125rem;
+$h4-size: 1rem;
+$h5-size: 0.9167rem;
+$body-size: 1rem;
+$small-size: 0.875rem;
 
 /* HTML element styles */
 
-html {
-  font-size: 24px;
-}
+html { font-size: $html-size; }
 
-h1 {
-  font-size: 1.34rem;
-  font-weight: 800;
-}
+h1 { @extend .heavy; font-size: $h1-size; }
+h2 { @extend .bold; font-size: $h2-size; }
+h3 { @extend .regular; font-size: $h3-size; }
+h4 { @extend .light; font-size: $h4-size; }
+h5 { @extend .thin; font-size: $h5-size; }
 
-h2 {
-  font-size: 1.25rem;
-  font-weight: 700;
-}
 
-h3 {
-  font-size: 1.125rem;
-  font-weight: 400;
-}
+body { @extend .book; font-size: 1rem; text-rendering: optimizeLegibility }
+b { @extend .heavy; }
+strong { @extend .bold;  }
 
-h4 {
-  font-size: 1rem;
-  font-weight: 200;
-}
+em { @extend .regular-italic; }
 
-h5 {
-  font-size: 0.9167rem;
-  font-weight: 100;
-}
+i { @extend .book-italic; }
 
-h1, h2, h3, h4, h5 {
-  font-family: mr-eaves-sans, sans-serif;
-}
+strong > em, em > strong { @extend .bold-italic; }
 
-body {
-  font-family: mr-eaves-sans, sans-serif;
-  font-weight: 300;
-  font-style: normal;
-  font-size: 1rem;
-  text-rendering: optimizeLegibility;
-}
+sup { vertical-align: super; font-size: smaller; }
 
-b {
-  font-weight: 800;
-}
+small { font-size: $small-size; }
 
-strong {
-  font-weight: 400;
-}
-
-em {
-  font-style: italic;
-  font-weight: 400;
-}
-
-i {
-  font-style: italic;
-}
-
-strong > em, em > strong {
-  font-weight: 200;
-}
-
-sup {
-  vertical-align: super;
-  font-size: smaller;
-}
-
-small {
-  font-size: 0.875rem;
-}
-
-dt {
-  font-weight: 400;
-}
+dt { @extend .regular; }
