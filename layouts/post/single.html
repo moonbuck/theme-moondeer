@@ -1,8 +1,11 @@
 {{- /* Template for post pages */}}
 {{- define "stylesheets" -}}
 
-<link rel="stylesheet" href="/assets/css/light-nav.css">
-<link rel="stylesheet" href="/assets/css/post.css">
+{{ $light_nav := resources.Get "sass/light-nav.scss" | toCSS | fingerprint }}
+<link rel="stylesheet" href="{{ $light_nav.Permalink }}">
+
+{{ $post := resources.Get "sass/post.scss" | toCSS | fingerprint }}
+<link rel="stylesheet" href="{{ $post.Permalink }}">
 
 {{- end -}}
 

@@ -1,7 +1,12 @@
 {{- /* Template for the about page */}}
 {{- define "stylesheets" }}
-<link rel="stylesheet" href="/assets/css/dark-nav.css">
-<link rel="stylesheet" href="/assets/css/about.css">
+
+{{ $dark_nav := resources.Get "sass/dark-nav.scss" | toCSS | fingerprint }}
+<link rel="stylesheet" href="{{ $dark_nav.Permalink }}">
+
+{{ $about := resources.Get "sass/about.scss" | toCSS | fingerprint }}
+<link rel="stylesheet" href="{{ $about.Permalink }}">
+
 {{- end }}
 
 {{- define "main" }}
