@@ -2,6 +2,7 @@
 title = 'Programming'
 description = 'All things programming.'
 url = '/programming/'
+aliases = ['/categories/programming/']
 
 [menu.main]
 name = 'Programming'

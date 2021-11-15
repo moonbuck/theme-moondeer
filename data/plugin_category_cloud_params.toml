@@ -1,9 +1,59 @@
-ExcludeCategories = ['Pinned']
+# Max font size to use in the cloud in rem units.
+#
+MaxSize = 1.34
 
-[Font.Size]
-Max = 1.34
-Min = 0.9
+# Min font size to use in the cloud in rem units.
+#
+MinSize = 0.9
 
-[Font.Weight]
-Max = 800
-Min = 200
+# Max font weight to use in the cloud.
+#
+MaxWeight = 800
+
+# Min font weight to use in the cloud.
+#
+MinWeigth = 200
+
+# Category names are fetched in their anchorized form.
+# Setting this parameter to true will convert anchorized
+# forms into capitalized and spaced forms.
+#
+#   my-category → My Category
+#
+Humanize = true
+
+# The default path to a category page takes the form:
+#  /categories/my-anchorized-category
+# 
+# If the category has been lifted into the main menu,
+# and its path has been altered (perhapse dropping /categories)
+# the plugin can try to match a category to its menu item and
+# use the URL value of the menu item.
+#
+MenuItemMatching = true
+
+# Whether to display parenthesized page counts along
+# with the category names.
+#
+DisplayPageCounts = true
+
+# Class to set on the cloud's category <a> tags.
+#
+Class = 'category-cloud-link'
+
+# List of categories to exclude from the category cloud.
+#
+ExclusionList = [ 'Pinned']
+
+# The plugin fetches the category names in anchorized form.
+# The 'Humanize' parameter will return the category names
+# to their capitalized and spaced form. For direct control
+# over how category name will be displayed, enter its value
+# below with its anchorized form as the key. My use case
+# for this option is this category:
+#
+# stream-of-consciousness = Stream of Conscioussness
+#
+[DisplayNames]
+microblog = 'Micro.blog'
+stream-of-consciousness = 'Stream of Consciousness'

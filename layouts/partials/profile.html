@@ -3,7 +3,7 @@
 <header class="h-card">
 <a class="u-url" rel="me" href="https://moondeer.blog/about">
 
-{{- with site.Params.profile_avatar -}}
+{{- with site.Params.Author.ProfileAvatar | default site.Params.Author.Avatar -}}
 <img id="avatar" class="u-photo" src="{{ . }}" />
 {{- end -}}
 

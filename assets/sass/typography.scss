@@ -60,6 +60,7 @@ $heavy-weight: 800;
 .heavy { @extend .mr-eaves-sans-heavy; }
 .heavy-italic { @extend .mr-eaves-sans-heavy-italic; }
 
+/* Sizes */
 $html-size: 24px;
 $h1-size: 1.34rem;
 $h2-size: 1.25rem;
@@ -68,6 +69,14 @@ $h4-size: 1rem;
 $h5-size: 0.9167rem;
 $body-size: 1rem;
 $small-size: 0.875rem;
+
+/* Colors */
+
+$body-text-color: #666;
+$bold-text-color: #1E2025;
+$aside-text-color: #bbb;
+$link-text-color: #516189;
+$link-hover-color: #000;
 
 /* HTML element styles */
 
@@ -80,18 +89,89 @@ h4 { @extend .light; font-size: $h4-size; }
 h5 { @extend .thin; font-size: $h5-size; }
 
 
-body { @extend .book; font-size: 1rem; text-rendering: optimizeLegibility }
-b { @extend .heavy; }
-strong { @extend .bold;  }
+body { 
+  @extend .book; 
+  font-size: 1rem; 
+  text-rendering: optimizeLegibility;
+  color: $body-text-color; 
+  
+  @media only screen 
+  and (min-device-width: 320px) 
+  and (max-device-width: 767px) 
+  and (-webkit-min-device-pixel-ratio: 2) 
+  and (orientation: landscape) {
+    -webkit-text-size-adjust: none;
+  }
+}
 
-em { @extend .regular-italic; }
+b { 
+  @extend .heavy;
+  color: $bold-text-color;
+}
 
-i { @extend .book-italic; }
+strong { 
+  @extend .bold;  
+  color: $bold-text-color;
+}
 
-strong > em, em > strong { @extend .bold-italic; }
+em { 
+  @extend .regular-italic; 
+}
 
-sup { vertical-align: super; font-size: smaller; }
+i { 
+  @extend .book-italic; 
+}
 
-small { font-size: $small-size; }
+strong > em, 
+em > strong {
+  @extend .bold-italic; 
+}
 
-dt { @extend .regular; }
+sup { 
+  vertical-align: super; 
+  font-size: smaller; 
+}
+
+small { 
+  font-size: $small-size; 
+}
+
+dt { 
+  @extend .regular; 
+}
+
+section.post-body + a > aside.dates {
+  text-transform: uppercase;
+  color: $aside-text-color;
+  @extend .light;
+}
+
+a {
+  text-decoration: none;
+  color: $link-text-color;
+  
+  &:hover { color: $link-hover-color; }
+}
+
+// pre {
+//   white-space: pre-wrap;
+//   padding: 20px;
+//   background-color: #fdfdfd;
+//   overflow: auto;
+//   border-radius: 5px;
+//   background: #272b2d;
+//   line-height: 1.5em;
+//   color: #d0d4d7;
+//   margin-top: 15px;
+// }
+
+// code {
+//   background-color: #F5F5F5;
+//   border-radius: 5px;
+//   display: inline-block;
+//   padding: 5px 8px;
+//   color: #7F7F7F;
+//   font-size: 0.5rem;
+//   line-height: 1.35;
+//   font-family: Consolas,Monaco,'Andale Mono','Ubuntu Mono',monospace;
+// }

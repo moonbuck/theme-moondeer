@@ -64,7 +64,6 @@
 <link rel="stylesheet" href="{{ $base.Permalink }}">
 <link rel="stylesheet" href="{{ $nav.Permalink }}">
 <link rel="stylesheet" href="{{ $typography.Permalink }}">
-<link rel="stylesheet" href="/assets/css/highlight.css">
 
 {{- /* Create a block for including any additional stylesheets */}}
 {{- block "stylesheets" . -}}
@@ -134,7 +133,7 @@
 
 {{- /* Create a block for the page footer */}}
 {{- block "footer" . -}}
-<footer id="footer">
+<footer id="feeds-email">
 
 {{- /* Create a list with feed links and email */}}
 {{- partial "footer/link-list.html" . -}}
