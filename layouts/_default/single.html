@@ -7,15 +7,5 @@
       {{ .Content }}
   </section>
 </article>
-{{- with site.Author -}}
-<section id="post-meta" class="clearfix">
-  <a href="/">
-    <img class="u-photo avatar" src="{{ .avatar }}" width="96" height="96">
-    <div>
-      <span class="p-author h-card dark">{{ .name }}</span>
-      <span><a href="https://micro.blog/{{ .username }}">@{{ .username }}</a></span>
-    </div>
-  </a>
-</section>
-{{- end -}}
+{{ partial "post-meta.html" . }}
 {{- end -}}

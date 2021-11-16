@@ -44,21 +44,8 @@
       {{ .Content }}
   </section>
   
-  <section id="post-meta" class="p-author h-card">
-    <a href="/" class="u-url">
-    
-    {{- with site.Author -}}
-    
-    <img class="u-photo avatar" src="{{ .avatar }}" width="192" height="192">
-    <div>
-      <span class="p-name dark">{{ .name }}</span>
-      <span><a href="https://micro.blog/{{ .username }}">@{{ .username }}</a></span>
-    </div>
-    
-    {{- end -}}
-      
-    </a>
-  </section>
+  {{ partial "post-meta.html" . }}
+  
 </article>
 
 {{ partial "navigation/next-prev.html" (dict "next" .NextInSection "current" . "previous" .PrevInSection "context" .) }}
