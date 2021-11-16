@@ -1,28 +1,55 @@
-/* Fonts */
+/* Core Styles */
+
+// Fonts
 
 %eaves { font-family: mr-eaves-sans, sans-serif; }
+%eaves-thin { @extend %eaves; font-weight: 100; }
+%eaves-light { @extend %eaves; font-weight: 200; }
+%eaves-book { @extend %eaves; font-weight: 300; }
+%eaves-regular { @extend %eaves; font-weight: 400; }
+%eaves-bold { @extend %eaves; font-weight: 700; }
+%eaves-heavy { @extend %eaves; font-weight: 800; }
 
-@each $name, $weight in ("thin": 100, "light": 200,"book": 300, 
-                         "regular": 400, "bold": 700, "heavy": 800) 
-{
-  
-.eaves-#{$name} { @extend %eaves; font-weight: $weight; font-style: normal; }
-.eaves-#{$name}-italic { @extend %eaves; font-weight: $weight; font-style: italic; }
-  
-}
+%eaves-thin-normal { @extend %eaves-thin; font-style: normal; }
+%eaves-light-normal { @extend %eaves-light; font-style: normal; }
+%eaves-book-normal { @extend %eaves-book; font-style: normal; }
+%eaves-regular-normal { @extend %eaves-regular; font-style: normal; }
+%eaves-bold-normal { @extend %eaves-bold; font-style: normal; }
+%eaves-heavy { @extend %eaves-heavy; font-style: normal; }
+
+%eaves-thin-italic { @extend %eaves-thin; font-style: italic; }
+%eaves-light-italic { @extend %eaves-light; font-style: italic; }
+%eaves-book-italic { @extend %eaves-book; font-style: italic; }
+%eaves-regular-italic { @extend %eaves-regular; font-style: italic; }
+%eaves-bold-italic { @extend %eaves-bold; font-style: italic; }
+%eaves-heavy-italic { @extend %eaves-heavy; font-style: italic; }
 
 %input { font-family: input-mono-compressed, monospace; }
+%input-thin { @extend %input; font-weight: 100; }
+%input-extra-light { @extend %input; font-weight: 200; }
+%input-light { @extend %input; font-weight: 300; }
+%input-regular { @extend %input; font-weight: 400; }
+%input-medium { @extend %input; font-weight: 500; }
+%input-bold { @extend %input; font-weight: 700; }
+%input-black { @extend %input; font-weight: 800; }
 
-@each $name, $weight in ("thin": 100, "extra-light": 200, "light": 300, 
-                         "regular": 400, "medium": 500, "bold": 700, "black": 800) 
-{
-  
-.input-#{$name} {  @extend %input; font-weight: $weight; font-style: normal; }
-.input-#{$name}-italic { @extend %input; font-weight: $weight; font-style: italic; }
-  
-}
+%input-thin-normal { @extend %input-thin; font-style: normal; }
+%input-extra-light-normal { @extend %input-extra-light; font-style: normal; }
+%input-light-normal { @extend %input-light; font-style: normal; }
+%input-regular-normal { @extend %input-regular; font-style: normal; }
+%input-medium-normal { @extend %input-medium; font-style: normal; }
+%input-bold-normal { @extend %input-bold; font-style: normal; }
+%input-black-normal { @extend %input-black; font-style: normal; }
 
-/* Sizes */
+%input-thin-italic { @extend %input-thin; font-style: italic; }
+%input-extra-light-italic { @extend %input-extra-light; font-style: italic; }
+%input-light-italic { @extend %input-light; font-style: italic; }
+%input-regular-italic { @extend %input-regular; font-style: italic; }
+%input-medium-italic { @extend %input-medium; font-style: italic; }
+%input-bold-italic { @extend %input-bold; font-style: italic; }
+%input-black-italic { @extend %input-black; font-style: italic; }
+
+// Sizes
 
 $html-size: 24px;
 $h1-size: 1.34rem;
@@ -34,7 +61,7 @@ $body-size: 1rem;
 $small-size: 0.875rem;
 $code-size: 0.5rem;
 
-/* Colors */
+// Colors
 
 $body-text-color: #666;
 $bold-text-color: #1E2025;
@@ -43,20 +70,30 @@ $link-text-color: #516189;
 $link-hover-color: #000;
 $code-text-color: #7F7F7F;
 $code-bg-color: #F5F5F5;
+$header-color: #000;
+$blockquote-border-color: #EEE;
+$divider-color: #EEE;
 
-/* HTML element styles */
+// Line Heights
 
-html { font-size: $html-size; }
+$body-height: 1.1;
 
-h1 { @extend .eaves-heavy; font-size: $h1-size; }
-h2 { @extend .eaves-bold; font-size: $h2-size; }
-h3 { @extend .eaves-regular; font-size: $h3-size; }
-h4 { @extend .eaves-light; font-size: $h4-size; }
-h5 { @extend .eaves-thin; font-size: $h5-size; }
+// Basic element styles
+
+%reset { margin: 0; padding: 0; }
+
+// Primary containers
+
+html { 
+  @extend %reset;
+  font-size: $html-size; 
+}
 
 body { 
-  @extend .eaves-book; 
+  @extend %reset;
+  @extend %eaves-book; 
   font-size: 1rem; 
+  line-height: $body-height;
   text-rendering: optimizeLegibility;
   color: $body-text-color; 
   
@@ -69,20 +106,132 @@ body {
   }
 }
 
-b { @extend .eaves-heavy; color: $bold-text-color; }
-strong { @extend .eaves-bold; color: $bold-text-color; }
-em { @extend .eaves-regular-italic; }
-i { @extend .eaves-book-italic; }
-strong > em, em > strong { @extend .eaves-bold-italic;  }
-sup { vertical-align: super; font-size: smaller; }
-small { font-size: $small-size;  }
-dt { @extend .eaves-regular; }
+// Headers
 
-section.post-body + a > aside.dates {
-  text-transform: uppercase;
-  color: $aside-text-color;
-  @extend .eaves-light;
+%header { color: $header-color; }
+
+h1 { 
+  @extend %header;
+  @extend %eaves-heavy; 
+  font-size: $h1-size; 
 }
+
+h2 { 
+  @extend %header;
+  @extend %eaves-bold; 
+  font-size: $h2-size; 
+}
+
+h3 { 
+  @extend %header;
+  @extend %eaves-regular; 
+  font-size: $h3-size; 
+}
+
+h4 { 
+  @extend %header;
+  @extend %eaves-light; 
+  font-size: $h4-size; 
+}
+
+h5 { 
+  @extend %header;
+  @extend %eaves-thin; 
+  font-size: $h5-size; 
+}
+
+// Font styles
+
+b { 
+  @extend %eaves-heavy; 
+  color: $bold-text-color; 
+  
+  > i { @extend %eaves-heavy-italic; }
+  
+}
+
+i { 
+  @extend %eaves-book-italic; 
+  
+  > b { @extend %eaves-heavy-italic; }
+  
+}
+
+strong { 
+  @extend %eaves-bold; 
+  color: $bold-text-color; 
+  
+  > em { @extend %eaves-bold-italic; }
+  
+}
+
+em { 
+  @extend %eaves-regular-italic; 
+  
+  > strong { @extend %eaves-bold-italic; }
+  
+}
+
+sup { 
+  vertical-align: super; 
+  font-size: smaller; 
+}
+
+small { 
+  font-size: $small-size;  
+}
+
+blockquote {
+  // padding-left: 15px;
+  // margin-top: 15px;
+  @extend %eaves-light-italic;
+  border-left: 2px solid $blockquote-border-color;
+}
+
+// Lists
+
+%list { list-style-position: inside; }
+
+ul {
+  @extend %list;
+  list-style-type: circle;
+}
+
+ol {
+  @extend %list;
+  list-style-type: decimal;
+}
+
+dl {
+  
+  dt { @extend %eaves-regular; }
+  
+  dd {
+    margin: 0px 0px 1em 0px;
+    padding: 0px 0px 0px 1em;
+    
+    p {
+      > dl, dt, dd { margin: 0px 0px 2em 0px; }
+    }
+    
+  }
+  
+}
+
+// Media
+
+%media-asset { width: 100%; max-width: 100%; height: auto; }
+
+video { 
+  @extend %media-asset; 
+}
+
+
+img { 
+  @extend %media-asset; 
+}
+
+// Links
 
 a {
   text-decoration: none;
@@ -90,6 +239,9 @@ a {
   
   &:hover { color: $link-hover-color; }
 }
+
+
+// Code
 
 // pre {
 //   white-space: pre-wrap;
@@ -104,57 +256,16 @@ a {
 // }
 
 code {
+  border-radius: 5px;
+  display: inline-block;
+  padding: 5px 8px;
+  line-height: 1.35;
   background-color: $code-bg-color;
   color: $code-text-color;
   font-size: $code-size;
-  @extend .input-regular;
+  @extend %input-regular;
 }
 
-html { margin: 0; padding: 0; }
-
-body { margin: 0; padding: 0; }
-
-// p, li {
-//   line-height: 1.1;
-// }
-
-// h1, h2, h3, h4 {
-//   color: #000;
-// }
-
-// p.small p > small {
-//   display: block;
-// }
-
-// ul {
-//   margin: 0;
-//   padding: 0;
-// }
-
-// li {
-//   list-style-type: circle;
-//   list-style-position: inside;
-// }
-
-// article {
-//   ol li {
-//     list-style-type: decimal;
-//     padding-left: 20px;
-//   }
-
-//   ul li {
-//     list-style-type: disc;
-//     padding-left: 20px;
-//   }
-// }
-
-// blockquote {
-//   padding-left: 15px;
-//   border-left: 2px solid #eee;
-//   opacity: 0.8;
-//   font-style: italic;
-//   margin-top: 15px;
-// }
 
 // hr {
 //   display: block;
@@ -177,14 +288,16 @@ hr.divider {
 }
 
 
-img { width: 100%; max-width: 100%; height: auto; }
-
-/* Others */
+// Others
 
 section.post-body + a > aside.dates {
+  text-transform: uppercase;
+  color: $aside-text-color;
+  @extend %eaves-light;
 //   width: 100%;
 //   padding-top: 5px; 
 }
+
 
 // h2.headline {
 //   margin-top: 0;
@@ -199,7 +312,7 @@ section#wrapper {
 
 
 
-/* Footers */
+// Footers
 
 footer#feeds-email {
   
@@ -226,10 +339,6 @@ footer#copyright {
 
 div#webring { margin: 2em auto; padding: 0 0 50px 0; }
 
-// video {
-//   max-width: 100%;
-// }
-
 // .emo {
 //   font-size: 75%;
 // }
@@ -242,14 +351,7 @@ div#webring { margin: 2em auto; padding: 0 0 50px 0; }
 //   text-decoration: underline;
 // }
 
-/* Definition Lists */
 
-dd > p {
-  margin: 0px 0px 1em 0px;
-  padding: 0px 0px 0px 1em;
-
-  > dl, dt, dd { margin: 0px 0px 2em 0px; }
-}
 
 // figure {
 //   padding-top: 8vw;
@@ -276,5 +378,360 @@ mark#theme-version-overlay {
   color: white;
   font-size: $h5-size;
   opacity: 0.5;
-  @extend .eaves-book;
+  @extend %eaves-book;
+}
+
+/* Navigation */
+
+nav.main-nav {
+  padding: 1rem 1rem 0.25rem 1rem;
+  margin: 0 auto;
+  text-align: right;
+  z-index: 100;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: flex-end;
+
+  a {
+    top: 8px;
+    right: 6px;
+    font-size: 17px;
+    line-height: 1.35;
+    font-weight: 400;
+    margin-left: 12px;
+
+    &:hover {
+      box-shadow: none;
+    }
+  }
+}
+
+#footer a:hover, #post-nav a:hover, p a:hover {
+  box-shadow: none;
+}
+
+nav.main-nav a {
+  &.selected {
+    box-shadow: inset 0 -2px 0 #9FADBF;
+  }
+
+  font-weight: 400;
+  transition: all .35s;
+  transition-timing-function: cubic-bezier(0.7, 0, 0.3, 1);
+}
+
+#post-nav a {
+  font-weight: 400;
+  transition: all .35s;
+  transition-timing-function: cubic-bezier(0.7, 0, 0.3, 1);
+}
+
+nav#next-prev {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  margin: 2em auto;
+
+  span#empty-space {
+    flex-grow: 2;
+  }
+
+  nav#category-list {
+    flex-grow: 2;
+    display: flex;
+    gap: 2rem;
+    justify-content: center;
+    align-items: baseline;
+  }
+}
+
+//nav#next-prev nav#category-list span.bullet-divider {
+  // margin: 2rem;
+// }
+
+// The main wrapper for pagination links
+
+.pagination {
+  position: relative;
+  margin-top: 3rem;
+  margin-bottom: 0rem;
+  margin-left: auto;
+  margin-right: auto;
+  font-size: 20px;
+  color: #bbb;
+  text-align: center;
+}
+
+// Push the previous/next links out to the left/right
+
+.older-posts, .newer-posts {
+  position: absolute;
+  display: inline-block;
+}
+
+.older-posts {
+  right: 0;
+}
+
+.page-number {
+  display: inline-block;
+  padding: 2px 0;
+  min-width: 100px;
+}
+
+.newer-posts {
+  left: 0;
+}
+
+.extra-pagination {
+  display: none;
+
+  .pagination {
+    width: auto;
+  }
+}
+
+// On page2+ show extra pagination controls at the top of post list
+
+.paged .extra-pagination {
+  display: block;
+}
+
+/* List Pages */
+
+ul#post-list {
+  li {
+    list-style-type: none;
+
+    &:last-child {
+      margin-bottom: 0;
+    }
+  }
+
+  h2 {
+    margin-top: 0;
+    line-height: 1.35;
+  }
+
+  img.post-pin {
+    width: 2rem;
+    height: auto;
+  }
+}
+
+.post-title > a {
+  color: #000;
+}
+
+.post-body > p > a {
+  color: #000;
+  text-decoration: underline;
+}
+
+div.category-content {
+  margin-bottom: 8vw;
+  line-height: 26px;
+  text-align: left;
+}
+
+#post-meta {
+  img.avatar, a img.avatar {
+    height: 36px;
+    width: 36px;
+    float: left;
+    margin-right: 15px;
+    box-shadow: 0 0 0 3px #fff, 0 0 0 4px #eee;
+    border-radius: 50%;
+  }
+}
+
+article.post {
+  margin-bottom: 50px;
+
+  header h1.p-name {
+    display: none;
+  }
+}
+
+div#categories-stream-of-consciousness {
+  background-position: 50% 5%;
+}
+
+@media screen and (max-width: 540px) {
+  div {
+    &#categories-artsy-fartsy, &#categories-critters {
+      background-position: 35% 50%;
+    }
+  }
+}
+
+/* Post Pages */
+
+.post-body {
+  li:last-child {
+    margin-bottom: 1.5em;
+  }
+
+  ol li {
+    list-style-type: decimal !important;
+  }
+
+  ul li {
+    list-style-type: disc !important;
+  }
+}
+
+.post header {
+  text-align: center;
+}
+
+#post-meta {
+  font-size: 20px;
+  font-weight: 200;
+  line-height: 1.5;
+  border-top: 1px solid #eee;
+  padding-top: 40px;
+  padding-bottom: 40px;
+  margin-top: 60px;
+  color: #444;
+  border-bottom: 1px solid #eee;
+
+  div {
+    span {
+      color: #aaa;
+      font-weight: 100;
+      display: block;
+
+      &.dark {
+        color: #1E2025;
+      }
+    }
+
+    float: left;
+  }
+
+  img.avatar {
+    height: 36px;
+    width: 36px;
+    float: left;
+    margin-right: 15px;
+    box-shadow: 0 0 0 3px #fff, 0 0 0 4px #eee;
+    border-radius: 50%;
+  }
+}
+
+#header {
+  border-bottom: 1px solid #eee;
+}
+
+.post {
+  margin: 120px 0 0 0;
+}
+
+#post-nav {
+  text-align: center;
+  padding-top: 20px;
+  font-size: 20px;
+  font-weight: 400;
+  margin-top: 40px;
+
+  span {
+    position: relative;
+
+    &.prev {
+      float: left;
+    }
+
+    &.next {
+      float: right;
+    }
+
+    .arrow {
+      position: relative;
+      padding: 1px;
+    }
+  }
+}
+
+.microblog_conversation {
+  margin-top: 50px;
+  padding-top: 20px;
+  border-top: 0.5px solid lightgray;
+}
+
+.microblog_post {
+  padding-top: 20px;
+  padding-bottom: 20px;
+}
+
+div {
+  &.microblog_post + div.microblog_post {
+    border-top: 0.5px solid lightgray;
+  }
+
+  &.microblog_text p a {
+    text-decoration: none;
+    box-shadow: none;
+  }
+}
+
+.microblog_avatar {
+  border-radius: 10px;
+  vertical-align: middle;
+}
+
+.microblog_time {
+  font-size: 13px;
+  padding-top: 10px;
+  color: gray;
+
+  a {
+    color: gray;
+    text-decoration: none;
+  }
+}
+
+@media screen and (max-width: 540px) {
+  #post-meta {
+    padding-top: 30px;
+    padding-bottom: 30px;
+    margin-top: 60px;
+  }
+
+  .post {
+    margin: 50px 0;
+  }
+}
+
+/* Profile */
+
+.profile {
+  #wrapper {
+    margin: 0 auto;
+    text-align: center;
+    padding: 80px 0;
+    width: 100%;
+  }
+
+  #avatar {
+    display: inline-block;
+    margin-bottom: 1em;
+  }
+}
+
+header.h-card {
+  h4.p-role {
+    color: #aaa;
+    font-size: 1rem;
+    font-weight: 200;
+    line-height: 26px;
+    text-align: left;
+    display: flex;
+    justify-content: center;
+  }
+
+  p.p-note {
+    line-height: 26px;
+    text-align: left;
+  }
 }

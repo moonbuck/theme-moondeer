@@ -4,9 +4,6 @@
 {{ $dark_nav := resources.Get "sass/dark-nav.scss" | toCSS | fingerprint }}
 <link rel="stylesheet" href="{{ $dark_nav.Permalink }}">
 
-{{ $list := resources.Get "sass/list.scss" | toCSS | fingerprint }}
-<link rel="stylesheet" href="{{ $list.Permalink }}">
-
 {{- end -}}
 
 {{- define "main" -}}

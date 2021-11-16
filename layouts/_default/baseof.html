@@ -55,15 +55,8 @@
 {{- /* Include core stylesheets */}}
 <link rel="stylesheet" href="https://use.typekit.net/nmn4mcn.css">
 
-{{ $reset := resources.Get "sass/reset.scss" | toCSS | fingerprint }}
 {{ $base := resources.Get "sass/base.scss" | toCSS | fingerprint }}
-{{ $nav := resources.Get "sass/nav.scss" | toCSS | fingerprint }}
-{{ $typography := resources.Get "sass/typography.scss" | toCSS | fingerprint }}
-
-<link rel="stylesheet" href="{{ $reset.Permalink }}">
 <link rel="stylesheet" href="{{ $base.Permalink }}">
-<link rel="stylesheet" href="{{ $nav.Permalink }}">
-<link rel="stylesheet" href="{{ $typography.Permalink }}">
 
 {{- /* Create a block for including any additional stylesheets */}}
 {{- block "stylesheets" . -}}
