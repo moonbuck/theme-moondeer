@@ -60,8 +60,6 @@
 
 {{- /* Create a block for including any additional stylesheets */}}
 {{- block "stylesheets" . -}}
-{{ $dark_nav := resources.Get "sass/dark-nav.scss" | toCSS | fingerprint }}
-<link rel="stylesheet" href="{{ $dark_nav.Permalink }}">
 {{- end -}}
 
 {{- /* Include plugin stylesheets */}}
@@ -108,7 +106,7 @@
 {{- block "navigation" . -}}
 
 {{- /* Include default that handles most pages */}}
-<nav class="main-nav">
+<nav id="main-nav" class="dark">
 <a href="/">Latest</a>
 {{- $page := . }}
 {{- range site.Menus.main }}

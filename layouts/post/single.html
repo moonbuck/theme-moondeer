@@ -1,14 +1,7 @@
 {{- /* Template for post pages */}}
-{{- define "stylesheets" -}}
-
-{{ $light_nav := resources.Get "sass/light-nav.scss" | toCSS | fingerprint }}
-<link rel="stylesheet" href="{{ $light_nav.Permalink }}">
-
-{{- end -}}
-
 {{- define "navigation" -}}
 
-<nav class="main-nav">
+<nav id="main-nav" class="light">
 <a href="/">Latest</a>
 
 {{- $categories := .Page.Params.categories -}}
