@@ -1,10 +1,4 @@
 {{- /* Template for the about page */}}
-{{- define "stylesheets" }}
-{{ $about := resources.Get "sass/about.scss" | toCSS | fingerprint }}
-<link rel="stylesheet" href="{{ $about.Permalink }}">
-
-{{- end }}
-
 {{- define "main" }}
 <section id="wrapper">
 {{- partial "profile.html" . }}

@@ -81,6 +81,8 @@ $pagination-color: #BBB;
 $box-shadow-color: #9FADBF;
 $post-meta-color: #444;
 $post-meta-border-color: #EEE;
+$post-meta-name-color: #AAA;
+$post-meta-name-dark-color: #1E2025;
 
 // Line Heights
 
@@ -343,9 +345,32 @@ section {
     max-width: 600px;
     margin: 0 auto;
     padding: 25px;
+    
+    
+    article.post {
+      margin: 120px 0 0 0;
+      
+      @media screen and (max-width: 540px) {
+        margin: 50px 0;
+      }
+      
+      header {
+        text-align: center;
+      }
+      
+      section.post-body {
+        
+      }
+    }
+    
+  }
+  
+  &.post-body {
+    
   }
     
   &#post-meta {
+    display: flex;
     font-size: $small-size;
     @extend %eaves-light-normal;
     line-height: $post-meta-height;
@@ -356,30 +381,36 @@ section {
       bottom: 1px solid $post-meta-border-color;
       top: 1px solid $post-meta-border-color;
     }
+    
+    @media screen and (max-width: 540px) {
+      padding {
+        top: 30px;
+        bottom: 30px;
+      }
+      margin-top: 60px;
+    }
+
   
     div {
+      display: flex;
+      flex-direction: column;
+      
       span.p-name {
-        color: #aaa;
-        font-weight: 100;
-        display: block;
-  
-        &.dark {
-          color: #1E2025;
-        }
+        color: $post-meta-name-color;
+        @extend %eaves-thin-normal;
+        
+        &.dark { color: $post-meta-name-dark-color; }
       }
-  
-      float: left;
     }
   
     img.avatar {
       height: 36px;
       width: 36px;
-      float: left;
-      margin-right: 15px;
       box-shadow: 0 0 0 3px #fff, 0 0 0 4px #eee;
       border-radius: 50%;
     }
-}
+    
+  }
 
 
 }
@@ -501,97 +532,28 @@ nav {
 
 div.banner-image {
   
-}
+  &#categories-stream-of-consciousness {
+    background-position: 50% 5%;
+  }
+  
+  &#about {
+    background-position: 50% 40%;
+  }
+  
+  @media screen and (max-width: 540px) {
+    
+    &#categories-artsy-fartsy, &#categories-critters {
+      background-position: 35% 50%;
+    }
+    
+  }
 
-/* List Pages */
-
-
-.post-title > a {
-  color: #000;
-}
-
-.post-body > p > a {
-  color: #000;
-  text-decoration: underline;
 }
 
 div.category-content {
   margin-bottom: 8vw;
   line-height: 26px;
   text-align: left;
-}
-
-// article.post {
-//   margin-bottom: 50px;
-
-//   header h1.p-name {
-//     display: none;
-//   }
-// }
-
-div#categories-stream-of-consciousness {
-  background-position: 50% 5%;
-}
-
-@media screen and (max-width: 540px) {
-  div {
-    &#categories-artsy-fartsy, &#categories-critters {
-      background-position: 35% 50%;
-    }
-  }
-}
-
-/* Post Pages */
-
-.post-body {
-  li:last-child {
-    margin-bottom: 1.5em;
-  }
-
-  ol li {
-    list-style-type: decimal !important;
-  }
-
-  ul li {
-    list-style-type: disc !important;
-  }
-}
-
-.post header {
-  text-align: center;
-}
-
-#header {
-  border-bottom: 1px solid #eee;
-}
-
-.post {
-  margin: 120px 0 0 0;
-}
-
-#post-nav {
-  text-align: center;
-  padding-top: 20px;
-  font-size: 20px;
-  font-weight: 400;
-  margin-top: 40px;
-
-  span {
-    position: relative;
-
-    &.prev {
-      float: left;
-    }
-
-    &.next {
-      float: right;
-    }
-
-    .arrow {
-      position: relative;
-      padding: 1px;
-    }
-  }
 }
 
 .microblog_conversation {
@@ -629,18 +591,6 @@ div {
   a {
     color: gray;
     text-decoration: none;
-  }
-}
-
-@media screen and (max-width: 540px) {
-  #post-meta {
-    padding-top: 30px;
-    padding-bottom: 30px;
-    margin-top: 60px;
-  }
-
-  .post {
-    margin: 50px 0;
   }
 }
 
