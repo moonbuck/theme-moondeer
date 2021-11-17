@@ -1,32 +1,32 @@
-{{- if (or .next .previous) -}}
+{{ if (or .next .previous) }}
 
-{{- $newer := .next -}}
-{{- $older := .previous -}}
+{{ $newer := .next }}
+{{ $older := .previous }}
 
 <nav id="next-prev" role="navigation">
 
-{{- with $newer -}}
+{{ with $newer }}
 <a class="mr-eaves-modern-thin" href="{{ .Permalink }}">← Newer</a>
-{{- else -}}
+{{ else }}
 <span></span>
-{{- end -}}
+{{ end }}
 
-{{- if (and .current .current.Params.categories) -}}
+{{ if (and .current .current.Params.categories) }}
 
 {{ partial "navigation/categories.html" .current }}
 
-{{- else -}}
+{{ else }}
 
 <span id="empty-space"></span>
 
-{{- end -}}
+{{ end }}
 
-{{- with $older -}}
+{{ with $older }}
 <a class="mr-eaves-modern-thin" href="{{ .Permalink }}">Older →</a>
-{{- else -}}
+{{ else }}
 <span></span>
-{{- end -}}
+{{ end }}
 
 </nav>
 
-{{- end -}}
+{{ end }}

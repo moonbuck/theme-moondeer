@@ -1,45 +1,46 @@
-{{- define "navigation" -}}
-
+{{ /* Template for the home page */ }}
+{{ define "navigation" }}
+{{ partial "comment.html" "index.html#navigation" }}
 <nav id="main-nav" class="dark">
 <a class="selected" href="/">Latest</a>
 
-{{- range site.Menus.main -}}
+{{ range site.Menus.main }}
 
 <a href="{{ .URL }}"><nobr>{{ .Title }}</nobr></a>
 
-{{- end -}}
+{{ end }}
 
 </nav>
 
-{{- partial "header/banner.html" . -}}
+{{ partial "header/banner.html" . }}
 
-{{- end -}}
+{{ end }}
 
-{{- define "main" -}}
+{{ define "main" }}
 
 <section id="wrapper">
+{{ partial "comment.html" "index.html#main" }}
 
+{{ $pages := slice }}
+{{ $paginate := false }}
 
-{{- $pages := slice -}}
-{{- $paginate := false -}}
+{{ if site.Params.paginate_home }}
 
-{{- if site.Params.paginate_home -}}
+{{ $paginate = true }}
+{{ $pages = (.Paginate (where .Data.Pages.ByDate.Reverse "Type" "post")).Pages }}
 
-{{- $paginate = true -}}
-{{- $pages = (.Paginate (where .Data.Pages.ByDate.Reverse "Type" "post")).Pages -}}
+{{ else }}
 
-{{- else -}}
+{{ $pages = where .Data.Pages.ByDate.Reverse "Type" "post" }}
 
-{{- $pages = where .Data.Pages.ByDate.Reverse "Type" "post" -}}
+{{ end }}
 
-{{- end -}}
+{{ with $pages }}{{ partial "post-list.html" . }}{{ end }}
 
-{{- with $pages }}{{ partial "post-list.html" . }}{{ end -}}
+{{ if (and $pages $paginate) }}{{ partial "navigation/pagination" . }}{{ end }}
 
-{{- if (and $pages $paginate) }}{{ partial "navigation/pagination" . }}{{ end -}}
-
-{{- partial "profile.html" . -}}
+{{ partial "profile.html" . }}
 
 </section>
 
-{{- end -}}
+{{ end }}

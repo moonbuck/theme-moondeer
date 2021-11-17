@@ -1,27 +1,27 @@
 <ul>
 
-{{- $url := urls.Parse .Permalink -}}
-{{- $parts := split $url.Path "/" -}}
-{{- $kind := index $parts 1 -}}
+{{ $url := urls.Parse .Permalink }}
+{{ $parts := split $url.Path "/" }}
+{{ $kind := index $parts 1 }}
 
-{{- if eq $kind "categories" -}}
+{{ if eq $kind "categories" }}
 
-{{- $category := index $parts 2 -}}
+{{ $category := index $parts 2 }}
   
   <li><a href="/categories/{{ $category }}/feed.xml">RSS</a></li>
 
-{{- else -}}
+{{ else }}
   
   <li><a href="/feed.xml">RSS</a></li>
   
-{{- end -}}
+{{ end }}
 
   <li><a href="/feed.json">JSON Feed</a></li>
   
-{{- with (site.Author.Email | default site.Params.Author.Email) -}}         
+{{ with (site.Author.Email | default site.Params.Author.Email) }}         
 
 <li><a class="u-email" href="mailto:{{.}}"rel="me">Email</a></li>
 
-{{- end -}}
+{{ end }}
 
 </ul>

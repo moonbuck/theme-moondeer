@@ -139,13 +139,12 @@ h2 {
   @extend %eaves-bold; 
   font-size: $h2-size; 
   
-  &.post-title {
+  &.post-title { // /post/li.html
     
   }
   
-  &.headline {
-    margin-top: 0;
-    margin-bottom: 50px;
+  &.headline { // /reply/single.html
+    margin { top: 0; bottom: 50px; }
   }
   
 }
@@ -182,7 +181,6 @@ i {
   @extend %eaves-book-italic; 
   
   > b { @extend %eaves-heavy-italic; }
-  
 }
 
 strong { 
@@ -190,14 +188,12 @@ strong {
   color: $bold-text-color; 
   
   > em { @extend %eaves-bold-italic; }
-  
 }
 
 em { 
   @extend %eaves-regular-italic; 
   
   > strong { @extend %eaves-bold-italic; }
-  
 }
 
 sup { 
@@ -205,9 +201,7 @@ sup {
   font-size: smaller; 
 }
 
-small { 
-  font-size: $small-size;  
-}
+small { font-size: $small-size; }
 
 blockquote {
   padding-left: 15px;
@@ -224,66 +218,63 @@ ul {
   @extend %list;
   list-style-type: circle;
   
-  &#post-list {
-    li {
+  &#post-list { // partials/post-list.html, section/replies.html
+    
+    li { // post/li.html
+      
       list-style-type: none;
   
-      &:last-child {
-        margin-bottom: 0;
-      }
+      //&:last-child { margin-bottom: 0; }
       
-      article > section.post-body {
-        
-        header > h2 {
-          margin-top: 0;
-          line-height: 1.35;          
-          a {
-            color: $post-title-color;            
-            &:hover {
-              text-decoration: underline;
-              color: $theme-color;
-            }
-          }          
-        }
-        
-        a.read-more {
-          color: $read-more-link-color;
-          text-decoration: underline;
+      article {
+     
+        section.post-body { 
           
-          &:hover {
-            color: $theme-color;
-          }
+          header > h2 {
+            margin-top: 0;
+            line-height: 1.35;
+            a {
+              color: $post-title-color;
+              &:hover {
+                text-decoration: underline;
+                color: $theme-color;
+              } //&:hover
+            } // a
+          } // header > h2
           
-        }
+          a.read-more {          
+            color: $read-more-link-color;
+            text-decoration: underline;           
+            &:hover { color: $theme-color; }
+          } // a
+          
+        } // section.post-body
         
-      }
+        a.dates-link {
+          text-transform: uppercase;
+          color: $aside-text-color;
+          @extend %eaves-light;      
+          &:hover { color: $dates-link-hover-color; }      
+        } // a.dates-link
+        
+      } // article
       
-    }
+    } // li
       
     > hr {
       height: 1px;
       background-color: $divider-color;
       margin: 42px 0 48px 0;
       width: 100%;
-      border: none;
-      
+      border: none;      
       &:last-child { display: none; }
-    }
+    } // hr
     
-    a.dates-link {
-      text-transform: uppercase;
-      color: $aside-text-color;
-      @extend %eaves-light;
-      
-      &:hover {
-        color: $dates-link-hover-color;
-      }
-      
-    }
     
-  }
+    
+  } // &#post-list
   
-}
+} // ul
 
 ol {
   @extend %list;
@@ -310,14 +301,10 @@ dl {
 
 %media-asset { width: 100%; max-width: 100%; height: auto; }
 
-video { 
-  @extend %media-asset; 
-}
+video { @extend %media-asset; }
 
 
-img { 
-  @extend %media-asset; 
-}
+img { @extend %media-asset; }
 
 // Links
 

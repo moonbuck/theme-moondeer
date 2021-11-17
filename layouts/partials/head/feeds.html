@@ -1,4 +1,4 @@
-{{- with .RSSLink -}}
+{{ with .RSSLink }}
 <link href="{{ . }}" rel="alternate" 
       type="application/rss+xml"title="{{ site.Title }}">
 <link href="/podcast.xml" rel="alternate" 
@@ -6,4 +6,4 @@
 <link rel="alternate" type="application/json" 
       title="{{ site.Title }}"  href="/feed.json">
 <link rel="EditURI" type="application/rsd+xml" href="/rsd.xml">
-{{- end }}
+{{ end }}

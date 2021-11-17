@@ -1,48 +1,48 @@
-{{- $precision_injection := templates.Exists "partials/plugin-precision-injection.html" -}}
-{{- $comments := site.Params.Theme.InjectionSiteComments -}}
+{{ $precision_injection := templates.Exists "partials/plugin-precision-injection.html" }}
+{{ $comments := site.Params.Theme.InjectionSiteComments }}
 {{ $comment := "<!--Injecting HTML files prefixed with %s-->"  }}
-{{- $theme_version := site.Params.Theme.ThemeVersion -}}
+{{ $theme_version := site.Params.Theme.ThemeVersion }}
 
 <!DOCTYPE html>
 <html lang="en">
 
-{{- /* Define the page head */}}
+{{ /* Define the page head */}}
 <head>
 
-{{- /* Include the theme version */}}
+{{ /* Include the theme version */}}
 {{ printf "<!-- theme: Moondeer %s -->" $theme_version | safeHTML }}
 
-{{- if $precision_injection -}}
-{{- if $comments -}}
+{{ if $precision_injection }}
+{{ if $comments }}
 {{ printf $comment "HEAD_TOP" | safeHTML }}
-{{- end -}}
-{{- $params := (dict "prefix" "HEAD_TOP" "context" $) -}}
+{{ end }}
+{{ $params := (dict "prefix" "HEAD_TOP" "context" $) }}
 {{ partial "plugin-precision-injection.html" $params }}
-{{- end -}}
+{{ end }}
 
-{{- /* Define character set and viewport */}}
+{{ /* Define character set and viewport */}}
 <meta charset="utf-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
 <meta name="viewport" 
       content="width=device-width, initial-scale=1, viewport-fit=cover">
 
-{{- /* Define site author */}}
+{{ /* Define site author */}}
 <meta name="author" content="{{ site.Author.name }}">
 
-{{- /* Create a block defining the page title */}}
-{{- block "title" . -}}
+{{ /* Create a block defining the page title */}}
+{{ block "title" . }}
 {{ partial "head/page-title.html" . }}
-{{- end -}}
+{{ end }}
 
-{{- /* Create a block defining the page description */}}
-{{- block "description" . -}}
+{{ /* Create a block defining the page description */}}
+{{ block "description" . }}
 {{ partial "head/page-description.html" . }}
-{{- end -}}
+{{ end }}
 
-{{- /* Include links for the feeds */}}
-{{- partial "head/feeds.html" . -}}
+{{ /* Include links for the feeds */}}
+{{ partial "head/feeds.html" . }}
 
-{{- /* Include links for the micropub, microsub, webmention, etc. */}}
+{{ /* Include links for the micropub, microsub, webmention, etc. */}}
 <link rel="authorization_endpoint" 
       href="https://micro.blog/indieauth/auth" />
 <link rel="token_endpoint" href="https://micro.blog/indieauth/token" />
@@ -52,109 +52,111 @@
 <link rel="subscribe" href="https://micro.blog/users/follow" />
 
 
-{{- /* Include core stylesheets */}}
+{{ /* Include core stylesheets */}}
 <link rel="stylesheet" href="https://use.typekit.net/nmn4mcn.css">
 
 {{ $base := resources.Get "sass/base.scss" | toCSS | fingerprint }}
 <link rel="stylesheet" href="{{ $base.Permalink }}">
 
-{{- /* Create a block for including any additional stylesheets */}}
-{{- block "stylesheets" . -}}
-{{- end -}}
+{{ /* Create a block for including any additional stylesheets */}}
+{{ block "stylesheets" . }}
+{{ end }}
 
-{{- /* Include plugin stylesheets */}}
-{{- if $comments -}}
+{{ /* Include plugin stylesheets */}}
+{{ if $comments }}
 {{ printf "<!--Injecting plugin stylesheets-->" | safeHTML }}
-{{- end -}}
-{{- range site.Params.plugins_css -}}
+{{ end }}
+{{ range site.Params.plugins_css }}
 <link rel="stylesheet" href="{{ . }}" />
-{{- end -}}
+{{ end }}
 
-{{- /* Include the custom stylesheet last */}}
+{{ /* Include the custom stylesheet last */}}
 <link rel="stylesheet" href="{{ "custom.css" | relURL }}">
 
-{{- if $comments -}}
+{{ if $comments }}
 {{ printf "<!--Injecting HTML files without a prefix-->" | safeHTML }}
-{{- end }}
-{{- if $precision_injection -}}
-{{- $params := (dict "context" $) -}}
+{{ end }}
+{{ if $precision_injection }}
+{{ $params := (dict "context" $) }}
 {{ partial "plugin-precision-injection.html" $params }}
-{{- else -}}
-{{- range site.Params.plugin_html -}}
+{{ else }}
+{{ range site.Params.plugin_html }}
 {{ partial . $ }}
-{{- end -}}
-{{- end }}
+{{ end }}
+{{ end }}
 
-{{- /* Create a block for including any additional head elements */}}
-{{- block "head" . }}{{ end }}
+{{ /* Create a block for including any additional head elements */}}
+{{ block "head" . }}{{ end }}
 
-{{- /* Close the page head */}}
+{{ /* Close the page head */}}
 </head>
 
-{{- /* Define the page body */}}
+{{ /* Define the page body */}}
 <body>
 
-{{- if $precision_injection -}}
-{{- if $comments -}}
+{{ if $precision_injection }}
+{{ if $comments }}
 {{ printf $comment "ABOVE_HEADER" | safeHTML }}
-{{- end }}
-{{- $params := (dict "prefix" "ABOVE_HEADER" "context" $) -}}
-{{- partial "plugin-precision-injection.html" $params }}
-{{- end -}}
+{{ end }}
+{{ $params := (dict "prefix" "ABOVE_HEADER" "context" $) }}
+{{ partial "plugin-precision-injection.html" $params }}
+{{ end }}
 
-{{- /* Create a block for encapsulating navigation */}}
-{{- block "navigation" . -}}
+{{ /* Create a block for encapsulating navigation */}}
+{{ block "navigation" . }}
 
-{{- /* Include default that handles most pages */}}
+{{ /* Include default that handles most pages */}}
 <nav id="main-nav" class="dark">
 <a href="/">Latest</a>
-{{- $page := . }}
-{{- range site.Menus.main }}
+{{ $page := . }}
+{{ range site.Menus.main }}
 <a class="{{ cond ($page.IsMenuCurrent "main" .) "selected" "" }}" 
    href="{{ .URL }}"><nobr>{{ .Title }}</nobr></a>
-{{- end }}
+{{ end }}
 </nav>
 
-{{- partial "header/banner.html" . -}}
+{{ partial "header/banner.html" . }}
 
-{{- end -}}
+{{ end }}
 
-{{- /* Define a block for the primary page content */}}
-{{- block "main" . }}{{ end -}}
+{{ /* Define a block for the primary page content */}}
+{{ block "main" . }}
 
-{{- /* Create a block for the page footer */}}
-{{- block "footer" . -}}
+{{ end }}
+
+{{ /* Create a block for the page footer */}}
+{{ block "footer" . }}
 <footer id="feeds-email">
 
-{{- /* Create a list with feed links and email */}}
-{{- partial "footer/link-list.html" . -}}
+{{ /* Create a list with feed links and email */}}
+{{ partial "footer/link-list.html" . }}
 
 </footer>
-{{- end -}}
+{{ end }}
 
-{{- /* Include the custom footer */}}
-{{- partial "custom_footer.html" . -}}
+{{ /* Include the custom footer */}}
+{{ partial "custom_footer.html" . }}
 
-{{- if $precision_injection -}}
-{{- if $comments -}}
+{{ if $precision_injection }}
+{{ if $comments }}
 {{ printf $comment "BELOW_FOOTER" | safeHTML }}
-{{- end }}
-{{- $params := (dict "prefix" "BELOW_FOOTER" "context" $) -}}
-{{- partial "plugin-precision-injection.html" $params }}
-{{- end -}}
+{{ end }}
+{{ $params := (dict "prefix" "BELOW_FOOTER" "context" $) }}
+{{ partial "plugin-precision-injection.html" $params }}
+{{ end }}
 
-{{- with site.Copyright -}}
+{{ with site.Copyright }}
 <footer id="copyright"><small>{{ replace . "{year}" now.Year }}</small></footer>
-{{- end -}}
+{{ end }}
 
-{{- /* Insert plugin Javascript includes */}}
-{{- range site.Params.plugins_js -}}
+{{ /* Insert plugin Javascript includes */}}
+{{ range site.Params.plugins_js }}
 <script src="{{ . }}"></script>
-{{- end -}}
+{{ end }}
 
-{{- /* Include visible theme version if flagged */}}
-{{- partial "header/theme-version.html" . }}
+{{ /* Include visible theme version if flagged */}}
+{{ partial "header/theme-version.html" . }}
 
-{{- /* Close the page body and html */}}
+{{ /* Close the page body and html */}}
 </body>
 </html>

@@ -3,18 +3,18 @@
 <header class="h-card">
 <a class="u-url" rel="me" href="https://moondeer.blog/about">
 
-{{- with site.Params.Author.ProfileAvatar | default site.Params.Author.Avatar -}}
+{{ with site.Params.Author.ProfileAvatar | default site.Params.Author.Avatar }}
 <img id="avatar" class="u-photo" src="{{ . }}" />
-{{- end -}}
+{{ end }}
 
 </a>
 <h1 class="p-name" rel="me">{{ site.Author.name }}</h1>
 
-{{- if templates.Exists "partials/profile/social-media-links.html" -}}
+{{ if templates.Exists "partials/profile/social-media-links.html" }}
 <h4 class="p-role">
-{{- partial "profile/social-media-links.html" . -}}
+{{ partial "profile/social-media-links.html" . }}
 </h4>
-{{- end -}}
+{{ end }}
 
 <p class="p-note"><em>{{ site.Params.brief_bio }}</em></p>
 </header>

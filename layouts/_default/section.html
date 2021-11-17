@@ -1,12 +1,14 @@
-{{- define "main" -}}
+{{ /* Default template for section pages */ }}
+{{ define "main" }}
+{{ partial "comment.html" "_default/section.html#main" }}
 <section id="wrapper">
 
-{{- $pages := .Paginator.Pages -}}
+{{ $pages := .Paginator.Pages }}
 
-{{- partial "post-list" $pages -}}
+{{ partial "post-list" $pages }}
 
-{{- partial "navigation/pagination" . -}}
+{{ partial "navigation/pagination" . }}
 
 </section>
 
-{{- end }}
+{{ end }}

@@ -1,38 +1,38 @@
-{{- /* Template for post pages */}}
-{{- define "navigation" -}}
-
+{{ /* Template for post pages */ }}
+{{ define "navigation" }}
+{{ partial "comment.html" "post/single.html#navigation" }}
 <nav id="main-nav" class="light">
 <a href="/">Latest</a>
 
-{{- $categories := .Page.Params.categories -}}
+{{ $categories := .Page.Params.categories }}
 
-{{- range site.Menus.main -}}
+{{ range site.Menus.main }}
 
 <a class="{{ cond (in $categories .Title) "selected" "" }}"
    href="{{ .URL }}">
 <nobr>{{ .Title }}</nobr>
 </a>
   
-{{- end -}}
+{{ end }}
 
 </nav>
 
-{{- end }}
+{{ end }}
 
-{{- define "main" -}}
-
+{{ define "main" }}
+{{ partial "comment.html" "post/single.html#main" }}
 <section id="wrapper">
 <article class="h-entry post">
   <header>
   
-  {{- with .Title | markdownify -}}
+  {{ with .Title | markdownify }}
   
     <h1 class="p-name">{{ . }}</h1>
     
-  {{- end -}}
+  {{ end }}
   
-    {{- $datetime := .Date.Format site.Params.Theme.Date.DateTime -}}
-    {{- $date := .Date.Format site.Params.Theme.Date.Headline -}}
+    {{ $datetime := .Date.Format site.Params.Theme.Date.DateTime }}
+    {{ $date := .Date.Format site.Params.Theme.Date.Headline }}
     
     <h2 class="headline">
       <time class="dt-published" datetime="{{ $datetime }}">
@@ -50,13 +50,13 @@
 
 {{ partial "navigation/next-prev.html" (dict "next" .NextInSection "current" . "previous" .PrevInSection "context" .) }}
 
-{{- if (and site.Params.Theme.IncludeConversation (templates.Exists "partials/plugin-conversation.html")) }}
+{{ if (and site.Params.Theme.IncludeConversation (templates.Exists "partials/plugin-conversation.html")) }}
 {{ partial "plugin-conversation.html" . }}
-{{- end }}
+{{ end }}
 
-{{- if (and site.Params.Theme.IncludeDisqus (templates.Exists "partials/plugin-disqus.html")) }}
+{{ if (and site.Params.Theme.IncludeDisqus (templates.Exists "partials/plugin-disqus.html")) }}
 {{ partial "plugin-disqus.html" . }}
 {{ end }}
 
 </section>
-{{- end }}
+{{ end }}

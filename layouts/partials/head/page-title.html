@@ -1,6 +1,6 @@
-{{- $title := site.Title }}
-{{- if .Title }}
-{{- $page_title := cond (eq $title .Title) "Latest" .Title }}
-{{- $title = printf "%s - %s" $title $page_title }}
-{{- end }}
+{{ $title := site.Title }}
+{{ if .Title }}
+{{ $page_title := cond (eq $title .Title) "Latest" .Title }}
+{{ $title = printf "%s - %s" $title $page_title }}
+{{ end }}
 <title>{{ $title }}</title>

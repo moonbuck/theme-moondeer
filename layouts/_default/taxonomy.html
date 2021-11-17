@@ -1,46 +1,46 @@
-{{- /* Template for category pages */}}
-{{- define "main" -}}
-
+{{ /* Template for category pages */}}
+{{ define "main" }}
+{{ partial "comment.html" "_default/taxonomy.html#main" }}
 <section id="wrapper">
 
-{{- /* Display any content provided for the category */ -}}
+{{ /* Display any content provided for the category */ }}
 <div class="category-content">{{ .Content }}</div>
 
-{{- /* Generate the pinned/remaining collections.  */ -}}
-{{- $pinned := .Site.Taxonomies.categories.Get "pinned" -}}
-{{- $all_pinned_pages := $pinned.Pages -}}
-{{- $pages := where .Data.Pages.ByDate.Reverse "Type" "post" -}}
-{{- $pinned_pages := $all_pinned_pages | intersect $pages -}}
-{{- $remaining_pages := $pages | symdiff $pinned_pages -}}
+{{ /* Generate the pinned/remaining collections.  */ }}
+{{ $pinned := .Site.Taxonomies.categories.Get "pinned" }}
+{{ $all_pinned_pages := $pinned.Pages }}
+{{ $pages := where .Data.Pages.ByDate.Reverse "Type" "post" }}
+{{ $pinned_pages := $all_pinned_pages | intersect $pages }}
+{{ $remaining_pages := $pages | symdiff $pinned_pages }}
 
-{{- /* Reset the slice of pages and handle pagination */ -}}
-{{- $pages = slice -}}
-{{- $paginate := site.Params.paginate_categories -}}
+{{ /* Reset the slice of pages and handle pagination */ }}
+{{ $pages = slice }}
+{{ $paginate := site.Params.paginate_categories }}
 
 
-{{- if $paginate -}}
+{{ if $paginate }}
 
-  {{- $paginator := .Paginate $remaining_pages -}}
+  {{ $paginator := .Paginate $remaining_pages }}
   
-  {{- /* Empty the pinned pages if this isn't the first page. */ -}}  
-  {{- if $paginator.HasPrev }}{{ $pinned_pages = slice }}{{ end -}}
+  {{ /* Empty the pinned pages if this isn't the first page. */ }}  
+  {{ if $paginator.HasPrev }}{{ $pinned_pages = slice }}{{ end }}
   
-  {{- /* Just generate for this page */ -}}
-  {{- $pages = $paginator.Pages -}}
+  {{ /* Just generate for this page */ }}
+  {{ $pages = $paginator.Pages }}
   
-{{- else -}}
+{{ else }}
 
-  {{- /* Generate it all */ -}}
-  {{- $pages = $remaining_pages -}}
+  {{ /* Generate it all */ }}
+  {{ $pages = $remaining_pages }}
 
-{{- end -}}
+{{ end }}
 
-{{- with $pinned_pages }}{{ partial "post-list.html" . }}{{ end -}}
+{{ with $pinned_pages }}{{ partial "post-list.html" . }}{{ end }}
 
-{{- with $pages }}{{ partial "post-list.html" . }}{{ end -}}
+{{ with $pages }}{{ partial "post-list.html" . }}{{ end }}
 
-{{- if $paginate }}{{ partial "navigation/pagination" . }}{{ end -}}
+{{ if $paginate }}{{ partial "navigation/pagination" . }}{{ end }}
 
 </section>
 
-{{- end -}}
+{{ end }}

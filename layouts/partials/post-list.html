@@ -1,15 +1,15 @@
-{{- /* This partial expects a slice of pages */ -}}
+{{ /* This partial expects a slice of pages */ }}
 
-{{- $count := len . -}}
+{{ $count := len . }}
 
 <ul id="post-list">
 
-{{- range $index, $page := . -}}
+{{ range $index, $page := . }}
 
-{{- $page.Render "li" -}}
+{{ $page.Render "li" }}
 
-{{- if (lt (add $index 1) $count) }}<hr />{{ end -}}
+{{ if (lt (add $index 1) $count) }}<hr />{{ end }}
 
-{{- end -}}
+{{ end }}
 
 </ul>

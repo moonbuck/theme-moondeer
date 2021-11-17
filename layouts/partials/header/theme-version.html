@@ -1,13 +1,13 @@
-{{- with site.Params.Theme.VisibleThemeVersion -}}
+{{ with site.Params.Theme.VisibleThemeVersion }}
 
-{{- $is_test := in (site.BaseURL | string) "test" -}}
-{{- $version := site.Params.Theme.ThemeVersion -}}
-{{- $text := printf "Moondeer %s%s" $version (cond $is_test " (test)" "") -}}
+{{ $is_test := in (site.BaseURL | string) "test" }}
+{{ $version := site.Params.Theme.ThemeVersion }}
+{{ $text := printf "Moondeer %s%s" $version (cond $is_test " (test)" "") }}
 
-{{- if (or (not (eq . "test")) $is_test ) -}}
+{{ if (or (not (eq . "test")) $is_test ) }}
 
 <mark id="theme-version-overlay">{{ $text }}</mark>
 
-{{- end -}}
+{{ end }}
 
-{{- end -}}
+{{ end }}

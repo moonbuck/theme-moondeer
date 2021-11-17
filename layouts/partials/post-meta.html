@@ -1,7 +1,7 @@
 <section id="post-meta" class="p-author h-card">
     <a href="/" class="u-url">
     
-    {{- with site.Author -}}
+    {{ with site.Author }}
     
     <img class="u-photo avatar" src="{{ .avatar }}" width="192" height="192">
     <div>
@@ -9,7 +9,7 @@
       <span><a href="https://micro.blog/{{ .username }}">@{{ .username }}</a></span>
     </div>
     
-    {{- end -}}
+    {{ end }}
       
     </a>
 </section>
