@@ -3,8 +3,8 @@
     <section class="post-body">
     
     {{- $categories := .Params.categories -}}
-        
-    {{- if .Title -}}
+      
+    {{- if (or .Title (findRE `<!--more-->` .Content)) -}}
     
     <header>
       <h2 class="post-title">
@@ -16,7 +16,7 @@
      
     {{- if .Truncated -}}
     
-    <p><a href="{{ .RelPermalink }}">Read More</a></p>
+    <p><a class="read-more" href="{{ .RelPermalink }}">Read More</a></p>
     
     {{- end -}}
     
@@ -31,7 +31,7 @@
     {{- $datetime := .Date.Format site.Params.Theme.Date.DateTime -}}
     {{- $time := .Date.Format site.Params.Theme.Date.TimeDay -}}
     
-    <a href="{{ .Permalink }}" class="u-url">
+    <a class="dates-link" href="{{ .Permalink }}" class="u-url">
       <aside class="dates">
         <time datetime="{{ $datetime }}" class="dt-published">
         → {{ $time }}
