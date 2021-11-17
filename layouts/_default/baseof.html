@@ -1,8 +1,4 @@
-{{ $precision_injection := templates.Exists "partials/plugin-precision-injection.html" }}
-{{ $comments := site.Params.Theme.InjectionSiteComments }}
-{{ $comment := "<!--Injecting HTML files prefixed with %s-->"  }}
-{{ $theme_version := site.Params.Theme.ThemeVersion }}
-
+{{/* Base template for all pages */}}
 <!DOCTYPE html>
 <html lang="en">
 
@@ -10,15 +6,9 @@
 <head>
 
 {{/* Include the theme version */}}
-{{ printf "<!-- theme: Moondeer %s -->" $theme_version | safeHTML }}
+{{ partial "comment.html" ("theme: Moondeer %s" | printf site.Params.Theme.ThemeVersion) }}
 
-{{ if $precision_injection }}
-{{ if $comments }}
-{{ printf $comment "HEAD_TOP" | safeHTML }}
-{{ end }}
-{{ $params := (dict "prefix" "HEAD_TOP" "context" $) }}
-{{ partial "plugin-precision-injection.html" $params }}
-{{ end }}
+{{ partial "plugins/precision-injection.html" (dict "prefix" "HEAD_TOP" "context" .) }}
 
 {{/* Define character set and viewport */}}
 <meta charset="utf-8">
@@ -63,9 +53,7 @@
 {{ end }}
 
 {{/* Include plugin stylesheets */}}
-{{ if $comments }}
-{{ printf "<!--Injecting plugin stylesheets-->" | safeHTML }}
-{{ end }}
+{{ partial "comments.html" "Injecting plugin stylesheets" }}
 {{ range site.Params.plugins_css }}
 <link rel="stylesheet" href="{{ . }}" />
 {{ end }}
@@ -73,17 +61,8 @@
 {{/* Include the custom stylesheet last */}}
 <link rel="stylesheet" href="{{ "custom.css" | relURL }}">
 
-{{ if $comments }}
-{{ printf "<!--Injecting HTML files without a prefix-->" | safeHTML }}
-{{ end }}
-{{ if $precision_injection }}
-{{ $params := (dict "context" $) }}
-{{ partial "plugin-precision-injection.html" $params }}
-{{ else }}
-{{ range site.Params.plugin_html }}
-{{ partial . $ }}
-{{ end }}
-{{ end }}
+{{/* Inject unprefixed plugin HTML includes */}}
+{{ partial "plugins/precision-injection.html" (dict "context" .) }}
 
 {{/* Create a block for including any additional head elements */}}
 {{ block "head" . }}{{ end }}
@@ -94,13 +73,7 @@
 {{/* Define the page body */}}
 <body>
 
-{{ if $precision_injection }}
-{{ if $comments }}
-{{ printf $comment "ABOVE_HEADER" | safeHTML }}
-{{ end }}
-{{ $params := (dict "prefix" "ABOVE_HEADER" "context" $) }}
-{{ partial "plugin-precision-injection.html" $params }}
-{{ end }}
+{{ partial "plugins/precision-injection.html" (dict "prefix" "ABOVE_HEADER" "context" .) }}
 
 {{/* Create a block for encapsulating navigation */}}
 {{ block "navigation" . }}
@@ -115,7 +88,7 @@
 {{ end }}
 </nav>
 
-{{ partial "header/banner.html" . }}
+{{ partial "plugins/banner.html" . }}
 
 {{ end }}
 
@@ -137,17 +110,9 @@
 {{/* Include the custom footer */}}
 {{ partial "custom_footer.html" . }}
 
-{{ if $precision_injection }}
-{{ if $comments }}
-{{ printf $comment "BELOW_FOOTER" | safeHTML }}
-{{ end }}
-{{ $params := (dict "prefix" "BELOW_FOOTER" "context" $) }}
-{{ partial "plugin-precision-injection.html" $params }}
-{{ end }}
+{{ partial "plugins/precision-injection.html" (dict "prefix" "BELOW_FOOTER" "context" .) }}
 
-{{ with site.Copyright }}
-<footer id="copyright"><small>{{ replace . "{year}" now.Year }}</small></footer>
-{{ end }}
+{{ partial "footer/copyright.html" }}
 
 {{/* Insert plugin Javascript includes */}}
 {{ range site.Params.plugins_js }}
@@ -155,7 +120,7 @@
 {{ end }}
 
 {{/* Include visible theme version if flagged */}}
-{{ partial "header/theme-version.html" . }}
+{{ partial "theme-version.html" . }}
 
 {{/* Close the page body and html */}}
 </body>

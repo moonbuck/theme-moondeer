@@ -18,7 +18,7 @@
 
   <li><a href="/feed.json">JSON Feed</a></li>
   
-{{ with (site.Author.Email | default site.Params.Author.Email) }}         
+{{ with (site.Author.email | default site.Params.Author.email) }}         
 
 <li><a class="u-email" href="mailto:{{.}}"rel="me">Email</a></li>
 

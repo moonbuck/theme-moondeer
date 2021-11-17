@@ -6,10 +6,9 @@ description = "All the latest thoughts to fall out my head."
 # Email = "moondeer@moondeer.blog"
 
 [Theme]
-ThemeVersion = "v133"
+ThemeVersion = "v134"
 VisibleThemeVersion = "test"
 TemplateComments = true
-InjectionSiteComments = true
 IncludeDisqus = true
 IncludeConversation = true
 
