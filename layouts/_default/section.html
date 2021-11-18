@@ -1,8 +1,6 @@
-<!-- Default template for section pages -->
+{{/* Default template for section pages */}}
 {{ define "main" }}
-
 {{ partial "comment.html" "_default/section.html#main" }}
-
 {{ $pages := .Paginator.Pages }}
 
 {{ partial "post-list" $pages }}

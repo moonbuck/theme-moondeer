@@ -1,3 +1,23 @@
+{{ if (eq .Type "post") -}}
+
+<nav id="main-nav" role="navigation" class="light">
+<a href="/">Latest</a>
+
+{{- $categories := .Page.Params.categories }}
+
+{{ range site.Menus.main -}}
+
+<a class="{{ cond (in $categories .Title) "selected" "" }}"
+   href="{{ .URL }}">
+<nobr>{{ .Title }}</nobr>
+</a>
+  
+{{- end -}}
+
+</nav>
+
+{{- else -}}
+
 <nav id="main-nav" role="navigation" class="dark">
   
 {{- range site.Menus.main -}}
@@ -10,3 +30,5 @@
 </nav>
 
 {{- partial "plugins/banner.html" . -}}
+
+{{- end }}
