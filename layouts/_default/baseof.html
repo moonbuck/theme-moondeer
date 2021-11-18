@@ -93,8 +93,10 @@
 {{ end }}
 
 {{/* Wrap the main block within an identifiable section */}}
-<section id="{{ (urls.Parse .Permalink).Path | anchorize  }}" class="wrapper">
-
+{{ $id := (urls.Parse .Permalink).Path | anchorize | default "home" }}
+{{ $class := printf "wrapper kind-%s type-%s" .Kind .Type }}
+<section id="{{ $id  }}" class="{{ $class }}">
+  
 {{/* Define a block for the primary page content */}}
 {{ block "main" . }}
 

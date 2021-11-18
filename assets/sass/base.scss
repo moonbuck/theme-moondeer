@@ -137,7 +137,10 @@ h2 {
   @extend %eaves-bold; 
   font-size: $h2-size; 
     
-  &.headline { // /reply/single.html
+  &.headline {
+    @extend %eaves-light-normal;
+    font-size: $h3-size;
+    padding: 0;
     margin { top: 0; bottom: 50px; }
   }
   
@@ -311,8 +314,12 @@ hr {
 /* Sections */
 
 section {
+  
+  &.type-categories {
+    div.category-content { line-height: $spacious-height; }
+  }
 
-  &#wrapper {
+  &.wrapper {
     max-width: 600px;
     margin: 0 auto;
     padding: 25px;
@@ -519,11 +526,6 @@ div.banner-image {
     &#categories-critters { background-position: 35% 50%; }
   }
 
-}
-
-div.category-content {
-  // margin-bottom: 8vw;
-  line-height: $spacious-height;
 }
 
 .microblog_conversation {
