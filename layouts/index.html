@@ -1,24 +1,7 @@
 {{/* Template for the home page */}}
-{{ define "navigation" }}
-{{ partial "comment.html" "index.html#navigation" }}
-<nav id="main-nav" class="dark">
-<a class="selected" href="/">Latest</a>
-
-{{ range site.Menus.main }}
-
-<a href="{{ .URL }}"><nobr>{{ .Title }}</nobr></a>
-
-{{ end }}
-
-</nav>
-
-{{ partial "plugins/banner.html" . }}
-
-{{ end }}
-
 {{ define "main" }}
 
-{{ partial "comment.html" "index.html#main" }}
+{{- partial "comment.html" "index.html#main" -}}
 
 {{ $pages := slice }}
 {{ $paginate := false }}
@@ -34,10 +17,10 @@
 
 {{ end }}
 
-{{ with $pages }}{{ partial "post-list.html" . }}{{ end }}
+{{- with $pages }}{{ partial "post-list.html" . }}{{ end -}}
 
-{{ if (and $pages $paginate) }}{{ partial "navigation/pagination" . }}{{ end }}
+{{- if (and $pages $paginate) }}{{ partial "navigation/pagination" . }}{{ end -}}
 
-{{ partial "profile.html" . }}
+{{- partial "profile.html" . -}}
 
 {{ end }}

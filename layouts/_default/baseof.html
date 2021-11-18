@@ -75,22 +75,7 @@
 
 {{ partial "plugins/precision-injection.html" (dict "prefix" "ABOVE_HEADER" "context" .) }}
 
-{{/* Create a block for encapsulating navigation */}}
-{{ block "navigation" . }}
-
-{{/* Include default that handles most pages */}}
-<nav id="main-nav" class="dark">
-<a href="/">Latest</a>
-{{ $page := . }}
-{{ range site.Menus.main }}
-<a class="{{ cond ($page.IsMenuCurrent "main" .) "selected" "" }}" 
-   href="{{ .URL }}"><nobr>{{ .Title }}</nobr></a>
-{{ end }}
-</nav>
-
-{{ partial "plugins/banner.html" . }}
-
-{{ end }}
+{{ partial "navigation/main-nav.html" . }}
 
 {{/* Wrap the main block within an identifiable section */}}
 {{ $id := (urls.Parse .Permalink).Path | anchorize | default "home" }}

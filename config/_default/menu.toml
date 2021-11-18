@@ -1,0 +1,67 @@
+[[main]]
+name = 'Latest'
+title = 'Latest'
+identifier = 'latest'
+url = '/'
+weight = 0
+
+[[main]]
+name = 'Perspectives'
+title = 'Perspectives'
+identifier = 'perspectives'
+url = '/perspectives/'
+weight = 10
+
+[[main]]
+name = 'Poetry'
+identifier = 'poetry'
+url = '/poetry/'
+weight = 20
+
+[[main]]
+name = 'Programming'
+title = 'Programming'
+identifier = 'programming'
+url = '/programming/'
+weight = 40
+
+[[main]]
+name = 'Critters'
+title = 'Critters'
+identifier = 'critters'
+url = '/critters/'
+weight = 60
+
+[[main]]
+name = 'Gallery'
+title = 'Gallery'
+identifier = 'gallery'
+url = '/gallery/'
+weight = 105
+
+[[main]]
+name = 'Inside the Art'
+title = 'Inside the Art'
+identifier = 'inside'
+url = '/categories/inside-the-art/'
+weight = 106
+
+name = 'Cloud'
+title = 'Cloud'
+identifier = 'cloud'
+url = '/cloud/'
+weight = 110
+
+[[main]]
+name = 'Bookshelf'
+title = 'Bookshelf'
+identifier = 'bookshelf'
+url = '/bookshelf/'
+weight = 115
+
+[[main]]
+name = 'About'
+title = 'About'
+identifier = 'about'
+url = '/about/'
+weight = 120

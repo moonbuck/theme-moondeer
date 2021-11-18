@@ -103,7 +103,11 @@ $code-line-height: 1.35;
 
 // Primary containers
 
-html { @extend %reset; font-size: $html-size; }
+html { 
+  @extend %reset; 
+  font-size: $html-size; 
+  background-color: white;
+}
 
 body { 
   @extend %reset;
@@ -264,9 +268,9 @@ dl {
       > dl, dt, dd { margin: 0px 0px 2em 0px; }
     }
     
-  }
+  } // dd
   
-}
+} // dl
 
 /* Media */
 
