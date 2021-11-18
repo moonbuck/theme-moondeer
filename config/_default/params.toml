@@ -1,7 +1,5 @@
-description = "All the latest thoughts to fall out my head."
-
 [Theme]
-ThemeVersion = "v136"
+ThemeVersion = "v137"
 VisibleThemeVersion = "test"
 TemplateComments = true
 IncludeDisqus = true
@@ -13,3 +11,10 @@ TimeDay = "3:04 PM, Jan 2"
 DateTime = "2006-01-02 15:04:05 -0700"
 Headline = "Jan 2, 2006"
 ISO8601 = "2006-01-02T15:04:05-07:00"
+
+[Theme.Viewport]
+ViewportFit = 'cover'
+InitialScale = '1'
+MinimumScale = ''
+MaximumScale = ''
+Width = 'device-width'

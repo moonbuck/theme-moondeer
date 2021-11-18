@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
-{{ partial "comment.html" "_default/baseof.html" }}
+{{ partial "comment.html" "_default/single-baseof.html" }}
 
 <!-- Define the page head -->
 <head>
@@ -49,8 +49,8 @@
 <!-- Support injection of plugin html above the header  -->
 {{ partial "plugins/html-injection.html" (slice "ABOVE_HEADER" .) }}
 
-<!-- Include the main nav -->
-{{ partial "navigation/main-nav.html" . }}
+<!-- Include the post-specific main nav -->
+{{ partial "navigation/post-main-nav.html" . }}
 
 <!-- Wrap the main block within an identifiable section -->
 <section {{ partial "page-wrapper-attributes.html" . }}>

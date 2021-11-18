@@ -1,17 +1,17 @@
-{{/* Template for category pages */}}
+<!-- Template for category pages -->
 {{ define "main" }}
 {{ partial "comment.html" "_default/taxonomy.html#main" }}
-{{/* Display any content provided for the category */}}
+<!-- Display any content provided for the category -->
 <div class="category-content">{{ .Content }}</div>
 
-{{/* Generate the pinned/remaining collections.  */}}
+<!-- Generate the pinned/remaining collections.  -->
 {{ $pinned := .Site.Taxonomies.categories.Get "pinned" }}
 {{ $all_pinned_pages := $pinned.Pages }}
 {{ $pages := where .Data.Pages.ByDate.Reverse "Type" "post" }}
 {{ $pinned_pages := $all_pinned_pages | intersect $pages }}
 {{ $remaining_pages := $pages | symdiff $pinned_pages }}
 
-{{/* Reset the slice of pages and handle pagination */}}
+<!-- Reset the slice of pages and handle pagination -->
 {{ $pages = slice }}
 {{ $paginate := site.Params.paginate_categories }}
 
@@ -20,15 +20,15 @@
 
   {{ $paginator := .Paginate $remaining_pages }}
   
-  {{/* Empty the pinned pages if this isn't the first page. */}}  
+  <!-- Empty the pinned pages if this isn't the first page. -->  
   {{ if $paginator.HasPrev }}{{ $pinned_pages = slice }}{{ end }}
   
-  {{/* Just generate for this page */}}
+  <!-- Just generate for this page -->
   {{ $pages = $paginator.Pages }}
   
 {{ else }}
 
-  {{/* Generate it all */}}
+  <!-- Generate it all -->
   {{ $pages = $remaining_pages }}
 
 {{ end }}

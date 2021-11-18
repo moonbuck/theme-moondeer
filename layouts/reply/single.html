@@ -1,24 +1,4 @@
-{{/* Template for reply pages */}}
-{{ define "navigation" }}
-{{ partial "comment.html" "reply/single.html#navigation" }}
-<nav id="main-nav" class="light">
-<a href="/">Latest</a>
-
-{{ $categories := .Page.Params.categories }}
-
-{{ range site.Menus.main }}
-
-<a class="{{ cond (in $categories .Title) "selected" "" }}"
-   href="{{ .URL }}">
-<nobr>{{ .Title }}</nobr>
-</a>
-  
-{{ end }}
-
-</nav>
-
-{{ end }}
-
+<!-- Template for reply pages -->
 {{ define "main" }}
 {{ partial "comment.html" "reply/single.html#main" }}
 <article class="h-entry post">

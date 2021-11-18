@@ -1,0 +1,42 @@
+<!-- 
+  This partial takes either a map with an entry for 'context' and, 
+  optionally, for 'prefix' or a slice composed of either just the 
+  context or a prefix followed by the context.
+-->
+{{ $prefix := nil }}
+{{ $context := nil }}
+
+{{ if (reflect.IsMap .) }}
+
+  {{ $prefix = .prefix }}
+  {{ $context = .context }}
+  
+{{ else if (reflect.IsSlice .) }}
+
+  {{ if (eq (len .) 2) }}
+    
+    {{ $prefix = index . 0 }}  
+    {{ $context = index . 1 }}
+  
+  {{ else if (eq (len .) 1) }}
+  
+    {{ $context = index . 0 }}
+  
+  {{ end }}
+
+{{ end }}
+
+{{ if templates.Exists "partials/plugin-precision-injection.html" }}
+
+  {{ partial "comment.html" ($prefix | default "plugin html" }}
+  
+  {{ $params := dict "prefix" $prefix "context" $context }}
+  {{- partial "plugin-precision-injection.html" $params -}}
+  
+{{ else if (and $context (not $prefix)) }}
+
+  {{ range site.Params.plugin_html }}
+    {{- partial . $context -}}
+  {{ end }}
+  
+{{ end }}

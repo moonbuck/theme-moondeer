@@ -1,4 +1,4 @@
-{{/* Template for the home page */}}
+<!-- Template for the home page -->
 {{ define "main" }}
 
 {{- partial "comment.html" "index.html#main" -}}
@@ -17,9 +17,17 @@
 
 {{ end }}
 
-{{- with $pages }}{{ partial "post-list.html" . }}{{ end -}}
+{{- with $pages }}
 
-{{- if (and $pages $paginate) }}{{ partial "navigation/pagination" . }}{{ end -}}
+{{- partial "post-list.html" . -}}
+
+{{ end -}}
+
+{{- if (and $pages $paginate) }}
+
+{{- partial "navigation/pagination" . -}}
+
+{{ end -}}
 
 {{- partial "profile.html" . -}}
 
