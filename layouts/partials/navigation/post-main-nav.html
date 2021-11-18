@@ -1,9 +1,9 @@
 <nav id="main-nav" role="navigation" class="light">
 <a href="/">Latest</a>
 
-{{- $categories := .Page.Params.categories }}
+{{- $categories := .Page.Params.categories -}}
 
-{{ range site.Menus.main -}}
+{{- range site.Menus.main -}}
 
 <a class="{{ cond (in $categories .Title) "selected" "" }}"
    href="{{ .URL }}">

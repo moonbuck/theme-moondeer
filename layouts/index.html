@@ -1,21 +1,21 @@
 {{/* Template for the home page */}}
-{{ define "main" }}
+{{- define "main" -}}
 
 {{- partial "comment.html" "index.html#main" -}}
 
-{{ $pages := slice }}
-{{ $paginate := false }}
+{{- $pages := slice -}}
+{{- $paginate := false -}}
 
-{{ if site.Params.paginate_home }}
+{{- if site.Params.paginate_home -}}
 
-{{ $paginate = true }}
-{{ $pages = (.Paginate (where .Data.Pages.ByDate.Reverse "Type" "post")).Pages }}
+{{- $paginate = true -}}
+{{- $pages = (.Paginate (where .Data.Pages.ByDate.Reverse "Type" "post")).Pages -}}
 
-{{ else }}
+{{- else -}}
 
-{{ $pages = where .Data.Pages.ByDate.Reverse "Type" "post" }}
+{{- $pages = where .Data.Pages.ByDate.Reverse "Type" "post" -}}
 
-{{ end }}
+{{- end -}}
 
 {{- with $pages }}{{ partial "post-list.html" . }}{{ end -}}
 
@@ -23,4 +23,4 @@
 
 {{- partial "profile.html" . -}}
 
-{{ end }}
+{{- end -}}

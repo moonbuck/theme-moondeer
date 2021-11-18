@@ -1,5 +1,5 @@
-{{ if site.Params.Theme.IncludeConversation }}
-{{ if (templates.Exists "partials/plugin-conversation.html") }}
+{{- if site.Params.Theme.IncludeConversation -}}
+{{- if (templates.Exists "partials/plugin-conversation.html") -}}
 {{- partial "plugin-conversation.html" . -}}
-{{ end }}
-{{ end }}
+{{- end -}}
+{{- end -}}

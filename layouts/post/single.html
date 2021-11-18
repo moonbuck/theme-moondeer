@@ -1,14 +1,14 @@
 {{/* Template for post pages */}}
-{{ define "main" }}
-{{ partial "comment.html" "post/single.html#main" }}
+{{- define "main" -}}
+{{- partial "comment.html" "post/single.html#main" -}}
 <article class="h-entry post">
   <header>
   
-  {{ with .Title | markdownify }}
+  {{- with .Title | markdownify -}}
   
     <h1 class="p-name">{{ . }}</h1>
     
-  {{ end }}
+  {{- end -}}
   
     {{ $datetime := .Date.Format site.Params.Theme.Date.DateTime }}
     {{ $date := .Date.Format site.Params.Theme.Date.Headline }}
@@ -23,11 +23,11 @@
       {{ .Content }}
   </section>
   
-  {{ partial "post-meta.html" . }}
+  {{- partial "post-meta.html" . -}}
   
 </article>
 
-{{ $params := dict "next" .NextInSection "current" . "previous" .PrevInSection }}
+{{- $params := dict "next" .NextInSection "current" . "previous" .PrevInSection -}}
 
 {{- partial "navigation/next-prev.html" $params -}}
 
@@ -35,4 +35,4 @@
 
 {{- partial "plugins/disqus.html" -}}
 
-{{ end }}
+{{- end -}}

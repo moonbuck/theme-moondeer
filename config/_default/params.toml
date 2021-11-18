@@ -1,7 +1,5 @@
-description = "All the latest thoughts to fall out my head."
-
 [Theme]
-ThemeVersion = "v137"
+ThemeVersion = "v138"
 VisibleThemeVersion = "test"
 TemplateComments = true
 IncludeDisqus = true

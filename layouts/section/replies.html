@@ -1,43 +1,43 @@
 {{/* Template for reply section */}}
-{{ define "main" }}
-{{ partial "comment.html" "section/replies.html#main" }}
+{{- define "main" -}}
+{{- partial "comment.html" "section/replies.html#main" -}}
 <div class="profile">
 <section id="wrapper">
   
-{{ if site.Params.paginate_replies }}
+{{- if site.Params.paginate_replies -}}
 
 <header><h1 class="p-name">Replies</h1></header>
 
-{{ else }}
+{{- else -}}
 
 <header><h1 class="p-name">Recent Replies</h1></header>
 
-{{ end }}
+{{- end -}}
 
 </section>
 </div>
       
 <ul id="post-list">
 
-{{ if site.Params.paginate_replies }}
+{{- if site.Params.paginate_replies -}}
 
-{{ $paginator := .Paginate (where .Data.Pages.ByDate.Reverse "Type" "reply") }}
-{{ $list := $paginator.Pages }}
+{{- $paginator := .Paginate (where .Data.Pages.ByDate.Reverse "Type" "reply") -}}
+{{- $list := $paginator.Pages -}}
 
-{{ range $list  }}{{ .Render "li" }}{{ end }}
+{{- range $list  -}}{{- .Render "li" -}}{{- end -}}
   
-{{ else }}
+{{- else -}}
 
-{{ $list := first 25 (where .Data.Pages.ByDate.Reverse "Type" "reply") }}
+{{- $list := first 25 (where .Data.Pages.ByDate.Reverse "Type" "reply") -}}
 
-{{ range $list  }}{{ .Render "li" }}{{ end }}
+{{- range $list  -}}{{- .Render "li" -}}{{- end -}}
 
-{{ end }}
+{{- end -}}
 
 </ul>
 
-{{ if site.Params.paginate_replies }}
-  {{ partial "navigation/pagination" . }}
-{{ end }}
+{{- if site.Params.paginate_replies -}}
+  {{- partial "navigation/pagination" . -}}
+{{- end -}}
 
-{{ end }}
+{{- end -}}

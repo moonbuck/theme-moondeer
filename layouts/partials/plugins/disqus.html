@@ -1,5 +1,5 @@
-{{ if site.Params.Theme.IncludeDisqus }}
-{{ if (templates.Exists "partials/plugin-disqus.html") }}
+{{- if site.Params.Theme.IncludeDisqus -}}
+{{- if (templates.Exists "partials/plugin-disqus.html") -}}
 {{- partial "plugin-disqus.html" . -}}
-{{ end }}
-{{ end }}
+{{- end -}}
+{{- end -}}

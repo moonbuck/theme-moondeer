@@ -1,41 +1,41 @@
 {{/* Template for reply pages */}}
-{{ define "navigation" }}
-{{ partial "comment.html" "reply/single.html#navigation" }}
+{{- define "navigation" -}}
+{{- partial "comment.html" "reply/single.html#navigation" -}}
 <nav id="main-nav" class="light">
 <a href="/">Latest</a>
 
-{{ $categories := .Page.Params.categories }}
+{{- $categories := .Page.Params.categories -}}
 
-{{ range site.Menus.main }}
+{{- range site.Menus.main -}}
 
-<a class="{{ cond (in $categories .Title) "selected" "" }}"
-   href="{{ .URL }}">
-<nobr>{{ .Title }}</nobr>
+<a class="{{- cond (in $categories .Title) "selected" "" -}}"
+   href="{{- .URL -}}">
+<nobr>{{- .Title -}}</nobr>
 </a>
   
-{{ end }}
+{{- end -}}
 
 </nav>
 
-{{ end }}
+{{- end -}}
 
-{{ define "main" }}
-{{ partial "comment.html" "reply/single.html#main" }}
+{{- define "main" -}}
+{{- partial "comment.html" "reply/single.html#main" -}}
 <article class="h-entry post">
   <header>
   
-  {{ with .Title | markdownify }}
+  {{- with .Title | markdownify -}}
   
-    <h1 class="p-name">{{ . }}</h1>
+    <h1 class="p-name">{{- . -}}</h1>
     
-  {{ end }}
+  {{- end -}}
   
-    {{ $datetime := .Date.Format site.Params.Theme.Date.DateTime }}
-    {{ $date := .Date.Format site.Params.Theme.Date.Headline }}
+    {{- $datetime := .Date.Format site.Params.Theme.Date.DateTime -}}
+    {{- $date := .Date.Format site.Params.Theme.Date.Headline -}}
     
     <h2 class="headline">
-      <time class="dt-published" datetime="{{ $datetime }}">
-        <a class="u-url dates" href="{{ .Permalink }}">{{ $date }}</a>
+      <time class="dt-published" datetime="{{- $datetime -}}">
+        <a class="u-url dates" href="{{- .Permalink -}}">{{- $date -}}</a>
       </time>
     </h2>
   </header>
@@ -46,28 +46,28 @@
     reply_to_username: pimoore
   */}}
   <div>
-    Replying to: <img src="{{ .Params.reply_to_avatar }}" width="22" height="22" style="width: 22px; height: 22px; vertical-align: top; border-radius: 11px;" alt="{{ .Params.reply_to_username }}" />
-    {{ if eq .Params.reply_to_hostname "micro.blog" }}
-      <a href="{{ .Params.reply_to_url }}" class="u-in-reply-to">@{{ .Params.reply_to_username }}</a>
-    {{ else }}
-      <a href="{{ .Params.reply_to_url }}" class="u-in-reply-to">{{ .Params.reply_to_hostname }}</a>
-    {{ end }}
+    Replying to: <img src="{{- .Params.reply_to_avatar -}}" width="22" height="22" style="width: 22px; height: 22px; vertical-align: top; border-radius: 11px;" alt="{{- .Params.reply_to_username -}}" />
+    {{- if eq .Params.reply_to_hostname "micro.blog" -}}
+      <a href="{{- .Params.reply_to_url -}}" class="u-in-reply-to">@{{- .Params.reply_to_username -}}</a>
+    {{- else -}}
+      <a href="{{- .Params.reply_to_url -}}" class="u-in-reply-to">{{- .Params.reply_to_hostname -}}</a>
+    {{- end -}}
   </div>
   <section class="e-content post-body">
-      {{ .Content }}
+      {{- .Content -}}
   </section>
   
-  {{ partial "post-meta.html" . }}
+  {{- partial "post-meta.html" . -}}
   
 </article>
 
-{{ partial "navigation/next-prev.html" (dict "next" .NextInSection "current" . "previous" .PrevInSection "context" .) }}
+{{- partial "navigation/next-prev.html" (dict "next" .NextInSection "current" . "previous" .PrevInSection "context" .) -}}
 
-{{ if (and site.Params.Theme.IncludeConversation (templates.Exists "partials/plugin-conversation.html")) }}
-{{ partial "plugin-conversation.html" . }}
-{{ end }}
+{{- if (and site.Params.Theme.IncludeConversation (templates.Exists "partials/plugin-conversation.html")) -}}
+{{- partial "plugin-conversation.html" . -}}
+{{- end -}}
 
-{{ if (and site.Params.Theme.IncludeDisqus (templates.Exists "partials/plugin-disqus.html")) }}
-{{ partial "plugin-disqus.html" . }}
-{{ end }}
-{{ end }}
+{{- if (and site.Params.Theme.IncludeDisqus (templates.Exists "partials/plugin-disqus.html")) -}}
+{{- partial "plugin-disqus.html" . -}}
+{{- end -}}
+{{- end -}}

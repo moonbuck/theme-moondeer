@@ -3,40 +3,40 @@
   optionally, for 'prefix' or a slice composed of either just the 
   context or a prefix followed by the context.
 -->
-{{ $prefix := false }}
-{{ $context := false }}
+{{- $prefix := "" -}}
+{{- $context := false -}}
 
-{{ if (reflect.IsMap .) }}
+{{- if (reflect.IsMap .) -}}
 
-  {{ $prefix = .prefix }}
-  {{ $context = .context }}
+  {{- $prefix = .prefix -}}
+  {{- $context = .context -}}
   
-{{ else if (reflect.IsSlice .) }}
+{{- else if (reflect.IsSlice .) -}}
 
-  {{ if (eq (len .) 2) }}
+  {{- if (eq (len .) 2) -}}
     
-    {{ $prefix = index . 0 }}  
-    {{ $context = index . 1 }}
+    {{- $prefix = index . 0 -}}  
+    {{- $context = index . 1 -}}
   
-  {{ else if (eq (len .) 1) }}
+  {{- else if (eq (len .) 1) -}}
   
-    {{ $context = index . 0 }}
+    {{- $context = index . 0 -}}
   
-  {{ end }}
+  {{- end -}}
 
-{{ end }}
+{{- end -}}
 
-{{ if templates.Exists "partials/plugin-precision-injection.html" }}
-
-  {{ partial "comment.html" ($prefix | default "plugin html") }}
+{{- if templates.Exists "partials/plugin-precision-injection.html" -}}
   
-  {{ $params := dict "prefix" $prefix "context" $context }}
+  {{- partial "comment.html" (cond (gt (len $prefix) 0) $prefix "plugin html") -}}
+  
+  {{- $params := dict "prefix" $prefix "context" $context -}}
   {{- partial "plugin-precision-injection.html" $params -}}
   
-{{ else if (and $context (not $prefix)) }}
+{{- else if (and $context (not $prefix)) -}}
 
-  {{ range site.Params.plugin_html }}
+  {{- range site.Params.plugin_html -}}
     {{- partial . $context -}}
-  {{ end }}
+  {{- end -}}
   
-{{ end }}
+{{- end }}
