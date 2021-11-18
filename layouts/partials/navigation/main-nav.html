@@ -1,31 +1,34 @@
-{{ if (eq .Type "post") }}
+{{ if (eq .Type "post") -}}
 
-<nav id="main-nav" class="light">
+<nav id="main-nav" role="navigation" class="light">
 <a href="/">Latest</a>
 
-{{ $categories := .Page.Params.categories }}
+{{- $categories := .Page.Params.categories }}
 
-{{ range site.Menus.main }}
+{{ range site.Menus.main -}}
 
 <a class="{{ cond (in $categories .Title) "selected" "" }}"
    href="{{ .URL }}">
 <nobr>{{ .Title }}</nobr>
 </a>
   
-{{ end }}
+{{- end -}}
 
 </nav>
 
-{{ else }}
-<nav id="main-nav" class="dark">
+{{- else -}}
+
+<nav id="main-nav" role="navigation" class="dark">
   
-{{ range site.Menus.main }}
+{{- range site.Menus.main -}}
 
 <a class="{{ cond ($.IsMenuCurrent "main" .) "selected" "" }}" 
    href="{{ .URL }}"><nobr>{{ .Title }}</nobr></a>
-{{ end }}
+   
+{{- end -}}
+
 </nav>
 
-{{ partial "plugins/banner.html" . }}
+{{- partial "plugins/banner.html" . -}}
 
-{{ end }}
+{{- end }}

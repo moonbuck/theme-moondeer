@@ -27,13 +27,12 @@
   
 </article>
 
-{{ partial "navigation/next-prev.html" (dict "next" .NextInSection "current" . "previous" .PrevInSection "context" .) }}
+{{ $params := dict "next" .NextInSection "current" . "previous" .PrevInSection }}
 
-{{ if (and site.Params.Theme.IncludeConversation (templates.Exists "partials/plugin-conversation.html")) }}
-{{ partial "plugin-conversation.html" . }}
-{{ end }}
+{{- partial "navigation/next-prev.html" $params -}}
 
-{{ if (and site.Params.Theme.IncludeDisqus (templates.Exists "partials/plugin-disqus.html")) }}
-{{ partial "plugin-disqus.html" . }}
-{{ end }}
+{{- partial "plugins/conversation.html" . -}}
+
+{{- partial "plugins/disqus.html" -}}
+
 {{ end }}
