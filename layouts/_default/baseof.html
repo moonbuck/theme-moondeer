@@ -53,7 +53,7 @@
 {{ end }}
 
 {{/* Include plugin stylesheets */}}
-{{ partial "comments.html" "Injecting plugin stylesheets" }}
+{{ partial "comment.html" "Injecting plugin stylesheets" }}
 {{ range site.Params.plugins_css }}
 <link rel="stylesheet" href="{{ . }}" />
 {{ end }}
@@ -92,10 +92,15 @@
 
 {{ end }}
 
+{{/* Wrap the main block within an identifiable section */}}
+<section id="{{ (urls.Parse .Permalink).Path | anchorize  }}" class="wrapper">
+
 {{/* Define a block for the primary page content */}}
 {{ block "main" . }}
 
 {{ end }}
+
+</section>
 
 {{/* Create a block for the page footer */}}
 {{ block "footer" . }}

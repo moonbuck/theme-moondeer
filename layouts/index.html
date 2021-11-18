@@ -12,13 +12,12 @@
 
 </nav>
 
-{{ partial "header/banner.html" . }}
+{{ partial "plugins/banner.html" . }}
 
 {{ end }}
 
 {{ define "main" }}
 
-<section id="wrapper">
 {{ partial "comment.html" "index.html#main" }}
 
 {{ $pages := slice }}
@@ -40,7 +39,5 @@
 {{ if (and $pages $paginate) }}{{ partial "navigation/pagination" . }}{{ end }}
 
 {{ partial "profile.html" . }}
-
-</section>
 
 {{ end }}

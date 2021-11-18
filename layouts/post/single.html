@@ -21,7 +21,6 @@
 
 {{ define "main" }}
 {{ partial "comment.html" "post/single.html#main" }}
-<section id="wrapper">
 <article class="h-entry post">
   <header>
   
@@ -57,6 +56,4 @@
 {{ if (and site.Params.Theme.IncludeDisqus (templates.Exists "partials/plugin-disqus.html")) }}
 {{ partial "plugin-disqus.html" . }}
 {{ end }}
-
-</section>
 {{ end }}

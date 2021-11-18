@@ -1,14 +1,10 @@
-<div id="author-profile">
-<section>
-<header class="h-card">
-<a class="u-url" rel="me" href="https://moondeer.blog/about">
+<section id="author-profile" class="h-card">
+  <a class="u-url" rel="me" href="https://moondeer.blog/about">
 {{ with site.Author.profileavatar | default site.Author.avatar }}
-<img id="avatar" class="u-photo" src="{{ . }}" />
+    <img id="avatar" class="u-photo" src="{{ . }}" />
 {{ end }}
-</a>
-<h1 class="p-name" rel="me">{{ site.Author.name }}</h1>
+  </a>
+  <h1 class="p-name" rel="me">{{ site.Author.name }}</h1>
 {{ partial "plugins/social-media-links.html" . }}
-<p id="brief-bio" class="p-note">{{ site.Author.briefbio | default site.Params.itunes_description }}</p>
-</header>
+  <p id="brief-bio" class="p-note">{{ site.Author.briefbio | default site.Params.itunes_description }}</p>
 </section>
-</div>

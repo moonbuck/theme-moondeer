@@ -1,8 +1,6 @@
 {{/* Template for category pages */}}
 {{ define "main" }}
 {{ partial "comment.html" "_default/taxonomy.html#main" }}
-<section id="wrapper">
-
 {{/* Display any content provided for the category */}}
 <div class="category-content">{{ .Content }}</div>
 
@@ -40,7 +38,5 @@
 {{ with $pages }}{{ partial "post-list.html" . }}{{ end }}
 
 {{ if $paginate }}{{ partial "navigation/pagination" . }}{{ end }}
-
-</section>
 
 {{ end }}
