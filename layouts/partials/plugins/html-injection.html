@@ -3,8 +3,8 @@
   optionally, for 'prefix' or a slice composed of either just the 
   context or a prefix followed by the context.
 -->
-{{ $prefix := nil }}
-{{ $context := nil }}
+{{ $prefix := false }}
+{{ $context := false }}
 
 {{ if (reflect.IsMap .) }}
 
@@ -28,7 +28,7 @@
 
 {{ if templates.Exists "partials/plugin-precision-injection.html" }}
 
-  {{ partial "comment.html" ($prefix | default "plugin html" }}
+  {{ partial "comment.html" ($prefix | default "plugin html") }}
   
   {{ $params := dict "prefix" $prefix "context" $context }}
   {{- partial "plugin-precision-injection.html" $params -}}

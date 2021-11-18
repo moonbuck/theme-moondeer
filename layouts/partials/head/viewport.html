@@ -1,15 +1,13 @@
 {{ $viewport := site.Params.Theme.Viewport | default dict }}
-{{ $width := printf "width=%s" $viewport.Width }}
-{{ $initial_scale := printf "intial-scale=%s" $viewport.InitialScale }}
-{{ $content := slice $width $initial_scale }}
+{{ $content := printf "width=%s" $viewport.Width }}
+{{ $content = printf "%s, intial-scale=%s" $content $viewport.InitialScale }}
 {{ with $viewport.MinimumScale }}
-{{ $content = $content | append (printf "minimum-scale=%s" .) }}
+{{ $content = printf "%s, minimum-scale=%s" $content . }}
 {{ end }}
 {{ with $viewport.MaximumScale }}
-{{ $content = $content | append (printf "maximum-scale=%s" .) }}
+{{ $content = printf "%s, maximum-scale=%s" $content . }}
 {{ end }}
 {{ with $viewport.ViewportFit }}
-{{ $content = $content | append (printf "viewport-fit=%s" .) }}
+{{ $content = printf "%s, viewport-fit=%s" $content . }}
 {{ end }}
-{{ $content = $content } delimit ", " }}
 <meta name="viewport" content="{{ $content }}">
