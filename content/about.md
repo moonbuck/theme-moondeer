@@ -2,13 +2,6 @@
 title = 'About'
 description = 'Just a touch of the biographical.'
 type = 'about'
-
-[menu.main]
-name = 'About'
-title = 'About'
-identifier = 'about'
-url = '/about/'
-weight = 120
 +++
 
 What? Y’all want something not constructed as a Trumpian dig for an itty bitty Twitter bio box?
