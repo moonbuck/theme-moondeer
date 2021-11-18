@@ -3,7 +3,7 @@ name = 'Latest'
 title = 'Latest'
 identifier = 'latest'
 url = '/'
-weight = 0
+weight = 5
 
 [[main]]
 name = 'Perspectives'
