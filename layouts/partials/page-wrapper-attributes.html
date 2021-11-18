@@ -1,0 +1,3 @@
+{{- $id := (urls.Parse .Permalink).Path | anchorize | default "home" -}}
+{{- $class := printf "wrapper kind-%s type-%s" .Kind .Type -}}
+{{- printf "id='%s' class='%s'" $id $class -}}

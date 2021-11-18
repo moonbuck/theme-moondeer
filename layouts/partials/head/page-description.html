@@ -1,2 +1,3 @@
-<meta name="description" 
-      content="{{ .Description | default site.Params.description }}">
+{{ with .Description -}}
+<meta name="description" content="{{ . }}">
+{{- end }}

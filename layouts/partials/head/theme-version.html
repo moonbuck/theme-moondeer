@@ -1,0 +1,3 @@
+{{ $version := site.Params.Theme.ThemeVersion }}
+{{ $comment := printf "theme: Moondeer %s" $version }}
+{{- partial "comment.html" $comment }}
