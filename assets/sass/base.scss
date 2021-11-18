@@ -426,7 +426,7 @@ footer {
   &#copyright {
     display: flex;
     justify-content: center;
-    padding-bottom: 20px;
+    padding: 2rem 0;
   }
   
 }
@@ -492,6 +492,7 @@ nav {
     nav#category-list {
       flex-grow: 2;
       display: flex;
+      font-size: $nav-link-size;
       gap: 2rem;
       justify-content: center;
       align-items: baseline;
@@ -502,14 +503,14 @@ nav {
   &.pagination {
     display: flex;
     margin: 2rem auto 1rem auto;
-    font-size: $small-size;
+    font-size: $nav-link-size;
     color: $pagination-color;
     justify-content: space-between;
   }
  
   &#webring { 
-    margin: 2em auto; 
-    padding: 0 0 50px 0; 
+    margin: 2rem auto; 
+    padding: 2rem 0; 
   } 
 }
 

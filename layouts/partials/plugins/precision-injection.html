@@ -1,7 +1,7 @@
 {{ if templates.Exists "partials/plugin-precision-injection.html" }}
   {{ with .prefix }}
   {{ $format := "Injecting HTML files prefixed with %s" }}
-  {{ partial "comment.html" ($format | printf .) }}
+  {{ partial "comment.html" (printf $format .) }}
   {{ else }}
   {{ partial "comment.html" "Injecting HTML files without a prefix" }}
   {{ end }}

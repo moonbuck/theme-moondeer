@@ -6,7 +6,7 @@
 <head>
 
 {{/* Include the theme version */}}
-{{ partial "comment.html" ("theme: Moondeer %s" | printf site.Params.Theme.ThemeVersion) }}
+{{ partial "comment.html" (printf "theme: Moondeer %s" site.Params.Theme.ThemeVersion) }}
 
 {{ partial "plugins/precision-injection.html" (dict "prefix" "HEAD_TOP" "context" .) }}
 
