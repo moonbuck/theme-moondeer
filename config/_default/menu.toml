@@ -43,9 +43,10 @@ weight = 105
 name = 'Inside the Art'
 title = 'Inside the Art'
 identifier = 'inside'
-url = '/categories/inside-the-art/'
+url = '/inside-the-art/'
 weight = 106
 
+[[main]]
 name = 'Cloud'
 title = 'Cloud'
 identifier = 'cloud'
