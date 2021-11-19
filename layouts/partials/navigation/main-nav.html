@@ -1,11 +1,15 @@
 {{- $categories := .Page.Params.categories | default slice -}}
+{{- $path := (urls.Parse .Permalink).Path -}}
+
 <nav id="main-nav" role="navigation">
-  
+
 {{- range site.Menus.main -}}
 
-<a class="{{ cond (or (in $categories .Title) ($.IsMenuCurrent "main" .)) "selected" "" }}" 
-   href="{{ .URL }}"><nobr>{{ .Title }}</nobr></a>
-   
+<a class="{{ cond (or (eq .URL $path) (in $categories .Title)) "selected" "" }}"
+   href="{{ .URL }}">
+<nobr>{{ .Title }}</nobr>
+</a>
+  
 {{- end -}}
 
 </nav>

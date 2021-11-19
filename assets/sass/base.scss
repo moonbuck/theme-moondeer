@@ -11,6 +11,13 @@
 
 body {
   
+  section.wrapper {
+    max-width: 600px;
+    margin: 0 auto;
+    padding: 25px;
+    
+  } // section.wrapper
+    
   /* Post pages */
   &.type-post {
     
@@ -20,75 +27,69 @@ body {
       a { color: $main-nav-light-link-color; }
     }
         
-    section.wrapper {
-      max-width: 600px;
-      margin: 0 auto;
-      padding: 25px;
+    
+    article.post { 
+      margin: 120px 0 0 0;
       
-      article.post { 
-        margin: 120px 0 0 0;
+      @media screen and (max-width: 540px) {
+        margin: 50px 0;
+      }
+      
+      header { 
+        text-align: center; 
+      
+        h1.p-name {}
+        
+        h2.headline {}
+      
+      } // header
+      
+      section#post-body {
+        
+      }
+      
+      section#post-meta {
+        display: flex;
+        gap: 0 20px;
+        font-size: $small-size;
+        @extend %eaves-light-normal;
+        line-height: $post-meta-height;
+        padding: 40px 0;
+        margin-top: 60px;
+        color: $post-meta-color;
+        border {
+          bottom: 1px solid $post-meta-border-color;
+          top: 1px solid $post-meta-border-color;
+        }
         
         @media screen and (max-width: 540px) {
-          margin: 50px 0;
-        }
-        
-        header { 
-          text-align: center; 
-        
-          h1.p-name {}
-          
-          h2.headline {}
-        
-        } // header
-        
-        section#post-body {
-          
-        }
-        
-        section#post-meta {
-          display: flex;
-          gap: 0 20px;
-          font-size: $small-size;
-          @extend %eaves-light-normal;
-          line-height: $post-meta-height;
-          padding: 40px 0;
+          padding { top: 30px; bottom: 30px; }
           margin-top: 60px;
-          color: $post-meta-color;
-          border {
-            bottom: 1px solid $post-meta-border-color;
-            top: 1px solid $post-meta-border-color;
-          }
-          
-          @media screen and (max-width: 540px) {
-            padding { top: 30px; bottom: 30px; }
-            margin-top: 60px;
-          }
-          
-          div {
-            display: flex;
-            flex-direction: column;
-            
-            span.p-name {
-              color: $post-meta-name-color;
-              @extend %eaves-thin-normal;
-              
-              &.dark { color: $post-meta-name-dark-color; }
-            } // span.p-name
-          } // div
-          
-          img#avatar {
-            height: 36px;
-            width: 36px;
-            box-shadow: 0 0 0 3px #fff, 0 0 0 4px #eee;
-            border-radius: 50%;
-          } // img#avatar
-          
-        } // section#post-meta
+        }
         
-      } // article.post
+        div {
+          display: flex;
+          flex-direction: column;
+          
+          span.p-name {
+            color: $post-meta-name-color;
+            @extend %eaves-thin-normal;
+            
+            &.dark { color: $post-meta-name-dark-color; }
+          } // span.p-name
+        } // div
+        
+        img#avatar {
+          height: 36px;
+          width: 36px;
+          box-shadow: 0 0 0 3px #fff, 0 0 0 4px #eee;
+          border-radius: 50%;
+        } // img#avatar
+        
+      } // section#post-meta
       
-    } // section.wrapper
-    
+    } // article.post
+      
   } // &.type-post
   
   /* Category pages */
