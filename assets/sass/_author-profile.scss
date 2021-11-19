@@ -5,9 +5,10 @@
 section#author-profile {
     display: flex;
     flex-direction: column;
-    justify-content: center;
-    align-content: center;
-
+    justify-content: stretch;
+    align-content: stretch;
+    margin: 0 auto;
+    
     img#avatar { margin: 0.25rem auto; }
 
     h1 { margin: 0.25rem auto; }
@@ -15,9 +16,18 @@ section#author-profile {
     div#social-media-links {
       display: flex;
       flex-direction: column;
-      justify-content: flex-start;
-      align-content: flex-start;
-      margin: 0.25rem auto;
+      justify-content: center;
+      align-content: stretch;
+      gap: 0.25rem;
+      
+      div#sml-container {
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        align-content: baseline;
+        gap: 1rem;
+      }
+      
     }
 
     p#brief-bio { margin: 0.25rem auto; }

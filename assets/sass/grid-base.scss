@@ -3,56 +3,91 @@
 @import "elements.scss";
 @import "theme-version-overlay.scss";
 
-* { box-sizing: border-box; }
+/*
+
+  `body` will be the grid.
+ 
+  `header`, `main`, and `footer` will be the grid items 
+
+*/
+
+* { 
+  box-sizing: border-box; 
+}
 
 body {
   min-height: 100vh;
+  max-width: 100vw;
   display: grid;
-  grid-template-rows: auto 1fr auto;
+
+  // Keep the main content at 600px or less
+  @media only screen and (min-width: 700px) {
+ 
+    grid-template-rows: auto 1fr auto;
+    grid-template-columns: auto 600px auto;
+    grid-template-areas:
+      "header header header"
+      "......  main  ......"
+      "footer footer footer";
+      
+  } 
+  
+  // Use what we've got for main content on small screens
+  @media only screen 
+    and (orientation: portrait)
+    and (max-width: 900px) { 
+
+      grid-template-rows: auto 1fr auto;
+      grid-template-columns: 25px 1fr 25px;
+      grid-template-areas:
+        "header header header"
+        "......  main  ......"
+        "footer footer footer";
+        
+  }
   
   > header {
     
-    > nav#main-nav {
+    grid-area: header;
+    
+    > nav {
       
       padding: 1rem 1rem 0.25rem 1rem;
-      margin: 0 auto;
-      z-index: 100;
       display: flex;
       gap: 0 20px;
       flex-wrap: wrap;
       justify-content: flex-end;
     
-      a {
+      > a {
         font-size: $nav-link-size;
         line-height: $nav-link-height;
         @extend %eaves-regular-normal;
         transition: all .35s;
         transition-timing-function: cubic-bezier(0.7, 0, 0.3, 1);
       
-        &:hover { box-shadow: none; }
+        &:hover { box-shadow: inset 0 -2px 0 change-color($box-shadow-color, $alpha: 0.5); }
         
         &.selected { box-shadow: inset 0 -2px 0 $box-shadow-color; }
         
       } // a
       
-    } // nav#main-nav
+    } // nav
     
   } // > header
   
-  > main {
-    
-    padding: 1rem;
-    max-width: 80ch;
-    margin: 0 auto;
-    
+  > main {    
+    grid-area: main;    
+    > * { background-color: white; }        
   } // > main
   
-  > footer {
-    
+  > footer {    
+    grid-area: footer;    
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-content: center;
+    margin: 1rem auto;
+    gap: 1rem;
     
     > ul#feeds-email {
       
@@ -61,33 +96,23 @@ body {
       align-content: baseline;
       gap: 20px;
       list-style-type: none;
+      padding: 0;
+      margin: 0;
       
       a { font-size: $small-size; }
     
     } // ul#feeds-email
-  
-    > small#copyright {
       
-      padding: 2rem 0;
-      
-    } // small#copyright
-    
-    
-    > nav#webring { margin: 2rem auto; padding: 2rem 0; } 
-    
   } // > footer
 
   /* Post pages */
   
   &.type-post {
     
-    > header > nav#main-nav {
-      
-      background: $main-nav-light-bg-color;
-      
-      a { color: $main-nav-light-link-color; }
-      
-    } // > header > nav#main-nav
+    > header {
+      background: $main-nav-light-bg-color;      
+      > nav > a { color: $main-nav-light-link-color; }      
+    } // > header
         
     
     article.post { 
@@ -194,83 +219,64 @@ body {
   
   &:not(.type-post) {
     
-    > header > nav#main-nav {
-      
+    // Darken the background color
+    > header {
       background: $main-nav-dark-bg-color;
-      
-      a { color: $main-nav-dark-link-color; }
-      
-    } // > header > nav#main-nav
+      > nav > a { color: $main-nav-dark-link-color; }
+    } // > header
 
     /* Post Lists */
     
     > main > ul#post-list {
+      list-style-type: none;
+      padding: 0;
       
-      > li {
+      > li {      
+        padding: 1rem;
+        border-bottom: 1px solid $divider-color;
         
-        list-style-type: none;
-            
+        &:last-child { border-bottom: none; }
+        
         article {
-       
-          section.post-body { 
+          display: flex;
+          flex-direction: column;
+          justify-content: center;
+          align-content: stretch;
+          gap: 1rem;
+          
+          header > h2 > a {                
+            color: $post-title-color;                
+            &:hover {                  
+              text-decoration: underline;
+              color: $theme-color;                  
+            } //&:hover                
+          } // header > h2 > a
+              
+          section.post-body {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-content: stretch;
+            gap: 1rem;
             
-            header > h2 {
-              
-              margin-top: 0;
-              line-height: 1.35;
-              
-              a {
-                
-                color: $post-title-color;
-                
-                &:hover {
-                  
-                  text-decoration: underline;
-                  color: $theme-color;
-                  
-                } //&:hover
-                
-              } // a
-              
-            } // header > h2
-            
-            a.read-more {         
-              
+            > a.read-more {                     
               color: $read-more-link-color;
-              text-decoration: underline;           
-              
-              &:hover { color: $theme-color; }
-              
-            } // a
-            
+              text-decoration: underline;            
+              &:hover { color: $theme-color; }                            
+            } // a.read-more
           } // section.post-body
           
-          a.dates-link {
-            
+          footer > a {            
             text-transform: uppercase;
             color: $aside-text-color;
-            @extend %eaves-light;      
-            
-            &:hover { color: $dates-link-hover-color; }      
-            
-          } // a.dates-link
+            @extend %eaves-light;                  
+            &:hover { color: $dates-link-hover-color; }                  
+          } // footer > a   
           
         } // article
         
       } // li
-        
-      > hr {
-        
-        height: 1px;
-        background-color: $divider-color;
-        margin: 42px 0 48px 0;
-        width: 100%;
-        border: none;      
-        
-        &:last-child { display: none; }
-        
-      } // hr
-      
+              
     } // ul#post-list
     
     /* Pagination */
@@ -278,14 +284,13 @@ body {
     nav.pagination {
       
       display: flex;
-      margin: 2rem auto 1rem auto;
+      margin: 1rem auto 1rem auto;
       font-size: $nav-link-size;
       color: $pagination-color;
       justify-content: space-between;
-      
+            
     } // nav.pagination
     
   } // &:not(.type-post)
   
 } // body
-

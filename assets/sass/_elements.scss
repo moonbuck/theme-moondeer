@@ -110,7 +110,7 @@ dl {
 
 /* Media */
 
-%media-asset { width: 100%; max-width: 100%; height: auto; }
+%media-asset { width: auto; max-width: 100%; height: auto; }
 
 video { @extend %media-asset; }
 

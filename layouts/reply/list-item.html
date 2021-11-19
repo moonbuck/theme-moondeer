@@ -1,0 +1,37 @@
+<article>
+
+{{- with .Title -}}
+  <header>
+    <h2><a href="{{ .Permalink }}">{{ .Title | markdownify }}</a></h2>
+  </header>
+{{- end -}}
+  
+{{- $show_summary := or .Title (findRE `<!--more-->` .Content) -}}
+{{- if $show_summary -}}
+
+  <section class="post-summary">
+    {{ .Summary }}
+    {{ if .Truncated -}}
+    <p><a class="read-more" href="{{ .RelPermalink }}">Read More</a></p>
+    {{- end }}
+  </section>
+
+{{- else -}}
+
+  <section class="post-body">
+  {{ .Content }}
+  </section>
+  
+{{- end -}}
+  
+  {{- $datetime := .Date.Format site.Params.Theme.Date.DateTime -}}
+  {{- $time := .Date.Format site.Params.Theme.Date.TimeDay -}}
+  
+  <footer>
+    <a href="{{ .Permalink }}" class="u-url">
+      <time datetime="{{ $datetime }}" class="dt-published">
+          → {{ $time }}
+      </time>
+    </a>
+  </footer>
+</article>
