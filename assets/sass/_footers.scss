@@ -1,0 +1,27 @@
+@import "fonts.scss";
+@import "variables.scss";
+
+footer {
+  
+  &#feeds-email {
+    
+    ul {
+      display: flex;
+      justify-content: center;
+      align-content: baseline;
+      gap: 20px;
+    }
+    
+    a { font-size: $small-size; }
+    
+    li { list-style-type: none; }
+    
+  }
+  
+  &#copyright {
+    display: flex;
+    justify-content: center;
+    padding: 2rem 0;
+  }
+  
+} // footer

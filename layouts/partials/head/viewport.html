@@ -1,6 +1,6 @@
 {{- $viewport := site.Params.Theme.Viewport -}}
 {{- $content := printf "width=%s" $viewport.Width -}}
-{{- $content = printf "%s, intial-scale=%s" $content $viewport.InitialScale -}}
+{{- $content = printf "%s, initial-scale=%s" $content $viewport.InitialScale -}}
 {{- with $viewport.MinimumScale -}}
 {{- $content = printf "%s, minimum-scale=%s" $content . -}}
 {{- end -}}

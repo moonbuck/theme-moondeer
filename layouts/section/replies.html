@@ -24,13 +24,13 @@
 {{- $paginator := .Paginate (where .Data.Pages.ByDate.Reverse "Type" "reply") -}}
 {{- $list := $paginator.Pages -}}
 
-{{- range $list  -}}{{- .Render "li" -}}{{- end -}}
+{{- range $list }}{{ .Render "li" }}{{ end -}}
   
 {{- else -}}
 
 {{- $list := first 25 (where .Data.Pages.ByDate.Reverse "Type" "reply") -}}
 
-{{- range $list  -}}{{- .Render "li" -}}{{- end -}}
+{{- range $list  }}{{ .Render "li" }}{{ end -}}
 
 {{- end -}}
 

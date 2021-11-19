@@ -1,0 +1,26 @@
+@import "fonts.scss";
+@import "variables.scss";
+
+// partials/profile.html
+section#author-profile {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-content: center;
+
+    img#avatar { margin: 0.25rem auto; }
+
+    h1 { margin: 0.25rem auto; }
+
+    div#social-media-links {
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-start;
+      align-content: flex-start;
+      margin: 0.25rem auto;
+    }
+
+    p#brief-bio { margin: 0.25rem auto; }
+
+} // section#author-profile
+  

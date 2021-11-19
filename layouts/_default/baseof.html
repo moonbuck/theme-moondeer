@@ -42,8 +42,12 @@
 {{/* Close the page head */}}
 </head>
 
+{{/* Add CSS hooks */}}
+{{- $id := (urls.Parse .Permalink).Path | anchorize | default "home" -}}
+{{- $class := printf "kind-%s type-%s" .Kind .Type -}}
+
 {{/* Define the page body */}}
-<body>
+<body id="{{ $id }}" class="{{ $class }}">
 
 {{/* Support injection of plugin html above the header  */}}
 {{- partial "plugins/html-injection.html" (slice "ABOVE_HEADER" .) }}
@@ -51,11 +55,9 @@
 {{/* Include the main nav */}}
 {{- partial "navigation/main-nav.html" . }}
 
-{{/* Wrap the main block within an identifiable section */}}
-{{- $id := (urls.Parse .Permalink).Path | anchorize | default "home" -}}
-{{- $class := printf "wrapper kind-%s type-%s" .Kind .Type -}}
-<section id="{{ $id }}" class="{{ $class }}">
-  
+{{/* Wrap the main block */}}
+<section id="main" class="wrapper">
+
 {{/* Define a block for the primary page content */}}
 {{- block "main" . }}
 
