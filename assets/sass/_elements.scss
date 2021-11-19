@@ -44,14 +44,6 @@ h2 {
   @extend %header;
   @extend %eaves-bold; 
   font-size: $h2-size; 
-    
-  &.headline {
-    @extend %eaves-light-normal;
-    font-size: $h3-size;
-    padding: 0;
-    margin { top: 0; bottom: 50px; }
-  }
-  
 }
 
 h3 { @extend %header; @extend %eaves-regular; font-size: $h3-size; }

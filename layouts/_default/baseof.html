@@ -52,26 +52,54 @@
 {{/* Support injection of plugin html above the header  */}}
 {{- partial "plugins/html-injection.html" (slice "ABOVE_HEADER" .) }}
 
+{{/* Create the header */}}
+<header>
+
 {{/* Include the main nav */}}
 {{- partial "navigation/main-nav.html" . }}
 
-{{/* Wrap the main block */}}
-<section id="main" class="wrapper">
+{{/* Include the banner */}}
+{{- partial "plugins/banner.html" . -}}
 
-{{/* Define a block for the primary page content */}}
+</header>
+
+{{/* Support injection of plugin html below the header  */}}
+{{- partial "plugins/html-injection.html" (slice "BELOW_HEADER" .) }}
+
+{{/* Create the primary page content */}}
+<main>
 {{- block "main" . }}
 
 {{ end }}
+</main>
 
-</section>
+{{/* Support injection of plugin html above the footer  */}}
+{{- partial "plugins/html-injection.html" (slice "ABOVE_FOOTER" .) -}}
 
-{{/* Include the footers */}}
-{{- partial "footer/footers.html" . }}
+{{/* Create the footer */}}
+<footer>
+  
+{{/* Include the row of feed and email links */}}
+{{- partial "footer/feeds-email.html" . -}}
+
+{{/* Include the user's custom footer */}}
+{{- partial "custom_footer.html" . -}}
+
+{{/* Include the webring nav */}}
+{{- partial "plugins/webring.html" . -}}
+
+{{/* Include the copyright */}}
+{{- partial "footer/copyright.html" . -}}
+
+</footer>
+
+{{/* Support injection of plugin html below the footer  */}}
+{{- partial "plugins/html-injection.html" (slice "BELOW_FOOTER" .) -}}
 
 {{/* Insert plugin Javascript includes */}}
 {{- partial "footer/plugin-scripts.html" . }}
 
-{{/* Include visible theme version if flagged */}}
+{{/* Include theme version overlay */}}
 {{- partial "theme-version.html" . }}
 
 {{/* Close the page body and html */}}

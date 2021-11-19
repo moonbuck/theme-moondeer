@@ -11,12 +11,12 @@
 
 body {
   
-  section.wrapper {
+  main {
     max-width: 600px;
     margin: 0 auto;
     padding: 25px;
     
-  } // section.wrapper
+  } // main
     
   /* Post pages */
   &.type-post {
@@ -40,7 +40,12 @@ body {
       
         h1.p-name {}
         
-        h2.headline {}
+        h2.headline {
+          @extend %eaves-light-normal;
+          font-size: $h3-size;
+          padding: 0;
+          margin { top: 0; bottom: 50px; }
+        }
       
       } // header
       

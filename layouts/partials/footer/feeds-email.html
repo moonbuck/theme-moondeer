@@ -1,3 +1,27 @@
-<footer id="feeds-email">
-{{- partial "footer/link-list.html" . -}}
-</footer>
+<ul id="feeds-email">
+
+{{- $url := urls.Parse .Permalink -}}
+{{- $parts := split $url.Path "/" -}}
+{{- $kind := index $parts 1 -}}
+
+{{- if eq $kind "categories" -}}
+
+{{- $category := index $parts 2 -}}
+  
+  <li><a href="/categories/{{ $category }}/feed.xml">RSS</a></li>
+
+{{- else -}}
+  
+  <li><a href="/feed.xml">RSS</a></li>
+  
+{{- end -}}
+
+  <li><a href="/feed.json">JSON Feed</a></li>
+  
+{{- with (site.Author.email | default site.Params.Author.email) -}}         
+
+<li><a class="u-email" href="mailto:{{.}}"rel="me">Email</a></li>
+
+{{- end -}}
+
+</ul>
