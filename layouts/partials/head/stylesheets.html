@@ -1,18 +1,20 @@
-<!-- Include TypeKit Fonts -->
+{{/* Include TypeKit Fonts */}}
 <link rel="stylesheet" href="https://use.typekit.net/nmn4mcn.css">
 
-<!-- Fetch theme seconds, presumably to attach for cache busting -->
+{{/* Fetch theme seconds, presumably to attach for cache busting */}}
 {{- $secs := printf "?%v" site.Params.theme_seconds -}}
 
-<!-- Build and link the core stylesheet -->
-{{- $base := resources.Get "sass/base.scss" | toCSS | fingerprint -}}
+{{/* Build and link the core stylesheet */}}
+{{- $grid_layout := site.Params.Theme.GridLayout | default false -}}
+{{- $base_source := cond $grid_layout "sass/grid-base.scss" "sass/base.scss" -}}
+{{- $base := resources.Get $base_source | toCSS | fingerprint -}}
 <link rel="stylesheet" href="{{ $base.Permalink }}{{ $secs }}">
 
-<!-- Include plugin stylesheets -->
+{{/* Include plugin stylesheets */}}
 {{- partial "comment.html" "plugin stylesheets" . -}}
 {{- range site.Params.plugins_css -}}
 <link rel="stylesheet" href="{{ . }}" />
 {{- end -}}
 
-<!-- Include the custom stylesheet last -->
+{{/* Include the custom stylesheet last */}}
 <link rel="stylesheet" href="{{ "custom.css" | relURL }}{{ $secs }}">

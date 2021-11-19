@@ -3,24 +3,20 @@
 
 footer {
   
-  &#feeds-email {
-    
-    ul {
-      display: flex;
-      justify-content: center;
-      align-content: baseline;
-      gap: 20px;
-    }
+  ul#feeds-email {    
+    display: flex;
+    justify-content: center;
+    align-content: baseline;
+    gap: 20px;
+    list-style-type: none;
     
     a { font-size: $small-size; }
     
-    li { list-style-type: none; }
-    
   }
   
-  &#copyright {
-    display: flex;
-    justify-content: center;
+  small#copyright {
+    width: 100%;
+    text-align: center;
     padding: 2rem 0;
   }
   

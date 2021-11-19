@@ -1,9 +1,10 @@
 [Theme]
-ThemeVersion = "v140"
+ThemeVersion = "v141"
 VisibleThemeVersion = "test"
 TemplateComments = true
 IncludeDisqus = true
 IncludeConversation = true
+GridLayout = true
 
 [Theme.Date]
 ShortNames = "Mon, 02 Jan 2006 15:04:05 -0700"
