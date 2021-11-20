@@ -1,6 +1,8 @@
 {{/* This partial expects a slice of pages */}}
 <ul id="post-list">
-{{ range . }}
+{{- range . }}
+<li>
 {{ .Render "list-item" }}
-{{ end }}
+</li>
+{{- end }}
 </ul>
