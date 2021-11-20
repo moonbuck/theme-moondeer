@@ -4,22 +4,13 @@
 @import "theme-version-overlay.scss";
 @import "author-profile.scss";
 
-/*
-
-  `body` will be the grid.
- 
-  `header`, `main`, and `footer` will be the grid items 
-
-*/
-
-* { 
-  box-sizing: border-box; 
-}
+* { box-sizing: border-box; }
 
 body {
   min-height: 100vh;
   max-width: 100vw;
   display: grid;
+  gap: 1rem;
 
   // Keep the main content at 600px or less
   @media only screen and (min-width: 700px) {
@@ -48,11 +39,9 @@ body {
   }
   
   > header {
-    
     grid-area: header;
     
     > nav {
-      
       padding: 1rem 1rem 0.25rem 1rem;
       display: flex;
       gap: 0 20px;
@@ -116,12 +105,12 @@ body {
     } // > header
         
     
-    article.post { 
-      margin: 120px 0 0 0;
+    article#post { 
+      // margin: 120px 0 0 0;
       
-      @media screen and (max-width: 540px) {
-        margin: 50px 0;
-      }
+      // @media screen and (max-width: 540px) {
+      //   margin: 50px 0;
+      // }
       
       header { 
         text-align: center; 
@@ -141,7 +130,7 @@ body {
         
       }
       
-      section#post-meta {
+      footer#post-meta {
         
         display: flex;
         gap: 0 20px;
@@ -170,9 +159,6 @@ body {
           span.p-name {
             color: $post-meta-name-color;
             @extend %eaves-thin-normal;
-            
-            &.dark { color: $post-meta-name-dark-color; }
-            
           } // span.p-name
           
         } // div
@@ -253,7 +239,7 @@ body {
             } //&:hover                
           } // header > h2 > a
               
-          section.post-body {
+          section {
             display: flex;
             flex-direction: column;
             justify-content: center;
@@ -265,7 +251,7 @@ body {
               text-decoration: underline;            
               &:hover { color: $theme-color; }                            
             } // a.read-more
-          } // section.post-body
+          } // section
           
           footer > a {            
             text-transform: uppercase;

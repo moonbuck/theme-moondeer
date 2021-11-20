@@ -1,29 +1,22 @@
 {{/* Template for post pages */}}
 {{- define "main" -}}
 {{- partial "comment.html" "post/single.html#main" -}}
-<article class="h-entry post">
-  <header>
-  
-  {{- with .Title | markdownify -}}
-  
-    <h1 class="p-name">{{ . }}</h1>
-    
+<article id="post" class="h-entry">
+  <header>  
+  {{- with .Title | markdownify -}}  
+    <h1 class="p-name">{{ . }}</h1>    
   {{- end -}}
-  
     {{ $datetime := .Date.Format site.Params.Theme.Date.DateTime }}
-    {{ $date := .Date.Format site.Params.Theme.Date.Headline }}
-    
+    {{ $date := .Date.Format site.Params.Theme.Date.Headline }}  
     <h2 class="headline">
       <time class="dt-published" datetime="{{ $datetime }}">
-        <a class="u-url dates" href="{{ .Permalink }}">{{ $date }}</a>
+        <a class="u-url" href="{{ .Permalink }}">{{ $date }}</a>
       </time>
     </h2>
   </header>
   <section id="post-body" class="e-content">
       {{ .Content }}
   </section>
-  
-  {{- partial "post-meta.html" . -}}
   
 </article>
 

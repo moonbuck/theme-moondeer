@@ -5,9 +5,7 @@
 {{- $secs := printf "?%v" site.Params.theme_seconds -}}
 
 {{/* Build and link the core stylesheet */}}
-{{- $grid_layout := site.Params.Theme.GridLayout | default false -}}
-{{- $base_source := cond $grid_layout "sass/grid-base.scss" "sass/base.scss" -}}
-{{- $base := resources.Get $base_source | toCSS | fingerprint -}}
+{{- $base := resources.Get "sass/base.scss" | toCSS | fingerprint -}}
 <link rel="stylesheet" href="{{ $base.Permalink }}{{ $secs }}">
 
 {{/* Include plugin stylesheets */}}
