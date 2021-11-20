@@ -106,10 +106,16 @@ body {
         
     
     article#post { 
-      display: grid;
-      grid-template-rows: auto 1fr auto;
+      // display: grid;
+      // grid-template-rows: auto 1fr auto;
+      // grid-template-columns: auto;
+      // grid-template-areas: 
+      //   "header"
+      //   "body"
+      //   "footer";
       
       header { 
+        // grid-area: header;
         text-align: center; 
               
         h2.headline {
@@ -122,6 +128,7 @@ body {
       } // header
       
       section#post-body {
+        // grid-area: body;
         display: flex;
         flex-direction: column;
         justify-content: center;
@@ -130,6 +137,7 @@ body {
       }
     
       footer#post-meta {
+        // grid-area: footer;
         display: flex;
         gap: 0 20px;
         font-size: $small-size;
@@ -183,6 +191,8 @@ body {
         justify-content: center;
         align-items: baseline;
         
+        span.bullet-divider { margin: 0 1rem; }
+        
       } // nav#category-list
       
     } // nav#next-prev
@@ -216,7 +226,7 @@ body {
           flex-direction: column;
           justify-content: center;
           align-content: stretch;
-          gap: 0.25rem;
+          gap: 1rem;
           
           header > h2 > a {                
             color: $post-title-color;                
@@ -231,7 +241,7 @@ body {
             flex-direction: column;
             justify-content: center;
             align-content: stretch;
-            gap: 1rem;
+            gap: 0.5rem;
             
             > a.read-more {                     
               color: $read-more-link-color;

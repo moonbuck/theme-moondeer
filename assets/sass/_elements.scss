@@ -79,6 +79,7 @@ sup { vertical-align: super; font-size: smaller; }
 small { font-size: $small-size; }
 
 blockquote {
+  margin-left: 0.5rem;
   padding-left: 15px;
   @extend %eaves-light-italic;
   border-left: 2px solid $blockquote-border-color;
@@ -86,7 +87,10 @@ blockquote {
 
 /* Lists */
 
-%list { list-style-position: inside; }
+%list { 
+  margin-left: 0.5rem;
+  list-style-position: outside;
+}
 
 ul { @extend %list; list-style-type: circle; }
 
