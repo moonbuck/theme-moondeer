@@ -1,37 +1,42 @@
-<article>
-
-{{- with .Title -}}
-  <header>
-    <h2><a href="{{ .Permalink }}">{{ .Title | markdownify }}</a></h2>
-  </header>
-{{- end -}}
-  
-{{- $show_summary := or .Title (findRE `<!--more-->` .Content) -}}
-{{- if $show_summary -}}
-
-  <section class="post-summary">
-    {{ .Summary }}
-    {{ if .Truncated -}}
+<li>
+  <article>
+    <section class="post-body">
+    
+    {{- $categories := .Params.categories -}}
+      
+    {{- if (or .Title (findRE `<!--more-->` .Content)) -}}
+    
+    <header>
+      <h2 class="post-title">
+        <a href="{{ .Permalink }}">{{ .Title | markdownify }}</a>
+      </h2>
+    </header>
+    
+     {{- .Summary -}}
+     
+    {{- if .Truncated -}}
+    
     <p><a class="read-more" href="{{ .RelPermalink }}">Read More</a></p>
-    {{- end }}
-  </section>
-
-{{- else -}}
-
-  <section class="post-body">
-  {{ .Content }}
-  </section>
-  
-{{- end -}}
-  
-  {{- $datetime := .Date.Format site.Params.Theme.Date.DateTime -}}
-  {{- $time := .Date.Format site.Params.Theme.Date.TimeDay -}}
-  
-  <footer>
-    <a href="{{ .Permalink }}" class="u-url">
-      <time datetime="{{ $datetime }}" class="dt-published">
-          → {{ $time }}
-      </time>
+    
+    {{- end -}}
+    
+    {{- else -}}
+    
+    {{- .Content -}}
+    
+    {{- end -}}
+    
+    </section>
+    
+    {{- $datetime := .Date.Format site.Params.Theme.Date.DateTime -}}
+    {{- $time := .Date.Format site.Params.Theme.Date.TimeDay -}}
+    
+    <a class="dates-link" href="{{ .Permalink }}" class="u-url">
+      <aside class="dates">
+        <time datetime="{{ $datetime }}" class="dt-published">
+        → {{ $time }}
+        </time>
+      </aside>
     </a>
-  </footer>
-</article>
+  </article>
+</li>

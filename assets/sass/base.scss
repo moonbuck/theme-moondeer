@@ -106,52 +106,41 @@ body {
         
     
     article#post { 
-      // margin: 120px 0 0 0;
-      
-      // @media screen and (max-width: 540px) {
-      //   margin: 50px 0;
-      // }
+      display: grid;
+      grid-template-rows: auto 1fr auto;
       
       header { 
         text-align: center; 
-      
-        h1.p-name {}
-        
+              
         h2.headline {
           @extend %eaves-light-normal;
           font-size: $h3-size;
-          padding: 0;
-          margin { top: 0; bottom: 50px; }
+          // padding: 0;
+          // margin { top: 0; bottom: 50px; }
         }
       
       } // header
       
       section#post-body {
-        
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-content: center;
+        gap: 0.25rem;
       }
-      
+    
       footer#post-meta {
-        
         display: flex;
         gap: 0 20px;
         font-size: $small-size;
         @extend %eaves-light-normal;
         line-height: $post-meta-height;
-        padding: 40px 0;
-        margin-top: 60px;
         color: $post-meta-color;
         border {
           bottom: 1px solid $post-meta-border-color;
           top: 1px solid $post-meta-border-color;
         }
-        
-        @media screen and (max-width: 540px) {
-          
-          padding { top: 30px; bottom: 30px; }
-          margin-top: 60px;
-          
-        }
-        
+              
         div {
           display: flex;
           flex-direction: column;
@@ -163,16 +152,14 @@ body {
           
         } // div
         
-        img#avatar {
-          
+        img#avatar {          
           height: 36px;
           width: 36px;
           box-shadow: 0 0 0 3px #fff, 0 0 0 4px #eee;
-          border-radius: 50%;
-          
+          border-radius: 50%;          
         } // img#avatar
         
-      } // section#post-meta
+      } // footer#post-meta
       
     } // article.post
     
@@ -219,7 +206,7 @@ body {
       padding: 0;
       
       > li {      
-        padding: 1rem;
+        padding: 1rem 0;
         border-bottom: 1px solid $divider-color;
         
         &:last-child { border-bottom: none; }
@@ -229,7 +216,7 @@ body {
           flex-direction: column;
           justify-content: center;
           align-content: stretch;
-          gap: 1rem;
+          gap: 0.25rem;
           
           header > h2 > a {                
             color: $post-title-color;                

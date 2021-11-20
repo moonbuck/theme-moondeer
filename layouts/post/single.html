@@ -18,6 +18,7 @@
       {{ .Content }}
   </section>
   
+  {{- partial "post-meta.html" . -}}
 </article>
 
 {{- $params := dict "next" .NextInSection "current" . "previous" .PrevInSection -}}
