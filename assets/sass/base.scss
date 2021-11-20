@@ -1,8 +1,161 @@
-@import "fonts.scss";
-@import "variables.scss";
-@import "elements.scss";
-@import "theme-version-overlay.scss";
-@import "author-profile.scss";
+/* Bootstrap Imports */
+
+@import "bootstrap/bootstrap-reboot";
+
+/* Theme Imports */
+
+@import "fonts";
+@import "variables";
+@import "elements";
+@import "theme-version-overlay";
+@import "author-profile";
+
+/* Elements */
+
+// Basic element styles
+
+%reset { margin: 0; padding: 0; }
+
+// Primary containers
+
+html { 
+  @extend %reset; 
+  font-size: $html-size; 
+  background-color: white;
+}
+
+body { 
+  @extend %reset;
+  @extend %eaves-book; 
+  font-size: 1rem; 
+  line-height: $tight-height;
+  text-rendering: optimizeLegibility;
+  color: $body-text-color; 
+  
+  @media only screen 
+  and (min-device-width: 320px) 
+  and (max-device-width: 767px) 
+  and (-webkit-min-device-pixel-ratio: 2) 
+  and (orientation: landscape) {
+    -webkit-text-size-adjust: none;
+  }
+}
+
+/* Headers */
+
+%header { color: $bold-text-color; }
+
+h1 { @extend %header; @extend %eaves-heavy;   font-size: $h1-size; }
+h2 { @extend %header; @extend %eaves-bold;    font-size: $h2-size; }
+h3 { @extend %header; @extend %eaves-regular; font-size: $h3-size; }
+h4 { @extend %header; @extend %eaves-light;   font-size: $h4-size; }
+h5 { @extend %header; @extend %eaves-thin;    font-size: $h5-size; }
+
+/* Font styles */
+
+b { 
+  @extend %eaves-heavy; 
+  color: $bold-text-color; 
+  > i { @extend %eaves-heavy-italic; }
+}
+
+i { 
+  @extend %eaves-book-italic; 
+  > b { @extend %eaves-heavy-italic; }
+}
+
+strong { 
+  @extend %eaves-bold; 
+  color: $bold-text-color; 
+  > em { @extend %eaves-bold-italic; }
+}
+
+em { 
+  @extend %eaves-regular-italic; 
+  > strong { @extend %eaves-bold-italic; }
+}
+
+sup { vertical-align: super; font-size: smaller; }
+
+small { font-size: $small-size; }
+
+blockquote {
+  margin-left: 0.5rem;
+  padding-left: 15px;
+  @extend %eaves-light-italic;
+  border-left: 2px solid $border-color;
+}
+
+/* Lists */
+
+%list { 
+  margin-left: 0.5rem;
+  list-style-position: outside;
+}
+
+ul { @extend %list; list-style-type: circle; }
+
+ol { @extend %list; list-style-type: decimal; }
+
+dl {
+  
+  dt { @extend %eaves-regular; }
+  
+  dd {
+    margin: 0px 0px 1em 0px;
+    padding: 0px 0px 0px 1em;
+    
+    p {
+      > dl, dt, dd { margin: 0px 0px 2em 0px; }
+    }
+    
+  } // dd
+  
+} // dl
+
+/* Media */
+
+%media-asset { width: auto; max-width: 100%; height: auto; }
+
+video { @extend %media-asset; }
+
+img { @extend %media-asset; }
+
+/* Links */
+
+a {
+  text-decoration: none;
+  color: $link-color;
+  
+  &:hover { color: $hover-color; }
+}
+
+/* Code */
+
+%code {
+  background-color: $code-bg-color;
+  color: $code-text-color;
+  border-radius: 5px;
+  font-size: $code-size;
+  // line-height: $moderate-height;
+  @extend %input-regular;
+}
+
+pre { white-space: pre-wrap; overflow: auto; @extend %code; }
+
+code { display: inline-block; padding: 5px 8px; @extend %code; }
+
+/* Dividers */
+
+hr {
+  // border: none;
+  // height: 2px;
+  // margin: 34px 0 40px 0;
+  border-color: $border-color;
+  // width: 30%;
+}
+
+/* Page Details */
 
 * { box-sizing: border-box; }
 
@@ -22,7 +175,7 @@ body {
       "......  main  ......"
       "footer footer footer";
       
-  } 
+  } // min-width: 700px
   
   // Use what we've got for main content on small screens
   @media only screen 
@@ -36,7 +189,9 @@ body {
         "......  main  ......"
         "footer footer footer";
         
-  }
+  } // orientation: portrait, max-width: 900px
+  
+  /* Header */
   
   > header {
     grid-area: header;
@@ -50,14 +205,14 @@ body {
     
       > a {
         font-size: $nav-link-size;
-        line-height: $nav-link-height;
+        // line-height: $moderate-height;
         @extend %eaves-regular-normal;
         transition: all .35s;
         transition-timing-function: cubic-bezier(0.7, 0, 0.3, 1);
       
-        &:hover { box-shadow: inset 0 -2px 0 change-color($box-shadow-color, $alpha: 0.5); }
+        &:hover { box-shadow: inset 0 -2px 0 change-color($shadow-color, $alpha: 0.5); }
         
-        &.selected { box-shadow: inset 0 -2px 0 $box-shadow-color; }
+        &.selected { box-shadow: inset 0 -2px 0 $shadow-color; }
         
       } // a
       
@@ -65,10 +220,14 @@ body {
     
   } // > header
   
+  /* Main Content */
+  
   > main {    
     grid-area: main;    
     > * { background-color: white; }        
   } // > main
+  
+  /* Footer */
   
   > footer {    
     grid-area: footer;    
@@ -100,8 +259,8 @@ body {
   &.type-post {
     
     > header {
-      background: $main-nav-light-bg-color;      
-      > nav > a { color: $main-nav-light-link-color; }      
+      background: $post-nav-bg-color;      
+      > nav > a { color: $post-nav-color; }      
     } // > header
         
     
@@ -142,11 +301,9 @@ body {
         gap: 0 20px;
         font-size: $small-size;
         @extend %eaves-light-normal;
-        line-height: $post-meta-height;
-        color: $post-meta-color;
         border {
-          bottom: 1px solid $post-meta-border-color;
-          top: 1px solid $post-meta-border-color;
+          bottom: 1px solid $border-color;
+          top: 1px solid $border-color;
         }
               
         div {
@@ -154,7 +311,6 @@ body {
           flex-direction: column;
           
           span.p-name {
-            color: $post-meta-name-color;
             @extend %eaves-thin-normal;
           } // span.p-name
           
@@ -205,8 +361,8 @@ body {
     
     // Darken the background color
     > header {
-      background: $main-nav-dark-bg-color;
-      > nav > a { color: $main-nav-dark-link-color; }
+      background: $nav-bg-color;
+      > nav > a { color: $nav-color; }
     } // > header
 
     /* Post Lists */
@@ -217,7 +373,7 @@ body {
       
       > li {      
         padding: 1rem 0;
-        border-bottom: 1px solid $divider-color;
+        border-bottom: 1px solid $border-color;
         
         &:last-child { border-bottom: none; }
         
@@ -229,7 +385,6 @@ body {
           gap: 1rem;
           
           header > h2 > a {                
-            color: $post-title-color;                
             &:hover {                  
               text-decoration: underline;
               color: $theme-color;                  
@@ -243,10 +398,9 @@ body {
             align-content: stretch;
             gap: 0.5rem;
             
-            > a.read-more {                     
-              color: $read-more-link-color;
-              text-decoration: underline;            
-              &:hover { color: $theme-color; }                            
+            // > a.read-more {                     
+            //   text-decoration: underline;            
+            //   &:hover { color: $theme-color; }                            
             } // a.read-more
           } // section
           
@@ -254,7 +408,7 @@ body {
             text-transform: uppercase;
             color: $aside-text-color;
             @extend %eaves-light;                  
-            &:hover { color: $dates-link-hover-color; }                  
+            // &:hover { color: $hover-color; }                  
           } // footer > a   
           
         } // article
