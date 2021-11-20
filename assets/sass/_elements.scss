@@ -17,9 +17,9 @@ body {
   @extend %reset;
   @extend %eaves-book; 
   font-size: 1rem; 
-  line-height: $body-height;
+  line-height: $tight-height;
   text-rendering: optimizeLegibility;
-  color: $body-text-color; 
+  color: $text-color; 
   
   @media only screen 
   and (min-device-width: 320px) 
@@ -32,7 +32,7 @@ body {
 
 /* Headers */
 
-%header { color: $header-color; }
+%header { color: $bold-text-color; }
 
 h1 { 
   @extend %header;
@@ -82,7 +82,7 @@ blockquote {
   margin-left: 0.5rem;
   padding-left: 15px;
   @extend %eaves-light-italic;
-  border-left: 2px solid $blockquote-border-color;
+  border-left: 2px solid $border-color;
 }
 
 /* Lists */
@@ -124,9 +124,9 @@ img { @extend %media-asset; }
 
 a {
   text-decoration: none;
-  color: $link-text-color;
+  color: $link-color;
   
-  &:hover { color: $link-hover-color; }
+  &:hover { color: $hover-color; }
 }
 
 /* Code */
@@ -136,7 +136,7 @@ a {
   color: $code-text-color;
   border-radius: 5px;
   font-size: $code-size;
-  line-height: $code-line-height;
+  line-height: $moderate-height;
   @extend %input-regular;
 }
 
@@ -150,6 +150,6 @@ hr {
   border: none;
   height: 2px;
   margin: 34px 0 40px 0;
-  background: $divider-color;
+  background: $border-color;
   width: 30%;
 }

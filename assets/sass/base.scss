@@ -52,7 +52,7 @@
 @import "theme-version-overlay.scss";
 @import "author-profile.scss";
 
-* { box-sizing: border-box; }
+/* Page Details */
 
 body {
   min-height: 100vh;
@@ -98,14 +98,14 @@ body {
     
       > a {
         font-size: $nav-link-size;
-        line-height: $nav-link-height;
+        line-height: $moderate-height;
         @extend %eaves-regular-normal;
         transition: all .35s;
         transition-timing-function: cubic-bezier(0.7, 0, 0.3, 1);
       
-        &:hover { box-shadow: inset 0 -2px 0 change-color($box-shadow-color, $alpha: 0.5); }
+        &:hover { box-shadow: inset 0 -2px 0 change-color($shadow-color, $alpha: 0.5); }
         
-        &.selected { box-shadow: inset 0 -2px 0 $box-shadow-color; }
+        &.selected { box-shadow: inset 0 -2px 0 $shadow-color; }
         
       } // a
       
@@ -148,8 +148,8 @@ body {
   &.type-post {
     
     > header {
-      background: $main-nav-light-bg-color;      
-      > nav > a { color: $main-nav-light-link-color; }      
+      background: $post-nav-bg-color;      
+      > nav > a { color: $post-nav-link-color; }      
     } // > header
         
     
@@ -190,11 +190,10 @@ body {
         gap: 0 20px;
         font-size: $small-size;
         @extend %eaves-light-normal;
-        line-height: $post-meta-height;
-        color: $post-meta-color;
+        line-height: $spacious-height;
         border {
-          bottom: 1px solid $post-meta-border-color;
-          top: 1px solid $post-meta-border-color;
+          bottom: 1px solid $border-color;
+          top: 1px solid $border-color;
         }
               
         div {
@@ -202,7 +201,6 @@ body {
           flex-direction: column;
           
           span.p-name {
-            color: $post-meta-name-color;
             @extend %eaves-thin-normal;
           } // span.p-name
           
@@ -253,8 +251,8 @@ body {
     
     // Darken the background color
     > header {
-      background: $main-nav-dark-bg-color;
-      > nav > a { color: $main-nav-dark-link-color; }
+      background: $nav-bg-color;
+      > nav > a { color: $nav-link-color; }
     } // > header
 
     /* Post Lists */
@@ -265,7 +263,7 @@ body {
       
       > li {      
         padding: 1rem 0;
-        border-bottom: 1px solid $divider-color;
+        border-bottom: 1px solid $border-color;
         
         &:last-child { border-bottom: none; }
         
@@ -277,7 +275,7 @@ body {
           gap: 1rem;
           
           header > h2 > a {                
-            color: $post-title-color;                
+            color: $bold-text-color;                
             &:hover {                  
               text-decoration: underline;
               color: $theme-color;                  
@@ -292,9 +290,7 @@ body {
             gap: 0.5rem;
             
             > a.read-more {                     
-              color: $read-more-link-color;
               text-decoration: underline;            
-              &:hover { color: $theme-color; }                            
             } // a.read-more
           } // section
           
@@ -302,7 +298,6 @@ body {
             text-transform: uppercase;
             color: $aside-text-color;
             @extend %eaves-light;                  
-            &:hover { color: $dates-link-hover-color; }                  
           } // footer > a   
           
         } // article
