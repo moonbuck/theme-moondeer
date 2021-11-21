@@ -20,6 +20,7 @@ $green-mist: #C8D1A7;
 $shark: #1E2025;
 
 // Grayscale
+$white:       #FFFFFF;
 $white-smoke: #F5F5F5;
 $gray-100:    #F2F2F2;
 $gallery:     #EEEEEE;
@@ -34,6 +35,7 @@ $gray-700:    #4C4C4C;
 $tundora:     #444444;
 $gray-800:    #3F3F3F;
 $gray-900:    #262626;
+$black:        $shark;
 
 // Named Color Overrides
 $blue:    $kashmir-blue;
@@ -46,7 +48,6 @@ $yellow:  $green-mist;
 $green:   $celery;
 $teal:    $riptide;
 $cyan:    $sinbad;
-$black:   $shark;
 
 // Fonts
 $font-family-sans-serif: mr-eaves-sans;
@@ -76,7 +77,7 @@ $nav-link-font-size: 0.70834rem;
 // Text Colors
 $body-color: $dove-gray;
 $text-muted: $manatee;
-$bold-text-color: $shark;
+$bold-text-color: $black;
 $pagination-color: $tundora;
 $code-color: $gray-600;
 $nav-color: $white;
@@ -91,7 +92,7 @@ $border-color: $gallery;
 $hr-color: $dolphin;
 
 // Background Colors
-$nav-bg-color: $primary;
+$nav-bg-color: $blue;
 $post-nav-bg-color: $white;
 $code-bg-color: $white-smoke;
 
@@ -104,11 +105,12 @@ $enable-cssgrid: true;
 
 // Include remainder of required Bootstrap stylesheets
 @import "bootstrap/variables";
+@import "bootstrap/maps";
 @import "bootstrap/mixins";
-@import "bootstrap/root";
+@import "bootstrap/utilities";
 
 // Include any optional Bootstrap CSS as needed
-@import "bootstrap/utilities";
+@import "bootstrap/root";
 @import "bootstrap/reboot";
 // @import "bootstrap/type";
 // @import "bootstrap/images";
@@ -144,8 +146,8 @@ $enable-cssgrid: true;
 // @import "bootstrap/utilities/api";
 
 @import "fonts.scss";
-
-/* Basic element styles */
+/*
+// Basic element styles
 
 // Primary containers
 
@@ -166,7 +168,7 @@ body {
   }
 }
 
-/* Headers */
+// Headers
 
 %header { color: $bold-text-color; }
 
@@ -200,7 +202,7 @@ h5 {
   // font-size: $h5-size; 
 }
 
-/* Font styles */
+// Font styles
 
 b { 
   @extend %eaves-heavy; 
@@ -237,7 +239,7 @@ blockquote {
   border-left: 2px solid $border-color;
 }
 
-/* Lists */
+// Lists
 
 %list { 
   // margin-left: 0.5rem;
@@ -264,7 +266,7 @@ dl {
   
 } // dl
 
-/* Media */
+// Media
 
 %media-asset { width: auto; max-width: 100%; height: auto; }
 
@@ -272,7 +274,7 @@ video { @extend %media-asset; }
 
 img { @extend %media-asset; }
 
-/* Links */
+// Links
 
 // a {
 //   text-decoration: none;
@@ -281,7 +283,7 @@ img { @extend %media-asset; }
 //   &:hover { color: $hover-color; }
 // }
 
-/* Code */
+// Code
 
 %code {
   background-color: $code-bg-color;
@@ -296,7 +298,7 @@ pre { white-space: pre-wrap; overflow: auto; @extend %code; }
 
 code { display: inline-block; padding: 5px 8px; @extend %code; }
 
-/* Dividers */
+// Dividers
 
 // hr {
 //   border: none;
@@ -306,7 +308,7 @@ code { display: inline-block; padding: 5px 8px; @extend %code; }
 //   width: 30%;
 // }
 
-/* Page Details */
+// Page Details
 
 body {
   min-height: 100vh;
@@ -372,7 +374,7 @@ body {
       left: 0;
       padding: 0 1em;
       background-color: $black;
-      color: white;
+      color: $white;
       font-size: $h5-font-size;
       opacity: 0.5;
       @extend %eaves-book;
@@ -442,7 +444,7 @@ body {
       
   } // > footer
 
-  /* Post pages */
+  // Post pages
   
   &.type-post {
     
@@ -516,7 +518,7 @@ body {
       
     } // article.post
     
-    /* Next/Prev navigation */
+    // Next/Prev navigation
     
     nav#next-prev {
       
@@ -544,7 +546,7 @@ body {
       
   } // &.type-post
   
-  /* All but Post Pages */
+  / All but Post Pages
   
   &:not(.type-post) {
     
@@ -554,7 +556,7 @@ body {
       > nav > a { color: $nav-color; }
     } // > header
 
-    /* Post Lists */
+    / Post Lists
     
     > main > ul#post-list {
       list-style-type: none;
@@ -607,7 +609,7 @@ body {
               
     } // ul#post-list
     
-    /* Pagination */
+    // Pagination
 
     nav.pagination {
       
@@ -622,3 +624,4 @@ body {
   } // &:not(.type-post)
   
 } // body
+*/
