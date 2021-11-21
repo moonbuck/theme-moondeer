@@ -61,6 +61,9 @@
 {{/* Include the banner */}}
 {{- partial "plugins/banner.html" . -}}
 
+{{/* Include theme version overlay */}}
+{{- partial "theme-version.html" . }}
+
 </header>
 
 {{/* Support injection of plugin html below the header  */}}
@@ -98,9 +101,6 @@
 
 {{/* Insert plugin Javascript includes */}}
 {{- partial "footer/scripts.html" . }}
-
-{{/* Include theme version overlay */}}
-{{- partial "theme-version.html" . }}
 
 {{/* Close the page body and html */}}
 </body>

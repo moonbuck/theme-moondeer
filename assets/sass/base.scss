@@ -1,9 +1,103 @@
 // base.scss
 
-// Include functions first (so you can manipulate colors, SVGs, calc, etc)
+// Import the functions so they are available for variable declarations.
 @import "bootstrap/functions";
 
-// Include any default variable overrides here
+// Custom Named Colors
+$kashmir-blue: #516189;
+$manatee: #9091AB;
+$sinbad: #A0D0D4;
+$french-pass: #CDE8FD;
+$petite-orchid: #D99D8E;
+$dolphin: #646386;
+$riptide: #82E1E4;
+$gull-gray: #96A2BC;
+$tonys-pink: #E58F91;
+$celery: #9DC05F;
+$salmon: #FF856D;
+$ship-cove: #7D7ABF;
+$green-mist: #C8D1A7;
+$shark: #1E2025;
+
+// Grayscale
+$white-smoke: #F5F5F5;
+$gray-100:    #F2F2F2;
+$gallery:     #EEEEEE;
+$gray-200:    #E5E5E5;
+$gray-300:    #D8D8D8;
+$gray-400:    #CBCBCB;
+$silver:      #BBBBBB;
+$gray-500:    #A5A5A5;
+$gray-600:    #7F7F7F;
+$dove-gray:   #666666;
+$gray-700:    #4C4C4C;
+$tundora:     #444444;
+$gray-800:    #3F3F3F;
+$gray-900:    #262626;
+
+// Named Color Overrides
+$blue:    $kashmir-blue;
+$indigo:  $ship-cove;
+$purple:  $dolphin;
+$pink:    $petite-orchid;
+$red:     $tonys-pink;
+$orange:  $salmon;
+$yellow:  $green-mist;
+$green:   $celery;
+$teal:    $riptide;
+$cyan:    $sinbad;
+$black:   $shark;
+
+// Fonts
+$font-family-sans-serif: mr-eaves-sans;
+$font-family-monospace: input-mono-compressed;
+
+// Font Weights
+$font-weight-lighter: 100;
+$font-weight-light: 200;
+$font-weight-bolder: 800; 
+$font-weight-base: 300;
+
+// Line Heights
+$line-height-base: 1.35;
+$line-height-sm: 1.1;
+$line-height-lg: 1.6;
+
+// Font Sizes
+$font-size-root: 24px;
+$h1-font-size: 1.34rem;
+$h2-font-size: 1.25rem;
+$h3-font-size: 1.125rem;
+$h4-font-size: 1rem;
+$h5-font-size: 0.9167rem;
+$code-font-size: 0.75rem;
+$nav-link-font-size: 0.70834rem;
+
+// Text Colors
+$body-color: $dove-gray;
+$text-muted: $manatee;
+$bold-text-color: $shark;
+$pagination-color: $tundora;
+$code-color: $gray-600;
+$nav-color: $white;
+$post-nav-color: $black;
+$link-color: $silver;
+$block-quote-footer-color: $manatee;
+$link-hover-color: $black;
+
+// Accent Colors
+$shadow-color: $petite-orchid;
+$border-color: $gallery;
+$hr-color: $dolphin;
+
+// Background Colors
+$nav-bg-color: $primary;
+$post-nav-bg-color: $white;
+$code-bg-color: $white-smoke;
+
+// Link Decorations
+$link-decoration: none;
+$link-hover-decoration: none;
 
 // Include remainder of required Bootstrap stylesheets
 @import "bootstrap/variables";
@@ -13,44 +107,201 @@
 // Include any optional Bootstrap CSS as needed
 @import "bootstrap/utilities";
 @import "bootstrap/reboot";
-@import "bootstrap/type";
-@import "bootstrap/images";
-@import "bootstrap/containers";
-@import "bootstrap/grid";
-@import "bootstrap/tables";
-@import "bootstrap/forms";
-@import "bootstrap/buttons";
-@import "bootstrap/transitions";
-@import "bootstrap/dropdown";
-@import "bootstrap/button-group";
-@import "bootstrap/nav";
-@import "bootstrap/navbar";
-@import "bootstrap/card";
-@import "bootstrap/accordion";
-@import "bootstrap/breadcrumb";
-@import "bootstrap/pagination";
-@import "bootstrap/badge";
-@import "bootstrap/alert";
-@import "bootstrap/progress";
-@import "bootstrap/list-group";
-@import "bootstrap/close";
-@import "bootstrap/toasts";
-@import "bootstrap/modal";
-@import "bootstrap/tooltip";
-@import "bootstrap/popover";
-@import "bootstrap/carousel";
-@import "bootstrap/spinners";
-@import "bootstrap/offcanvas";
-@import "bootstrap/helpers";
+// @import "bootstrap/type";
+// @import "bootstrap/images";
+// @import "bootstrap/containers";
+// @import "bootstrap/grid";
+// @import "bootstrap/tables";
+// @import "bootstrap/forms";
+// @import "bootstrap/buttons";
+// @import "bootstrap/transitions";
+// @import "bootstrap/dropdown";
+// @import "bootstrap/button-group";
+// @import "bootstrap/nav";
+// @import "bootstrap/navbar";
+// @import "bootstrap/card";
+// @import "bootstrap/accordion";
+// @import "bootstrap/breadcrumb";
+// @import "bootstrap/pagination";
+// @import "bootstrap/badge";
+// @import "bootstrap/alert";
+// @import "bootstrap/progress";
+// @import "bootstrap/list-group";
+// @import "bootstrap/close";
+// @import "bootstrap/toasts";
+// @import "bootstrap/modal";
+// @import "bootstrap/tooltip";
+// @import "bootstrap/popover";
+// @import "bootstrap/carousel";
+// @import "bootstrap/spinners";
+// @import "bootstrap/offcanvas";
+// @import "bootstrap/helpers";
 
 // Optionally include utilities API last to generate classes based on the Sass map in `_utilities.scss`
-@import "bootstrap/utilities/api";
+// @import "bootstrap/utilities/api";
 
 @import "fonts.scss";
-@import "variables.scss";
-@import "elements.scss";
-@import "theme-version-overlay.scss";
-@import "author-profile.scss";
+
+/* Basic element styles */
+
+// Primary containers
+
+body { 
+  // // @extend %reset;
+  // @extend %eaves-book; 
+  // // font-size: 1rem; 
+  // // line-height: $line-height-sm
+  // // text-rendering: optimizeLegibility;
+  // color: $body-color; 
+  
+  @media only screen 
+  and (min-device-width: 320px) 
+  and (max-device-width: 767px) 
+  and (-webkit-min-device-pixel-ratio: 2) 
+  and (orientation: landscape) {
+    -webkit-text-size-adjust: none;
+  }
+}
+
+/* Headers */
+
+%header { color: $bold-text-color; }
+
+h1 { 
+  @extend %header;
+  @extend %eaves-heavy; 
+  // font-size: $h1-size; 
+}
+
+h2 { 
+  @extend %header;
+  @extend %eaves-bold; 
+  // font-size: $h2-size; 
+}
+
+h3 { 
+  @extend %header; 
+  @extend %eaves-regular; 
+  // font-size: $h3-size; 
+}
+
+h4 { 
+  @extend %header; 
+  @extend %eaves-light; 
+  // font-size: $h4-size; 
+}
+
+h5 { 
+  @extend %header; 
+  @extend %eaves-thin; 
+  // font-size: $h5-size; 
+}
+
+/* Font styles */
+
+b { 
+  @extend %eaves-heavy; 
+  color: $bold-text-color; 
+  > i { @extend %eaves-heavy-italic; }
+}
+
+i { 
+  @extend %eaves-book-italic; 
+  > b { @extend %eaves-heavy-italic; }
+}
+
+strong { 
+  @extend %eaves-bold; 
+  color: $bold-text-color; 
+  > em { @extend %eaves-bold-italic; }
+}
+
+em { 
+  @extend %eaves-regular-italic; 
+  > strong { @extend %eaves-bold-italic; }
+}
+
+// sup { vertical-align: super; font-size: smaller; }
+
+small { 
+  // font-size: $small-size; 
+}
+
+blockquote {
+  // margin-left: 0.5rem;
+  padding-left: 15px;
+  @extend %eaves-light-italic;
+  border-left: 2px solid $border-color;
+}
+
+/* Lists */
+
+%list { 
+  // margin-left: 0.5rem;
+  list-style-position: outside;
+}
+
+ul { @extend %list; list-style-type: circle; }
+
+ol { @extend %list; list-style-type: decimal; }
+
+dl {
+  
+  dt { @extend %eaves-regular; }
+  
+  dd {
+    margin: 0px 0px 1em 0px;
+    padding: 0px 0px 0px 1em;
+    
+    p {
+      > dl, dt, dd { margin: 0px 0px 2em 0px; }
+    }
+    
+  } // dd
+  
+} // dl
+
+/* Media */
+
+%media-asset { width: auto; max-width: 100%; height: auto; }
+
+video { @extend %media-asset; }
+
+img { @extend %media-asset; }
+
+/* Links */
+
+// a {
+//   text-decoration: none;
+//   color: $link-color;
+  
+//   &:hover { color: $hover-color; }
+// }
+
+/* Code */
+
+%code {
+  background-color: $code-bg-color;
+  color: $code-color;
+  border-radius: 5px;
+  font-size: $code-font-size;
+  line-height: $line-height-base;
+  @extend %input-regular;
+}
+
+pre { white-space: pre-wrap; overflow: auto; @extend %code; }
+
+code { display: inline-block; padding: 5px 8px; @extend %code; }
+
+/* Dividers */
+
+// hr {
+//   border: none;
+//   height: 2px;
+//   margin: 34px 0 40px 0;
+//   background: $border-color;
+//   width: 30%;
+// }
 
 /* Page Details */
 
@@ -97,25 +348,70 @@ body {
       justify-content: flex-end;
     
       > a {
-        font-size: $nav-link-size;
-        line-height: $moderate-height;
+        font-size: $nav-link-font-size;
+        line-height: $line-height-base;
         @extend %eaves-regular-normal;
         transition: all .35s;
         transition-timing-function: cubic-bezier(0.7, 0, 0.3, 1);
       
-        &:hover { box-shadow: inset 0 -2px 0 change-color($shadow-color, $alpha: 0.5); }
+        &:hover { box-shadow: inset 0 -2px 0 $shadow-color; }
         
-        &.selected { box-shadow: inset 0 -2px 0 $shadow-color; }
+        &.selected { box-shadow: inset 0 -2px 0 change-color($shadow-color, $alpha: 0.5); }
         
       } // a
       
     } // nav
+    
+    // Debugging overlay
+    mark#theme-version-overlay {
+      position: absolute;
+      top: 0;
+      left: 0;
+      padding: 0 1em;
+      background-color: $black;
+      color: white;
+      font-size: $h5-font-size;
+      opacity: 0.5;
+      @extend %eaves-book;
+    }
     
   } // > header
   
   > main {    
     grid-area: main;    
     > * { background-color: white; }        
+    
+    section#author-profile {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-content: stretch;
+      gap: 1rem;
+      
+      h1 { margin: 0 auto; }
+    
+      div#social-media-links {
+    
+        div.sml-container {
+           width: 80%;
+           margin: 0 auto;
+           display: grid;
+           grid-template-rows: auto;
+           grid-template-columns: 1fr auto 1fr;
+           grid-template-areas: "link . name";
+           
+           a { grid-area: link; }
+        
+           span { grid-area: name; }
+           
+       } // div.sml-container
+        
+      } // div#social-media-links
+    
+      p#brief-bio {  padding: 1rem; }
+    
+      } // section#author-profile
+    
   } // > main
   
   > footer {    
@@ -137,7 +433,7 @@ body {
       padding: 0;
       margin: 0;
       
-      a { font-size: $small-size; }
+      a { font-size: $small-font-size; }
     
     } // ul#feeds-email
       
@@ -149,7 +445,7 @@ body {
     
     > header {
       background: $post-nav-bg-color;      
-      > nav > a { color: $post-nav-link-color; }      
+      > nav > a { color: $post-nav-color; }      
     } // > header
         
     
@@ -168,7 +464,7 @@ body {
               
         h2.headline {
           @extend %eaves-light-normal;
-          font-size: $h3-size;
+          // font-size: $h3-size;
           // padding: 0;
           // margin { top: 0; bottom: 50px; }
         }
@@ -188,9 +484,9 @@ body {
         // grid-area: footer;
         display: flex;
         gap: 0 20px;
-        font-size: $small-size;
+        // font-size: $small-font-size;
         @extend %eaves-light-normal;
-        line-height: $spacious-height;
+        // line-height: $line-height-lg;
         border {
           bottom: 1px solid $border-color;
           top: 1px solid $border-color;
@@ -207,8 +503,8 @@ body {
         } // div
         
         img#avatar {          
-          height: 36px;
-          width: 36px;
+          height: 96px;
+          width: 96px;
           box-shadow: 0 0 0 3px #fff, 0 0 0 4px #eee;
           border-radius: 50%;          
         } // img#avatar
@@ -232,7 +528,7 @@ body {
         
         flex-grow: 2;
         display: flex;
-        font-size: $nav-link-size;
+        font-size: $nav-link-font-size;
         gap: 2rem;
         justify-content: center;
         align-items: baseline;
@@ -252,7 +548,7 @@ body {
     // Darken the background color
     > header {
       background: $nav-bg-color;
-      > nav > a { color: $nav-link-color; }
+      > nav > a { color: $nav-color; }
     } // > header
 
     /* Post Lists */
@@ -274,13 +570,13 @@ body {
           align-content: stretch;
           gap: 1rem;
           
-          header > h2 > a {                
-            color: $bold-text-color;                
-            &:hover {                  
-              text-decoration: underline;
-              color: $theme-color;                  
-            } //&:hover                
-          } // header > h2 > a
+          // header > h2 > a {                
+          //   color: $bold-text-color;                
+          //   &:hover {                  
+          //     text-decoration: underline;
+          //     color: $primary;
+          //   } //&:hover                
+          // } // header > h2 > a
               
           section {
             display: flex;
@@ -296,8 +592,10 @@ body {
           
           footer > a {            
             text-transform: uppercase;
-            color: $aside-text-color;
-            @extend %eaves-light;                  
+            @extend %eaves-light;
+            
+            &:hover { text-decoration: none; }            
+            
           } // footer > a   
           
         } // article
@@ -312,7 +610,7 @@ body {
       
       display: flex;
       margin: 1rem auto 1rem auto;
-      font-size: $nav-link-size;
+      font-size: $nav-link-font-size;
       color: $pagination-color;
       justify-content: space-between;
             
