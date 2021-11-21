@@ -99,6 +99,9 @@ $code-bg-color: $white-smoke;
 $link-decoration: none;
 $link-hover-decoration: none;
 
+$enable-grid-classes: false;
+$enable-cssgrid: true;
+
 // Include remainder of required Bootstrap stylesheets
 @import "bootstrap/variables";
 @import "bootstrap/mixins";
