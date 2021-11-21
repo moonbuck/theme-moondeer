@@ -1,6 +1,6 @@
 // base.scss
 
-// Import the functions so they are available for variable declarations.
+// Include functions first so they are available for variables
 @import "bootstrap/functions";
 
 // Custom Named Colors
@@ -48,6 +48,13 @@ $yellow:  $green-mist;
 $green:   $celery;
 $teal:    $riptide;
 $cyan:    $sinbad;
+
+// Previously used colors
+
+$gray: #7F7F7F;
+$wild-sand: #F5F5F5;
+$cadet-blue: #9FADBF;
+$silver-chalice: #AAA;
 
 // Fonts
 $font-family-sans-serif: mr-eaves-sans;
@@ -100,8 +107,8 @@ $code-bg-color: $white-smoke;
 $link-decoration: none;
 $link-hover-decoration: none;
 
-$enable-grid-classes: false;
-$enable-cssgrid: true;
+$primary: $kashmir-blue;
+$secondary: $gull-gray;
 
 // Include remainder of required Bootstrap stylesheets
 @import "bootstrap/variables";
@@ -146,8 +153,8 @@ $enable-cssgrid: true;
 // @import "bootstrap/utilities/api";
 
 @import "fonts.scss";
-/*
-// Basic element styles
+
+// Basic element styles 
 
 // Primary containers
 
@@ -168,7 +175,7 @@ body {
   }
 }
 
-// Headers
+// Headers 
 
 %header { color: $bold-text-color; }
 
@@ -202,7 +209,7 @@ h5 {
   // font-size: $h5-size; 
 }
 
-// Font styles
+// Font styles 
 
 b { 
   @extend %eaves-heavy; 
@@ -239,7 +246,7 @@ blockquote {
   border-left: 2px solid $border-color;
 }
 
-// Lists
+// Lists 
 
 %list { 
   // margin-left: 0.5rem;
@@ -266,7 +273,7 @@ dl {
   
 } // dl
 
-// Media
+// Media 
 
 %media-asset { width: auto; max-width: 100%; height: auto; }
 
@@ -274,7 +281,7 @@ video { @extend %media-asset; }
 
 img { @extend %media-asset; }
 
-// Links
+// Links 
 
 // a {
 //   text-decoration: none;
@@ -283,7 +290,7 @@ img { @extend %media-asset; }
 //   &:hover { color: $hover-color; }
 // }
 
-// Code
+// Code 
 
 %code {
   background-color: $code-bg-color;
@@ -298,7 +305,7 @@ pre { white-space: pre-wrap; overflow: auto; @extend %code; }
 
 code { display: inline-block; padding: 5px 8px; @extend %code; }
 
-// Dividers
+// Dividers 
 
 // hr {
 //   border: none;
@@ -308,7 +315,7 @@ code { display: inline-block; padding: 5px 8px; @extend %code; }
 //   width: 30%;
 // }
 
-// Page Details
+// Page Details 
 
 body {
   min-height: 100vh;
@@ -384,7 +391,7 @@ body {
   
   > main {    
     grid-area: main;    
-    > * { background-color: white; }        
+    > * { background-color: $white; }        
     
     section#author-profile {
       display: flex;
@@ -444,7 +451,7 @@ body {
       
   } // > footer
 
-  // Post pages
+  // Post pages 
   
   &.type-post {
     
@@ -518,7 +525,7 @@ body {
       
     } // article.post
     
-    // Next/Prev navigation
+    // Next/Prev navigation 
     
     nav#next-prev {
       
@@ -546,7 +553,7 @@ body {
       
   } // &.type-post
   
-  / All but Post Pages
+  // All but Post Pages 
   
   &:not(.type-post) {
     
@@ -556,7 +563,7 @@ body {
       > nav > a { color: $nav-color; }
     } // > header
 
-    / Post Lists
+    // Post Lists 
     
     > main > ul#post-list {
       list-style-type: none;
@@ -609,7 +616,7 @@ body {
               
     } // ul#post-list
     
-    // Pagination
+    // Pagination 
 
     nav.pagination {
       
@@ -624,4 +631,3 @@ body {
   } // &:not(.type-post)
   
 } // body
-*/
