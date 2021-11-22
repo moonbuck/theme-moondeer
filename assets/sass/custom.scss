@@ -190,7 +190,7 @@ body {
       
         &:hover { box-shadow: inset 0 -2px 0 $shadow-color; }
         
-        &.active { box-shadow: inset 0 -2px 0 change-color($shadow-color, $alpha: 0.5); }
+        &.selected { box-shadow: inset 0 -2px 0 change-color($shadow-color, $alpha: 0.5); }
         
       } // a
       
@@ -388,8 +388,7 @@ body {
     // Post Lists 
     
     > main > ul#post-list {
-      list-style-type: none;
-      padding: 0;
+      @extend .list-unstyled;
       
       > li {      
         padding: 1rem 0;
