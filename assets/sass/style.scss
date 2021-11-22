@@ -1,4 +1,4 @@
-@import "fonts";
+@import "mixins";
 
 // Basic element styles 
 
@@ -24,51 +24,31 @@ body {
 
 // Headers 
 
-h1 { 
-  @extend %eaves-heavy;
-}
+h1 { @extend %eaves-heavy; }
 
-h2 { 
-  @extend %eaves-bold;
-}
+h2 {  @extend %eaves-bold; }
 
-h3 { 
-  @extend %eaves-regular;
-}
+h3 { @extend %eaves-regular; }
 
-h4 { 
-  @extend %eaves-book;
-}
+h4 { @extend %eaves-book; }
 
-h5 { 
-  @extend %eaves-light;
-}
+h5 { @extend %eaves-light; }
 
-h6 { 
-  @extend %eaves-thin;
-}
+h6 { @extend %eaves-thin; }
 
 // Font styles 
 
-b { 
-  @extend %eaves-heavy; 
-  > i { @extend %eaves-heavy-italic; }
-}
+b { @extend %eaves-heavy; }
+b > i { @extend %eaves-heavy-italic; }
 
-i { 
-  @extend %eaves-book-italic; 
-  > b { @extend %eaves-heavy-italic; }
-}
+i { @extend %eaves-book-italic; }
+i > b { @extend %eaves-heavy-italic; }
 
-strong { 
-  @extend %eaves-bold; 
-  > em { @extend %eaves-bold-italic; }
-}
+strong { @extend %eaves-bold; }
+strong > em { @extend %eaves-bold-italic; }
 
-em { 
-  @extend %eaves-regular-italic; 
-  > strong { @extend %eaves-bold-italic; }
-}
+em { @extend %eaves-regular-italic; }
+em > strong { @extend %eaves-bold-italic; }
 
 blockquote {
   // margin-left: 0.5rem;

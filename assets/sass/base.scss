@@ -3,100 +3,8 @@
 // Include functions first so they are available for variables
 @import "bootstrap/functions";
 
-// Custom Named Colors
-$kashmir-blue: #516189;
-$manatee: #9091AB;
-$sinbad: #A0D0D4;
-$french-pass: #CDE8FD;
-$petite-orchid: #D99D8E;
-$dolphin: #646386;
-$riptide: #82E1E4;
-$gull-gray: #96A2BC;
-$tonys-pink: #E58F91;
-$celery: #9DC05F;
-$salmon: #FF856D;
-$ship-cove: #7D7ABF;
-$green-mist: #C8D1A7;
-$shark: #1E2025;
-
-// Grayscale
-$white:       #FFFFFF;
-$white-smoke: #F5F5F5;
-$gray-100:    #F2F2F2;
-$gallery:     #EEEEEE;
-$gray-200:    #E5E5E5;
-$gray-300:    #D8D8D8;
-$gray-400:    #CBCBCB;
-$silver:      #BBBBBB;
-$gray-500:    #A5A5A5;
-$gray-600:    #7F7F7F;
-$dove-gray:   #666666;
-$gray-700:    #4C4C4C;
-$tundora:     #444444;
-$gray-800:    #3F3F3F;
-$gray-900:    #262626;
-$black:        $shark;
-
-// Named Color Overrides
-$blue:    $kashmir-blue;
-$indigo:  $ship-cove;
-$purple:  $dolphin;
-$pink:    $petite-orchid;
-$red:     $tonys-pink;
-$orange:  $salmon;
-$yellow:  $green-mist;
-$green:   $celery;
-$teal:    $riptide;
-$cyan:    $sinbad;
-
-// Fonts
-$font-family-sans-serif: mr-eaves-sans;
-$font-family-monospace: input-mono-compressed;
-
-// Font Weights
-$font-weight-lighter: 100;
-$font-weight-light: 200;
-$font-weight-bolder: 800; 
-$font-weight-base: 300;
-
-// Line Heights
-$line-height-base: 1.35;
-$line-height-sm: 1.1;
-$line-height-lg: 1.6;
-
-// Font Sizes
-$font-size-root: 24px;
-$nav-link-font-size: 0.9rem;
-
-// Text Colors
-$body-color: $dove-gray;
-$text-muted: $manatee;
-$bold-text-color: $black;
-$pagination-color: $tundora;
-$code-color: $gray-600;
-$nav-color: $white;
-$post-nav-color: $black;
-$link-color: $silver;
-$block-quote-footer-color: $manatee;
-$link-hover-color: $black;
-$headings-color: $bold-text-color;
-
-// Accent Colors
-$shadow-color: $petite-orchid;
-$border-color: $gallery;
-$hr-color: $dolphin;
-
-// Background Colors
-$nav-bg-color: $blue;
-$post-nav-bg-color: $white;
-$code-bg-color: $white-smoke;
-
-// Link Decorations
-$link-decoration: none;
-$link-hover-decoration: none;
-
-$primary: $kashmir-blue;
-$secondary: $gull-gray;
+// Include custom variables before bootstrap defaults
+@import "variables";
 
 // Include remainder of required Bootstrap stylesheets
 @import "bootstrap/variables";
@@ -116,4 +24,5 @@ $secondary: $gull-gray;
 @import "bootstrap/helpers/stacks";
 @import "bootstrap/helpers/stretched-link";
 
-@import "custom";
+// Include custom styling
+@import "style";
