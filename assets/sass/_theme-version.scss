@@ -1,0 +1,10 @@
+// mark#theme-version-overlay
+position: absolute;
+top: 0;
+left: 0;
+padding: 0 1em;
+background-color: $black;
+color: $white;
+font-size: $small-font-size;
+opacity: 0.5;
+@extend %eaves-book;

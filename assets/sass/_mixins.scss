@@ -1,21 +1,26 @@
 // Include custom fonts
 @import "fonts";
 
-@mixin border($edges, $size: 2px, $padding: 15px, $style: solid, $color: $border-color) {
+// Adds a padded border
+@mixin border($edges, $size: 2px, $padding: null, $style: solid, $color: $border-color) {
   
   @each $edge in $edges {    
     border-#{$edge}: $size $style $color;
-    padding-#{$edge}: $padding;
+    @if $padding {
+      padding-#{$edge}: $padding;
+    }
   }
   
 }
 
+// Makes an element responsive
 @mixin fluid-media {
   width: auto;
   max-width: 100%;
   height: auto;
 }
  
+// Adds a media query for the provided block
 @mixin media($features, $invert: false, $types: screen) {
   
   @if type-of($features) == list {
@@ -75,8 +80,42 @@
   
 }
 
+// Creates a circle
 @mixin circle($size) {
   width: $size;
   height: $size;
   border-radius: 50%;
+}
+
+@mixin stack($direction: row,
+             $wrap: nowrap,
+             $justify: flex-start,
+             $align: stretch,
+             $gap: normal)
+{
+  display: flex;
+  flex-direction: $direction;  
+  flex-wrap: $wrap;
+  justify-content: $justify;
+  align-content: $align;
+  gap: $gap;
+  @if $direction == column { flex: 1 1 auto; }
+  align-self: stretch;
+  
+}
+
+@mixin vstack($wrap: nowrap,
+              $justify: center,
+              $align: stretch,
+              $gap: normal)
+{
+  @include stack(column, $wrap, $justify, $align, $gap);
+}
+
+@mixin hstack($wrap: nowrap,
+              $justify: center,
+              $align: stretch,
+              $gap: normal)
+{
+  @include stack(row, $wrap, $justify, $align, $gap);
 }

@@ -1,15 +1,12 @@
+{{- with site.Author -}}
+{{- $profile_url := .profileurl | default "/" -}}
 <footer id="post-meta" class="p-author h-card">
-    <a href="/" class="u-url">
-    
-    {{- with site.Author -}}
-    
-    <img id="avatar" class="u-photo" src="{{ .avatar }}" width="192" height="192">
-    <div>
-      <span class="p-name dark">{{ .name }}</span>
-      <span><a href="https://micro.blog/{{ .username }}">@{{ .username }}</a></span>
-    </div>
-    
-    {{- end -}}
-      
+    <a href="{{ $profile_url }}" class="u-url">
+    <img id="avatar" class="u-photo" src="{{ .avatar }}" width="96" height="96">
     </a>
+    <div>
+      <span class="p-name"><a href="{{ $profile_url }}" class="u-url">{{ .name }}</a></span>
+      <span><a rel="me" href="https://micro.blog/{{ .username }}">@{{ .username }}</a></span>
+    </div>
 </footer>
+{{- end -}}

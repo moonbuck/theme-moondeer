@@ -1,0 +1,44 @@
+// Post Lists 
+> main > ul#post-list { 
+  @include list-unstyled;
+      
+  > li {      
+    padding: 1rem 0;
+    border-bottom: 1px solid $border-color;
+    
+    &:last-child { border-bottom: none; }
+    
+    article {
+      @include vstack($justify: center, $gap: 1rem);
+      
+      // header > h2 > a {                
+      //   color: $bold-text-color;                
+      //   &:hover {                  
+      //     text-decoration: underline;
+      //     color: $primary;
+      //   } //&:hover                
+      // } // header > h2 > a
+          
+      section {
+        @include vstack($justify: center, $gap: 0.5rem);        
+        > a.read-more { text-decoration: underline; }
+      }
+      
+      footer > a {            
+        text-transform: uppercase;
+        @extend %eaves-light;        
+        &:hover { text-decoration: none; }
+      }
+      
+    } // article
+  
+  } // li
+} // > main > ul#post-list
+
+// Pagination 
+nav.pagination {
+  @include hstack($justify: space-between);
+  margin: 1rem auto 1rem auto;
+  // font-size: $nav-link-font-size;
+  color: $pagination-color;  
+}

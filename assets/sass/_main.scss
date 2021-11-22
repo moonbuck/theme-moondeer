@@ -1,0 +1,5 @@
+// body > main
+grid-area: main;    
+> * { background-color: $white; }        
+
+section#author-profile { @import "author-profile"; }
