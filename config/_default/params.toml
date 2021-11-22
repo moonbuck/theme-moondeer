@@ -1,6 +1,6 @@
 [Theme]
-ThemeVersion = "v150"
-VisibleThemeVersion = "test"
+ThemeVersion = "v151"
+VisibleThemeVersion = false
 TemplateComments = true
 IncludeDisqus = true
 IncludeConversation = true

@@ -1,7 +1,7 @@
 {{/* This partial expects a slice of pages */}}
-<ul id="post-list">
+<ul id="post-list" class="list-group" >
 {{- range . }}
-<li>
+<li class="list-group-item">
 {{ .Render "list-item" }}
 </li>
 {{- end }}

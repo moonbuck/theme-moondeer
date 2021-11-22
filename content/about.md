@@ -3,7 +3,6 @@ title = 'About'
 description = 'Just a touch of the biographical.'
 type = 'about'
 +++
----
 What? Y’all want something not constructed as a Trumpian dig for an itty bitty Twitter bio box?
 
 ![](https://moondeer.blog/uploads/2021/f5130a1cf3.jpg)

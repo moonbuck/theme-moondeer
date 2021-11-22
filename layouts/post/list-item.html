@@ -10,7 +10,7 @@
   <section class="post-body">
 {{- if (or .Title (findRE `<!--more-->` .Content)) -}}
   
-   {{- .Summary -}}
+   {{- .Summary | markdownify | replaceRE "<(img|video)" "<$1 class='img-fluid'" | safeHTML -}}
    
   {{- if .Truncated -}}
   
@@ -19,8 +19,8 @@
   {{- end -}}
   
 {{- else -}}
-  
-  {{- .Content -}}
+
+  {{- .Content | markdownify | replaceRE "<(img|video)" "<$1 class='img-fluid'" | safeHTML -}}
   
 {{- end -}}
   
