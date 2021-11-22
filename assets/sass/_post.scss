@@ -1,0 +1,68 @@
+// body.type-post
+> header {
+  background: $post-nav-bg-color;      
+  > nav > a { color: $post-nav-color; }      
+} // > header
+    
+
+article#post { 
+    
+  header { 
+    text-align: center;           
+    h2.headline { @extend %eaves-light-normal; }  
+  }
+  
+  section#post-body {
+    @extend .vstack;
+    // display: flex;
+    // flex-direction: column;
+    // justify-content: center;
+    // align-content: center;
+    // gap: 0.25rem;
+  }
+
+  footer#post-meta {
+    @extend .hstack;
+    // display: flex;
+    // gap: 0 20px;
+    @extend %eaves-light-normal;
+    @include border(top bottom, 1px);
+          
+    div {
+      @extend .vstack;
+      span.p-name { @extend %eaves-thin-normal; }      
+    } // div
+    
+    img#avatar { @include circle(96px); box-shadow: $avatar-shadow; }
+    
+  } // footer#post-meta
+  
+} // article.post
+
+// Next/Prev navigation 
+
+nav#next-prev {
+  
+  @extend .hstack;
+  // display: flex;
+  // justify-content: space-between;
+  // align-items: baseline;
+  // margin: 2em auto;
+
+  span#empty-space { flex-grow: 2; }
+
+  nav#category-list {
+    
+    flex-grow: 2;
+    @extend .hstack;
+    // display: flex;
+    // // font-size: $nav-link-font-size;
+    // gap: 2rem;
+    // justify-content: center;
+    // align-items: baseline;
+    
+    span.bullet-divider { margin: 0 1rem; }
+    
+  } // nav#category-list
+  
+} // nav#next-prev

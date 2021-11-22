@@ -1,3 +1,82 @@
 // Include custom fonts
 @import "fonts";
 
+@mixin border($edges, $size: 2px, $padding: 15px, $style: solid, $color: $border-color) {
+  
+  @each $edge in $edges {    
+    border-#{$edge}: $size $style $color;
+    padding-#{$edge}: $padding;
+  }
+  
+}
+
+@mixin fluid-media {
+  width: auto;
+  max-width: 100%;
+  height: auto;
+}
+ 
+@mixin media($features, $invert: false, $types: screen) {
+  
+  @if type-of($features) == list {
+  
+    $fm-count: length($features);
+    
+    @if $fm-count > 0 {
+      
+      $fm-lists: ();
+      
+      @each $feature-map in $features {
+        
+        $fm-list: "";
+        $features: map-keys($feature-map);
+        $feature-count: length($features);
+  
+        @if $feature-count > 0 {
+            
+            $is-first: true;
+            @each $feature, $value in $feature-map {
+                @if $is-first {
+                  $fm-list: "(#{$feature}: #{$value})";
+                  $is-first: false;
+                } @else {
+                  $fm-list: "#{$fm-list} and (#{$feature}: #{$value})";
+                }
+            }
+         $fm-lists: append($fm-lists, $fm-list, $separator: comma); 
+        }
+      }
+       @media #{$types} and #{$fm-lists} {
+         @content;
+       }
+    } 
+  
+    } @else if type-of($features) == map {
+      
+      $fm-list: "";
+      
+      @each $feature, $value in $features {
+        $fm-list: "#{$fm-list} and (#{$feature}: #{$value})";
+      }
+      
+      @media #{$types} #{$fm-list} {
+         @content;
+       }
+    }
+  
+  @else {
+    
+    @media #{if($invert, "not", "only")} #{$types} {
+        s: type-of($features);
+      @content;
+    }
+    
+  }
+  
+}
+
+@mixin circle($size) {
+  width: $size;
+  height: $size;
+  border-radius: 50%;
+}
