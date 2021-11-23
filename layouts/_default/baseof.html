@@ -44,10 +44,13 @@
 
 {{/* Add CSS hooks */}}
 {{- $id := (urls.Parse .Permalink).Path | anchorize | default "home" -}}
-{{- $class := printf "kind-%s type-%s" .Kind .Type -}}
+{{- $class := printf "container kind-%s type-%s" .Kind .Type -}}
 
 {{/* Define the page body */}}
-<body id="{{ $id }}" class="{{ $class }}">
+<body>
+
+{{/* Wrap everything inside a container */}}
+<div id="{{ $id }}" class="{{ $class }}">
 
 {{/* Support injection of plugin html above the header  */}}
 {{- partial "plugins/html-injection.html" (slice "ABOVE_HEADER" .) }}
@@ -71,9 +74,11 @@
 
 {{/* Create the primary page content */}}
 <main>
+<div id="content-column">
 {{- block "main" . }}
 
 {{ end }}
+</div>
 </main>
 
 {{/* Support injection of plugin html above the footer  */}}
@@ -101,6 +106,8 @@
 
 {{/* Insert plugin Javascript includes */}}
 {{- partial "footer/scripts.html" . }}
+
+</div>
 
 {{/* Close the page body and html */}}
 </body>

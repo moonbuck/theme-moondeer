@@ -44,6 +44,9 @@ $green:   $celery;
 $teal:    $riptide;
 $cyan:    $sinbad;
 
+$primary: $kashmir-blue;
+$secondary: $gull-gray;
+
 // Fonts
 $font-family-sans-serif: mr-eaves-sans;
 $font-family-monospace: input-mono-compressed;
@@ -62,12 +65,23 @@ $line-height-lg: 1.6;
 // Font Sizes
 $font-size-root: 24px;
 
+// Background Colors
+$body-bg:        $primary;
+$container-bg:   $primary;
+$header-bg:      $primary;
+$main-bg:        $white;
+$footer-bg:      $header-bg;
+$post-header-bg: $white;
+$post-footer-bg: $post-header-bg;
+
 // Text Colors
 $body-color: $dove-gray;
 $text-muted: $manatee;
 $pagination-color: $tundora;
 $block-quote-footer-color: $manatee;
 $headings-color: $black;
+$copyright-color: $celery;
+$post-copyright-color: $primary;
 
 // Code
 $code-color: darken($tonys-pink, 20%);
@@ -77,10 +91,14 @@ $pre-color: $code-color;
 $border-color: $gallery;
 
 // Links
-$link-color:            $silver;
-$link-hover-color:      $black;
-$link-decoration:       none;
-$link-hover-decoration: none;
+$link-color:                   $silver;
+$link-hover-color:             $black;
+$link-decoration:              none;
+$link-hover-decoration:        none;
+$footer-link-color:            $white-smoke;
+$footer-link-hover-color:      $orange;
+$post-footer-link-color:       $tundora;
+$post-footer-link-hover-color: $link-hover-color;
 
 // Post meta
 $post-meta-avatar-size:          96px;
@@ -92,9 +110,6 @@ $post-meta-username-font-size:   inherit;
 $post-meta-username-color:       currentcolor;
 $post-meta-username-hover-color: $link-hover-color;
 
-$primary: $kashmir-blue;
-$secondary: $gull-gray;
-
 $paragraph-margin-bottom: 0.5rem;
 
 // Horizontal rule
@@ -102,10 +117,6 @@ $hr-color: $dolphin;
 $hr-opacity: 0.9;
 $hr-height: 2px;
 $hr-bg-color: $border-color;
-
-// Header
-$header-bg-color:      $blue;
-$post-header-bg-color: $white;
 
 // Navs
 $nav-link-shadow-color:                $petite-orchid;
@@ -126,52 +137,62 @@ $nav-link-post-hover-shadow:            inset 0 -2px 0 $nav-link-post-shadow-col
 $nav-link-post-selected-shadow:         inset 0 -2px 0 $nav-link-post-selected-shadow-color;
 $nav-link-transition:                   all .35s cubic-bezier(0.7, 0, 0.3, 1);
 
+// Variables used by bootstrap component variables below
+$border-width:           1px;
+$spacer:                 1rem;
+$border-radius:          0.25rem;
+$grid-gutter-width:      1.5rem;
+$component-active-color: $white;
+$component-active-bg:    $primary;
+
 // Cards
-// $card-spacer-y:            $spacer;
-// $card-spacer-x:            $spacer;
-// $card-title-spacer-y:      $spacer * .5;
-// $card-border-width:        $border-width;
-// $card-border-color:        rgba($black, .125);
-// $card-border-radius:       $border-radius;
-// $card-box-shadow:          null;
-// $card-inner-border-radius: subtract($card-border-radius, $card-border-width);
-// $card-cap-padding-y:       $card-spacer-y * .5;
-// $card-cap-padding-x:       $card-spacer-x;
-// $card-cap-bg:              rgba($black, .03);
-// $card-cap-color:           null;
-// $card-height:              null;
-// $card-color:               null;
-// $card-bg:                  $white;
-// $card-img-overlay-padding: $spacer;
-// $card-group-margin:        $grid-gutter-width * .5;
+$card-spacer-y:            $spacer;
+$card-spacer-x:            $spacer;
+$card-title-spacer-y:      $spacer * .5;
+$card-border-width:        $border-width;
+$card-border-color:        rgba($black, .125);
+$card-border-radius:       $border-radius;
+$card-box-shadow:          null;
+$card-inner-border-radius: subtract($card-border-radius, $card-border-width);
+$card-cap-padding-y:       $card-spacer-y * .5;
+$card-cap-padding-x:       $card-spacer-x;
+$card-cap-bg:              rgba($black, .03);
+$card-cap-color:           null;
+$card-height:              null;
+$card-color:               null;
+$card-bg:                  $white;
+$card-img-overlay-padding: $spacer;
+$card-group-margin:        $grid-gutter-width * .5;
 
 // List group
-// $list-group-color:                  $gray-900;
-// $list-group-bg:                     $white;
-// $list-group-border-color:           rgba($black, .125);
-// $list-group-border-width:           $border-width;
-// $list-group-border-radius:          $border-radius;
+$list-group-color:                  $gray-900;
+$list-group-bg:                     $white;
+$list-group-border-color:           rgba($black, .125);
+$list-group-border-width:           $border-width;
+$list-group-border-radius:          $border-radius;
 
-// $list-group-item-padding-y:         $spacer * .5;
-// $list-group-item-padding-x:         $spacer;
-// $list-group-item-bg-scale:          -80%;
-// $list-group-item-color-scale:       40%;
+$list-group-item-padding-y:         $spacer * .5;
+$list-group-item-padding-x:         $spacer;
+$list-group-item-bg-scale:          -80%;
+$list-group-item-color-scale:       40%;
 
-// $list-group-hover-bg:               $gray-100;
-// $list-group-active-color:           $component-active-color;
-// $list-group-active-bg:              $component-active-bg;
-// $list-group-active-border-color:    $list-group-active-bg;
+$list-group-hover-bg:               $gray-100;
+$list-group-active-color:           $component-active-color;
+$list-group-active-bg:              $component-active-bg;
+$list-group-active-border-color:    $list-group-active-bg;
 
-// $list-group-disabled-color:         $gray-600;
-// $list-group-disabled-bg:            $list-group-bg;
+$list-group-disabled-color:         $gray-600;
+$list-group-disabled-bg:            $list-group-bg;
 
-// $list-group-action-color:           $gray-700;
-// $list-group-action-hover-color:     $list-group-action-color;
+$list-group-action-color:           $gray-700;
+$list-group-action-hover-color:     $list-group-action-color;
 
-// $list-group-action-active-color:    $body-color;
-// $list-group-action-active-bg:       $gray-200;
+$list-group-action-active-color:    $body-color;
+$list-group-action-active-bg:       $gray-200;
 
 // Bootstrap flags
 $enable-shadows:true;
 $enable-grid-classes: false;
 $enable-cssgrid: true;
+
+// Remove stuff from maps

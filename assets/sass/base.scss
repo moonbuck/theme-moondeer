@@ -14,6 +14,8 @@
 @import "bootstrap/reboot";
 @import "bootstrap/type";
 @import "bootstrap/images";
+@import "bootstrap/containers";
+@import "bootstrap/grid";
 @import "bootstrap/card";
 @import "bootstrap/list-group";
 @import "bootstrap/popover";
@@ -26,12 +28,17 @@
 @import "fonts";
 @import "mixins";
 @import "style";
-@import "body";
-@import "header";
-@import "main";
-@import "footer";
+@import "container";
 @import "nav";
 @import "post";
 @import "post-meta";
 @import "post-list";
 @import "profile";
+
+/* 
+
+TODO: 
+- prefers-color-scheme media queries
+- make responsive with breakpoint media queries
+
+*/
