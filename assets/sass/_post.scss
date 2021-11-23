@@ -4,7 +4,11 @@ body.type-post {
     background: $post-header-bg-color;      
     > nav > a { 
       color: $nav-link-post-color; 
-      &:hover { color: $nav-link-post-hover-color; }
+      &:hover { 
+        color: $nav-link-post-hover-color;
+        box-shadow: $nav-link-post-hover-shadow;
+      }
+      &.selected { box-shadow: $nav-link-post-selected-shadow; }
     } 
   }
       
