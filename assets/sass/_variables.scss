@@ -114,16 +114,17 @@ $nav-bg-color:         $blue;
 $post-nav-color:       $black;
 $post-nav-bg-color:    $white;
 
-$nav-link-padding-y:       0;
-$nav-link-padding-x:       0;
-$nav-link-font-size:       0.85rem;
-$nav-link-font-weight:     400;
-$nav-link-color:           $white;
-$nav-link-hover-color:     $nav-link-color;
-$nav-link-hover-shadow:    inset 0 -2px 0 $shadow-color;
-$nav-link-selected-shadow: inset 0 -2px 0 change-color($shadow-color, $alpha: 0.5);
-$nav-link-transition:      all .35s cubic-bezier(0.7, 0, 0.3, 1);
-// $nav-link-disabled-color:           $gray-600;
+$nav-link-padding-y:        0;
+$nav-link-padding-x:        0;
+$nav-link-font-size:        0.85rem;
+$nav-link-font-weight:      400;
+$nav-link-color:            $white;
+$nav-link-post-color:       $black;
+$nav-link-hover-color:      $nav-link-color;
+$nav-link-post-hover-color: $nav-link-post-color;
+$nav-link-hover-shadow:     inset 0 -2px 0 $shadow-color;
+$nav-link-selected-shadow:  inset 0 -2px 0 change-color($shadow-color, $alpha: 0.5);
+$nav-link-transition:       all .35s cubic-bezier(0.7, 0, 0.3, 1);
 
 // Cards
 // $card-spacer-y:            $spacer;

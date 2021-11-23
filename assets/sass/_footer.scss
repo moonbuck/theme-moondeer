@@ -1,5 +1,4 @@
-body > footer {
-  
+body > footer { 
   grid-area: footer;    
   margin: 1rem auto 2rem auto;
   @include vstack($align: center, $gap: 1rem);

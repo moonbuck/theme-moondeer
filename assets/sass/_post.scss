@@ -1,8 +1,11 @@
 body.type-post {
   
   > header {
-    background: $post-nav-bg-color;      
-    > nav > a { color: $post-nav-color; }      
+    background: $post-header-bg-color;      
+    > nav > a { 
+      color: $nav-link-post-color; 
+      &:hover { color: $nav-link-post-hover-color; }
+    } 
   }
       
   article#post { 
@@ -44,7 +47,6 @@ body.type-post {
   } // article.post
   
   nav#next-prev {
-    
     @include hstack($justify: space-between, $align: baseline);
     margin: 2em auto;
   
@@ -53,7 +55,6 @@ body.type-post {
     nav#category-list {
       @include hstack($justify: center, $align: baseline, $gap: 2rem);    
       flex-grow: 2;
-      // font-size: $nav-link-font-size;    
       span.bullet-divider { display: inline-block; margin: 0 1rem; }    
     }
     

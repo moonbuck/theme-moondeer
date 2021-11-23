@@ -1,5 +1,3 @@
-// base.scss
-
 // Include functions first so they are available for variables
 @import "bootstrap/functions";
 
@@ -25,6 +23,7 @@
 @import "bootstrap/helpers/stretched-link";
 
 // Include custom styling
+@import "mixins";
 @import "style";
 @import "header";
 @import "main";

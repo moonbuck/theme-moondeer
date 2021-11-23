@@ -87,6 +87,7 @@
   border-radius: 50%;
 }
 
+// Creates a flex-box stack
 @mixin stack($direction: row,
              $wrap: nowrap,
              $justify: flex-start,
@@ -104,6 +105,7 @@
   
 }
 
+// Creates a vertical flex-box stack
 @mixin vstack($wrap: nowrap,
               $justify: center,
               $align: stretch,
@@ -112,6 +114,7 @@
   @include stack(column, $wrap, $justify, $align, $gap);
 }
 
+// Creates a horizontal flex-box stack
 @mixin hstack($wrap: nowrap,
               $justify: center,
               $align: stretch,

@@ -13,13 +13,10 @@ body:not(.type-post) {
       article {
         @include vstack($justify: center, $gap: 1rem);
         
-        // header > h2 > a {                
-        //   color: $headings-color;
-        //   &:hover {                  
-        //     text-decoration: underline;
-        //     color: $primary;
-        //   } //&:hover                
-        // } // header > h2 > a
+        header > h2 > a {                
+          color: $headings-color;
+          &:hover { text-decoration: underline; }
+        }
             
         section {
           @include vstack($justify: center, $gap: 0.5rem);        
@@ -35,13 +32,13 @@ body:not(.type-post) {
       } // article
     
     } // li
+    
   } // > main > ul#post-list
   
   // Pagination 
   nav.pagination {
     @include hstack($justify: space-between);
     margin: 1rem auto 1rem auto;
-    // font-size: $nav-link-font-size;
     color: $pagination-color;  
   }
   
