@@ -1,5 +1,31 @@
-// body > main
-grid-area: main;    
-> * { background-color: $white; }        
+body > main {
+  
+  grid-area: main;    
+  
+  > * { background-color: $white; }        
 
-section#author-profile { @import "author-profile"; }
+  section#author-profile {
+  
+    @include vstack($gap: 1rem);
+          
+    h1 { margin: 0 auto; }
+    
+    div#social-media-links> div.sml-container {
+      width: 80%;
+      margin: 0 auto;
+      display: grid;
+      grid-template-rows: auto;
+      grid-template-columns: 1fr auto 1fr;
+      grid-template-areas: "link . name";   
+      
+      a { grid-area: link; }
+      
+      span { grid-area: name; }        
+    
+    } // div#social-media-links > div.sml-container
+    
+    p#brief-bio { padding: 1rem; }
+  
+  }
+
+}

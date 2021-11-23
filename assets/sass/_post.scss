@@ -1,50 +1,52 @@
-// body.type-post
-> header {
-  background: $post-nav-bg-color;      
-  > nav > a { color: $post-nav-color; }      
-}
-    
-
-article#post { 
-    
-  header { 
-    text-align: center;           
-    h2.headline { @extend %eaves-light-normal; }  
-  }
+body.type-post {
   
-  section#post-body {
-    @include vstack($justify: center, $align: center, $gap: 0.25rem);
+  > header {
+    background: $post-nav-bg-color;      
+    > nav > a { color: $post-nav-color; }      
   }
-
-  footer#post-meta {
-    @extend %eaves-light-normal;
-    @include hstack($gap: 0 20px);
-    @include border(top bottom, 1px, 15px);
-          
-    div {
-      @include vstack;
-      span.p-name { @extend .h2; }
-      span > a { @extend .h3 }
+      
+  article#post { 
+      
+    header { 
+      text-align: center;           
+      h2.headline { @extend %eaves-light-normal; }  
     }
     
-    img#avatar { @include circle(96px); box-shadow: $avatar-shadow; }
+    section#post-body {
+      @include vstack($justify: center, $align: center, $gap: 0.25rem);
+    }
+  
+    footer#post-meta {
+      @extend %eaves-light-normal;
+      @include hstack($gap: 0 20px);
+      @include border(top bottom, 1px, 15px);
+            
+      div {
+        @include vstack;
+        span.p-name { @extend .h2; }
+        span > a { @extend .h3 }
+      }
+      
+      img#avatar { @include circle(96px); box-shadow: $avatar-shadow; }
+      
+    } // footer#post-meta
     
-  } // footer#post-meta
+  } // article.post
   
-} // article.post
-
-nav#next-prev {
+  nav#next-prev {
+    
+    @include hstack($justify: space-between, $align: baseline);
+    margin: 2em auto;
   
-  @include hstack($justify: space-between, $align: baseline);
-  margin: 2em auto;
-
-  span#empty-space { flex-grow: 2; }
-
-  nav#category-list {
-    @include hstack($justify: center, $align: baseline, $gap: 2rem);    
-    flex-grow: 2;
-    // font-size: $nav-link-font-size;    
-    span.bullet-divider { display: inline-block; margin: 0 1rem; }    
-  }
+    span#empty-space { flex-grow: 2; }
   
-} // nav#next-prev
+    nav#category-list {
+      @include hstack($justify: center, $align: baseline, $gap: 2rem);    
+      flex-grow: 2;
+      // font-size: $nav-link-font-size;    
+      span.bullet-divider { display: inline-block; margin: 0 1rem; }    
+    }
+    
+  } // nav#next-prev
+
+}

@@ -1,10 +1,13 @@
-// body > footer
-grid-area: footer;    
-margin: 1rem auto 2rem auto;
-@include vstack($align: center, $gap: 1rem);
+body > footer {
+  
+  grid-area: footer;    
+  margin: 1rem auto 2rem auto;
+  @include vstack($align: center, $gap: 1rem);
+  
+  > ul#feeds-email {
+    @include list-unstyled;
+    @include hstack($align: baseline, $gap: 20px);      
+    a { font-size: $small-font-size; }  
+  }
 
-> ul#feeds-email {
-  @include list-unstyled;
-  @include hstack($align: baseline, $gap: 20px);      
-  a { font-size: $small-font-size; }  
 }

@@ -1,7 +1,6 @@
 @import "mixins";
 
 // Headers 
-
 h1 { @extend %eaves-heavy;   }
 h2 { @extend %eaves-bold;    }
 h3 { @extend %eaves-regular; }
@@ -10,29 +9,26 @@ h5 { @extend %eaves-light;   }
 h6 { @extend %eaves-thin;    }
 
 // Font styles 
-
-b     { @extend %eaves-heavy;        }
-b > i { @extend %eaves-heavy-italic; }
-
-i     { @extend %eaves-book-italic;  }
-i > b { @extend %eaves-heavy-italic; }
-
-strong      { @extend %eaves-bold;        }
-strong > em { @extend %eaves-bold-italic; }
-
+b           { @extend %eaves-heavy;          }
+b > i       { @extend %eaves-heavy-italic;   }
+i           { @extend %eaves-book-italic;    }
+i > b       { @extend %eaves-heavy-italic;   }
+strong      { @extend %eaves-bold;           }
+strong > em { @extend %eaves-bold-italic;    }
 em          { @extend %eaves-regular-italic; }
 em > strong { @extend %eaves-bold-italic;    }
 
 blockquote {
   @extend %eaves-light-italic;
-  @include border(left, $padding: 15px);
+  @include border(left);
 }
 
 var { color: $code-color; }
 
 video, img { @include fluid-media; }
 
-// Page Styles 
+// Page Details 
+
 body {
   min-height: 100vh;
   max-width: 100vw;
@@ -49,16 +45,5 @@ body {
   @include media((orientation: portrait, max-width: 900px)) { 
       grid-template-columns: 25px 1fr 25px;      
   }
-  
-  // Core page styles
-  > header { @import "header"; }  
-  > main   { @import "main";   }  
-  > footer { @import "footer"; }
-
-  // Post page styles
-  &.type-post { @import "post"; }
-  
-  // Styles for non-post pages
-  &:not(.type-post) { @import "not-post" }
-  
+      
 } // body

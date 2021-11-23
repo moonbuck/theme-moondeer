@@ -1,30 +1,42 @@
-// body > header
-grid-area: header;
-background: $nav-bg-color;
-
-> nav {
-  padding: 1rem 1rem 0.25rem 1rem;
-  display: flex;
-  gap: 0 20px;
-  flex-wrap: wrap;
-  justify-content: flex-end;
-
-  > a {
-    color: $nav-color;
-    font-size: $nav-link-font-size;
-    line-height: $line-height-base;
-    @extend %eaves-regular-normal;
-    transition: all .35s;
-    transition-timing-function: cubic-bezier(0.7, 0, 0.3, 1);
+body > header {
   
-    &:hover { box-shadow: inset 0 -2px 0 $shadow-color; }
-    
-    &.selected { box-shadow: inset 0 -2px 0 change-color($shadow-color, $alpha: 0.5); }
-    
-  } // a
+  grid-area: header;
+  background: $nav-bg-color;
   
-} // nav
-
-// Debugging overlay
-mark#theme-version-overlay { @import "theme-version"; }
-
+  > nav {
+    padding: 1rem 1rem 0.25rem 1rem;
+    display: flex;
+    gap: 0 20px;
+    flex-wrap: wrap;
+    justify-content: flex-end;
+  
+    > a {
+      color: $nav-color;
+      font-size: $nav-link-font-size;
+      line-height: $line-height-base;
+      @extend %eaves-regular-normal;
+      transition: all .35s;
+      transition-timing-function: cubic-bezier(0.7, 0, 0.3, 1);
+    
+      &:hover { box-shadow: inset 0 -2px 0 $shadow-color; }
+      
+      &.selected { box-shadow: inset 0 -2px 0 change-color($shadow-color, $alpha: 0.5); }
+      
+    } // a
+    
+  } // nav
+  
+  // Debugging overlay
+  mark#theme-version-overlay { 
+    position: absolute;
+    top: 0;
+    left: 0;
+    padding: 0 1em;
+    background-color: $black;
+    color: $white;
+    font-size: $small-font-size;
+    opacity: 0.5;
+    @extend %eaves-book;
+  }
+  
+}
