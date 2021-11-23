@@ -20,7 +20,7 @@ DEFAULT = [
 ]
 
 [Filters]
-"category-cloud-style.html" = [ "cloud" ]
-"/assets/css/gallery.css" = [ "gallery" ]
-"/assets/css/bookshelves.css" = [ "bookshelves" ]
-"/assets/js/bookshelves.js" = [ "bookshelves" ]
+"category-cloud-style.html" = [ "/cloud/" ]
+"/assets/css/gallery.css" = [ "/gallery/" ]
+"/assets/css/bookshelves.css" = [ "/bookshelf/" ]
+"/assets/js/bookshelves.js" = [ "/bookshelf/" ]

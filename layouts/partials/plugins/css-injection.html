@@ -1,6 +1,6 @@
 {{- if templates.Exists "partials/plugin-precision-injection.html" -}}
 
-  {{- $params := dict "link" "stylesheets" "context" $context -}}
+  {{- $params := dict "link" "stylesheets" "context" . -}}
   {{- partial "plugin-precision-injection.html" $params -}}
 
 {{- else -}}
