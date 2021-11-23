@@ -1,7 +1,7 @@
 {{- $categories := .Page.Params.categories | default slice -}}
 {{- $path := (urls.Parse .Permalink).Path -}}
 
-<nav id="{{ if (eq .Type "post") }}post-{{ end }}main-nav" role="navigation">
+<nav id="main-nav" role="navigation">
 
 {{- range site.Menus.main -}}
 {{- $is_selected := or (eq .URL $path) (in $categories .Title) -}}

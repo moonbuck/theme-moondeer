@@ -47,7 +47,7 @@
 {{- $class := printf "kind-%s type-%s" .Kind .Type -}}
 
 {{/* Define the page body */}}
-<body>
+<body style="--md-header-bg: var(--md-header-bg-light); --md-footer-bg: var(--md-footer-bg-light); --md-footer-link-color: var(--md-footer-link-color-dark); --md-footer-link-hover-color: var(--md-footer-link-hover-color-dark); --md-nav-link-color: var(--md-nav-link-color-dark); --md-nav-link-hover-color: var(--md-nav-link-hover-color-dark); --md-nav-link-hover-shadow: var(--md-nav-link-hover-shadow-dark); --md-nav-link-selected-shadow: var(--md-nav-link-selected-shadow-dark); --md-copyright-color: var(--md-copyright-color-dark);">
 
 {{/* Wrap everything inside a container */}}
 <div id="{{ $id }}" class="{{ $class }}">

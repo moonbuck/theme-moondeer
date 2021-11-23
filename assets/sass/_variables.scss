@@ -68,11 +68,16 @@ $font-size-root: 24px;
 // Background Colors
 $body-bg:        $primary;
 $container-bg:   $primary;
-$header-bg:      $primary;
-$main-bg:        $white;
-$footer-bg:      $header-bg;
-$post-header-bg: $white;
-$post-footer-bg: $post-header-bg;
+$main-bg:         $white;
+
+$header-bg-dark:  $primary;
+$header-bg-light: $white;
+$header-bg:       $header-bg-dark;
+
+$footer-bg-light: $white;
+$footer-bg-dark:  $primary;
+$footer-bg:       $footer-bg-light;
+
 
 // Text Colors
 $body-color: $dove-gray;
@@ -80,8 +85,15 @@ $text-muted: $manatee;
 $pagination-color: $tundora;
 $block-quote-footer-color: $manatee;
 $headings-color: $black;
-$copyright-color: $celery;
-$post-copyright-color: $primary;
+
+
+$footer-color-light: $white;
+$footer-color-dark:  $primary;
+$footer-color:       $footer-color-dark;
+
+$copyright-color-light: $celery;
+$copyright-color-dark:  $primary;
+$copyright-color:       $copyright-color-dark;
 
 // Code
 $code-color: darken($tonys-pink, 20%);
@@ -91,14 +103,18 @@ $pre-color: $code-color;
 $border-color: $gallery;
 
 // Links
-$link-color:                   $silver;
-$link-hover-color:             $black;
-$link-decoration:              none;
-$link-hover-decoration:        none;
-$footer-link-color:            $white-smoke;
-$footer-link-hover-color:      $orange;
-$post-footer-link-color:       $tundora;
-$post-footer-link-hover-color: $link-hover-color;
+$link-color:            $silver;
+$link-hover-color:      $black;
+$link-decoration:       none;
+$link-hover-decoration: none;
+
+$footer-link-color-light: $white-smoke;
+$footer-link-color-dark:  $tundora;
+$footer-link-color:       $footer-link-color-dark;
+
+$footer-link-hover-color-dark:  $link-hover-color;
+$footer-link-hover-color-light: $orange;
+$footer-link-hover-color:       $footer-link-hover-color-dark;
 
 // Post meta
 $post-meta-avatar-size:          96px;
@@ -119,22 +135,33 @@ $hr-height: 2px;
 $hr-bg-color: $border-color;
 
 // Navs
-$nav-link-shadow-color:                $petite-orchid;
-$nav-link-selected-shadow-color:       change-color($nav-link-shadow-color, $alpha: 0.5);
-$nav-link-post-shadow-color:           $blue;
-$nav-link-post-selected-shadow-color:  change-color($nav-link-post-shadow-color, $alpha: 0.5);
+$nav-link-shadow-color-light: $petite-orchid;
+$nav-link-shadow-color-dark:  $blue;
+
+$nav-link-selected-shadow-color-light: change-color($nav-link-shadow-color-light, $alpha: 0.5);
+$nav-link-selected-shadow-color-dark:  change-color($nav-link-shadow-color-dark, $alpha: 0.5);
+
 $nav-link-padding-y:                    0;
 $nav-link-padding-x:                    0;
 $nav-link-font-size:                    0.85rem;
 $nav-link-font-weight:                  400;
-$nav-link-color:                        $white;
-$nav-link-post-color:                   $black;
-$nav-link-hover-color:                  $nav-link-color;
-$nav-link-post-hover-color:             $nav-link-post-color;
-$nav-link-hover-shadow:                 inset 0 -2px 0 $nav-link-shadow-color;
-$nav-link-selected-shadow:              inset 0 -2px 0 $nav-link-selected-shadow-color;
-$nav-link-post-hover-shadow:            inset 0 -2px 0 $nav-link-post-shadow-color;
-$nav-link-post-selected-shadow:         inset 0 -2px 0 $nav-link-post-selected-shadow-color;
+
+$nav-link-color-light: $white;
+$nav-link-color-dark:  $black;
+$nav-link-color:       $nav-link-color-light;
+
+$nav-link-hover-color-light: $white;
+$nav-link-hover-color-dark:  $black;
+$nav-link-hover-color:       $nav-link-color-light;
+
+$nav-link-hover-shadow-light: inset 0 -2px 0 $nav-link-shadow-color-light;
+$nav-link-hover-shadow-dark:  inset 0 -2px 0 $nav-link-shadow-color-dark;
+$nav-link-hover-shadow:       $nav-link-hover-shadow-light;
+
+$nav-link-selected-shadow-light: inset 0 -2px 0 $nav-link-selected-shadow-color-light;
+$nav-link-selected-shadow-dark:  inset 0 -2px 0 $nav-link-selected-shadow-color-dark;
+$nav-link-selected-shadow:       $nav-link-selected-shadow-light;
+
 $nav-link-transition:                   all .35s cubic-bezier(0.7, 0, 0.3, 1);
 
 // Variables used by bootstrap component variables below
@@ -196,3 +223,6 @@ $enable-grid-classes: false;
 $enable-cssgrid: true;
 
 // Remove stuff from maps
+
+// Include custom CSS variables
+@import "root";
