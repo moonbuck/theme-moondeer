@@ -28,8 +28,6 @@
 
 {{- if templates.Exists "partials/plugin-precision-injection.html" -}}
   
-  {{- partial "comment.html" (cond (gt (len $prefix) 0) $prefix "plugin html") -}}
-  
   {{- $params := dict "prefix" $prefix "context" $context -}}
   {{- partial "plugin-precision-injection.html" $params -}}
   

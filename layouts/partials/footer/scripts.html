@@ -1,4 +1,3 @@
 <script src="/assets/js/bootstrap.bundle.min.js"></script>
-{{- range site.Params.plugins_js -}}
-<script src="{{ . }}"></script>
-{{ end -}}
+
+{{- partial "plugins/js-injection.html". -}}

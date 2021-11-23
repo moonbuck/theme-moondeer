@@ -9,10 +9,7 @@
 <link rel="stylesheet" href="{{ $base.Permalink }}{{ $secs }}">
 
 {{/* Include plugin stylesheets */}}
-{{- partial "comment.html" "plugin stylesheets" . -}}
-{{- range site.Params.plugins_css -}}
-<link rel="stylesheet" href="{{ . }}" />
-{{- end -}}
+{{- partial "plugins/css-injection.html". -}}
 
 {{/* Include the custom stylesheet last */}}
 <link rel="stylesheet" href="{{ "custom.css" | relURL }}{{ $secs }}">
