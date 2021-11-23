@@ -1,40 +1,24 @@
-body > header {
-  grid-area: header;
-  background: $header-bg-color;
+body {
   
-  > nav {
-    padding: 1rem 1rem 0.25rem 1rem;
-    @include hstack($wrap: wrap, $justify: flex-end, $gap: 0 20px);
+  > header {
+    grid-area: header;
+    background: $header-bg-color;
     
-    > a {
-      padding: $nav-link-padding-y $nav-link-padding-x;
-      color: $nav-link-color;
-      font-size: $nav-link-font-size;
-      font-weight: $nav-link-font-weight;
-      transition: $nav-link-transition;
+    // Debugging overlay
+    mark#theme-version-overlay { 
+      position: absolute;
+      top: 0;
+      left: 0;
+      padding: 0 1em;
+      background-color: $black;
+      color: $white;
+      font-size: $small-font-size;
+      opacity: 0.5;
+      @extend %eaves-book;
+    }
     
-      &:hover { 
-        color: $nav-link-hover-color;
-        box-shadow: $nav-link-hover-shadow; 
-      }
-      
-      &.selected { box-shadow: $nav-link-selected-shadow; }
-      
-    } // a
-    
-  } // nav
-  
-  // Debugging overlay
-  mark#theme-version-overlay { 
-    position: absolute;
-    top: 0;
-    left: 0;
-    padding: 0 1em;
-    background-color: $black;
-    color: $white;
-    font-size: $small-font-size;
-    opacity: 0.5;
-    @extend %eaves-book;
   }
-  
+
+  &.type-post > header { background: $post-header-bg-color; }
+
 }

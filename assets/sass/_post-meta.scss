@@ -1,0 +1,24 @@
+footer#post-meta {
+  @include hstack($gap: 0 20px);
+  @include border(top bottom, 1px, 15px);
+        
+  div {
+    @include vstack;
+    a.u-url { 
+      font-size: $post-meta-name-font-size;
+      color: $post-meta-name-color;
+      &:hover { color: $post-meta-name-hover-color; }
+    }
+    a[rel="me"] { 
+      font-size: $post-meta-username-font-size;
+      color: $post-meta-username-color;
+      &:hover { color: $post-meta-username-hover-color; }
+    }
+  }
+  
+  img#avatar { 
+    @include circle($post-meta-avatar-size); 
+    box-shadow: $post-meta-avatar-shadow; 
+  }
+  
+} // footer#post-meta

@@ -1,0 +1,34 @@
+// Post Lists 
+ul#post-list { 
+  @include list-unstyled;
+      
+  > li {      
+    padding: 1rem 0;
+    border-bottom: 1px solid $border-color;
+    
+    &:last-child { border-bottom: none; }
+    
+    article {
+      @include vstack($justify: center, $gap: 1rem);
+      
+      header > h2 > a {                
+        color: $headings-color;
+        &:hover { text-decoration: underline; }
+      }
+          
+      section {
+        @include vstack($justify: center, $gap: 0.5rem);        
+        > a.read-more { text-decoration: underline; }
+      }
+      
+      footer > a {            
+        text-transform: uppercase;
+        @extend %eaves-light;        
+        &:hover { text-decoration: none; }
+      }
+      
+    } // article
+  
+  } // li
+  
+} // ul#post-list

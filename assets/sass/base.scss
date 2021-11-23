@@ -23,10 +23,15 @@
 @import "bootstrap/helpers/stretched-link";
 
 // Include custom styling
+@import "fonts";
 @import "mixins";
 @import "style";
+@import "body";
 @import "header";
 @import "main";
 @import "footer";
+@import "nav";
 @import "post";
-@import "not-post";
+@import "post-meta";
+@import "post-list";
+@import "profile";

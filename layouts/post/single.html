@@ -1,6 +1,5 @@
 {{/* Template for post pages */}}
 {{- define "main" -}}
-{{- partial "comment.html" "post/single.html#main" -}}
 <article id="post" class="h-entry">
   <header>  
   {{- with .Title | markdownify -}}  

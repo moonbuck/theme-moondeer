@@ -30,7 +30,7 @@
 
 {{- $list := first 25 (where .Data.Pages.ByDate.Reverse "Type" "reply") -}}
 
-{{- range $list  }}{{ .Render "li" }}{{ end -}}
+{{- range $list  }}{{ .Render "list-item" }}{{ end -}}
 
 {{- end -}}
 

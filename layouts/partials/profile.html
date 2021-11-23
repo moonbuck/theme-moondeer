@@ -6,5 +6,6 @@
   </a>
   <h1 class="p-name" rel="me">{{ site.Author.name }}</h1>
 {{- partial "plugins/social-media-links.html" . }}
-  <p id="brief-bio" class="p-note">{{ site.Author.briefbio | default site.Params.itunes_description }}</p>
+{{- $bio := cond .IsHome site.Author.briefbio site.Author.aboutbio -}}
+  <p id="brief-bio" class="p-note">{{ $bio }}</p>
 </section>

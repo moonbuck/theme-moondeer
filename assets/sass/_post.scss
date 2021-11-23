@@ -1,67 +1,12 @@
-body.type-post {
+body.type-post article#post { 
+      
+  header { 
+    text-align: center;           
+    h2.headline { @extend %eaves-light-normal; }  
+  }
   
-  > header {
-    background: $post-header-bg-color;      
-    > nav > a { 
-      color: $nav-link-post-color; 
-      &:hover { 
-        color: $nav-link-post-hover-color;
-        box-shadow: $nav-link-post-hover-shadow;
-      }
-      &.selected { box-shadow: $nav-link-post-selected-shadow; }
-    } 
+  section#post-body {
+    @include vstack($justify: center, $align: center, $gap: 0.25rem);
   }
       
-  article#post { 
-      
-    header { 
-      text-align: center;           
-      h2.headline { @extend %eaves-light-normal; }  
-    }
-    
-    section#post-body {
-      @include vstack($justify: center, $align: center, $gap: 0.25rem);
-    }
-  
-    footer#post-meta {
-      @include hstack($gap: 0 20px);
-      @include border(top bottom, 1px, 15px);
-            
-      div {
-        @include vstack;
-        a.u-url { 
-          font-size: $post-meta-name-font-size;
-          color: $post-meta-name-color;
-          &:hover { color: $post-meta-name-hover-color; }
-        }
-        a[rel="me"] { 
-          font-size: $post-meta-username-font-size;
-          color: $post-meta-username-color;
-          &:hover { color: $post-meta-username-hover-color; }
-        }
-      }
-      
-      img#avatar { 
-        @include circle($post-meta-avatar-size); 
-        box-shadow: $post-meta-avatar-shadow; 
-      }
-      
-    } // footer#post-meta
-    
-  } // article.post
-  
-  nav#next-prev {
-    @include hstack($justify: space-between, $align: baseline);
-    margin: 2em auto;
-  
-    span#empty-space { flex-grow: 2; }
-  
-    nav#category-list {
-      @include hstack($justify: center, $align: baseline, $gap: 2rem);    
-      flex-grow: 2;
-      span.bullet-divider { display: inline-block; margin: 0 1rem; }    
-    }
-    
-  } // nav#next-prev
-
 }
