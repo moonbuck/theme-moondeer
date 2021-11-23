@@ -14,7 +14,7 @@ body:not(.type-post) {
         @include vstack($justify: center, $gap: 1rem);
         
         // header > h2 > a {                
-        //   color: $bold-text-color;                
+        //   color: $headings-color;
         //   &:hover {                  
         //     text-decoration: underline;
         //     color: $primary;

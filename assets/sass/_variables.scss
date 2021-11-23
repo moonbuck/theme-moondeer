@@ -61,36 +61,37 @@ $line-height-lg: 1.6;
 
 // Font Sizes
 $font-size-root: 24px;
-$nav-link-font-size: 0.9rem;
 
 // Text Colors
 $body-color: $dove-gray;
 $text-muted: $manatee;
-$bold-text-color: $black;
 $pagination-color: $tundora;
+$block-quote-footer-color: $manatee;
+$headings-color: $black;
+
+// Code
 $code-color: darken($tonys-pink, 20%);
 $pre-color: $code-color;
-$nav-color: $white;
-$post-nav-color: $black;
-$link-color: $silver;
-$block-quote-footer-color: $manatee;
-$link-hover-color: $black;
-$headings-color: $bold-text-color;
 
 // Accent Colors
 $shadow-color: $petite-orchid;
 $border-color: $gallery;
-$hr-color: $dolphin;
 
-// Background Colors
-$nav-bg-color: $blue;
-$post-nav-bg-color: $white;
-
-// Link Decorations
-$link-decoration: none;
+// Links
+$link-color:            $silver;
+$link-hover-color:      $black;
+$link-decoration:       none;
 $link-hover-decoration: none;
 
-$avatar-shadow: 0 0 0 3px $white, 0 0 0 4px $gallery;
+// Post meta
+$post-meta-avatar-size:          96px;
+$post-meta-avatar-shadow:        0 0 0 3px $white, 0 0 0 4px $gallery;
+$post-meta-name-font-size:       inherit;
+$post-meta-name-color:           currentcolor;
+$post-meta-name-hover-color:     $link-hover-color;
+$post-meta-username-font-size:   inherit;
+$post-meta-username-color:       currentcolor;
+$post-meta-username-hover-color: $link-hover-color;
 
 $primary: $kashmir-blue;
 $secondary: $gull-gray;
@@ -98,18 +99,30 @@ $secondary: $gull-gray;
 $paragraph-margin-bottom: 0.5rem;
 
 // Horizontal rule
+$hr-color: $dolphin;
 $hr-opacity: 0.9;
 $hr-height: 2px;
 $hr-bg-color: $border-color;
 
+// Header
+$header-bg-color:      $blue;
+$post-header-bg-color: $white;
+
 // Navs
-// $nav-link-padding-y:                .5rem;
-// $nav-link-padding-x:                1rem;
-// $nav-link-font-size:                null;
-// $nav-link-font-weight:              null;
-// $nav-link-color:                    $link-color;
-// $nav-link-hover-color:              $link-hover-color;
-// $nav-link-transition:               color .15s ease-in-out, background-color .15s ease-in-out, border-color .15s ease-in-out;
+$nav-color:            $white;
+$nav-bg-color:         $blue;
+$post-nav-color:       $black;
+$post-nav-bg-color:    $white;
+
+$nav-link-padding-y:       0;
+$nav-link-padding-x:       0;
+$nav-link-font-size:       0.85rem;
+$nav-link-font-weight:     400;
+$nav-link-color:           $white;
+$nav-link-hover-color:     $nav-link-color;
+$nav-link-hover-shadow:    inset 0 -2px 0 $shadow-color;
+$nav-link-selected-shadow: inset 0 -2px 0 change-color($shadow-color, $alpha: 0.5);
+$nav-link-transition:      all .35s cubic-bezier(0.7, 0, 0.3, 1);
 // $nav-link-disabled-color:           $gray-600;
 
 // Cards
