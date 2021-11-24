@@ -3,13 +3,12 @@ ul#post-list {
   @include list-unstyled;
       
   > li {      
-    padding: 1rem 0;
-    border-bottom: 1px solid $border-color;
+    @include border(bottom, 1px, 1rem);
     
     &:last-child { border-bottom: none; }
     
     article {
-      @include vstack($justify: center, $gap: 1rem);
+      @include vstack;
       
       header > h2 > a {                
         color: $headings-color;
@@ -17,7 +16,7 @@ ul#post-list {
       }
           
       section {
-        @include vstack($justify: center, $gap: 0.5rem);        
+        @include vstack($gap: 0.5rem);        
         > a.read-more { text-decoration: underline; }
       }
       

@@ -12,7 +12,6 @@
 
 // Makes an element responsive
 @mixin fluid-media {
-  width: auto;
   max-width: 100%;
   height: auto;
 }
@@ -104,7 +103,7 @@
 
 // Creates a vertical flex-box stack
 @mixin vstack($wrap: nowrap,
-              $justify: center,
+              $justify: stretch,
               $align: stretch,
               $gap: normal)
 {

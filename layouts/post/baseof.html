@@ -48,7 +48,6 @@
 
 {{/* Define the page body */}}
 <body id="{{ $id }}" class="{{ $class }}" style="--md-header-bg: var(--md-header-bg-l); --md-footer-bg: var(--md-footer-bg-l); --md-footer-link-col: var(--md-footer-link-col-d); --md-footer-link-hov-col: var(--md-footer-link-hov-col-d); --md-mnl-col: var(--md-mnl-col-d); --md-mnl-hov-col: var(--md-mnl-hov-col-d); --md-mnl-hov-shad: var(--md-mnl-hov-shad-d); --md-mnl-sel-shad: var(--md-mnl-sel-shad-d); --md-copyright-col: var(--md-copyright-col-d);">
-<div>
 
 {{/* Support injection of plugin html above the header  */}}
 {{- partial "plugins/html-injection.html" (slice "ABOVE_HEADER" .) }}
@@ -103,7 +102,6 @@
 {{/* Insert plugin Javascript includes */}}
 {{- partial "footer/scripts.html" . }}
 
-</div>
 {{/* Close the page body and html */}}
 </body>
 </html>
