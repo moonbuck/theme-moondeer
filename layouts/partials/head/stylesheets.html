@@ -1,16 +1,19 @@
 {{/* Include TypeKit Fonts */}}
 <link rel="stylesheet" href="https://use.typekit.net/nmn4mcn.css">
 
-{{/* Fetch theme seconds, presumably to attach for cache busting */}}
-{{- $secs := printf "?%v" site.Params.theme_seconds -}}
-
 {{/* Build and link the core stylesheet */}}
-{{- $options := dict "targetPath" "assets/css/base.css" "outputStyle" "expanded" "enableSourceMap" true -}}
+{{- $options := site.Params.Theme.Sass -}}
+{{- $TargetDirectory := $options.TargetDirectory -}}
+{{- $TargetPath := path.Join $TargetDirectory "base.css" -}}
+{{- $OutputStyle := $options.OutputStyle -}}
+{{- $EnableSourceMap := $options.EnableSourceMap -}}
+
+{{- $options = dict "targetPath" $TargetPath  "outputStyle" $OutputStyle "enableSourceMap" $EnableSourceMap -}}
 {{- $base := resources.Get "sass/base.scss" | toCSS $options | fingerprint -}}
-<link rel="stylesheet" href="{{ $base.Permalink }}{{ $secs }}">
+<link rel="stylesheet" href="{{ $base.Permalink }}">
 
 {{/* Include plugin stylesheets */}}
 {{- partial "plugins/css-injection.html" . -}}
 
 {{/* Include the custom stylesheet last */}}
-<link rel="stylesheet" href="{{ "custom.css" | relURL }}{{ $secs }}">
+<link rel="stylesheet" href="{{ "custom.css" | relURL }}?{{ site.Params.theme_seconds }}">

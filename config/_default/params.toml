@@ -18,3 +18,8 @@ InitialScale = '1'
 MinimumScale = ''
 MaximumScale = ''
 Width = 'device-width'
+
+[Theme.Sass]
+TargetDirectory = "assets/css"
+OutputStyle = "compressed"
+EnableSourceMap = false
