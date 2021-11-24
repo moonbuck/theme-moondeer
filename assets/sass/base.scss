@@ -1,8 +1,8 @@
 // Include functions first so they are available for variables
 @import "bootstrap/functions";
-@import "functions";
 
 // Include custom variables before bootstrap defaults
+@import "functions";
 @import "variables";
 
 // Include remainder of required Bootstrap stylesheets
@@ -26,6 +26,7 @@
 @import "bootstrap/helpers/stretched-link";
 
 // Include custom styling
+@import "root";
 @import "fonts";
 @import "mixins";
 @import "style";

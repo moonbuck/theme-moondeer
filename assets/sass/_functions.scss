@@ -26,11 +26,6 @@ $monospace-list: (
 
 
 @function font-list($lead-font, $monospace: false) {
-	@if $monospace {
-		@return join($lead-font, $monospace-list);
-	}
-	@else {
-		@return join($lead-font, $sans-list);
-	}
-	
+	@if $monospace { @return join($lead-font, $monospace-list); }
+	@else { @return join($lead-font, $sans-list); }	
 }
