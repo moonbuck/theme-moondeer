@@ -5,7 +5,8 @@
 {{- $secs := printf "?%v" site.Params.theme_seconds -}}
 
 {{/* Build and link the core stylesheet */}}
-{{- $base := resources.Get "sass/base.scss" | toCSS | fingerprint -}}
+{{- $options := dict "targetPath" "assets/css/base.css" "outputStyle" "expanded" "enableSourceMap" true -}}
+{{- $base := resources.Get "sass/base.scss" | toCSS $options | fingerprint -}}
 <link rel="stylesheet" href="{{ $base.Permalink }}{{ $secs }}">
 
 {{/* Include plugin stylesheets */}}

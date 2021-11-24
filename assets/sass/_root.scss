@@ -1,44 +1,44 @@
 :root {
-  --md-main-bg: #{$main-bg};
+  --md-main-bg: 				#{$main-bg};
 
-  --md-header-bg: #{$header-bg};
-  --md-header-bg-light: #{$header-bg-light};
-  --md-header-bg-dark: #{$header-bg-dark};
+  --md-header-bg:				#{$header-bg};
+  --md-header-bg-l:				#{$header-bg-l};
+  --md-header-bg-d:				#{$header-bg-d};
 
-  --md-footer-color: #{$footer-color};
-  --md-footer-color-light: #{$footer-color-light};
-  --md-footer-color-dark: #{$footer-color-dark};
+  --md-footer-col:				#{$footer-col};
+  --md-footer-col-l:			#{$footer-col-l};
+  --md-footer-col-d:			#{$footer-col-d};
 
-  --md-footer-bg: #{$footer-bg};
-  --md-footer-bg-light: #{$footer-bg-light};
-  --md-footer-bg-dark: #{$footer-bg-dark};
+  --md-footer-bg:				#{$footer-bg};
+  --md-footer-bg-l:				#{$footer-bg-l};
+  --md-footer-bg-d:				#{$footer-bg-d};
 
-  --md-footer-link-color: #{$footer-link-color};
-  --md-footer-link-color-light: #{$footer-link-color-light};
-  --md-footer-link-color-dark: #{$footer-link-color-dark};
+  --md-footer-link-col:			#{$footer-link-col};
+  --md-footer-link-col-l:		#{$footer-link-col-l};
+  --md-footer-link-col-d:		#{$footer-link-col-d};
 
-  --md-footer-link-hover-color: #{$footer-link-hover-color};
-  --md-footer-link-hover-color-light: #{$footer-link-hover-color-light};
-  --md-footer-link-hover-color-dark: #{$footer-link-hover-color-dark};
+  --md-footer-link-hov-col:		#{$footer-link-hov-col};
+  --md-footer-link-hov-col-l:	#{$footer-link-hov-col-l};
+  --md-footer-link-hov-col-d:	#{$footer-link-hov-col-d};
 
-  --md-nav-link-color: #{$nav-link-color};
-  --md-nav-link-color-light: #{$nav-link-color-light};
-  --md-nav-link-color-dark: #{$nav-link-color-dark};
+  --md-mnl-col:					#{$mnl-col};
+  --md-mnl-col-l:				#{$mnl-col-l};
+  --md-mnl-col-d:				#{$mnl-col-d};
 
-  --md-nav-link-hover-color: #{$nav-link-hover-color};
-  --md-nav-link-hover-color-light: #{$nav-link-hover-color-light};
-  --md-nav-link-hover-color-dark: #{$nav-link-hover-color-dark};
+  --md-mnl-hov-col:				#{$mnl-hov-col};
+  --md-mnl-hov-col-l:			#{$mnl-hov-col-l};
+  --md-mnl-hov-col-d:			#{$mnl-hov-col-d};
 
-  --md-nav-link-hover-shadow: #{$nav-link-hover-shadow};
-  --md-nav-link-hover-shadow-light: #{$nav-link-hover-shadow-light};
-  --md-nav-link-hover-shadow-dark: #{$nav-link-hover-shadow-dark};
+  --md-mnl-hov-shad:			#{$mnl-hov-shad};
+  --md-mnl-hov-shad-l:			#{$mnl-hov-shad-l};
+  --md-mnl-hov-shad-d:			#{$mnl-hov-shad-d};
 
-  --md-nav-link-selected-shadow: #{$nav-link-selected-shadow};
-  --md-nav-link-selected-shadow-light: #{$nav-link-selected-shadow-light};
-  --md-nav-link-selected-shadow-dark: #{$nav-link-selected-shadow-dark};
+  --md-mnl-sel-shad:			#{$mnl-sel-shad};
+  --md-mnl-sel-shad-l:			#{$mnl-sel-shad-l};
+  --md-mnl-sel-shad-d:			#{$mnl-sel-shad-d};
 
-  --md-copyright-color: #{$copyright-color};
-  --md-copyright-color-light: #{$copyright-color-light};
-  --md-copyright-color-dark: #{$copyright-color-dark};  
+  --md-copyright-col:			#{$copyright-col};
+  --md-copyright-col-l:			#{$copyright-col-l};
+  --md-copyright-col-d:			#{$copyright-col-d};  
 
 }

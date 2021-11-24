@@ -5,7 +5,7 @@
 
 {{- range site.Menus.main -}}
 {{- $is_selected := or (eq .URL $path) (in $categories .Title) -}}
-<a {{ if $is_selected }}class="selected" {{ end }}href="{{ .URL }}">
+<a class="main-nav-link{{ if $is_selected }} selected{{ end }}" href="{{ .URL }}">
 <nobr>{{ .Title }}</nobr>
 </a>
   

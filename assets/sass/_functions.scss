@@ -1,0 +1,36 @@
+$sans-list: (
+	system-ui, 
+	-apple-system, 
+	"Segoe UI", 
+	Roboto, 
+	"Helvetica Neue", 
+	Arial, 
+	"Noto Sans", 
+	"Liberation Sans", 
+	sans-serif, 
+	"Apple Color Emoji", 
+	"Segoe UI Emoji", 
+	"Segoe UI Symbol", 
+	"Noto Color Emoji"
+);
+
+$monospace-list: (
+	SFMono-Regular, 
+	Menlo,
+	Monaco, 
+	Consolas, 
+	"Liberation Mono", 
+	"Courier New", 
+	monospace
+);
+
+
+@function font-list($lead-font, $monospace: false) {
+	@if $monospace {
+		@return join($lead-font, $monospace-list);
+	}
+	@else {
+		@return join($lead-font, $sans-list);
+	}
+	
+}

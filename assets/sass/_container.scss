@@ -5,26 +5,27 @@ body {
   
   /* Page Grid */
   // Setup a three row grid for the three page sections
-  display: grid;
-  grid-template-rows: auto 1fr auto;
-  grid-template-columns: auto;
-  grid-template-areas: "header" "main" "footer";
+  // display: grid;
+  // grid-template-rows: auto 1fr auto;
+  // grid-template-columns: auto;
+  // grid-template-areas: "header" "main" "footer";
   
   /* Page Header */
   > header {
-    grid-area: header;
+    // grid-area: header;
     background: var(--md-header-bg);
     
     // Debugging overlay
     mark#theme-version-overlay { 
       position: absolute;
+      pointer-events: none;
       top: 0;
       left: 0;
       padding: 0 1em;
       background: $black;
       color: $white;
       font-size: $small-font-size;
-      opacity: 0.5;
+      opacity: 0.25;
       @extend %eaves-book;
     }
     
@@ -32,7 +33,7 @@ body {
 
   /* Page Main */
   > main { 
-    grid-area: main; 
+    // grid-area: main; 
     @include flush-pad;
     background: var(--md-main-bg);
     
@@ -53,10 +54,10 @@ body {
   
   /* Page Footer */
   > footer { 
-    grid-area: footer;
+    // grid-area: footer;
     @include flush-pad;
     background: var(--md-footer-bg);
-    color: var(--md-footer-color);
+    color: var(--md-footer-col);
     
     // Create a vertical stack for footer components
     @include vstack($gap: 1rem);
@@ -67,12 +68,12 @@ body {
       @include hstack($align: baseline, $gap: 20px);      
       a { 
         font-size: $small-font-size;
-        color: var(--md-footer-link-color);
-        &:hover { color: var(--md-footer-link-hover-color); }
+        color: var(--md-footer-link-col);
+        &:hover { color: var(--md-footer-link-hov-col); }
       }  
     }
     
-    #copyright { color: var(--md-copyright-color); margin: 0 auto; }
+    #copyright { color: var(--md-copyright-col); margin: 0 auto; }
     
     // nav#webring {
       
