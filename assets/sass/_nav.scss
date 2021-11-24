@@ -7,16 +7,48 @@ nav.pagination {
 
 // Next/Prev
 nav#next-prev {
-  @include hstack($justify: space-between, $align: baseline);
-  margin: 2em auto;
-
-  span#empty-space { flex-grow: 2; }
-
+  display: grid;
+  grid-template-rows: 1fr;
+  grid-template-columns: minmax(auto, 1fr) minmax(max-content, 2fr) minmax(auto, 1fr);
+  grid-template-areas: "next categories prev";
+  margin: 2em 0;
+  gap: $spacer;
+  
+  span {
+    align-self: center;
+    
+    &#next { 
+      grid-area: next; 
+      justify-self: start;
+    }
+    
+    &#prev { 
+      grid-area: prev; 
+      justify-self: end;
+    }
+    
+    a {
+      font-weight: $next-prev-link-weight;
+      color: $next-prev-link-color;
+      &:hover { color: $next-prev-link-hover-color; }
+    }
+    
+  } // span
+  
   nav#category-list {
-    @include hstack($justify: center, $align: baseline, $gap: 2rem);    
-    flex-grow: 2;
-    span.bullet-divider { display: inline-block; margin: 0 1rem; }    
-  }
+    grid-area: categories;
+    justify-self: center;
+    
+    @include hstack($justify: center, $align: baseline, $gap: 0.5rem);
+    text-align: center;
+    
+    .category-link {
+      //background-color: rgba(0,255,0,0.5);
+    }
+    .bullet-divider { 
+      //background-color: rgba(0,0,255,0.5);
+    }    
+  } // nav#category-list
   
 } // nav#next-prev
 

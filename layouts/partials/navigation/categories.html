@@ -3,11 +3,11 @@
 
 {{- if $count -}}
 
-<nav class="category-list" role="navigation">
+<nav id="category-list" role="navigation">
 
   {{- range $index, $category := $categories -}}
   
-  <a href="/categories/{{ $category | anchorize }}/">{{ $category }}</a>
+  <a class="category-link" href="/categories/{{ $category | anchorize }}/">{{ $category }}</a>
   
   {{- if (lt (add $index 1) $count) -}}
   <span class="bullet-divider">•</span>

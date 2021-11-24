@@ -5,27 +5,23 @@
 
 <nav id="next-prev" role="navigation">
 
+<span id="next">
 {{- with $newer -}}
-<a class="mr-eaves-modern-thin" href="{{ .Permalink }}">← Newer</a>
-{{- else -}}
-<span></span>
+<a id="newer" href="{{ .Permalink }}">← Newer</a>
 {{- end -}}
+</span>
 
 {{- if (and .current .current.Params.categories) -}}
 
 {{- partial "navigation/categories.html" .current -}}
 
-{{- else -}}
-
-<span id="empty-space"></span>
-
 {{- end -}}
 
+<span id="prev">
 {{- with $older -}}
-<a class="mr-eaves-modern-thin" href="{{ .Permalink }}">Older →</a>
-{{- else -}}
-<span></span>
+<a id="older" href="{{ .Permalink }}">Older →</a>
 {{- end -}}
+</span>
 
 </nav>
 

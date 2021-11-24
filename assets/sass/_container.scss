@@ -47,6 +47,7 @@ body {
     
     > #content-column {
       grid-area: content;
+      @include vstack;
     }
   }
   
