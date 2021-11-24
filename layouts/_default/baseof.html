@@ -47,10 +47,7 @@
 {{- $class := printf "kind-%s type-%s" .Kind .Type -}}
 
 {{/* Define the page body */}}
-<body>
-
-{{/* Wrap everything inside a container */}}
-<div id="{{ $id }}" class="{{ $class }}">
+<body id="{{ $id }}" class="{{ $class }}">
 
 {{/* Support injection of plugin html above the header  */}}
 {{- partial "plugins/html-injection.html" (slice "ABOVE_HEADER" .) }}
@@ -106,8 +103,6 @@
 
 {{/* Insert plugin Javascript includes */}}
 {{- partial "footer/scripts.html" . }}
-
-</div>
 
 {{/* Close the page body and html */}}
 </body>

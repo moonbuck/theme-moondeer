@@ -1,22 +1,15 @@
-body > div {
-  @extend .container-md;
+body {
+  min-height: 100vh;
+  max-width: 100vw;
   background-color: $container-bg;
   
   /* Page Grid */
   // Setup a three row grid for the three page sections
   display: grid;
   grid-template-rows: auto 1fr auto;
-  grid-template-columns: auto 600px auto;
-  grid-template-areas:
-    "header header header"
-    " main   main   main "
-    "footer footer footer";
-      
-  // Use what we've got for main content on small screens
-  @include media((orientation: portrait, max-width: 900px)) { 
-      grid-template-columns: 25px 1fr 25px;      
-  }
-
+  grid-template-columns: auto;
+  grid-template-areas: "header" "main" "footer";
+  
   /* Page Header */
   > header {
     grid-area: header;
@@ -43,9 +36,17 @@ body > div {
     @include flush-pad;
     background: var(--md-main-bg);
     
+    display: grid;
+    grid-template-rows: auto;
+    grid-template-columns: 25px 1fr 25px;
+    grid-template-areas: ". content .";
+    
+    @include media((min-width: 651px)) {
+      grid-template-columns: auto 600px auto;
+    }
+    
     > #content-column {
-      // Use 100% of width until we hit medium breakpoint
-      @extend .container-md;
+      grid-area: content;
     }
   }
   
