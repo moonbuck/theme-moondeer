@@ -211,12 +211,12 @@ $grid-breakpoints: (
 /// Containers
 $container-max-widths: (
   sm: 540px,
-  md: 720px,
-  lg: 960px,
-  xl: 1140px,
-  xxl: 1320px
+  md: 600px,
+  lg: 700px,
+  xl: 800px,
+  xxl: 960px
 );
-$container-padding-x: 0;
+$container-padding-x: 1rem;
 
 /// Grid columns
 $grid-columns: 12;

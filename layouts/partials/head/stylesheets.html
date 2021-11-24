@@ -7,10 +7,12 @@
 {{- $TargetPath := path.Join $TargetDirectory "base.css" -}}
 {{- $OutputStyle := $options.OutputStyle -}}
 {{- $EnableSourceMap := $options.EnableSourceMap -}}
+{{- $Fingerprint := $options.Fingerprint -}}
 
 {{- $options = dict "targetPath" $TargetPath  "outputStyle" $OutputStyle "enableSourceMap" $EnableSourceMap -}}
-{{- $base := resources.Get "sass/base.scss" | toCSS $options | fingerprint -}}
-<link rel="stylesheet" href="{{ $base.Permalink }}">
+{{- $base := resources.Get "sass/base.scss" | toCSS $options -}}
+{{- if $Fingerprint }}{{ $base = $base | fingerprint }}{{ end -}}
+<link rel="stylesheet" href="{{ $base.Permalink }}?{{ site.Params.theme_seconds }}">
 
 {{/* Include plugin stylesheets */}}
 {{- partial "plugins/css-injection.html" . -}}

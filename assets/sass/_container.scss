@@ -1,18 +1,19 @@
-body {
+body > div {
   min-height: 100vh;
   max-width: 100vw;
   background-color: $container-bg;
   
   /* Page Grid */
   // Setup a three row grid for the three page sections
-  // display: grid;
-  // grid-template-rows: auto 1fr auto;
-  // grid-template-columns: auto;
-  // grid-template-areas: "header" "main" "footer";
+  display: grid;
+  grid-template-rows: auto 1fr auto;
+  grid-template-columns: auto;
+  grid-template-areas: "header" "main" "footer";
   
   /* Page Header */
   > header {
-    // grid-area: header;
+    grid-area: header;
+    // @include flush-pad(0);
     background: var(--md-header-bg);
     
     // Debugging overlay
@@ -33,29 +34,15 @@ body {
 
   /* Page Main */
   > main { 
-    // grid-area: main; 
-    @include flush-pad;
+    grid-area: main;
+    @extend .container;
     background: var(--md-main-bg);
-    
-    display: grid;
-    grid-template-rows: auto;
-    grid-template-columns: 25px 1fr 25px;
-    grid-template-areas: ". content .";
-    
-    @include media((min-width: 651px)) {
-      grid-template-columns: auto 600px auto;
-    }
-    
-    > #content-column {
-      grid-area: content;
-      @include vstack;
-    }
   }
   
   /* Page Footer */
   > footer { 
-    // grid-area: footer;
-    @include flush-pad;
+    grid-area: footer;
+    // @include flush-pad;
     background: var(--md-footer-bg);
     color: var(--md-footer-col);
     

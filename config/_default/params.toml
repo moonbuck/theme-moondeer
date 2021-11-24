@@ -1,5 +1,5 @@
 [Theme]
-ThemeVersion = "v161"
+ThemeVersion = "v162"
 VisibleThemeVersion = "test"
 TemplateComments = true
 IncludeDisqus = true
@@ -21,5 +21,6 @@ Width = 'device-width'
 
 [Theme.Sass]
 TargetDirectory = "assets/css"
-OutputStyle = "compressed"
+OutputStyle = "nested"
 EnableSourceMap = false
+Fingerprint = true
