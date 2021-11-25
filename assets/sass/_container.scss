@@ -1,28 +1,34 @@
 body {
+  // Make sure body fills the viewport
   min-height: 100vh;
   max-width: 100vw;
-  background-color: $container-bg;
-    
-  /* Page Grid */
-  // Setup a three row grid for the three page sections
+  
+  ///Page Grid
   display: grid;
+  
+  // Three rows pushing header up and footer down
   grid-template-rows: auto 1fr auto;
-  grid-template-columns: 25px 1fr 25px;
+  
+  // Size columns for smallest screen
+  grid-template-columns: auto 325px auto;
+  
+  // Add a gap between sections
   gap: 1rem;
+  
+  // Allow the header and the footer to go all the way across
   grid-template-areas:
       "header header header"
       "......  main  ......"
       "footer footer footer";
       
-  // Keep the main content at 600px or less
-  @media only screen and (min-width: 700px) {
+  // Scale columns for landscape phones
+  @include media-breakpoint-up(sm) {
     grid-template-columns: auto 600px auto;
-  } 
-        
-  /* Page Header */
+  }
+  
+  /// Page Header
   > header {
     grid-area: header;
-    // @include flush-pad(0);
     background: var(--md-header-bg);
     
     // Debugging overlay
@@ -34,7 +40,7 @@ body {
       padding: 0 1em;
       background: $black;
       color: $white;
-      font-size: $small-font-size;
+      font-size: $small-font-size * 0.9;
       opacity: 0.25;
       @extend %eaves-book;
     }
@@ -44,15 +50,12 @@ body {
   /* Page Main */
   > main { 
     grid-area: main;
-    //@extend .container;
-    max-width: 100%;
     background: var(--md-main-bg);
   }
   
   /* Page Footer */
   > footer { 
     grid-area: footer;
-    // @include flush-pad;
     background: var(--md-footer-bg);
     color: var(--md-footer-col);
     
@@ -70,12 +73,8 @@ body {
       }  
     }
     
-    #copyright { color: var(--md-copyright-col); margin: 0 auto; }
+    #copyright { color: var(--md-copyright-col); margin: 0 auto 1rem auto; }
     
-    // nav#webring {
-      
-    // }
-  
   }  
   
 }

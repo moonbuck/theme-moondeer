@@ -2,13 +2,15 @@
 ul#post-list { 
   @include list-unstyled;
       
-  > li {      
+  > li {
     @include border(bottom, 1px, 1rem);
+    padding-top: 1rem;
     
+    &:first-child { padding-top: 0; }
     &:last-child { border-bottom: none; }
     
     article {
-      @include vstack;
+      @include vstack($gap: 0.5rem);
       
       header > h2 > a {                
         color: $headings-color;

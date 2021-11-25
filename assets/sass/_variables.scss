@@ -149,23 +149,15 @@ $mnl-transition: all .35s cubic-bezier(0.7, 0, 0.3, 1);
 /// Paragraphs
 $paragraph-margin-bottom: 0.5rem;
 
-/// Page container
-$container-bg: $white;
-
 /// Page header
-
-// Header background color
 $header-bg-d: $primary;
 $header-bg-l: $white;
 $header-bg: $header-bg-d;
 
 /// Page main
-
-// Main background color
 $main-bg: $white;
 
 /// Page footer
-
 // Footer background color
 $footer-bg-l: $white;
 $footer-bg-d: $primary;
