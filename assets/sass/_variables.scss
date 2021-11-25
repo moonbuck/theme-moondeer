@@ -94,9 +94,16 @@ $link-decoration: none;
 $link-hover-decoration: none;
 
 /// Next/prev links
-$next-prev-link-col: $primary;
-$next-prev-link-hov-col: $black;
-$next-prev-link-weight: 200;
+$np-link-col: $primary;
+$np-link-hov-col: $black;
+$np-link-weight: book;
+$np-link-style: normal;
+
+/// Category links within Next/prev nav
+$np-cat-link-col: $np-link-col;
+$np-cat-link-hov-col: $np-link-hov-col;
+$np-cat-link-weight: light;
+$np-cat-link-style: italic;
 
 /// Footer links
 $footer-link-col-l: $white-smoke;
