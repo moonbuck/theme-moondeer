@@ -2,7 +2,7 @@
 ThemeVersion = "v165"
 VisibleThemeVersion = "test"
 TemplateComments = true
-IncludeDisqus = true
+IncludeDisqus = false
 IncludeConversation = true
 CSSPriority = "theme"
 
