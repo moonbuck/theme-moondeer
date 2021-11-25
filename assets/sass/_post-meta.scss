@@ -1,6 +1,7 @@
 footer#post-meta {
   @include hstack($gap: 0 20px);
   @include border(top bottom, 1px, 15px);
+  margin: 1rem 0;
         
   div {
     @include vstack;
