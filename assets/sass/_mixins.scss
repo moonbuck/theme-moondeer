@@ -1,5 +1,27 @@
+// Fonts
+@mixin eaves-font($weight, $style: normal) {
+  font-family: $eaves-font-family;
+  font-style: $style;
+  font-weight: if(type-of($weight) == string, 
+                  map-get($eaves-font-weights, $weight),
+                  $weight)
+}
+
+@mixin input-font($weight, $style: normal) {
+  font-family: $input-font-family;
+  font-style: $style;
+  font-weight: if(type-of($weight) == string, 
+                  map-get($input-font-weights, $weight),
+                  $weight)
+}
+
 // Adds a padded border
-@mixin border($edges, $size: 2px, $padding: null, $style: solid, $color: $border-color) {
+@mixin border($edges, 
+              $size: 2px, 
+              $padding: null, 
+              $style: solid, 
+              $color: $border-color) 
+{
   
   @each $edge in $edges {    
     border-#{$edge}: $size $style $color;

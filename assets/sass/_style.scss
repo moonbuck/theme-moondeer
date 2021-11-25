@@ -1,23 +1,23 @@
 // Headers 
-h1 { @extend %eaves-heavy;   }
-h2 { @extend %eaves-bold;    }
-h3 { @extend %eaves-regular; }
-h4 { @extend %eaves-book;    }
-h5 { @extend %eaves-light;   }
-h6 { @extend %eaves-thin;    }
+h1 { @include eaves-font(heavy);   }
+h2 { @include eaves-font(bold);    }
+h3 { @include eaves-font(regular); }
+h4 { @include eaves-font(book);    }
+h5 { @include eaves-font(light);   }
+h6 { @include eaves-font(thin);    }
 
 // Font styles 
-b           { @extend %eaves-heavy;          }
-b > i       { @extend %eaves-heavy-italic;   }
-i           { @extend %eaves-book-italic;    }
-i > b       { @extend %eaves-heavy-italic;   }
-strong      { @extend %eaves-bold;           }
-strong > em { @extend %eaves-bold-italic;    }
-em          { @extend %eaves-regular-italic; }
-em > strong { @extend %eaves-bold-italic;    }
+b           { @include eaves-font(heavy);           }
+b > i       { @include eaves-font(heavy, italic);   }
+i           { @include eaves-font(book, italic);    }
+i > b       { @include eaves-font(heavy, italic);   }
+strong      { @include eaves-font(bold);            }
+strong > em { @include eaves-font(bold, italic);    }
+em          { @include eaves-font(regular, italic); }
+em > strong { @include eaves-font(bold, italic);    }
 
 blockquote {
-  @extend %eaves-light-italic;
+  @include eaves-font(light, italic);
   @include border(left, $padding: 15px);
 }
 

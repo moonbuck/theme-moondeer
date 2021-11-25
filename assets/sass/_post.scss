@@ -3,12 +3,14 @@
   
   header { 
     text-align: center;           
-    h2.headline { @extend %eaves-light-normal; }  
+    h2.headline { @include eaves-font(light); }  
   }
   
   section#post-body {
     flex-grow: 2;
-    @include vstack($justify: flex-start, $align: center, $gap: 0.25rem);
+    @include vstack($justify: flex-start, 
+                    $align: center, 
+                    $gap: 0.25rem);
   }
   
 }

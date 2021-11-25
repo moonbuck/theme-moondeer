@@ -41,8 +41,8 @@ body {
       background: $black;
       color: $white;
       font-size: $small-font-size * 0.9;
-      opacity: 0.25;
-      @extend %eaves-book;
+      opacity: 0.5;
+      @include eaves-font(book);
     }
     
   }
@@ -69,8 +69,35 @@ body {
       a { 
         font-size: $small-font-size;
         color: var(--md-footer-link-col);
-        &:hover { color: var(--md-footer-link-hov-col); }
+        &:hover { 
+          color: var(--md-footer-link-hov-col); 
+          text-decoration: underline;
+        }
       }  
+    }
+    
+    #webring {
+      display: grid;
+      grid-template-columns: auto max-content auto;
+      grid-template-areas: "left-arrow label right-arrow";
+      place-items: center;
+      gap: 1rem;
+      
+      a:first-child {
+        grid-area: left-arrow;
+        justify-self: end;
+      }
+      
+      #label {
+        grid-area: label;
+        margin-top: -0.525ex;
+      }
+      
+      a:last-child {
+        grid-area: right-arrow;
+        justify-self: start;
+      }
+      
     }
     
     #copyright { color: var(--md-copyright-col); margin: 0 auto 1rem auto; }

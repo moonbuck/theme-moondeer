@@ -24,7 +24,7 @@ ul#post-list {
       
       footer > a {            
         text-transform: uppercase;
-        @extend %eaves-light;        
+        @include eaves-font(light);        
         &:hover { text-decoration: none; }
       }
       

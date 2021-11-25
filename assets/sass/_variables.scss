@@ -16,7 +16,6 @@ $enable-negative-margins: false;
 $enable-deprecation-messages: true;
 $enable-important-utilities: true;
 
-
 /// Named colors mostly picked out of my banner images
 $kashmir-blue: #516189;
 $manatee: #9091AB;
@@ -92,7 +91,7 @@ $body-color: $dove-gray;
 $link-color: $silver;
 $link-hover-color: $black;
 $link-decoration: none;
-$link-hover-decoration:  none;
+$link-hover-decoration: none;
 
 /// Next/prev links
 $next-prev-link-col: $primary;
@@ -105,7 +104,7 @@ $footer-link-col-d: $tundora;
 $footer-link-col: $footer-link-col-d;
 
 $footer-link-hov-col-d: $link-hover-color;
-$footer-link-hov-col-l:  $orange;
+$footer-link-hov-col-l: $orange;
 $footer-link-hov-col: $footer-link-hov-col-d;
 
 /// Main nav links
@@ -236,8 +235,57 @@ $component-active-color: $white;
 $component-active-bg: $primary;
 
 /// Typography
-$font-family-sans-serif: font-list(mr-eaves-sans);
-$font-family-monospace: font-list(input-mono-compressed, true);
+$eaves-font-family: mr-eaves-sans;
+$eaves-font-weights: (
+  thin: 100,
+  light: 200,
+  book: 300,
+  regular: 400,
+  bold: 700,
+  heavy: 800
+);
+
+$sans-font-list: (
+  $eaves-font-family,
+	system-ui, 
+	-apple-system, 
+	"Segoe UI", 
+	Roboto, 
+	"Helvetica Neue", 
+	Arial, 
+	"Noto Sans", 
+	"Liberation Sans", 
+	sans-serif, 
+	"Apple Color Emoji", 
+	"Segoe UI Emoji", 
+	"Segoe UI Symbol", 
+	"Noto Color Emoji"
+);
+
+$input-font-family: input-mono-compressed;
+$input-font-weights: (
+  thin: 100,
+  extra-light: 200,
+  light: 300,
+  regular: 400,
+  medium: 500,
+  bold: 700,
+  black: 800
+);
+
+$monospace-font-list: (
+  $input-font-family,
+	SFMono-Regular, 
+	Menlo,
+	Monaco, 
+	Consolas, 
+	"Liberation Mono", 
+	"Courier New", 
+	monospace
+);
+
+$font-family-sans-serif: $sans-font-list;
+$font-family-monospace: $monospace-font-list;
 $font-size-root: 24px;
 $font-size-base: 1rem;
 $font-weight-lighter: 100;
@@ -310,7 +358,7 @@ $legend-font-weight: null;
 
 // Marks
 $mark-padding: .2em;
-$mark-bg:  #fcf8e3;
+$mark-bg:  change-color($orange, $alpha: 0.5);
 
 // Definition terms
 $dt-font-weight: $font-weight-bold;
