@@ -24,3 +24,20 @@ blockquote {
 var { color: $code-color; }
 
 video, img { @include fluid-media; }
+
+mark, .yellow-highlighter {
+	position: relative;
+	background-color: transparent;
+  
+  &::before {
+    content: "";
+    background: transparent url("/assets/png/highlighter.png") repeat-x;
+    background-size: cover;
+    position: absolute;
+    top: 0px;
+    right: 0px;
+    bottom: 0px;
+    left: 0px;
+    opacity: 0.25;
+  }
+}
