@@ -81,19 +81,16 @@ body {
       place-items: center;
       gap: 1rem;
       
-      a:first-child {
-        grid-area: left-arrow;
-        justify-self: end;
+      a {
+        color: currentcolor;
+        &:hover { color: $link-hover-color; }        
+        &:first-child { grid-area: left-arrow; justify-self: end; }
+        &:last-child { grid-area: right-arrow; justify-self: start; }
       }
-      
+            
       #label {
         grid-area: label;
         margin-top: -0.525ex;
-      }
-      
-      a:last-child {
-        grid-area: right-arrow;
-        justify-self: start;
       }
       
     }
