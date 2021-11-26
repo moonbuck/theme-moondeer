@@ -88,7 +88,7 @@ $body-bg: $white;
 $body-color: $dove-gray;
 
 /// General links
-$link-color: $silver;
+$link-color: $tundora;
 $link-hover-color: $black;
 $link-decoration: none;
 $link-hover-decoration: none;
@@ -104,15 +104,6 @@ $np-cat-link-col: $np-link-col;
 $np-cat-link-hov-col: $np-link-hov-col;
 $np-cat-link-weight: light;
 $np-cat-link-style: italic;
-
-/// Footer links
-$footer-link-col-l: $white-smoke;
-$footer-link-col-d: $tundora;
-$footer-link-col: $footer-link-col-d;
-
-$footer-link-hov-col-d: $link-hover-color;
-$footer-link-hov-col-l: $orange;
-$footer-link-hov-col: $footer-link-hov-col-d;
 
 /// Main nav links
 
@@ -164,37 +155,8 @@ $header-bg: $header-bg-d;
 $main-bg: $white;
 
 /// Page footer
-// Footer background color
-$footer-bg-l: $white;
-$footer-bg-d: $primary;
-$footer-bg: $footer-bg-l;
-
-// Footer color
-$footer-col-l: $white;
-$footer-col-d: $primary;
-$footer-col: $footer-col-d;
-
-// Copyright color
-$copyright-col-l: $celery;
-$copyright-col-d: $primary;
-$copyright-col: $copyright-col-d;
-
-/// Post meta
-
-// Avatar link
-$pm-avatar-size: 96px;
-$pm-avatar-shad: 0 0 0 3px $white, 0 0 0 4px $gallery;
-
-// Name link
-$pm-name-font-size: inherit;
-$pm-name-col: currentcolor;
-$pm-name-hov-col: $link-hover-color;
-
-// Username link
-$pm-username-font-size: inherit;
-$pm-username-col: currentcolor;
-$pm-username-hov-col: $link-hover-color;
-
+$footer-bg: $white;
+$footer-col: $primary;
 
 /// Breakpoints
 $grid-breakpoints: (

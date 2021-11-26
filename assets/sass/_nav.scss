@@ -1,7 +1,7 @@
 // Pagination 
 nav.pagination {
-  @include hstack($justify: space-between);
-  margin: 1rem auto 1rem auto;
+  @include flex-row(space-between, baseline, normal);
+  margin: 1rem auto;
   color: $pagination-color;  
 }
 
@@ -10,33 +10,25 @@ nav#next-prev {
   display: grid;
   grid-template-columns: 100px auto 100px;
   grid-template-areas: "next categories prev";
-  margin: 2em 0;
-  // width: 350px;
-
-  @include media-breakpoint-up(sm) { width: 100%; }
+  margin: 1rem 0;
   
-  span {
+  a {
     align-self: center;
+    @include eaves-font($np-link-weight, $np-link-style);
+    color: $np-link-col;
+    
+    &:hover { color: $np-link-hov-col; }
     
     &#next { grid-area: next; justify-self: start; }
     
     &#prev { grid-area: prev; justify-self: end; }
     
-    a {
-      @include eaves-font($np-link-weight, $np-link-style);
-      color: $np-link-col;
-      &:hover { color: $np-link-hov-col; }
-    }
+  }
     
-  } // span
-  
   nav#category-list {
     grid-area: categories;
     max-width: 100%;
-    @include hstack(wrap, 
-                    $justify: center, 
-                    $align: baseline, 
-                    $gap: 0.25rem);
+    @include flex-row(center, baseline, 0.25rem, wrap);
     place-self: center;
     line-height: $line-height-sm;
       
@@ -72,7 +64,7 @@ nav#next-prev {
 // Main nav
 nav#main-nav {
   padding: 1rem 1rem 0.25rem 1rem;
-  @include hstack($wrap: wrap, $justify: flex-end, $gap: 0 20px);
+  @include flex-row(flex-end, stretch, 0 20px, wrap);
   
   a.main-nav-link {
     padding: $mnl-pad-y $mnl-pad-x;

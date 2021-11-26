@@ -5,11 +5,9 @@
 
 <nav id="next-prev" role="navigation">
 
-<span id="next">
 {{- with $newer -}}
-<a id="newer" href="{{ .Permalink }}">← Newer</a>
+<a id="next" href="{{ .Permalink }}">← Newer</a>
 {{- end -}}
-</span>
 
 {{- if (and .current .current.Params.categories) -}}
 
@@ -17,11 +15,9 @@
 
 {{- end -}}
 
-<span id="prev">
 {{- with $older -}}
-<a id="older" href="{{ .Permalink }}">Older →</a>
+<a id="prev" href="{{ .Permalink }}">Older →</a>
 {{- end -}}
-</span>
 
 </nav>
 

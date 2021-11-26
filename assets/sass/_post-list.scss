@@ -3,14 +3,11 @@ ul#post-list {
   @include list-unstyled;
       
   > li {
-    @include border(bottom, 1px, 1rem);
-    padding-top: 1rem;
-    
-    &:first-child { padding-top: 0; }
-    &:last-child { border-bottom: none; }
+    &:not(:first-child) { padding-top: 1rem; }
+    &:not(:last-child) { @include border(bottom, 1px, 1rem); }
     
     article {
-      @include vstack($gap: 0.5rem);
+      @include flex-column(flex-start, stretch, 0.5rem);
       
       header > h2 > a {                
         color: $headings-color;
@@ -18,7 +15,7 @@ ul#post-list {
       }
           
       section {
-        @include vstack($gap: 0.5rem);        
+        @include flex-column(flex-start, stretch, 0.5rem);        
         > a.read-more { text-decoration: underline; }
       }
       

@@ -105,8 +105,14 @@
   border-radius: 50%;
 }
 
+// Adds a pair of box-shadows to create a border matte
+@mixin matte($width: 3px, $color: $white, $shadow-color: $gallery) {
+  box-shadow: 0 0 0 $width $color, 
+              0 0 0 ($width + 1) $shadow-color;
+}
+
 // Creates a flex-box stack
-@mixin stack($direction: row,
+@mixin flex($direction: row,
              $wrap: nowrap,
              $justify: flex-start,
              $align: stretch,
@@ -124,21 +130,13 @@
 }
 
 // Creates a vertical flex-box stack
-@mixin vstack($wrap: nowrap,
-              $justify: stretch,
-              $align: stretch,
-              $gap: normal)
-{
-  @include stack(column, $wrap, $justify, $align, $gap);
+@mixin flex-column($justify, $align, $gap: normal, $wrap: nowrap) {
+  @include flex(column, $wrap, $justify, $align, $gap);
 }
 
 // Creates a horizontal flex-box stack
-@mixin hstack($wrap: nowrap,
-              $justify: stretch,
-              $align: stretch,
-              $gap: normal)
-{
-  @include stack(row, $wrap, $justify, $align, $gap);
+@mixin flex-row($justify, $align, $gap: normal, $wrap: nowrap) {
+  @include flex(row, $wrap, $justify, $align, $gap);
 }
 
 // Zero out margin and add padding

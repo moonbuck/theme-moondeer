@@ -1,5 +1,5 @@
 .type-post article#post { 
-  @include vstack;
+  @include flex-column(flex-start, stretch, 0.25rem);
   
   header { 
     text-align: center;           
@@ -8,9 +8,21 @@
   
   section#post-body {
     flex-grow: 2;
-    @include vstack($justify: flex-start, 
-                    $align: center, 
-                    $gap: 0.25rem);
+    @include flex-column(flex-start, center, 0.25rem);
   }
+
+  footer#post-meta {
+    @include flex-row(stretch, stretch, 0 20px);
+    @include border(top bottom, 1px, 15px);
+    margin: 1rem 0;
+          
+    div { @include flex-column(stretch, stretch, normal); }
+    
+    img#avatar { 
+      @include circle(64px); 
+      @include matte;
+    }
+    
+  } // footer#post-meta
   
 }

@@ -50,30 +50,28 @@ body {
   /* Page Main */
   > main { 
     grid-area: main;
-    background: var(--md-main-bg);
+    background: $main-bg;
   }
   
   /* Page Footer */
   > footer { 
     grid-area: footer;
-    background: var(--md-footer-bg);
-    color: var(--md-footer-col);
+    background: $footer-bg;
+    color: $footer-col;
     
     // Create a vertical stack for footer components
-    @include vstack($gap: 1rem);
+    @include flex-column(flex-start, stretch, 1rem);
     
     // RSS/JSON Feeds and Email links
     > ul#feeds-email {
       @include list-unstyled;
-      @include hstack($align: baseline, $gap: 20px);      
+      @include flex-row(center, baseline, 20px);
+      
       a { 
         font-size: $small-font-size;
-        color: var(--md-footer-link-col);
-        &:hover { 
-          color: var(--md-footer-link-hov-col); 
-          text-decoration: underline;
-        }
-      }  
+        &:hover { text-decoration: underline; }
+      }
+      
     }
     
     #webring {
@@ -100,7 +98,7 @@ body {
       
     }
     
-    #copyright { color: var(--md-copyright-col); margin: 0 auto 1rem auto; }
+    #copyright { margin: 3rem auto; }
     
   }  
   
