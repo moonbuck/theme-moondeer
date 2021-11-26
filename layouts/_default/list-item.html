@@ -1,33 +1,35 @@
 <article>
-{{- if .Title -}}
   <header>
-    <h2 class="post-title">
-      <a href="{{ .Permalink }}">{{ .Title | markdownify }}</a>
-    </h2>
+  {{- with .Title }}<h2 class="post-title">{{ . | markdownify }}</h2>{{ end -}}
   </header>
-{{- end -}}
-
+  
   <section class="post-body">
-{{- if (or .Title (findRE `<!--more-->` .Content)) -}}
   
-   {{- .Summary -}}
-   
-  {{- if .Truncated -}}
+{{- if (findRE `<!--more-->` .Content) -}}
+
+  {{ $segments := split .Content "<!--more-->" }}
   
-  <p><a class="read-more" href="{{ .RelPermalink }}">Read More</a></p>
+  {{ index $segments 0 | safeHTML }}
   
-  {{- end -}}
+  {{- $read_more := and (gt (len $segments) 1) (len (index $segments 1))  }}
+  
+  {{- if $read_more }}{{ template "read-more" . }}{{ end -}}
+ 
+{{- else if .Title -}}
+
+  {{ .Summary }}
+  
+  {{- if .Truncated }}{{ template "read-more" . }}{{ end -}}  
   
 {{- else -}}
   
-  {{- .Content -}}
-  
+  {{ .Content }}
+
 {{- end -}}
-  
   </section>
   
-  {{- $datetime := .Date.Format site.Params.Theme.Date.DateTime -}}
-  {{- $time := .Date.Format site.Params.Theme.Date.TimeDay -}}
+{{- $datetime := .Date.Format site.Params.Theme.Date.DateTime -}}
+{{- $time := .Date.Format site.Params.Theme.Date.TimeDay -}}
   
   <footer>
   <a href="{{ .Permalink }}" class="u-url">
@@ -37,3 +39,7 @@
   </a>
   </footer>
 </article>
+
+{{ define "read-more" -}}
+<p><a class="read-more" href="{{ .RelPermalink }}">Read More</a></p>
+{{- end }}

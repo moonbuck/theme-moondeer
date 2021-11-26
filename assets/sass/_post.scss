@@ -1,27 +1,36 @@
-.type-post article#post { 
-  @include flex-column(flex-start, stretch, 0.25rem);
+.type-post article#post {
+  min-width: 100%;
+  max-width: 100%;
+  min-height: 100%;
+  
+  /// Post Grid
+  display: grid;
+  
+  // Three rows pushing header up and footer down
+  grid-template-rows: auto 1fr auto;
+  grid-template-columns: auto;
+  grid-template-areas: "header" "main" "footer";
   
   header { 
+    grid-area: header;
     text-align: center;           
     h2.headline { @include eaves-font(light); }  
   }
   
   section#post-body {
-    flex-grow: 2;
+    grid-area: main;
     @include flex-column(flex-start, center, 0.25rem);
   }
 
   footer#post-meta {
+    grid-area: footer;
     @include flex-row(stretch, stretch, 0 20px);
     @include border(top bottom, 1px, 15px);
     margin: 1rem 0;
           
     div { @include flex-column(stretch, stretch, normal); }
     
-    img#avatar { 
-      @include circle(64px); 
-      @include matte;
-    }
+    img#avatar { @include circle(64px); @include matte; }
     
   } // footer#post-meta
   
