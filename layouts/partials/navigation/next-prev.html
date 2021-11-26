@@ -3,10 +3,10 @@
 {{- $newer := .next -}}
 {{- $older := .previous -}}
 
-<nav id="next-prev" role="navigation">
+<nav id="next-prev-post" class="next-prev" role="navigation">
 
 {{- with $newer -}}
-<a id="next" href="{{ .Permalink }}">← Newer</a>
+<a class="newer" href="{{ .Permalink }}">Newer</a>
 {{- end -}}
 
 {{- if (and .current .current.Params.categories) -}}
@@ -16,7 +16,7 @@
 {{- end -}}
 
 {{- with $older -}}
-<a id="prev" href="{{ .Permalink }}">Older →</a>
+<a class="older" href="{{ .Permalink }}">Older</a>
 {{- end -}}
 
 </nav>

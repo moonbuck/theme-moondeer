@@ -11,16 +11,16 @@
 
 
 
-<nav class="pagination" role="navigation">
+<nav id="pagination" class="next-prev" role="navigation">
 
 {{- with $newer -}}
-<a class="newer-posts" href="{{ . }}">← Newer Posts</a>
+<a class="newer" href="{{ . }}">Newer Posts</a>
 {{- end -}}
 
-<span class="page-number">Page {{ .PageNumber }} of {{ .TotalPages }}</span>
+<span id="page-number">Page {{ .PageNumber }} of {{ .TotalPages }}</span>
 
 {{- with $older -}}
-<a class="older-posts" href="{{ . }}">Older Posts →</a>
+<a class="older" href="{{ . }}">Older Posts</a>
 {{- end -}}
 
 </nav>

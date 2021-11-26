@@ -1,65 +1,76 @@
-// Pagination 
-nav.pagination {
-  @include flex-row(space-between, baseline, normal);
-  margin: 1rem auto;
-  color: $pagination-color;  
-}
-
-// Next/Prev
-nav#next-prev {
-  display: grid;
-  grid-template-columns: 100px auto 100px;
-  grid-template-areas: "next categories prev";
-  margin: 1rem 0;
+/// Navigation for next/prev page/post
+nav.next-prev {
   
-  a {
-    align-self: center;
-    @include eaves-font($np-link-weight, $np-link-style);
-    color: $np-link-col;
+    display: grid;
+    grid-template-columns: minmax(100px, max-content) auto minmax(100px, max-content);
+    grid-template-areas: "newer inner older";
+    margin: 1rem 0;
     
-    &:hover { color: $np-link-hov-col; }
-    
-    &#next { grid-area: next; justify-self: start; }
-    
-    &#prev { grid-area: prev; justify-self: end; }
-    
-  }
-    
-  nav#category-list {
-    grid-area: categories;
-    max-width: 100%;
-    @include flex-row(center, baseline, 0.25rem, wrap);
-    place-self: center;
-    line-height: $line-height-sm;
+    a {
+      align-self: center;
+      @include eaves-font($np-link-weight, $np-link-style);
+      color: $np-link-col;
       
-    .category-link {
-      text-align: center;
-      @include eaves-font($np-cat-link-weight, $np-cat-link-style);
-      color: $np-cat-link-col;
+      &:hover { color: $np-link-hov-col; }
       
-      &:hover { color: $np-cat-link-hov-col; }
-            
-      &:not(:last-child)::after { content: " •"; }
-      
-      @include media-breakpoint-down(sm) {
-        &:first-child:nth-last-child(n + 3),
-        &:first-child:nth-last-child(n + 3) ~ * {
-          width: 100%;
-          &::after { content: ""; }
-        }
+      &.newer { 
+        grid-area: newer; 
+        justify-self: start;
         
+        &::before { content: "← "; }
       }
-    
-      @include media-breakpoint-up(sm) {
-        width: auto;
-        &:not(:last-child)::after { content: " •"; }
+      
+      &.older { 
+        grid-area: older; 
+        justify-self: end;
+        
+        &::after { content: " →"; }
       }
       
     }
+    
+    // Inner area for post pages
+    nav#category-list {
+      grid-area: inner;
+      max-width: 100%;
+      @include flex-row(center, baseline, 0.25rem, wrap);
+      place-self: center;
+      line-height: $line-height-sm;
+        
+      .category-link {
+        text-align: center;
+        @include eaves-font($np-cat-link-weight, $np-cat-link-style);
+        color: $np-cat-link-col;
+        
+        &:hover { color: $np-cat-link-hov-col; }
+              
+        &:not(:last-child)::after { content: " •"; }
+        
+        @include media-breakpoint-down(sm) {
+          &:first-child:nth-last-child(n + 3),
+          &:first-child:nth-last-child(n + 3) ~ * {
+            width: 100%;
+            &::after { content: ""; }
+          }
+          
+        }
+      
+        @include media-breakpoint-up(sm) {
+          width: auto;
+          &:not(:last-child)::after { content: " •"; }
+        }
+        
+      }
   
-  } // nav#category-list
-  
-} // nav#next-prev
+    } // nav#category-list
+    
+    // Inner area for list pagination
+    span#page-number {
+      grid-area: inner;
+      place-self: center;
+      color: $pagination-color;
+    }
+}
 
 // Main nav
 nav#main-nav {
