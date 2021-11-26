@@ -31,10 +31,7 @@
   #brief-bio { 
     text-align: justify;
     color: $black;
-    @include eaves-font(light, italic);
-    @include media-breakpoint-up(sm) {
-      font-weight: map-get($eaves-font-weights, book);
-    }
+    @include eaves-font(book, italic);
   }
 
 }

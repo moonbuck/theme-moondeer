@@ -134,7 +134,7 @@
 
 // Creates a horizontal flex-box stack
 @mixin hstack($wrap: nowrap,
-              $justify: center,
+              $justify: stretch,
               $align: stretch,
               $gap: normal)
 {
