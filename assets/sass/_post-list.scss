@@ -16,7 +16,7 @@ ul#post-list {
           
       section {
         @include flex-column(flex-start, stretch, 0.5rem);        
-        > a.read-more { text-decoration: underline; }
+        a.read-more { text-decoration: underline; }
       }
       
       footer > a {            

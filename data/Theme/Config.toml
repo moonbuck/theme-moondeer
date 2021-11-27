@@ -1,0 +1,7 @@
+ThemeVersion = "v166"
+VisibleThemeVersion = "test"
+TemplateComments = true
+IncludeDisqus = false
+IncludeConversation = true
+CSSPriority = "theme"
+SummarizeTitledPosts = false

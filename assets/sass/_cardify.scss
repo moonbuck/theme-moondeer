@@ -1,0 +1,19 @@
+.cardify-card {
+  
+  .card-img-top {}
+  
+  .card-title {}
+  
+  .card-text {
+    
+    &:last-child {
+      @include flex-row(space-between, stretch, normal);
+      
+      .reading-time {}
+    
+      .publish-date {}
+    }
+    
+  }
+  
+}

@@ -1,22 +1,68 @@
-{{ with .Get 0 }}
+{{- /*
+ 
+  Expects the address of a post for which a card shall be generated.
+ 
+  */ -}}
+{{- with .Get 0 -}}
+
+{{/* Retrieve the page from the provided path */}}
   {{ with $.Site.GetPage . }}
-  <a class="post-card" href="{{ .Permalink }}">
-    <header class="post-card-header">
-      {{ with .Params.images }}
-    <img class="post-card-image" src="{{ index . 0 }}" />
-      {{ end }}
-      {{ if gt (len .LinkTitle) 0 }}
-      <h3 class="post-card-title">{{ .LinkTitle }}</h3>
-      {{ end }}
-     </header>
-     <p class="post-card-summary">{{ plainify .Summary | truncate 70 }}</p>
-     <footer class="post-card-footer">
-        <div class="post-card-reading-time">
-          <h4>reading time</h4>
-          <span>{{ printf "%v minute" .ReadingTime }}{{ if gt 1 .ReadingTime }}{{ printf "s" }}{{ end }}</span>
-        </div>
-        <span class="post-card-publish-date">{{ .PublishDate.Format "2 Jan 2006"}}</span>
-     </footer>
-  </a>
-  {{ end }}
-  {{ end }}
+  
+  {{/* Grab the first available image */}}
+  {{- $image := false -}}
+  {{- with .Params.images }}{{ $image = index . 0 }}{{ end -}}
+
+  {{/* Grab the page title */}}
+  {{- $title := .LinkTitle -}}
+  
+  {{/* Generate a summary */}}
+  {{- $summary := false -}}
+  {{- if (findRE "<!--more-->" .Content) -}}
+  {{- $summary = index (split .Content "<!--more-->") 0 -}}
+  {{- else -}}
+  {{- $summary = .Summary -}}
+  {{- end -}}
+  
+  {{/* If we have an image, make sure it isn't in the summary */}}
+  {{- if (and $image $summary) -}}
+  
+    {{- $pattern := printf "<img src=\"%s\"[^>]*>" $image -}}
+    {{- $image_tag := findRE $pattern $summary -}}
+  
+    {{- if $image_tag -}}
+      {{- $image_tag = index $image_tag 0 -}}
+      {{- $summary = replaceRE $image_tag "" $summary -}}
+    {{- end -}}
+  
+  {{- end -}}
+  
+  {{/* Insert the card-text class into summary p tags */}}
+  {{- if $summary -}}
+    {{- $summary = replace $summary "<p>" "<p class=\"card-text\">" -}}
+  {{- end -}}
+  
+  {{/* Grab the estimated reading time for the post */}}
+  {{- $reading_time := printf "%v minute" .ReadingTime -}}
+  {{- if (gt .ReadingTime 1) -}}
+  {{- $reading_time = printf "%ss" $reading_time -}}
+  {{- end -}}
+  
+  {{/* Grab the publish date for the post */}}
+  {{- $publish_date := .PublishDate.Format site.Params.Theme.Date.Card -}}
+ 
+  <div class="card cardify-card">
+    {{ with $image }}<img src="{{ . }}" class="card-img-top" />{{ end }}
+    <div class="card-body">
+      {{ with $title }}<h3 class="card-title">{{ . }}</h3>{{ end }}
+      {{ $summary | safeHTML }}
+      <a href="{{ .Permalink }}" class="stretched-link"></a>
+      <p class="card-text">
+        <small class="reading-time text-muted">reading time <span>{{ $reading_time }}</span></small>
+        <small><span class="publish-date">{{ $publish_date }}</span></small>
+      </p>
+    </div>
+  </div>
+  
+  {{- end -}}
+  
+{{- end -}}
