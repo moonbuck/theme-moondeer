@@ -51,8 +51,11 @@ body {
   > main { 
     grid-area: main;
     background: $main-bg;
-    word-break: normal;
-    overflow-wrap: break-word;
+    
+    p {
+      word-break: normal;
+      overflow-wrap: break-word;
+    }
   }
   
   /* Page Footer */

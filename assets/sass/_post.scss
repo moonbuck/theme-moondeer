@@ -8,7 +8,7 @@
   
   // Three rows pushing header up and footer down
   grid-template-rows: auto 1fr auto;
-  grid-template-columns: auto;
+  grid-template-columns: 100%;
   grid-template-areas: "header" "main" "footer";
   
   header { 
