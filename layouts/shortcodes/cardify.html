@@ -55,7 +55,7 @@
     <div class="card-body">
       {{ with $title }}<h3 class="card-title">{{ . }}</h3>{{ end }}
       {{ $summary | safeHTML }}
-      <a href="{{ .Permalink }}" class="stretched-link"></a>
+      <a href="{{ .Permalink }}" class="stretched-link cardify-link"></a>
       <p class="card-text">
         <small class="reading-time text-muted">reading time <span>{{ $reading_time }}</span></small>
         <small><span class="publish-date">{{ $publish_date }}</span></small>

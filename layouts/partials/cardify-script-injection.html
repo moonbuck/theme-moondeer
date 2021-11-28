@@ -1,4 +1,4 @@
 {{- $template := resources.Get "js/cardify.js" -}}
 {{- $script := $template | resources.ExecuteAsTemplate "cardify.js" . | resources.Fingerprint -}}
 
-<script defer type="text/javascript" src="{{ $script.Permalink }}"></script>
+<script type="text/javascript" src="{{ $script.Permalink }}"></script>
