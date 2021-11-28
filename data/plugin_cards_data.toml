@@ -1,4 +1,6 @@
 TwitterUsername = "moondeerdotblog"
+QueryCards = true
+HostMatchCards = true
 default = "https://moondeer.blog/uploads/2021/7c412827ad.jpg"
 "/plausible/" = "https://moondeer.blog/uploads/2021/e71e7d47c1.jpg"
 "/2021/" = "https://moondeer.blog/uploads/2021/98295e13a8.jpg"

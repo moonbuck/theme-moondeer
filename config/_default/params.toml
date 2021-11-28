@@ -1,5 +1,5 @@
 [Theme]
-ThemeVersion = "v170"
+ThemeVersion = "v171"
 VisibleThemeVersion = "test"
 TemplateComments = true
 IncludeDisqus = false
@@ -27,7 +27,3 @@ TargetDirectory = "assets/css"
 OutputStyle = "nested"
 EnableSourceMap = false
 Fingerprint = true
-
-[Theme.Cardify]
-QueryCards = true
-HostMatchCards = true

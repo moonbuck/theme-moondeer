@@ -36,8 +36,6 @@
 {{/* Inject unprefixed plugin HTML includes */}}
 {{- partial "plugins/html-injection.html" (slice .) }}
 
-{{- partial "cardify-script-injection.html" -}}
-
 {{/* Create a block for including any additional head elements */}}
 {{- block "head" . }}{{ end }}
 
