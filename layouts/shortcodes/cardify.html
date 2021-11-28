@@ -6,7 +6,7 @@
 {{- with .Get 0 -}}
 
 {{/* Retrieve the page from the provided path */}}
-  {{ with $.Site.GetPage . }}
+  {{ with site.GetPage . }}
   
   {{/* Grab the first available image */}}
   {{- $image := false -}}

@@ -1,11 +1,11 @@
 [Theme]
-ThemeVersion = "v168"
+ThemeVersion = "v169"
 VisibleThemeVersion = "test"
 TemplateComments = true
 IncludeDisqus = false
 IncludeConversation = true
 CSSPriority = "theme"
-SummarizeTitledPosts = false
+SummarizeTitledPosts = true
 
 [Theme.Date]
 ShortNames = "Mon, 02 Jan 2006 15:04:05 -0700"
@@ -27,3 +27,7 @@ TargetDirectory = "assets/css"
 OutputStyle = "nested"
 EnableSourceMap = false
 Fingerprint = true
+
+[Theme.Cardify]
+QueryCards = true
+HostMatchCards = true

@@ -11,7 +11,10 @@
       
       .reading-time {}
     
-      .publish-date {}
+      .publish-date {
+        display: none;
+        @include media-breakpoint-up(sm) { display: initial; }
+      }
     }
     
   }

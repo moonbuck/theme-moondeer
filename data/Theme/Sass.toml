@@ -1,4 +1,0 @@
-TargetDirectory = "assets/css"
-OutputStyle = "nested"
-EnableSourceMap = false
-Fingerprint = true
