@@ -1,7 +1,9 @@
-TwitterUsername = "moondeerdotblog"
-QueryCards = true
-HostMatchCards = true
+# Default image when the page has no image and there is not another match
+#default = 'path-to-my-default-image'
 default = "https://moondeer.blog/uploads/2021/7c412827ad.jpg"
+
+# Path entries for non-post pages
+# '/category/my-category/' = 'path-to-my-image'
 "/plausible/" = "https://moondeer.blog/uploads/2021/e71e7d47c1.jpg"
 "/2021/" = "https://moondeer.blog/uploads/2021/98295e13a8.jpg"
 "/2020/" = "https://moondeer.blog/uploads/2021/24760a1062.jpg"
