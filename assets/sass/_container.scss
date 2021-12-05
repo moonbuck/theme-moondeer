@@ -53,7 +53,7 @@ body {
     background: $main-bg;
     
     #programmable-search-engine-container {
-      @include flex-row(flex-end);
+      @include flex-row(flex-end, stretch, normal);
       input {
         flex-grow: 1;
       }

@@ -4,7 +4,7 @@ nav.next-prev {
     display: grid;
     grid-template-columns: minmax(100px, max-content) auto minmax(100px, max-content);
     grid-template-areas: "newer inner older";
-    margin: 1rem 0;
+    margin: 1rem;
     
     a {
       align-self: center;
@@ -69,7 +69,7 @@ nav.next-prev {
       grid-area: inner;
       place-self: center;
       color: $pagination-color;
-      
+
       span#total::before { content: " / "; }
       
       @include media-breakpoint-up(sm) {
@@ -83,6 +83,7 @@ nav.next-prev {
         }
         
       }
+
     }
 }
 
@@ -90,7 +91,8 @@ nav.next-prev {
 nav#main-nav {
   padding: 1rem;
   @include flex-row(flex-end, baseline, 0.25em 0.5em, wrap);
-  
+  font-size: $mnl-font-size;
+
   a.main-nav-link {
     padding: $mnl-pad-y $mnl-pad-x;
     font-size: $mnl-font-size;
@@ -106,9 +108,5 @@ nav#main-nav {
     &.selected { box-shadow: var(--md-mnl-sel-shad); }
     
   } // a
-  
-  #programmable-search-engine-container {
-    font-size: $mnl-font-size;
-  }
   
 } // nav
