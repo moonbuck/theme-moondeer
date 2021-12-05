@@ -52,6 +52,13 @@ body {
     grid-area: main;
     background: $main-bg;
     
+    #programmable-search-engine-container {
+      @include flex-row(flex-end);
+      input {
+        flex-grow: 1;
+      }
+    }
+    
     p {
       word-break: normal;
       overflow-wrap: break-word;

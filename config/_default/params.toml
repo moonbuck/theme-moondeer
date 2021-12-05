@@ -1,11 +1,12 @@
 [Theme]
-ThemeVersion = "v172"
+ThemeVersion = "v173"
 VisibleThemeVersion = "test"
 TemplateComments = true
 IncludeDisqus = false
 IncludeConversation = true
 CSSPriority = "theme"
 SummarizeTitledPosts = true
+DebugConsole = false
 
 [Theme.Date]
 ShortNames = "Mon, 02 Jan 2006 15:04:05 -0700"

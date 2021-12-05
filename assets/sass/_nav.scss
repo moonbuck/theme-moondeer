@@ -69,13 +69,27 @@ nav.next-prev {
       grid-area: inner;
       place-self: center;
       color: $pagination-color;
+      
+      span#total::before { content: " / "; }
+      
+      @include media-breakpoint-up(sm) {
+        
+        span#page::before {
+          content: "Page "
+        }
+        
+        span#total::before {
+          content: " of "
+        }
+        
+      }
     }
 }
 
 // Main nav
 nav#main-nav {
-  padding: 1rem 1rem 0.25rem 1rem;
-  @include flex-row(flex-end, stretch, 0 20px, wrap);
+  padding: 1rem;
+  @include flex-row(flex-end, baseline, 0.25em 0.5em, wrap);
   
   a.main-nav-link {
     padding: $mnl-pad-y $mnl-pad-x;
@@ -92,5 +106,9 @@ nav#main-nav {
     &.selected { box-shadow: var(--md-mnl-sel-shad); }
     
   } // a
+  
+  #programmable-search-engine-container {
+    font-size: $mnl-font-size;
+  }
   
 } // nav

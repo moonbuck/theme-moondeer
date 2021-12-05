@@ -18,14 +18,16 @@
   </section>
   
   {{- partial "post-meta.html" . -}}
+  
+  {{- partial "plugins/conversation.html" . -}}
+
+  {{- partial "plugins/disqus.html" -}}
+
 </article>
 
 {{- $params := dict "next" .NextInSection "current" . "previous" .PrevInSection -}}
 
 {{- partial "navigation/next-prev.html" $params -}}
 
-{{- partial "plugins/conversation.html" . -}}
-
-{{- partial "plugins/disqus.html" -}}
 
 {{- end -}}

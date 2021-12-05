@@ -1,0 +1,265 @@
+# The search engine identifier
+#
+CX = "f4b9ece1e50134632"
+
+# The search engine API key
+#
+APIKey = "AIzaSyCt-f_3al4TvkCEX-Ety0ygzP4evioFKEs"
+
+# Parameters for controlling the generated css and js files
+#
+[Build]
+
+# Whether to provide subresource integrity by generating a 
+# base64-encoded cryptographic hash and attaching a .Data.Integrity
+# property containing an integrity string, which is made up of the
+# name of the hash function, one hyphen and the base64-encoded hash sum.
+#
+Fingerprint = true
+
+# Output style for /assets/sass/cardify.scss. 
+# Valid options are nested, expanded, compact and compressed
+#
+SassOutput = 'nested'
+
+# Whether to minify the Javascript file generated from
+# /assets/js/cardify.js
+#
+MinifyScript = false
+
+# Parameters controlling the search bar injection and style
+[SearchBar]
+
+# The ID of the element that will serve as the parent of the 
+# search bar injected via Javascript
+#
+ContainerID = 'pse-container'
+
+[SearchBar.Input]
+
+# The height to set for the input field
+#
+Height = 'auto'
+
+# The width to set for the input field
+#
+Width = '300px'
+
+# The color of text within the input field
+#
+Color = 'black'
+
+# Configuring the input placeholder text
+[SearchBar.Input.Placeholder]
+
+# The placeholder text displayed when the input field is empty
+#
+Text = 'query the mind of moondeer'
+
+# The color of the placeholder text
+#
+Color = 'darkgray'
+
+# Transition values for collapsing and expanding
+[SearchBar.Input.Transition]
+
+# The duration to use when collapsing and expanding the search field
+#
+Duration = '.35s'
+
+# The time function to use when collapsing and expanding the search field
+#
+TimingFunction = 'ease'
+
+# Input field padding values
+[SearchBar.Input.Padding]
+
+# The vertical padding to set on the input field
+#
+Y = '0'
+
+# The horizontal padding to set on the input field
+#
+X = '0.5em'
+
+# Styling the input border
+[SearchBar.Input.Border]
+
+# The border radius value to set on the input field
+#
+Radius = '1em'
+
+# The border style to set on the input field
+#
+Style = 'solid'
+
+# The border color to set on the input field
+#
+Color = 'rgba(0,0,0,0.125)'
+
+# The border width to set on the input field
+#
+Width = '1px'
+
+# Styling the magnifying glass icon
+[SearchBar.Button]
+
+# The color to set for the magnifying glass when the input is collapsed
+#
+Color = 'lightgray'
+
+[SearchBar.Button.Padding]
+
+# The horizontal padding to set on the icon
+#
+X = '0.25em'
+
+# The vertical padding to set on the icon
+#
+Y = '0'
+
+# Styling the results overlay
+[ResultsOverlay]
+
+# The text color to set on the overlay element
+#
+Color = 'currentcolor'
+
+[ResultsOverlay.Font]
+# The font size to set on the overlay element
+#
+Size = '1rem'
+
+# Styling the overlay background
+[ResultsOverlay.BG]
+
+# The base background color
+#
+Color = 'rgba(255,255,255,1)'
+
+#Styling the header element of the results overlay
+[ResultsOverlay.Header]
+
+# The color for header text
+#
+Color = 'currentcolor'
+
+# Styling the font used in the results overlay header
+[ResultsOverlay.Header.Font]
+
+# The font size to set for the results overlay header
+#
+Size = 'inherit'
+
+# The font weight to set for the results overlay header
+#
+Weight = 'inherit'
+
+# The font style to set for the results overlay header
+#
+Style = 'inherit'
+
+# Styling the portion of the results overlay header containing 
+# the search terms
+[ResultsOverlay.Header.Terms]
+
+# The text color for the search terms
+#
+Color = 'currentcolor'
+
+# Styling the font used for the results overlay header search terms
+[ResultsOverlay.Header.Terms.Font]
+
+# The font size to set for the search terms
+#
+Size = 'inherit'
+
+# The font weight to set for the search terms
+#
+Weight = 'inherit'
+
+# The font style to set for the search terms
+#
+Style = 'italic'
+
+# Styling the previous / next links in the results overlay footer
+[ResultsOverlay.Link]
+
+# The text color for the previous / next links
+#
+Color = '#646386'
+
+# The text decoration for the previous / next links
+#
+TextDecoration = 'none'
+
+# Styling the previous / next links in the results overlay footer
+# when they are being hovered
+[ResultsOverlay.Link.Hover]
+
+# The text color for the previous / next links when hovering
+#
+Color = "scale-color($results-overlay-link-color, $lightness: 10%)"
+
+# The text decoration for the previous / next links when hovering
+#
+TextDecoration = 'underline'
+
+# Styling the result item title links
+[ResultsOverlay.Item.Title]
+
+# The text color for item title links
+#
+Color = "$results-overlay-link-color"
+
+# The text decoration for the item title links
+#
+TextDecoration = '$results-overlay-link-text-decoration'
+
+# Styling the result item title links
+[ResultsOverlay.Item.Title.Hover]
+
+# the text color for item title links when hovering
+#
+Color = "$results-overlay-link-hover-color"
+
+# The text decoration for the item title links when hovering
+#
+TextDecoration = '$results-overlay-link-hover-text-decoration'
+
+# Styling the item title font
+[ResultsOverlay.Item.Title.Font]
+
+# The font size to set for item title links
+#
+Size = 'inherit'
+
+# The font weight to set for item title links
+#
+Weight = 'inherit'
+
+# The font style to set for item title links
+#
+Style = 'inherit'
+
+# Styling the result item snippet
+[ResultsOverlay.Item.Snippet]
+
+# The text color for result item snippets
+#
+Color = 'currentcolor'
+
+# Styling result item snippet font
+[ResultsOverlay.Item.Snippet.Font]
+
+# The font size for result item snippets
+#
+Size = 'inherit'
+
+# The font weight for result item snippets
+#
+Weight = 'inherit'
+
+# The font style for result item snippets
+#
+Style = 'inherit'
