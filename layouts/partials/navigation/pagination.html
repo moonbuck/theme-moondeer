@@ -17,7 +17,7 @@
 <a class="newer" href="{{ . }}">Newer Posts</a>
 {{- end -}}
 
-<span id="page-number">Page <span id="page">{{ .PageNumber }}</span> of <span id="total">{{ .TotalPages }}</span></span>
+<span id="page-number"><span id="page">{{ .PageNumber }}</span><span id="total">{{ .TotalPages }}</span></span>
 
 {{- with $older -}}
 <a class="older" href="{{ . }}">Older Posts</a>
