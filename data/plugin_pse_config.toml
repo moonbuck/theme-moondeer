@@ -37,6 +37,14 @@ ContainerID = 'pse-container'
 
 [SearchBar.Input]
 
+# Whether the input field of the search bar is collapsible.
+#
+Collapsible = true
+
+# Whether the input field is initially expanded or collapsed
+#
+InitialState = 'collapsed'
+
 # The height to set for the input field
 #
 Height = 'auto'

@@ -1,3 +1,4 @@
 {{- $version := site.Params.Theme.ThemeVersion -}}
-{{- $comment := printf "theme: Moondeer %s" $version -}}
+{{- $time := now.Format "Jan 2 at 15:04 MST" -}}
+{{- $comment := printf "theme: Moondeer %s (built on %s)" $version $time -}}
 {{- partial "comment.html" $comment -}}
