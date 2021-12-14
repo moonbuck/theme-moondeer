@@ -19,7 +19,7 @@
   
   section#post-body {
     grid-area: main;
-    @include flex-column(flex-start, center, 0.25rem);
+    @include flex-column(flex-start, stretch, 0.25rem);
   }
 
   footer#post-meta {
