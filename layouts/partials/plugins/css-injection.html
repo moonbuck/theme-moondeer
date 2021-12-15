@@ -2,7 +2,7 @@
   This partial expects to receive the page context (aka the dot).
   */ -}}
 {{- if templates.Exists "partials/plugin-precision-injection/inject.html" -}}
-{{ partial "plugin-precision-injection.html" (dict "link" "stylesheets" "context" .) }}
+{{ partial "plugin-precision-injection/inject.html" (dict "link" "stylesheets" "context" .) }}
 {{- else -}}
 {{- range site.Params.plugins_css -}}
 <link rel="stylesheet" href="{{ . }}" />
