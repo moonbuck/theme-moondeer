@@ -2,6 +2,10 @@
 # plugin-cards config file
 ######################################################################
 
+# Whether to include HTML comments with debugging information
+#
+DebugPrint = true
+
 # Twitter and Open Graph <meta> tag configuration
 #################################################
 [TwitterOG]
@@ -122,7 +126,7 @@ QueryMatchOverridesFilter = true
 # may be eligible for preview card replacement depending on how 
 # the Card.HostMatch parameters have been configured.
 #
-HostMatch = false
+HostMatch = true
 
 # Parameters for preview cards created automatically when the link 
 # points to another page of the Hugo generated site.
@@ -243,9 +247,9 @@ Fingerprint = true
 # Output style for /assets/sass/cardify.scss. 
 # Valid options are nested, expanded, compact and compressed
 #
-SassOutput = 'compressed'
+SassOutput = 'nested'
 
 # Whether to minify the Javascript file generated from
 # /assets/js/cardify.js
 #
-MinifyScript = true
+MinifyScript = false
