@@ -6,7 +6,7 @@
 {{- if (and (reflect.IsSlice .) (eq (len .) 2)) -}}
 {{- if templates.Exists "partials/plugin-precision-injection/inject.html" -}}
 {{ partial "plugin-precision-injection/inject.html" (dict "location" (index . 0) "context" (index . 1)) }}  
-{{- else if (not (index . 0) -}}
+{{- else if (not (index . 0)) -}}
 {{- range site.Params.plugin_html -}}
 {{ partial . $.context }}
 {{- end -}}
