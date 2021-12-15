@@ -1,23 +1,9 @@
 HTMLComments = true
-DefaultLocation = "DEFAULT"
+DebugPrint = true
 
-[InjectionLocations]
+[Locations]
 HEAD_TOP = [ "google-tag-manager-head-script.html" ]
 ABOVE_HEADER = [ "google-tag-manager-header-script.html" ]
-BELOW_HEADER = []
-FOOTER = []
-BELOW_FOOTER = []
-DEFAULT = [
-  "glightbox-injection.html",
-  "prism-injection.html",
-  "favicons.html",
-  "plausible-analytics-script.html",
-  "structured-data-injection.html",
-  "webmention-links.html",
-  "category-cloud-style.html",
-  "twitter-open-graph-cards.html",
-  "head/social-media-links.html"
-]
 
 [Filters]
 "category-cloud-style.html" = [ "/cloud/" ]

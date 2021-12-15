@@ -1,14 +1,10 @@
-{{- if templates.Exists "partials/plugin-precision-injection.html" -}}
-
-  {{- $params := dict "link" "stylesheets" "context" . -}}
-  {{- partial "plugin-precision-injection.html" $params -}}
-
+{{- /*
+  This partial expects to receive the page context (aka the dot).
+  */ -}}
+{{- if templates.Exists "partials/plugin-precision-injection/inject.html" -}}
+{{ partial "plugin-precision-injection.html" (dict "link" "stylesheets" "context" .) }}
 {{- else -}}
-
-  {{- range site.Params.plugins_css -}}
-
+{{- range site.Params.plugins_css -}}
 <link rel="stylesheet" href="{{ . }}" />
-
-  {{- end -}}
-
 {{- end -}}
+{{- end }}

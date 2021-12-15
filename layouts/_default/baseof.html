@@ -34,7 +34,7 @@
 {{- partial "head/stylesheets.html" . }}
 
 {{/* Inject unprefixed plugin HTML includes */}}
-{{- partial "plugins/html-injection.html" (slice .) }}
+{{- partial "plugins/html-injection.html" (slice "" .) }}
 
 {{/* Create a block for including any additional head elements */}}
 {{- block "head" . }}{{ end }}
