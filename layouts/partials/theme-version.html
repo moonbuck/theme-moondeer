@@ -2,7 +2,7 @@
 
 {{- $is_test := in (site.BaseURL | string) "test" -}}
 {{- $version := site.Params.Theme.ThemeVersion -}}
-{{- $time := now.Format "Jan 2 at 15:04 MST" -}}
+{{- $time := (time (sub now.Unix 28800)).Format "Jan 2 at 15:04" -}}
 {{- $text := printf "Moondeer %s (built on %s)" $version $time -}}
 
 {{- /* If not equal to 'test' than it must be 'true' */ -}}
