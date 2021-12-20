@@ -9,6 +9,13 @@
 {{/* Include the theme version */}}
 {{- partial "head/theme-version" }}
 
+{{- if site.Params.Theme.DebugConsole -}}
+
+<script src="/assets/js/console.js"></script>
+
+{{- end -}}
+
+
 {{/* Support injection of plugin html up top */}}
 {{- partial "plugins/html-injection.html" (slice "HEAD_TOP" .) }}
 
