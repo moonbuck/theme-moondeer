@@ -14,7 +14,10 @@
   header { 
     grid-area: header;
     text-align: center;           
-    h2.headline { @include eaves-font(light); }  
+    h2.headline { 
+      position: relative;
+      @include eaves-font(light); 
+    }  
   }
   
   section#post-body {

@@ -1,0 +1,201 @@
+# Minimum word count for a post page to trigger TOC creation.
+#
+MinWordCount = 400
+
+# Whether to print HTML comments for debugging purposes.
+#
+DebugPrint = false
+
+# Parameters for controlling the generated css and js files
+#
+[Build]
+
+# Whether to provide subresource integrity by generating a 
+# base64-encoded cryptographic hash and attaching a .Data.Integrity
+# property containing an integrity string, which is made up of the
+# name of the hash function, one hyphen and the base64-encoded hash sum.
+#
+Fingerprint = true
+
+# Output style for /assets/sass/toc.scss. 
+# Valid options are nested, expanded, compact and compressed
+#
+SassOutput = 'compact'
+
+# Whether to minify the Javascript file generated from
+# /assets/js/toc.js
+#
+MinifyScript = false
+
+# Parameters controlling the generation of the table of contents.
+#
+[TOC]
+
+# Selector used to identify the HTML element whose child headings shall
+# be eligible for inclusion in the table of contents.
+#
+SourceSandbox = '#post-body'
+
+# Selector for identifying the HTML element into which the container
+# shall be prepended.
+#
+ContainerParent = 'article#post'
+
+# The text displayed within the TOC header.
+#
+TitleText = 'Table of Contents'
+
+# Selector for identifying the HTML element into which the toggle
+# button shall be prepended.
+#
+ToggleParent = '#toc-toggle'
+
+# The text displayed by the toggle button.
+#
+ToggleText = 'TOC'
+
+# Parameters controlling the way the TOC is styled.
+#
+[TOC.Style]
+
+# The font color to apply. A value of 'null' prevents the generation of 
+# a CSS style rule.
+#
+Color = 'null'
+
+# The background color.
+#
+BGColor = 'white'
+
+# The duration for the triggered transition.
+#
+TransitionDuration = '.3s'
+
+# Z-axis index. 
+# The default value is lifted from Bootstrap's Offcanvas setting.
+#
+ZIndex = 1045
+
+# The width of the table of contents in pixels.
+#
+Width = 400
+
+# TOC padding parameters.
+#
+[TOC.Style.Padding]
+
+# Vertical padding.
+#
+Y = '1rem'
+
+# Horizontal padding.
+#
+X = '1rem'
+
+# TOC border parameters.
+#
+[TOC.Style.Border]
+
+# The width of the border.
+#
+Width = '1px'
+
+# The border color.
+#
+Color = 'rgba(black, .2)'
+
+# TOC header parameters
+#
+[TOC.Style.Header]
+
+# The background color for the header. A value of 'null' prevents 
+# the generation of a CSS style rule.
+#
+BGColor = 'null'
+
+# TOC Title style parameters.
+#
+[TOC.Style.Title]
+
+# The line height for the TOC's title.
+#
+LineHeight = 1.5
+
+# The font color to apply. A value of 'null' prevents the generation of 
+# a CSS style rule.
+#
+Color = 'null'
+
+# TOC Title font style parameters.
+#
+[TOC.Style.Title.Font]
+
+# The font size. A value of 'null' prevents the generation of 
+# a CSS style rule.
+#
+Size = 'null'
+
+# The font family. A value of 'null' prevents the generation of 
+# a CSS style rule.
+#
+Family = 'null'
+
+# The font weight. A value of 'null' prevents the generation of 
+# a CSS style rule.
+#
+Weight = 'null'
+
+# TOC section link style parameters
+#
+[TOC.Style.Link]
+
+# The line height for the TOC's links.
+#
+LineHeight = 1.1
+
+# The font color to apply. A value of 'null' prevents the generation of 
+# a CSS style rule.
+#
+Color = 'null'
+
+# Subsection indentation. This is cumulative in that level 1
+# links are not indented, level 2 links are indented by this value, 
+# level 3 links are indented by twice this value, etc.
+#
+Indent = '4px'
+
+# TOC link font style parameters.
+#
+[TOC.Style.Link.Font]
+
+# The font size. A value of 'null' prevents the generation of 
+# a CSS style rule.
+#
+Size = 'null'
+
+# The font family. A value of 'null' prevents the generation of 
+# a CSS style rule.
+#
+Family = 'null'
+
+# The font weight. A value of 'null' prevents the generation of 
+# a CSS style rule.
+#
+Weight = 'null'
+
+# TOC Backdrop parameters.
+#
+[TOC.Style.Backdrop]
+
+# Z-axis index for the backdrop. 
+# The default value is lifted from Bootstrap's Offcanvas setting.
+#
+ZIndex = 1040
+
+# The backdrop's background color.
+#
+BGColor = 'black'
+
+# The backdrop's opacity.
+#
+Opacity = 0.5

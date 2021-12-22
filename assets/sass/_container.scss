@@ -10,7 +10,7 @@ body {
   grid-template-rows: auto 1fr auto;
   
   // Size columns for smallest screen
-  grid-template-columns: auto 325px auto;
+  grid-template-columns: 1fr 325px 1fr;
   
   // Add a gap between sections
   gap: 1rem;
@@ -18,36 +18,26 @@ body {
   // Allow the header and the footer to go all the way across
   grid-template-areas:
       "header header header"
-      "......  main  ......"
+      "aside   main  ......"
       "footer footer footer";
       
   // Scale columns for landscape phones
   @include media-breakpoint-up(sm) {
-    grid-template-columns: auto 600px auto;
+    grid-template-columns: 1fr 600px 1fr;
   }
   
   /// Page Header
   > header {
     grid-area: header;
     background: var(--md-header-bg);
-    
-    // Debugging overlay
-    mark#theme-version-overlay { 
-      position: absolute;
-      pointer-events: none;
-      top: 0;
-      left: 0;
-      padding: 0 1em;
-      background: $black;
-      color: $white;
-      font-size: $small-font-size * 0.9;
-      opacity: 0.5;
-      @include eaves-font(book);
-    }
-    
+  }
+  
+  /// Page Aside
+  > aside {
+    grid-area: aside;
   }
 
-  /* Page Main */
+  /// Page Main
   > main { 
     grid-area: main;
     background: $main-bg;
@@ -65,7 +55,7 @@ body {
     }
   }
   
-  /* Page Footer */
+  /// Page Footer
   > footer { 
     grid-area: footer;
     background: $footer-bg;

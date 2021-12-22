@@ -1,44 +1,34 @@
 document.addEventListener('DOMContentLoaded', () => {
   
-  let main = document.getElementsByTagName('MAIN')[0]
+  let main = document.querySelector('body > main');
+  let dl = document.createElement('DL');
+  dl.id = 'debug-console';
+  main.prepend(dl);
   
-  let dl = document.createElement('DL')
-  dl.style.lineHeight = 1
-  dl.style.overflowX = 'hidden'
-  dl.style.overflowWrap = 'anywhere'
-  dl.style.overflowY = 'auto'
-  dl.style.scrollBehavior = 'smooth'
-  dl.style.maxHeight = '6em'
-  dl.style.minWidth = '100%'
-  dl.style.maxWidth = '100%'
-  dl.style.display = 'flex'
-  dl.style.flexWrap = 'wrap'
+  const originalLog = console.log;
   
-  main.insertBefore(dl, main.firstChild)
-  
-  console.log = function(message, label) {
+  console.log = function(message, ...rest) {
+    
+    originalLog(message, ...rest);
     
     message = (typeof message == 'object'
               ? JSON.stringify(message)
-              : message)
-    label = label ?? 'log'
+              : message);
+              
+    label = rest.length == 1 ? rest[0] ?? 'log';
     
-    let dt = document.createElement('DT')
-    dt.innerText = `${label}`
-    dt.style.marginRight = '1rem'
-    dt.style.marginBottom = '0.5rem'
-    dl.appendChild(dt)
+    let dt = document.createElement('DT');
+    dt.innerHTML = `${label}`;
+    dl.append(dt);
     
-    let dd = document.createElement('DD')
-    dd.innerText = `${message}`
-    dd.style.flexGrow = 1
-    dl.appendChild(dd)
+    let dd = document.createElement('DD');
+    dd.innerHTML = `${message}`;
+    dl.append(dd)
+
     dl.scrollTop = dl.scrollHeight - dl.clientHeight
     
-    let spacer = document.createElement('SPAN')
-    spacer.style.width = '100%'
-    dl.appendChild(spacer)
+    dl.append(document.createElement('SPAN'))    
     
   }
   
-})
+});
