@@ -15,7 +15,7 @@ document.addEventListener('DOMContentLoaded', () => {
               ? JSON.stringify(message)
               : message);
               
-    label = rest.length == 1 ? rest[0] ?? 'log';
+    label = rest.length == 1 ? rest[0] : 'log';
     
     let dt = document.createElement('DT');
     dt.innerHTML = `${label}`;

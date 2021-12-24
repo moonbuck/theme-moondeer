@@ -38,3 +38,14 @@
   } // footer#post-meta
   
 }
+
+> div#toc-toggle-container  {
+  position: sticky;
+  top: 2rem;
+  right: 0;
+//   transform: rotate(-90deg) translate(0, -100%);
+//   transform-origin: 100% 0;
+  transform: rotate(-90deg) translate(-50%, 0);
+  transform-origin: 0 0;
+  
+}

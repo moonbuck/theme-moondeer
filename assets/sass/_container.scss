@@ -10,7 +10,7 @@ body {
   grid-template-rows: auto 1fr auto;
   
   // Size columns for smallest screen
-  grid-template-columns: 1fr 325px 1fr;
+  grid-template-columns: minmax(0, 1fr) 325px minmax(0, 1fr);
   
   // Add a gap between sections
   gap: 1rem;
@@ -23,7 +23,7 @@ body {
       
   // Scale columns for landscape phones
   @include media-breakpoint-up(sm) {
-    grid-template-columns: 1fr 600px 1fr;
+    grid-template-columns: minmax(0, 1fr) 600px minmax(0, 1fr);
   }
   
   /// Page Header
@@ -35,6 +35,7 @@ body {
   /// Page Aside
   > aside {
     grid-area: aside;
+    position: relative;
   }
 
   /// Page Main

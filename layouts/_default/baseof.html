@@ -76,6 +76,11 @@
 {{/* Support injection of plugin html below the header  */}}
 {{- partial "plugins/html-injection.html" (slice "BELOW_HEADER" .) }}
 
+{{/* Create the secondary page content */}}
+<aside>
+{{ block "aside" . }}{{ end }}
+</aside>
+
 {{/* Create the primary page content */}}
 <main>
 {{- block "main" . }}

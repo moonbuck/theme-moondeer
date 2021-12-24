@@ -39,7 +39,7 @@ SourceSandbox = '#post-body'
 # Selector for identifying the HTML element into which the container
 # shall be prepended.
 #
-ContainerParent = 'article#post'
+ContainerParent = 'body'
 
 # The text displayed within the TOC header.
 #
@@ -48,11 +48,30 @@ TitleText = 'Table of Contents'
 # Selector for identifying the HTML element into which the toggle
 # button shall be prepended.
 #
-ToggleParent = '#toc-toggle'
+ToggleParent = '#toc-toggle-container'
 
 # The text displayed by the toggle button.
 #
-ToggleText = 'TOC'
+ToggleText = 'Table of Contents'
+
+# Whether to generate section numbers kinda like:
+# 2 Installation
+# 3 Structured Data
+#   3.1 The Data … You Know … Structured
+#   3.2 The Payoff?
+# 4 Twitter and Open Graph <meta> Tags
+#   4.1 The Prototypical Previewable Post
+#     4.1.1 The Tags
+#     4.1.2 The Payoff
+#       4.1.2.1 Downsizing
+#   4.2 Audio and Video, Oh My
+#    4.2.1 How It Works
+#
+SectionNumbers = true
+
+# Whether to inject generated section numbers into the original post headings.
+#
+InjectSectionNumbers = true
 
 # Parameters controlling the way the TOC is styled.
 #
@@ -103,6 +122,39 @@ Width = '1px'
 # The border color.
 #
 Color = 'rgba(black, .2)'
+
+# TOC toggle button parameters
+#
+[TOC.Style.Toggle]
+
+# The font color to apply. A value of 'null' prevents the generation of 
+# a CSS style rule.
+#
+Color = 'rgba(white, .9)'
+
+# The background color for the header. A value of 'null' prevents 
+# the generation of a CSS style rule.
+#
+BGColor = 'rgba(black, .4)'
+
+# TOC toggle button font style parameters.
+#
+[TOC.Style.Toggle.Font]
+
+# The font size. A value of 'null' prevents the generation of 
+# a CSS style rule.
+#
+Size = 'null'
+
+# The font family. A value of 'null' prevents the generation of 
+# a CSS style rule.
+#
+Family = 'null'
+
+# The font weight. A value of 'null' prevents the generation of 
+# a CSS style rule.
+#
+Weight = 'null'
 
 # TOC header parameters
 #
