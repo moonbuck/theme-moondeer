@@ -8,7 +8,7 @@
 {{- /* If not equal to 'test' than it must be 'true' */ -}}
 {{- if (or (not (eq . "test")) $is_test ) -}}
 
-<mark id="theme-version-overlay">{{ $text }}</mark>
+<span id="theme-version-overlay">{{ $text }}</span>
 
 {{- end -}}
 
