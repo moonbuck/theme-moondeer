@@ -1,3 +1,4 @@
+[Config]
 RegisteredDomain = 'moondeer.blog'
 ScriptExtensions = ''
 ScriptName = 'script.js'
