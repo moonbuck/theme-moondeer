@@ -1,5 +1,3 @@
-{{- if templates.Exists "partials/profile/social-media-links.html" -}}
-<div id="social-media-links" class="p-role">
-{{ partial "profile/social-media-links.html" . }}
-</div>
+{{- if templates.Exists "partials/plugin-social-media-links/profile-links.html" -}}
+{{ partial "plugin-social-media-links/profile-links.html" . }}
 {{- end -}}

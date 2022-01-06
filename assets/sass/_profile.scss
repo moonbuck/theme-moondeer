@@ -11,23 +11,7 @@
   h1 { 
     text-align: center;
   }
-    
-  .sml-container {    
-    display: grid;
-    column-gap: 1rem;
-    grid-template-columns: 1fr 100px;
-    grid-template-areas: "link name";
-    
-    a { 
-      grid-area: link;
-      color: $primary;
-      &:hover { color: $black; }
-    }
-    
-    span { grid-area: name; }
-  
-  }
-  
+      
   #brief-bio { 
     text-align: justify;
     color: $black;
