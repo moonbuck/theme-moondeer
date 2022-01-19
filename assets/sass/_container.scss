@@ -10,10 +10,10 @@ body {
   grid-template-rows: auto 1fr auto;
   
   // Size columns for smallest screen
-  grid-template-columns: minmax(0, 1fr) 325px minmax(0, 1fr);
+  grid-template-columns: minmax(0, 1fr) minmax(300px, 350px) minmax(0, 1fr);
   
   // Add a gap between sections
-  gap: 1rem;
+  gap: 1rem 8px;
   
   // Allow the header and the footer to go all the way across
   grid-template-areas:

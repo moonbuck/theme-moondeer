@@ -1,46 +1,51 @@
 # Parameters derived from the use of https://realfavicongenerator.net
 # and https://favicomatic.com to generate favicon assets. 
+[Config]
+
+# Whether to print HTML comments for debugging purposes.
+#
+DebugPrint = false
+
+[Apple]
 
 # General theme color for the site (used by Mobile Safari in iOS 15 to paint the background of the status bar).
 ThemeColor = "#516189"
 
-[Apple]
-
 # Path to the 180x180 pixel image.
 #
-TouchIcon = "apple-touch-icon.png"
+TouchIcon = "/apple-touch-icon.png"
 
 # Path to the 57x57 pixel image.
 #
-x57 = "/apple-touch-icon-57x57.png"
+X57 = "/apple-touch-icon-57x57.png"
 
 # Path to the 114x114 pixel image.
 #
-x114 = "/apple-touch-icon-114x114.png"
+X114 = "/apple-touch-icon-114x114.png"
 
 # Path to the 72x72 pixel image.
 #
-x72 = "/apple-touch-icon-72x72.png"
+X72 = "/apple-touch-icon-72x72.png"
 
 # Path to the 144x144 pixel image.
 #
-x144 = "/apple-touch-icon-144x144.png"
+X144 = "/apple-touch-icon-144x144.png"
 
 # Path to the 60x60 pixel image.
 #
-x60 = "/apple-touch-icon-60x60.png"
+X60 = "/apple-touch-icon-60x60.png"
 
 # Path to the 120x120 pixel image.
 #
-x120 = "/apple-touch-icon-120x120.png"
+X120 = "/apple-touch-icon-120x120.png"
 
 # Path to the 76x76 pixel image.
 #
-x76 = "/apple-touch-icon-76x76.png"
+X76 = "/apple-touch-icon-76x76.png"
 
 # Path to the 152x152 pixel image.
 #
-x152 = "/apple-touch-icon-152x152.png"
+X152 = "/apple-touch-icon-152x152.png"
 
 # Path to the Safari pinned tab SVG file.
 # You can create a template file and paste in your SVG or include the file 
@@ -53,27 +58,27 @@ SafariPinnedTab = "/safari-pinned-tab.svg"
 
 # Path to an SVG favicon image.
 #
-svg = "/favicon.svg"
+SVG = "/favicon.svg"
 
 # Path to the 196x196 pixel image.
 #
-x196 = "/favicon-196x196.png"
+X196 = "/favicon-196x196.png"
 
 # Path to the 128x128 pixel image.
 #
-x128 = "/favicon-128x128.png"
+X128 = "/favicon-128x128.png"
 
 # Path to the 96x96 pixel image.
 #
-x96 = "/favicon-96x96.png"
+X96 = "/favicon-96x96.png"
 
 # Path to the 32x32 pixel image.
 #
-x32 = "favicon-32x32.png"
+X32 = "/favicon-32x32.png"
 
 # Path to the 16x16 pixel image.
 #
-x16 = "favicon-16x16.png"
+X16 = "/favicon-16x16.png"
 
 [AndroidChrome]
 
@@ -83,11 +88,11 @@ Name = "Moondeer"
 
 # Path to the 192x192 pixel image. 
 #
-x192 = "android-chrome-192x192.png"
+X192 = "/android-chrome-192x192.png"
 
 # Path to the 512x512 pixel image.
 #
-x512 = "android-chrome-512x512.png"
+X512 = "/android-chrome-512x512.png"
 
 # Theme color to use in the webmanifest.
 #
@@ -105,23 +110,23 @@ ApplicationName = "Moondeer"
 
 # Path to the 70x70 pixel image.
 #
-x70 = "/mstile-70x70.png"
+X70 = "/mstile-70x70.png"
 
 # Path to the 144x144 pixel image.
 #
-x144 = "/mstile-144x144.png"
+X144 = "/mstile-144x144.png"
 
 # Path to the 150x150 pixel image.
 #
-x150 = "/mstile-150x150.png"
+X150 = "/mstile-150x150.png"
 
 # Path to the 310x150 pixel image.
 #
-Widex150 = "/mstile-310x150.png"
+WideX150 = "/mstile-310x150.png"
 
 # Path to the 310x310 pixel image.
 #
-x310 = "/mstile-310x310.png"
+X310 = "/mstile-310x310.png"
 
 # The tile color behind the 150x150 pixel image.
 #

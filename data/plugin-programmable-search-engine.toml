@@ -1,14 +1,10 @@
-# The search engine identifier
-#
-CX = "f4b9ece1e50134632"
+# Debug and build related parameters
+####################################
+[Config]
 
-# The search engine API key
+# Whether to print HTML comments for debugging purposes.
 #
-APIKey = "AIzaSyCt-f_3al4TvkCEX-Ety0ygzP4evioFKEs"
-
-# Parameters for controlling the generated css and js files
-#
-[Build]
+DebugPrint = false
 
 # Whether to provide subresource integrity by generating a 
 # base64-encoded cryptographic hash and attaching a .Data.Integrity
@@ -17,17 +13,32 @@ APIKey = "AIzaSyCt-f_3al4TvkCEX-Ety0ygzP4evioFKEs"
 #
 Fingerprint = true
 
-# Output style for /assets/sass/cardify.scss. 
+# Output style for the generated stylesheet.
 # Valid options are nested, expanded, compact and compressed
 #
-SassOutput = 'nested'
+SassOutput = 'compact'
 
-# Whether to minify the Javascript file generated from
-# /assets/js/cardify.js
+# Whether to minify the generated Javascript file.
 #
 MinifyScript = false
 
+# Whether to inject a page map structure into the page <head>
+# in the hopes that Google will eventually parse and provide it.
+#
+InjectPageMap = true
+
+# Search engine configuration
+#############################
+# The search engine identifier
+#
+CX = "f4b9ece1e50134632"
+
+# The search engine API key
+#
+APIKey = "AIzaSyCt-f_3al4TvkCEX-Ety0ygzP4evioFKEs"
+
 # Parameters controlling the search bar injection and style
+###########################################################
 [SearchBar]
 
 # The ID of the element that will serve as the parent of the 
@@ -35,239 +46,284 @@ MinifyScript = false
 #
 ContainerID = 'pse-container'
 
-[SearchBar.Input]
+# The ID assigned to the search bar.
+#
+ID = 'pse-search-bar'
+
+# Styling the input field
+#########################
+
+# The ID assigned to the input field.
+#
+Input.ID = 'pse-search-bar-input'
 
 # Whether the input field of the search bar is collapsible.
 #
-Collapsible = true
+Input.Collapsible = true
 
 # Whether the input field is initially expanded or collapsed
 #
-InitialState = 'collapsed'
+Input.InitialState = 'collapsed'
 
 # The height to set for the input field
 #
-Height = 'auto'
+Input.Height = 'auto'
 
 # The width to set for the input field
 #
-Width = '300px'
+Input.Width = '300px'
 
 # The color of text within the input field
 #
-Color = 'black'
-
-# Configuring the input placeholder text
-[SearchBar.Input.Placeholder]
+Input.Color = 'black'
 
 # The placeholder text displayed when the input field is empty
 #
-Text = 'query the mind of moondeer'
+Input.Placeholder.Text = 'query the mind of moondeer'
 
 # The color of the placeholder text
 #
-Color = 'darkgray'
-
-# Transition values for collapsing and expanding
-[SearchBar.Input.Transition]
+Input.Placeholder.Color = 'darkgray'
 
 # The duration to use when collapsing and expanding the search field
 #
-Duration = '.35s'
+Input.Transition.Duration = '.35s'
 
 # The time function to use when collapsing and expanding the search field
 #
-TimingFunction = 'ease'
-
-# Input field padding values
-[SearchBar.Input.Padding]
+Input.Transition.TimingFunction = 'ease'
 
 # The vertical padding to set on the input field
 #
-Y = '0'
+Input.Padding.Y = '0'
 
 # The horizontal padding to set on the input field
 #
-X = '0.5em'
-
-# Styling the input border
-[SearchBar.Input.Border]
+Input.Padding.X = '.5em'
 
 # The border radius value to set on the input field
 #
-Radius = '1em'
+Input.Border.Radius = '1em'
 
 # The border style to set on the input field
 #
-Style = 'solid'
+Input.Border.Style = 'solid'
 
 # The border color to set on the input field
 #
-Color = 'rgba(0,0,0,0.125)'
+Input.Border.Color = 'rgba(black,.125)'
 
 # The border width to set on the input field
 #
-Width = '1px'
+Input.Border.Width = '1px'
 
-# Styling the magnifying glass icon
-[SearchBar.Button]
+# Styling the search bar button
+###############################
 
-# The color to set for the magnifying glass when the input is collapsed
+# The ID assigned to the button.
 #
-Color = 'lightgray'
+Button.ID = 'pse-search-bar-button'
 
-[SearchBar.Button.Padding]
-
-# The horizontal padding to set on the icon
+# The color to set for the button when the input is collapsed
 #
-X = '0.25em'
+Button.Color = 'lightgray'
 
-# The vertical padding to set on the icon
+# The horizontal padding to set on the button
 #
-Y = '0'
+Button.Padding.X = '.25em'
+
+# The vertical padding to set on the button
+#
+Button.Padding.Y = '0'
 
 # Styling the results overlay
+#############################
 [ResultsOverlay]
 
-# The text color to set on the overlay element
+# The ID assigned to the results overlay.
 #
-Color = 'currentcolor'
+ID = 'pse-results-overlay'
 
-[ResultsOverlay.Font]
-# The font size to set on the overlay element
+# The ID assigned to the <article> element with the search results.
 #
-Size = '1rem'
+Article.ID = 'pse-results-article'
 
-# Styling the overlay background
-[ResultsOverlay.BG]
+# The text color to set on the <article> element.
+#
+Article.Color = 'inherit'
+
+# The font size to set on the <article> element.
+#
+Article.Font.Size = '1rem'
 
 # The base background color
 #
-Color = 'rgba(255,255,255,1)'
+Article.BG.Color = 'white'
 
-#Styling the header element of the results overlay
-[ResultsOverlay.Header]
+#Styling the <header> element of the results overlay
+##################################################
+
+# The ID assigned to the <header> element.
+#
+Header.ID = 'pse-results-header'
 
 # The color for header text
 #
-Color = 'currentcolor'
+Header.Color = 'currentcolor'
 
-# Styling the font used in the results overlay header
-[ResultsOverlay.Header.Font]
-
-# The font size to set for the results overlay header
+# The ID assigned to the title.
 #
-Size = 'inherit'
+Header.Title.ID = 'pse-results-title'
 
-# The font weight to set for the results overlay header
+# The font size to set for the title.
 #
-Weight = 'inherit'
+Header.Title.Font.Size = 'inherit'
 
-# The font style to set for the results overlay header
+# The font weight to set for the title.
 #
-Style = 'inherit'
+Header.Title.Font.Weight = 'inherit'
 
-# Styling the portion of the results overlay header containing 
-# the search terms
-[ResultsOverlay.Header.Terms]
+# The font style to set for the title.
+#
+Header.Title.Font.Style = 'inherit'
+
+# The ID assigned to the search terms.
+#
+Header.Terms.ID = 'pse-results-search-terms'
 
 # The text color for the search terms
 #
-Color = 'currentcolor'
-
-# Styling the font used for the results overlay header search terms
-[ResultsOverlay.Header.Terms.Font]
+Header.Terms.Color = 'inherit'
 
 # The font size to set for the search terms
 #
-Size = 'inherit'
+Header.Terms.Font.Size = 'inherit'
 
 # The font weight to set for the search terms
 #
-Weight = 'inherit'
+Header.Terms.Font.Weight = 'inherit'
 
 # The font style to set for the search terms
 #
-Style = 'italic'
+Header.Terms.Font.Style = 'italic'
 
 # Styling the previous / next links in the results overlay footer
-[ResultsOverlay.Link]
+#################################################################
+
+# The ID assigned to the footer.
+#
+Footer.ID = 'pse-results-footer'
+
+# The ID assigned to the previous page link.
+#
+Footer.PreviousPageLink.ID = 'pse-results-previous-page'
+
+# The ID assigned to the next page link.
+#
+Footer.NextPageLink.ID = 'pse-results-next-page'
 
 # The text color for the previous / next links
 #
-Color = '#646386'
+Footer.Link.Color = '#646386'
 
 # The text decoration for the previous / next links
 #
-TextDecoration = 'none'
-
-# Styling the previous / next links in the results overlay footer
-# when they are being hovered
-[ResultsOverlay.Link.Hover]
+Footer.Link.TextDecoration = 'none'
 
 # The text color for the previous / next links when hovering
 #
-Color = "scale-color($results-overlay-link-color, $lightness: 10%)"
+Footer.Link.Hover.Color = "scale-color(#646386, $lightness: 10%)"
 
 # The text decoration for the previous / next links when hovering
 #
-TextDecoration = 'underline'
+Footer.Link.Hover.TextDecoration = 'underline'
 
-# Styling the result item title links
-[ResultsOverlay.Item.Title]
+# Styling the result items section
+##################################
+[ResultItems]
+
+# The ID assigned to the <section> element holding the results.
+#
+ID = 'pse-results-items'
+
+# The ID assigned to the <ul> element.
+#
+List.ID = 'pse-results-list'
+
+# Class assigned to item title links.
+#
+Item.ClassName = 'pse-result-item'
+
+# Class assigned to an item's article element.
+#
+Item.Article.ClassName = 'pse-result-item-article'
+
+# Styling the result item header
+################################
+
+# Class assigned to the header element within the article.
+#
+Item.Header.ClassName = 'pse-result-item-header'
+
+# Class assigned to the item's title link.
+#
+Item.Title.ClassName = 'pse-result-item-title'
 
 # The text color for item title links
 #
-Color = "$results-overlay-link-color"
+Item.Title.Color = "inherit"
 
 # The text decoration for the item title links
 #
-TextDecoration = '$results-overlay-link-text-decoration'
-
-# Styling the result item title links
-[ResultsOverlay.Item.Title.Hover]
+Item.Title.TextDecoration = 'inherit'
 
 # the text color for item title links when hovering
 #
-Color = "$results-overlay-link-hover-color"
+Item.Title.Hover.Color = "inherit"
 
 # The text decoration for the item title links when hovering
 #
-TextDecoration = '$results-overlay-link-hover-text-decoration'
-
-# Styling the item title font
-[ResultsOverlay.Item.Title.Font]
+Item.Title.Hover.TextDecoration = 'inherit'
 
 # The font size to set for item title links
 #
-Size = 'inherit'
+Item.Title.Font.Size = 'inherit'
 
 # The font weight to set for item title links
 #
-Weight = 'inherit'
+Item.Title.Font.Weight = 'inherit'
 
 # The font style to set for item title links
 #
-Style = 'inherit'
+Item.Title.Font.Style = 'inherit'
 
-# Styling the result item snippet
-[ResultsOverlay.Item.Snippet]
+# Styling the result item body
+#################################
+
+# Class assigned to the <section> element with the result item body.
+#
+Item.Body.ClassName = 'pse-result-item-body'
+
+# Class assigned to the item snippet.
+#
+Item.Snippet.ClassName = 'pse-result-item-snippet'
 
 # The text color for result item snippets
 #
-Color = 'currentcolor'
-
-# Styling result item snippet font
-[ResultsOverlay.Item.Snippet.Font]
+Item.Snippet.Color = 'inherit'
 
 # The font size for result item snippets
 #
-Size = 'inherit'
+Item.Snippet.Font.Size = 'inherit'
 
 # The font weight for result item snippets
 #
-Weight = 'inherit'
+Item.Snippet.Font.Weight = 'inherit'
 
 # The font style for result item snippets
 #
-Style = 'inherit'
+Item.Snippet.Font.Style = 'inherit'
+
+# Class assigned to an item's thumbnail link.
+#
+Item.Thumbnail.ClassName = 'pse-result-item-thumbnail'

@@ -2,7 +2,7 @@
 <figure>
 {{- $inner := .Inner -}}
 {{- $caption := "" -}}
-{{- with (findRE "[[][^]]+[]]" $inner) 1 -}}
+{{- with findRE "[[][^]]+[]]" $inner -}}
 {{- $caption = index . 0 | replaceRE "[[]([^]]+)[]]" "$1"  | safeHTML -}}
 {{- end -}}
 {{- with .Get "caption" }} {{ $caption =  .  }} {{ end -}}

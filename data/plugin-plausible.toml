@@ -1,4 +1,5 @@
 [Config]
+DebugPrint = false
 RegisteredDomain = 'moondeer.blog'
 ScriptExtensions = ''
 ScriptName = 'script.js'
