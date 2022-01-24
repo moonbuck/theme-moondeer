@@ -1,18 +1,25 @@
-# Max font size to use in the cloud in rem units.
-#
-MaxSize = 1.34
+# Debug and build related parameters.
+#####################################
+[Config]
 
-# Min font size to use in the cloud in rem units.
+# Whether to print HTML comments for debugging purposes.
 #
-MinSize = 0.9
+DebugPrint = false
 
-# Max font weight to use in the cloud.
+# Whether to provide subresource integrity by generating a 
+# base64-encoded cryptographic hash and attaching a .Data.Integrity
+# property containing an integrity string, which is made up of the
+# name of the hash function, one hyphen and the base64-encoded hash sum.
 #
-MaxWeight = 800
+Fingerprint = true
 
-# Min font weight to use in the cloud.
+# Output style for /assets/sass/category-cloud.scss. 
+# Valid options are nested, expanded, compact and compressed
 #
-MinWeigth = 200
+SassOutput = 'compressed'
+
+# Configuring the cloud.
+########################
 
 # Category names are fetched in their anchorized form.
 # Setting this parameter to true will convert anchorized
@@ -20,7 +27,11 @@ MinWeigth = 200
 #
 #   my-category → My Category
 #
-Humanize = true
+# Humanize = true
+
+# Whether to wrap category link content with <nobr>
+#
+# UnbreakableLinks = true
 
 # The default path to a category page takes the form:
 #  /categories/my-anchorized-category
@@ -30,30 +41,70 @@ Humanize = true
 # the plugin can try to match a category to its menu item and
 # use the URL value of the menu item.
 #
-MenuItemMatching = true
+# MenuItemMatching = true
+
+# List of categories to exclude from the category cloud.
+#
+# For example: ['Pinned', 'Temporary']
+#
+ExclusionList = [ 'Pinned' ]
+
+# The plugin fetches the category names in anchorized form.
+# The 'Humanize' parameter will return the category names
+# to their capitalized and spaced form. The DisplayNames
+# parameter allows for direct control over how a category
+# name will be displayed
+#
+[Config.DisplayNames]
+
+# To define exactly how to display a specific category name 
+# enter its value below with its anchorized form as the key.
+# My use case for this option is this category:
+#
+# stream-of-consciousness = 'Stream of Conscioussness'
+#
+microblog = 'Micro.blog'
+stream-of-consciousness = 'Stream of Consciousness'
+
+# Parameters for styling the cloud.
+###################################
+[Style]
+
+# ID to set on the wrapper.
+#
+# WrapperID = 'category-cloud'
+
+# Sass block to apply to the wrapper.
+#
+# Wrapper = '''
+# width: 90%;
+# max-width: 900px;
+# '''
+
+# Sass block to apply to links.
+#
+# Link = '''
+# color: #666; 
+# &:hover { color: #000; }
+# '''
+
+# Max font size to use in the cloud in rem units.
+#
+MaxSize = 6.34
+
+# Min font size to use in the cloud in rem units.
+#
+# MinSize = 0.9
+
+# Max font weight to use in the cloud.
+#
+# MaxWeight = 800
+
+# Min font weight to use in the cloud.
+#
+# MinWeigth = 200
 
 # Whether to display parenthesized page counts along
 # with the category names.
 #
-DisplayPageCounts = true
-
-# Class to set on the cloud's category <a> tags.
-#
-Class = 'category-cloud-link'
-
-# List of categories to exclude from the category cloud.
-#
-ExclusionList = [ 'Pinned']
-
-# The plugin fetches the category names in anchorized form.
-# The 'Humanize' parameter will return the category names
-# to their capitalized and spaced form. For direct control
-# over how category name will be displayed, enter its value
-# below with its anchorized form as the key. My use case
-# for this option is this category:
-#
-# stream-of-consciousness = Stream of Conscioussness
-#
-[DisplayNames]
-microblog = 'Micro.blog'
-stream-of-consciousness = 'Stream of Consciousness'
+# DisplayPageCounts = true

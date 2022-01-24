@@ -1,1 +1,22 @@
+# Debug and build related parameters.
+#####################################
+[Config]
+
+# Whether to print HTML comments for debugging purposes.
+#
+DebugPrint = false
+
+# Whether to provide subresource integrity by generating a 
+# base64-encoded cryptographic hash and attaching a .Data.Integrity
+# property containing an integrity string, which is made up of the
+# name of the hash function, one hyphen and the base64-encoded hash sum.
+#
+Fingerprint = true
+
+# Whether to minify the generated Javascript
+#
+Minify = false
+
+# The Google Tag Manager container ID.
+#
 ContainerID = 'GTM-5LD8MVT'

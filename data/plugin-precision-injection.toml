@@ -1,13 +1,11 @@
 [Config]
 HTMLComments = true
-DebugPrint = true
+DebugPrint = false
 
 [Locations]
-HEAD_TOP = [ "google-tag-manager-head-script.html" ]
-ABOVE_HEADER = [ "google-tag-manager-header-script.html" ]
+HEAD_TOP = [ "plugin-google-tag-manager/injection.html" ]
 
 [Filters]
-"category-cloud-style.html" = [ "/cloud/" ]
 "/assets/css/gallery.css" = [ "/gallery/" ]
 "/assets/css/bookshelves.css" = [ "/bookshelf/" ]
 "/assets/js/bookshelves.js" = [ "/bookshelf/" ]

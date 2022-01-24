@@ -33,12 +33,12 @@ identifier = 'critters'
 url = '/critters/'
 weight = 60
 
-[[main]]
-name = 'Gallery'
-title = 'Gallery'
-identifier = 'gallery'
-url = '/gallery/'
-weight = 105
+# [[main]]
+# name = 'Gallery'
+# title = 'Gallery'
+# identifier = 'gallery'
+# url = '/gallery/'
+# weight = 105
 
 [[main]]
 name = 'Inside the Art'
@@ -47,19 +47,19 @@ identifier = 'inside'
 url = '/inside-the-art/'
 weight = 106
 
-[[main]]
-name = 'Cloud'
-title = 'Cloud'
-identifier = 'cloud'
-url = '/cloud/'
-weight = 110
+# [[main]]
+# name = 'Cloud'
+# title = 'Cloud'
+# identifier = 'cloud'
+# url = '/cloud/'
+# weight = 110
 
-[[main]]
-name = 'Bookshelf'
-title = 'Bookshelf'
-identifier = 'bookshelf'
-url = '/bookshelf/'
-weight = 115
+# [[main]]
+# name = 'Bookshelf'
+# title = 'Bookshelf'
+# identifier = 'bookshelf'
+# url = '/bookshelf/'
+# weight = 115
 
 [[main]]
 name = 'About'
