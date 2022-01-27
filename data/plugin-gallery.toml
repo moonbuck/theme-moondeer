@@ -53,12 +53,6 @@ onesies.)*\
 #
 # Name = 'plugin-gallery'
 
-# Whether the gallery slide links should wrap or be 
-# constrained to a single row. This affects the container's
-# flex-wrap value.
-#
-# Wrap = true
-
 # Default description position for all slides.
 #
 # DescPosition = ''
@@ -140,6 +134,18 @@ onesies.)*\
 # Sass block applied to gallery videos.
 #
 # Video = ''
+
+# The fit for images and videos inside links (contain or cover).
+#
+# Fit = 'cover'
+
+# The number of images / videos to display per row.
+#
+# GridWidth = 5
+
+# The row height.
+#
+# RowHeight = '20vh'
 
 # Array of slide configurations
 ###############################

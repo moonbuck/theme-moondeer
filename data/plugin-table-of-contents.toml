@@ -3,10 +3,6 @@
 ###########################################################
 [Config]
 
-# Minimum word count for a post page to trigger TOC creation.
-#
-MinWordCount = 400
-
 # Whether to print HTML comments for debugging purposes.
 #
 DebugPrint = false
@@ -27,10 +23,6 @@ SassOutput = 'compact'
 # /assets/js/toc.js
 #
 MinifyScript = false
-
-# Minimum number of top level sections to insert the TOC.
-#
-MinSections = 2
 
 # Selector used to identify the HTML element whose child headings shall
 # be eligible for inclusion in the table of contents.
