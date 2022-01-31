@@ -7,11 +7,11 @@
 {{- if site.Params.paginate_home -}}
 
 {{- $paginate = true -}}
-{{- $pages = (.Paginate (where .Data.Pages.ByDate.Reverse "Type" "post")).Pages -}}
+{{- $pages = (.Paginate (where site.Pages.ByDate.Reverse "Type" "post")).Pages -}}
 
 {{- else -}}
 
-{{- $pages = where .Data.Pages.ByDate.Reverse "Type" "post" -}}
+{{- $pages = where site.Pages.ByDate.Reverse "Type" "post" -}}
 
 {{- end -}}
 
