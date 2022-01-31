@@ -1,11 +1,8 @@
 [Config]
-HTMLComments = true
-DebugPrint = false
+HTMLComments = false
+# DebugPrint = false
 
 [Locations]
 HEAD_TOP = [ "plugin-google-tag-manager/injection.html" ]
 
 [Filters]
-"/assets/css/gallery.css" = [ "/gallery/" ]
-"/assets/css/bookshelves.css" = [ "/bookshelf/" ]
-"/assets/js/bookshelves.js" = [ "/bookshelf/" ]

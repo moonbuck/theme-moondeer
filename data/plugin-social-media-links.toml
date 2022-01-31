@@ -4,19 +4,19 @@
 
 # Whether to print HTML comments for debugging purposes.
 #
-DebugPrint = false
+# DebugPrint = false
 
 # Whether to provide subresource integrity by generating a 
 # base64-encoded cryptographic hash and attaching a .Data.Integrity
 # property containing an integrity string, which is made up of the
 # name of the hash function, one hyphen and the base64-encoded hash sum.
 #
-Fingerprint = true
+# Fingerprint = true
 
 # Output style for /assets/sass/profile-links.scss. 
 # Valid options are nested, expanded, compact and compressed
 #
-SassOutput = 'compact'
+SassOutput = 'compressed'
 
 # This file holds the array of social media platforms to link.
 #
@@ -68,28 +68,28 @@ Username = "moondeer"
 
 # The ID to assign to the container.
 #
-ContainerID = 'social-media-link-container'
+# ContainerID = 'social-media-link-container'
 
 # The class name to attach to the platform links.
 #
-LinkClassName = 'social-media-link'
+# LinkClassName = 'social-media-link'
 
 # The class name to attach to the platform labels.
 #
-LabelClassName = 'social-media-link-label'
+# LabelClassName = 'social-media-link-label'
 
 # Sass block to apply to the container.
 #
-Container = ''
+# Container = ''
 
 # Sass block to apply to the platform links.
 #
-Link = ''
+# Link = ''
 
 # Sass block to apply to the platform links when hovered.
 #
-LinkHover = ''
+# LinkHover = ''
 
 # Sass block to apply to the platform labels.
 #
-Label = ''
+# Label = ''

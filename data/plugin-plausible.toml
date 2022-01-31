@@ -1,7 +1,7 @@
 [Config]
-DebugPrint = false
+# DebugPrint = false
 RegisteredDomain = 'moondeer.blog'
-ScriptExtensions = ''
+# ScriptExtensions = ''
 ScriptName = 'script.js'
 ScriptSource = '/plausi/js/'
 DataAPI = '/plausi/api/event'

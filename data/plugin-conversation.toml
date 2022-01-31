@@ -2,7 +2,7 @@
 
 # Whether to print HTML comments for debugging purposes.
 #
-DebugPrint = false
+# DebugPrint = false
 
 # Whether to provide subresource integrity by generating a 
 # base64-encoded cryptographic hash and attaching a .Data.Integrity

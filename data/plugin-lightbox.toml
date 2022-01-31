@@ -4,7 +4,7 @@
 
 # Whether to print HTML comments for debugging purposes.
 #
-DebugPrint = false
+# DebugPrint = false
 
 # Whether to provide subresource integrity by generating a 
 # base64-encoded cryptographic hash and attaching a .Data.Integrity
@@ -250,14 +250,18 @@ DebugPrint = false
 ####################################################################
 [Style]
 
-# Whether the gallery slide links should wrap or be constrained 
-# to a single row. This affects the container's flex-wrap value.
-#
-# Wrap = true
-
 # Class assigned to gallery containers.
 #
 # GalleryClassName = 'gallery'
+
+# The default number of images / videos to display per row 
+# in gallery grids.
+#
+# GridWidth = 5
+
+# The default row height in gallery grids.
+#
+# RowHeight = '20vh'
 
 # Sass block applied to gallery containers.
 #
@@ -286,6 +290,11 @@ DebugPrint = false
 # Sass block applied to gallery img tags.
 #
 # Img = ''
+
+# The default fit for images and videos inside links
+# (contain or cover).
+#
+# Fit = 'cover'
 
 # Pixel width used to fetch thumbnail images via the photos API.
 #

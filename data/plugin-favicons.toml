@@ -4,7 +4,7 @@
 
 # Whether to print HTML comments for debugging purposes.
 #
-DebugPrint = false
+# DebugPrint = false
 
 [Apple]
 

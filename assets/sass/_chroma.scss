@@ -1,0 +1,269 @@
+div.highlight {
+  
+  pre.chroma { 
+    color: $quill-gray;
+    background: $mine-shaft;
+    font-size: $code-font-size;
+    text-align: left;
+    white-space: pre;
+    padding: 1em;
+    margin: .5em 0;
+    overflow: auto;
+    word-spacing: normal;
+    word-break: normal;
+    word-wrap:  normal;
+    line-height: 1.5;
+    
+    @include prefix(tab-size, 2, moz o);    
+    @include prefix(hyphens, none, webkit moz ms);
+    
+    ::-moz-selection,
+    &::-moz-selection,
+    ::selection,
+    &::selection {
+      background: rgba($french-pass, .64)
+    }
+    
+    .p // Punctuation
+    {
+      color: $quill-gray;
+    }
+    
+    .hl // Line Highlight
+    { 
+      background-color: rgba($french-pass, .07); 
+      display: block; 
+      width: 100% 
+    }
+    
+    .lntd // Line Table TD
+    { 
+       vertical-align: top; 
+       padding: 0; 
+       margin: 0; 
+       border: 0; 
+     }
+  
+    .lntable // Line Table
+    { 
+      border-spacing: 0; 
+      padding: 0; 
+      margin: 0; 
+      border: 0; 
+      width: 100%; 
+      overflow: auto; 
+      display: block; 
+    }
+    
+    .lnt // Line Numbers Table
+    { 
+      margin-right: .4em; 
+      padding: 0 .4em 0 .4em; 
+      display: block; 
+    }
+    
+    .ln // Line Numbers
+    { 
+      margin-right: .4em; 
+      padding: 0 .4em 0 .4em; 
+    }
+   
+    .err, // Error
+    .ge // Generic Error
+    {
+      color: $spring-wood;
+      background-color: rgba($torch-red, .15);
+    }
+    
+    .k, // Keyword
+    .kc, // Keyword Constant
+    .kd, // Keyword Declaration
+    .kn, // Keyword Namespace
+    .kp, // Keyword Pseudo
+    .kr // Keyword Reserved
+    {
+      color: $raw-sienna;
+    }
+    
+    .kt // Keyword Type
+    {
+      color: $cascade;
+      text-decoration: underline;
+    }
+    
+    .na // Name Attribute
+    {
+      color: $amethyst-smoke;
+    }
+    
+    .nb, // Name Builtin
+    .bp // Name Builtin Pseduo
+    {
+      color: $glacier;
+    }
+    
+    .nc // Name Class
+    {
+      color: $pear;
+      text-decoration: underline;
+    }
+    
+    .no // Name Constant
+    {
+      color: $glacier;
+    }
+    
+    .nd // Name Decorator
+    {
+      color: $heliotrope;
+    }
+    
+    .ni // Name Entity
+    {
+      color: $heather;
+      cursor: help;
+    }
+    
+    .ne, // Name Exception
+    .nf, // Name Function
+    .nl // Name Label
+    {
+      color: $soft-amber;
+    }
+    
+    .nn // Name Namespace
+    {
+     opacity: 0.7; 
+    }
+    
+    .nt // Name Tag
+    {
+      color: $cascade;
+    }
+    
+    .nv, // Name Variable
+    .vc, // Name Variable Class
+    .vg, // Name Variable Global
+    .vi // Name Variable Instance
+    {
+      color: $amethyst-smoke;
+    }
+    
+    .s, // Literal String
+    .sa, // Literal String Affix
+    .sb, // Literal String Backtick
+    .sc, // Literal String Char
+    .dl, // Literal String Delimiter
+    .sd, // Literal String Doc
+    .s2, // Literal String Double
+    .se, // Literal String Escape
+    .sh, // Literal String Heredoc
+    .si, // Literal String Interpol
+    .sx, // Literal String Other
+    .s1 // Literal String Single
+    {
+     color: $sushi;
+    }
+    
+    .sr // Literal String Regex
+    {
+      color: $amethyst-smoke;
+    }
+    
+    .ss // Literal String Symbol
+    {
+      color: $glacier;
+    }
+  
+    .m, // Literal Number
+    .mb, // Literal Number Binary
+    .mf, // Literal Number Float
+    .mh, // Literal Number Hex
+    .mi, // Literal Number Integer
+    .il, // Literal Number Integer Long
+    .mo // Literal Number Octal
+    {
+      color: $glacier;
+    }
+    
+    .o, // Operator
+    .ow // Operator Word
+    {
+      color: $heather;
+    }
+    
+    .c, // Comment
+    .ch, // Comment Hashbang
+    .c1 // Comment Single
+    {
+      color: $gray;
+      font-style: italic;
+    }
+  
+    .cm // Comment Multiline
+    {
+      color: $battleship-gray;
+    }
+    
+    .cs, // Comment Special
+    .cp, // Comment Preproc
+    .cpf // Comment Preproc File
+    {
+      color: $turmeric;
+    }
+    
+    .gd // Generic Deleted
+    {
+      color: $radical-red;
+    }
+    
+    .ge // Generic Emphasis
+    {
+      font-style: italic;  
+    }
+    
+    .gh // Generic Heading
+    {
+      color: $spray;
+    }
+    
+    .gi // Generic Inserted
+    {
+      color: $pear;
+    }
+    
+    .go // Generic Output
+    {
+      color: $silver-chalice;
+    }
+    
+    .gp // Generic Prompt
+    {
+      color: $tree-poppy;
+    }
+    
+    .gs // Generic Strong
+    {
+      font-weight: 700;
+    }
+    
+    .gu // Generic Subheading
+    {
+      color: $bali-hai;
+    }
+    
+    .gt // Generic Traceback
+    {
+      color: $soft-amber;
+    }
+  
+    .w // Text Whitespace
+    {
+      color: $gray;
+    }
+    
+  } // pre.chroma
+  
+  &.soft-wrap pre.chroma { white-space: pre-wrap; }
+  
+} // div.highlight

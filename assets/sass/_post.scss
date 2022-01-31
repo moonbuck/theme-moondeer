@@ -29,6 +29,11 @@
     }
     
     * + :is(h2, h3, h4, h5, h6):not(.cardify-card-title) { margin-top: 3rem; }
+    
+    .section-break {
+      
+    }
+    
   }
 
   footer#post-meta {

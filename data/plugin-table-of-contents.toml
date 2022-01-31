@@ -5,47 +5,47 @@
 
 # Whether to print HTML comments for debugging purposes.
 #
-DebugPrint = false
+# DebugPrint = false
 
 # Whether to provide subresource integrity by generating a 
 # base64-encoded cryptographic hash and attaching a .Data.Integrity
 # property containing an integrity string, which is made up of the
 # name of the hash function, one hyphen and the base64-encoded hash sum.
 #
-Fingerprint = true
+# Fingerprint = true
 
 # Output style for /assets/sass/toc.scss. 
 # Valid options are nested, expanded, compact and compressed
 #
-SassOutput = 'compact'
+SassOutput = 'compressed'
 
 # Whether to minify the Javascript file generated from
 # /assets/js/toc.js
 #
-MinifyScript = false
+# MinifyScript = false
 
 # Selector used to identify the HTML element whose child headings shall
 # be eligible for inclusion in the table of contents.
 #
-SourceSandbox = '#post-body'
+# SourceSandbox = '#post-body'
 
 # Selector for identifying the HTML element into which the container
 # shall be prepended.
 #
-ContainerParent = 'body'
+# ContainerParent = 'body'
 
 # The text displayed within the TOC header.
 #
-TitleText = 'Table of Contents'
+# TitleText = 'Table of Contents'
 
 # Selector for identifying the HTML element into which the toggle
 # button shall be prepended.
 #
-ToggleParent = '#toc-toggle-container'
+# ToggleParent = '#toc-toggle-container'
 
 # The text displayed by the toggle button.
 #
-ToggleText = 'Table of Contents'
+# ToggleText = 'Table of Contents'
 
 # Whether to generate section numbers kinda like:
 # 2 Installation
@@ -60,12 +60,12 @@ ToggleText = 'Table of Contents'
 #   4.2 Audio and Video, Oh My
 #    4.2.1 How It Works
 #
-SectionNumbers = true
+# SectionNumbers = true
 
 # Whether to inject generated section numbers into the original
 # post headings.
 #
-InjectSectionNumbers = true
+# InjectSectionNumbers = true
 
 # Component styling with Sass blocks and variables
 # Overrides data/plugin_toc/Style.toml
@@ -74,70 +74,70 @@ InjectSectionNumbers = true
 
 # Sass block to apply to the table of contents.
 #
-TOC = '''
-background: white;
-border-right: 1px solid rgba(black, .2);'''
+# TOC = '''
+# background: white;
+# border-right: 1px solid rgba(black, .2);'''
 
 # Sass block to apply to the TOC header.
 #
-Header = 'padding: 1rem;'
+# Header = 'padding: 1rem;'
 
 # Sass block to apply to the TOC title.
 #
-Title = 'margin-bottom: 0; line-height: 1.5;'
+# Title = 'margin-bottom: 0; line-height: 1.5;'
 
 # Sass block to apply to the TOC close button.
 #
-CloseButton = '''
-top: .5rem;
-right: .5rem;
-width: 1rem;
-color: lightgray;'''
+# CloseButton = '''
+# top: .5rem;
+# right: .5rem;
+# width: 1rem;
+# color: lightgray;'''
 
 # Sass block to apply to the TOC body.
 #
-Body = 'padding: 1rem 1rem 3rem 1rem; gap: .5rem;'
+# Body = 'padding: 1rem 1rem 3rem 1rem; gap: .5rem;'
 
 # Sass block to apply to TOC entries
 #
-Entry = 'gap: .5em;'
+# Entry = 'gap: .5em;'
 
 # Sass block to apply to the section number of the entries.
 #
-EntrySection = 'font-style: italic;'
+# EntrySection = 'font-style: italic;'
 
 # Sass block to apply to the links within the entries.
 #
-EntryLink = 'line-height: 1.1;'
+# EntryLink = 'line-height: 1.1;'
 
 # Sass block to apply to the backdrop.
 #
-Backdrop = 'background-color: black;'
+# Backdrop = 'background-color: black;'
 
 # Sass block to apply to the toggle button.
 #
-Toggle = '''
-color: rgba(white, .9);
-background: rgba(#1E2025, .6);
-padding: 0 .5rem;
-margin: 0;'''
+# Toggle = '''
+# color: rgba(white, .9);
+# background: rgba(#1E2025, .6);
+# padding: 0 .5rem;
+# margin: 0;'''
 
 # Sass block to apply to the section numbers injected 
 # into headings.
 #
-SectionNumber = 'margin-right: 1em;'
+# SectionNumber = 'margin-right: 1em;'
 
 [Style.Variables]
 
 # The pixel width of the table of contents.
 #
-TOCWidth = 400
+# TOCWidth = 400
 
 # The amount of indentation per level of depth within the 
 # table of contents.
 #
-LevelIndent = '1em'
+# LevelIndent = '1em'
 
 # The backdrop opacity when visible.
 #
-BackdropOpacity = 0.5
+# BackdropOpacity = 0.5

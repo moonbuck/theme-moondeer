@@ -4,14 +4,14 @@
 
 # Whether to print HTML comments for debugging purposes.
 #
-DebugPrint = false
+# DebugPrint = false
 
 # Whether to provide subresource integrity by generating a 
 # base64-encoded cryptographic hash and attaching a .Data.Integrity
 # property containing an integrity string, which is made up of the
 # name of the hash function, one hyphen and the base64-encoded hash sum.
 #
-Fingerprint = true
+# Fingerprint = true
 
 # Output style for /assets/sass/category-cloud.scss. 
 # Valid options are nested, expanded, compact and compressed
@@ -90,7 +90,7 @@ stream-of-consciousness = 'Stream of Consciousness'
 
 # Max font size to use in the cloud in rem units.
 #
-MaxSize = 6.34
+# MaxSize = 6.34
 
 # Min font size to use in the cloud in rem units.
 #

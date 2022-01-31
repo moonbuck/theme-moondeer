@@ -1,4 +1,4 @@
-/// Bootstrap flags
+// Bootstrap flags
 $enable-caret: true;
 $enable-rounded: true;
 $enable-shadows: false;
@@ -16,7 +16,7 @@ $enable-negative-margins: false;
 $enable-deprecation-messages: true;
 $enable-important-utilities: true;
 
-/// Named colors mostly picked out of my banner images
+// Named colors for theme use
 $kashmir-blue: #516189;
 $manatee: #9091AB;
 $sinbad: #A0D0D4;
@@ -37,7 +37,31 @@ $silver: #BBBBBB;
 $dove-gray: #666666;
 $tundora: #444444;
 
-/// Bootstrap grayscale color definitions
+// Named colors for syntax highlighting use
+$quill-gray: #d7d7d6;
+$mine-shaft: #393939;
+$french-pass: #B4D5FE;
+$torch-red: #F92424;
+$spring-wood: #F8F8F0;
+$raw-sienna: #D27F41;
+$cascade: #90AFA5;
+$glacier: #79A6C7;
+$soft-amber: #CFC0B3;
+$amethyst-smoke: #A98DB7;
+$pear: #A6E22E;
+$turmeric: #C1BE42;
+$heather: #B8C4D0;
+$battleship-gray: #7D976E;
+$bali-hai: #89AAB3;
+$spray: #66D9EF;
+$tree-poppy: #FD971F;
+$heliotrope: #AE81FF;
+$sushi: #95B84A;
+$gray: #929292;
+$radical-red: #F92672;
+$silver-chalice: #B0B0B0;
+
+// Bootstrap grayscale color definitions
 $white: #FFFFFF;
 $gray-100: #F2F2F2;
 $gray-200: #E5E5E5;
@@ -50,7 +74,7 @@ $gray-800: #3F3F3F;
 $gray-900: #262626;
 $black: $shark;
 
-/// Bootstrap color definitions
+// Bootstrap color definitions
 $blue: $kashmir-blue;
 $indigo: $ship-cove;
 $purple: $dolphin;
@@ -62,7 +86,7 @@ $green: $celery;
 $teal: $riptide;
 $cyan: $sinbad;
 
-/// Bootstrap theme color definitions
+// Bootstrap theme color definitions
 $primary: $blue;
 $secondary: $gull-gray;
 $success: $green;
@@ -72,7 +96,7 @@ $danger: $red;
 $light: $white-smoke;
 $dark: $shark;
 
-/// Spacers
+// Spacers
 $spacer: 1rem;
 $spacers: (
   0: 0,
@@ -83,29 +107,29 @@ $spacers: (
   5: $spacer * 3,
 );
 
-/// Body
+// Body
 $body-bg: $white;
 $body-color: $dove-gray;
 
-/// General links
+// General links
 $link-color: $blue;
 $link-hover-color: $tundora;
 $link-decoration: none;
 $link-hover-decoration: none;
 
-/// Next/prev links
+// Next/prev links
 $np-link-col: $primary;
 $np-link-hov-col: $black;
 $np-link-weight: book;
 $np-link-style: normal;
 
-/// Category links within Next/prev nav
+// Category links within Next/prev nav
 $np-cat-link-col: $np-link-col;
 $np-cat-link-hov-col: $np-link-hov-col;
 $np-cat-link-weight: light;
 $np-cat-link-style: italic;
 
-/// Main nav links
+// Main nav links
 
 // Shadow colors
 $mnl-shad-col-l: $petite-orchid;
@@ -143,22 +167,22 @@ $mnl-font-weight: 400;
 // Transition
 $mnl-transition: all .35s cubic-bezier(0.7, 0, 0.3, 1);
 
-/// Paragraphs
+// Paragraphs
 $paragraph-margin-bottom: 0.5rem;
 
-/// Page header
+// Page header
 $header-bg-d: $primary;
 $header-bg-l: $white;
 $header-bg: $header-bg-d;
 
-/// Page main
+// Page main
 $main-bg: $white;
 
-/// Page footer
+// Page footer
 $footer-bg: $white;
 $footer-col: $primary;
 
-/// Breakpoints
+// Breakpoints
 $grid-breakpoints: (
   xs: 0,
   sm: 576px,
@@ -168,7 +192,7 @@ $grid-breakpoints: (
   xxl: 1400px
 );
 
-/// Containers
+// Containers
 $container-max-widths: (
   sm: 540px,
   md: 600px,
@@ -178,12 +202,12 @@ $container-max-widths: (
 );
 $container-padding-x: 1rem;
 
-/// Grid columns
+// Grid columns
 $grid-columns: 12;
 $grid-gutter-width: 1.5rem;
 $grid-row-columns: 6;
 
-/// Borders
+// Borders
 $border-width: 1px;
 $border-widths: (1:1px,2:2px,3:3px,4:4px,5:5px);
 $border-radius: 0.25rem;
@@ -193,17 +217,17 @@ $border-radius-sm: .2rem;
 $border-radius-lg: .3rem;
 $border-radius-pill: 50rem;
 
-/// Box shadows
+// Box shadows
 $box-shadow: 0 .5rem 1rem rgba($black, .15);
 $box-shadow-sm: 0 .125rem .25rem rgba($black, .075);
 $box-shadow-lg: 0 1rem 3rem rgba($black, .175);
 $box-shadow-inset: inset 0 1px 2px rgba($black, .075);
 
-/// Component active colors
+// Component active colors
 $component-active-color: $white;
 $component-active-bg: $primary;
 
-/// Typography
+// Typography
 $eaves-font-family: mr-eaves-sans;
 $eaves-font-weights: (
   thin: 100,
@@ -266,7 +290,7 @@ $line-height-base: 1.35;
 $line-height-sm: 1.1;
 $line-height-lg: 1.6;
 
-/// Headings
+// Headings
 $h1-font-size: $font-size-base * 2.5;
 $h2-font-size: $font-size-base * 2;
 $h3-font-size: $font-size-base * 1.75;
@@ -281,7 +305,7 @@ $headings-font-weight: 700;
 $headings-line-height: 1.2;
 $headings-color: $black;
 
-/// Display headings
+// Display headings
 $display-font-sizes: (
   1: 5rem,
   2: 4.5rem,
@@ -294,7 +318,7 @@ $display-font-sizes: (
 $display-font-weight: 300;
 $display-line-height: $headings-line-height;
 
-/// Type variables
+// Type variables
 
 // Lead text
 $lead-font-size: $font-size-base * 1.25;
@@ -351,9 +375,9 @@ $kbd-bg: $gray-900;
 $pre-color: $code-color;
 
 
-/// Bootstrap components
+// Bootstrap components
 
-/// Pagination
+// Pagination
 $pagination-padding-y: .375rem;
 $pagination-padding-x: .75rem;
 $pagination-padding-y-sm: .25rem;
@@ -386,14 +410,14 @@ $pagination-disabled-bg: $white;
 $pagination-disabled-border-color: $gray-300;
 
 $pagination-transition: color .15s ease-in-out,
-  background-color .15s ease-in-out,
-  border-color .15s ease-in-out,
-  box-shadow .15s ease-in-out;
+                        background-color .15s ease-in-out,
+                        border-color .15s ease-in-out,
+                        box-shadow .15s ease-in-out;
 
 $pagination-border-radius-sm: $border-radius-sm;
 $pagination-border-radius-lg: $border-radius-lg;
 
-/// Navs
+// Navs
 $nav-link-padding-y: 0;
 $nav-link-padding-x: 0;
 $nav-link-font-size: 0.85rem;
@@ -402,9 +426,7 @@ $nav-link-color: $link-color;
 $nav-link-hover-color: $link-hover-color;
 $nav-link-transition: all .35s cubic-bezier(0.7, 0, 0.3, 1);
 
-
-
-/// Cards
+// Cards
 $card-spacer-y: $spacer;
 $card-spacer-x: $spacer;
 $card-title-spacer-y: $spacer * .5;
@@ -424,7 +446,7 @@ $card-bg: $white;
 $card-img-overlay-padding: $spacer;
 $card-group-margin: $grid-gutter-width * .5;
 
-/// List group
+// List group
 $list-group-color: $gray-900;
 $list-group-bg: $white;
 $list-group-border-color: rgba($black, .125);

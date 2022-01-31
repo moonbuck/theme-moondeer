@@ -9,7 +9,7 @@
 
 # Whether to include HTML comments with debugging information
 #
-DebugPrint = true
+# DebugPrint = false
 
 # Twitter and Open Graph <meta> tag configuration
 #
@@ -19,7 +19,7 @@ DebugPrint = true
 
 # Whether to inject Twitter and Open Graph <meta> tags into page <head>
 #
-Enable = true
+# Enable = true
 
 # Video parameters
 #
@@ -29,15 +29,15 @@ Enable = true
 
 # Default width for Open Graph and Twitter Card video tags.
 #
-Width = 600
+# Width = 600
 
 # Default height for Open Graph and Twitter Card video tags.
 #
-Height = 338
+# Height = 338
 
 # The default og:type value for Open Graph video tags.
 #
-Type = 'video.other'
+# Type = 'video.other'
 
 # Audio parameters
 #
@@ -47,15 +47,15 @@ Type = 'video.other'
 
 # Default width for Twitter player cards configured for audio.
 #
-Width = 338
+# Width = 338
 
 # Default height for Twitter player cards configured for audio.
 #
-Height = 338
+# Height = 338
 
 # The default og:type value for Open Graph audio tags.
 #
-Type = 'music.song'
+# Type = 'music.song'
 
 # Images to use for non-post pages and pages without an image.
 #
@@ -107,7 +107,7 @@ default = "https://moondeer.blog/uploads/2021/7c412827ad.jpg"
 # Username for Twitter <meta> tags.
 # Defaults to site.Params.twitter_username when empty
 #
-Username = ''
+# Username = ''
 
 # Twitter card type preferences
 #
@@ -119,12 +119,12 @@ Username = ''
 # Has not affect on post pages configured for Twitter player cards.
 # Valid options are small and large.
 #
-SinglePage = 'large'
+# SinglePage = 'large'
 
 # The type of summary card to generate for list pages.
 # Valid options are small and large.
 #
-ListPage = 'small'
+# ListPage = 'small'
 
 # Whether the generation of a large summary card should require
 # an image (otherwise a small summary card will be generated instead).
@@ -155,17 +155,17 @@ LargeSummaryRequiresImage = true
 # Whether to inject an application/ld+json script in the page <head>
 # with structured data for search engines.
 #
-Enable = true
+# Enable = true
 
 # The value to set for author.name within the JSON object.
 # Defaults to site.Author.name or site.Params.Author.name when empty
 #
-AuthorName = ''
+# AuthorName = ''
 
 # The value to set for author.url within the JSON object.
 # Defaults to site.Author.profileurl when empty
 #
-ProfileURL = ''
+# ProfileURL = ''
 
 # Parameters for controlling the generated css and js files
 # and preview card creation.
@@ -178,12 +178,12 @@ ProfileURL = ''
 # property containing an integrity string, which is made up of the
 # name of the hash function, one hyphen and the base64-encoded hash sum.
 #
-Fingerprint = true
+# Fingerprint = true
 
 # Output style for /assets/sass/cardify.scss. 
 # Valid options are nested, expanded, compact and compressed
 #
-SassOutput = 'nested'
+SassOutput = 'compressed'
 
 # Parameters for styling preview cards
 # overrides data/plugin_cards/Cardify/Style.toml

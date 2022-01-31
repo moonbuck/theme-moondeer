@@ -1,0 +1,28 @@
+goldmark.extensions.typographer = false
+goldmark.parser.attribute.block = true
+highlight.noClasses = false
+
+# [goldmark.extensions]
+# definitionList = true
+# footnote = true
+# linkify = true
+# strikethrough = true
+# table = true
+# taskList = true
+# typographer = false
+
+# [goldmark.parser]
+# autoHeadingID = true
+# autoHeadingIDType = 'github'
+
+# [goldmark.parser.attribute]
+# block = true
+# title = true
+
+# [goldmark.renderer]
+# hardWraps = false
+# unsafe = true
+# xhtml = false
+
+# [highlight]
+# noClasses = false
