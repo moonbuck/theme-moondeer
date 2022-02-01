@@ -107,7 +107,7 @@ default = "https://moondeer.blog/uploads/2021/7c412827ad.jpg"
 # Username for Twitter <meta> tags.
 # Defaults to site.Params.twitter_username when empty
 #
-# Username = ''
+# Config.Username = ''
 
 # Twitter card type preferences
 #
@@ -192,37 +192,37 @@ SassOutput = 'compressed'
 
 # Sass block to apply to the card container.
 #
-Card = '''
-background-color: white;
-border-color: rgba(black, .125);
-border-style: solid;'''
+# Card = '''
+# background-color: white;
+# border-color: rgba(black, .125);
+# border-style: solid;'''
 
 # Sass block to apply to the card body.
 #
-Body = 'padding: 1rem;'
+# Body = 'padding: 1rem;'
 
 # Sass block to apply to the card title.
 #
-Title = 'margin-bottom: .5rem;'
+# Title = 'margin-bottom: .5rem;'
 
 # Sass block to apply to the card text.
 #
-Text = ''
+# Text = ''
 
 # Sass block to apply to the reading time element.
 #
-ReadingTime = 'color: #9091AB;'
+# ReadingTime = 'color: #9091AB;'
 
 # Sass block to apply to the publish date element.
 #
-PublishDate = 'color: #666;'
+# PublishDate = 'color: #666;'
 
 [Cardify.Style.Variables]
 
 # Width value for the border applied to card container.
 #
-BorderWidth = '1px'
+# BorderWidth = '1px'
 
 # border-radius value for the card container.
 #
-BorderRadius = '.5rem'
+# BorderRadius = '.5rem'

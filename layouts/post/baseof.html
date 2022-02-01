@@ -56,8 +56,6 @@
 {{/* Define the page body */}}
 <body id="{{ $id }}" class="{{ $class }}" style="--md-header-bg: var(--md-header-bg-l); --md-mnl-col: var(--md-mnl-col-d); --md-mnl-hov-col: var(--md-mnl-hov-col-d); --md-mnl-hov-shad: var(--md-mnl-hov-shad-d); --md-mnl-sel-shad: var(--md-mnl-sel-shad-d);">
 
-{{- partial "plugins/google-tag-manager.html" . -}}
-
 {{/* Support injection of plugin html above the header  */}}
 {{- partial "plugins/html-injection.html" (slice "ABOVE_HEADER" .) }}
 

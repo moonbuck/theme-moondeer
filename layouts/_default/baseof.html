@@ -56,8 +56,6 @@
 {{/* Define the page body */}}
 <body id="{{ $id }}" class="{{ $class }}">
 
-{{- partial "plugins/google-tag-manager.html" . -}}
-
 {{/* Support injection of plugin html above the header  */}}
 {{- partial "plugins/html-injection.html" (slice "ABOVE_HEADER" .) }}
 
