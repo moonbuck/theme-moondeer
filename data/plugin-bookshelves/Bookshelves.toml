@@ -1,0 +1,42 @@
+# Bookshelf registry
+####################
+
+# A registered bookshelf is composed of the following:
+# • The entry's array item umbrella: [[Registered]]
+# • A 'Key' entry with the bookshelf's lookup key.
+# • An optional 'DisplayName' entry with markdown to parse as the bookshelf's header.
+# • An optional 'Description' entry with markdown to parse as the bookshelf's description.
+#
+# An example might look like the following:
+#
+# [[Registered]]
+# Key = 'currentlyreading'
+# DisplayName = 'Currently Reading'
+# Description = '*Books I am somewhat in the process of reading*'
+#
+[[Registered]]
+Key = 'currentlyreading'
+DisplayName = 'Currently Reading'
+Description = '*Books I am somewhat in the process of reading*'
+
+[[Registered]]
+Key = 'finishedreading'
+DisplayName = 'Finished Reading'
+Description = "*Books I've managed to get myself to read*"
+
+[[Registered]]
+Key = 'wanttoread'
+DisplayName = 'Want to Read'
+Description = """\
+              *Books that gaze at me judingly from beneath the television, \
+              where they currently live, for having yet to crack their spine \
+              (f$&kers).*\
+              """
+
+[[Registered]]
+Key = 'didwanttoread'
+DisplayName = 'Did Want to Read'
+Description = """\
+              *Books whose gaze of judgement I've kinda become okay with as \
+              my interest in reading them has waned.*\
+              """

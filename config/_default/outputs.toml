@@ -3,7 +3,6 @@ home = [
   "RSS",
   "JSON",
   "RSD",
-  "ArchiveHTML",
   "ArchiveJSON",
   "PhotosJSON",
   "PodcastXML",

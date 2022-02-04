@@ -1,0 +1,31 @@
+# Banner image registration
+#
+# Register banner images by relative page path.
+###############################################
+
+'/' = 'https://moondeer.blog/uploads/2021/8135337116.png'
+'/about/' = 'https://moondeer.blog/uploads/2021/955619b235.jpg'
+'/cloud/' = 'https://moondeer.blog/uploads/2021/547d825d8a.jpg'
+'/bookshelf/' = 'https://moondeer.blog/uploads/2021/27a279361f.jpg'
+'/gallery/' = 'https://moondeer.blog/uploads/2021/8585a4a081.jpg'
+'/categories/perspectives/' = 'https://moondeer.blog/uploads/2021/f5f64b49bb.jpg'
+'/categories/projects/' = 'https://moondeer.blog/uploads/2021/74512379fa.png'
+'/categories/poetry/' = 'https://moondeer.blog/uploads/2021/02bec3693a.png'
+'/categories/music/' = 'https://moondeer.blog/uploads/2021/b604ce0519.png'
+'/categories/programming/' = 'https://moondeer.blog/uploads/2021/0d2564a5e5.png'
+'/categories/microblog/' = 'https://moondeer.blog/uploads/2021/0d2564a5e5.png'
+'/categories/critters/' = 'https://moondeer.blog/uploads/2021/e0dfd20403.png'
+'/categories/stream-of-consciousness/' = 'https://moondeer.blog/uploads/2021/b48fce578f.png'
+'/categories/inside-the-art/' = 'https://moondeer.blog/uploads/2021/8c4669346c.jpg'
+'/categories/biographical-tripe/' = 'https://moondeer.blog/uploads/2021/ac4a187662.png'
+'/categories/artsy-fartsy/' = 'https://moondeer.blog/uploads/2021/608bfd1756.png'
+'/perspectives/' = 'https://moondeer.blog/uploads/2021/f5f64b49bb.jpg'
+'/projects/' = 'https://moondeer.blog/uploads/2021/74512379fa.png'
+'/poetry/' = 'https://moondeer.blog/uploads/2021/02bec3693a.png'
+'/music/' = 'https://moondeer.blog/uploads/2021/b604ce0519.png'
+'/programming/' = 'https://moondeer.blog/uploads/2021/0d2564a5e5.png'
+'/critters/' = 'https://moondeer.blog/uploads/2021/e0dfd20403.png'
+'/stream-of-consciousness/' = 'https://moondeer.blog/uploads/2021/b48fce578f.png'
+'/inside-the-art/' = 'https://moondeer.blog/uploads/2021/8c4669346c.jpg'
+'/biographical-tripe/' = 'https://moondeer.blog/uploads/2021/ac4a187662.png'
+'/artsy-fartsy/' = 'https://moondeer.blog/uploads/2021/608bfd1756.png'

@@ -1,8 +1,0 @@
-[Config]
-HTMLComments = false
-# DebugPrint = false
-
-[Locations]
-HEAD_TOP = [ "plugin-google-tag-manager/injection.html" ]
-
-[Filters]

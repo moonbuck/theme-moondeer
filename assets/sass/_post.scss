@@ -28,10 +28,13 @@
       @include eaves-font(regular, italic);
     }
     
-    * + :is(h2, h3, h4, h5, h6):not(.cardify-card-title) { margin-top: 3rem; }
+    * + :is(h2, h3, h4, h5, h6):not(.cardify-card-title) { margin-top: 1rem; }
     
     .section-break {
-      
+      height: 4rem;
+      width: auto;
+      margin: 0 auto;
+      opacity: .5;
     }
     
   }
