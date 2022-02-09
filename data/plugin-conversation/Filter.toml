@@ -1,6 +1,0 @@
-# Filtering the display of conversation items.
-##############################################
-
-# An array of the ids of conversation items to hide.
-#
-# HiddenItems = []

@@ -1,0 +1,6 @@
+Config.SassOutput = 'compressed'
+Names.ExclusionList = [ 'Pinned', 'Temporary' ]
+
+[Names.DisplayNames]
+microblog = 'Micro.blog'
+stream-of-consciousness = 'Stream of Consciousness'

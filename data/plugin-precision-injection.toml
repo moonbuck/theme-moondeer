@@ -1,0 +1,2 @@
+Config.HTMLComments = false
+Locations.HEAD_TOP = [ "plugin-google-tag-manager/injection.html" ]

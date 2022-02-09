@@ -1,7 +1,0 @@
-# Twitter specific parameters
-#############################
-
-# Username for Twitter <meta> tags.
-# Defaults to site.Params.twitter_username when empty
-#
-# Username = ''

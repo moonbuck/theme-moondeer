@@ -1,0 +1,37 @@
+Config.SassOutput = 'compressed'
+
+[[Accounts.Platforms]]
+Name = "Twitter"
+Href = "https://twitter.com/@USERNAME"
+Username = "moondeerdotblog"
+
+[[Accounts.Platforms]]
+Name = "Github"
+Href = "https://github.com/USERNAME"
+Username = "moonbuck"
+
+[[Accounts.Platforms]]
+Name = "Tumblr"
+Href = "https://USERNAME.tumblr.com"
+Username = "moondeerdotblog"
+
+[[Accounts.Platforms]]
+Name = "Medium"
+Href = "https://USERNAME.medium.com"
+Username = "Moondeer"
+
+[[Accounts.Platforms]]
+Name = "Facebook"
+Href = "https://www.facebook.com/USERNAME"
+Username = "moondeerdotblog"
+
+[[Accounts.Platforms]]
+Name = "Instagram"
+Href = "https://www.instagram.com/USERNAME"
+Username = "moondeerdotblog"
+
+[[Accounts.Platforms]]
+Name = "Mastodon"
+Href = "https://SERVER/@USERNAME"
+Server = "mastodon.online"
+Username = "moondeer"

@@ -1,0 +1,28 @@
+Config.SassOutput = 'compressed'
+
+[[Bookshelves.Registered]]
+Key = 'currentlyreading'
+DisplayName = 'Currently Reading'
+Description = '*Books I am somewhat in the process of reading*'
+
+[[Bookshelves.Registered]]
+Key = 'finishedreading'
+DisplayName = 'Finished Reading'
+Description = "*Books I've managed to get myself to read*"
+
+[[Bookshelves.Registered]]
+Key = 'wanttoread'
+DisplayName = 'Want to Read'
+Description = """\
+*Books that gaze at me judingly from beneath the television, \
+where they currently live, for having yet to crack their spine \
+(f$&kers).*\
+"""
+
+[[Bookshelves.Registered]]
+Key = 'didwanttoread'
+DisplayName = 'Did Want to Read'
+Description = """\
+*Books whose gaze of judgement I've kinda become okay with as \
+my interest in reading them has waned.*\
+"""

@@ -1,0 +1,7 @@
+Config.SassOutput = 'compressed'
+Config.CX = 'f4b9ece1e50134632'
+Config.APIKey = 'AIzaSyCt-f_3al4TvkCEX-Ety0ygzP4evioFKEs'
+ResultsOverlay.Footer.Link.Color = '#646386'
+ResultsOverlay.Footer.Link.TextDecoration = 'none'
+ResultsOverlay.Footer.Link.Hover.Color = 'scale-color(#646386, $lightness: 10%)'
+SearchBar.Input.Placeholder.Text = 'query the mind of moondeer'

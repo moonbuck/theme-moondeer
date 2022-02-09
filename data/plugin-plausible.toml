@@ -1,0 +1,4 @@
+Config.RegisteredDomain = 'moondeer.blog'
+Config.ScriptName = 'script.js'
+Config.ScriptSource = '/plausi/js/'
+Config.DataAPI = '/plausi/api/event'
