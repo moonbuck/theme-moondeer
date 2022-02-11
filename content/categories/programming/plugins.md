@@ -4,7 +4,9 @@ description = 'Plugins written for Micro.blog'
 url = '/programming/plugins'
 aliases = ['/categories/programming/plugins']
 +++
-<h1>Micro.blog Plugins</h1>
+*Plugins I've written for Micro.blog.*
+
+{{< card-config image="https://moondeer.blog/uploads/2022/f4de364e94.jpg" description="Plugins I've written for Micro.blog" title="Micro.blog Plugins" card="summary" >}}
 
 {{< card "https://moondeer.blog/2022/02/10/pluginplausible-a-readme.html" >}}
 
