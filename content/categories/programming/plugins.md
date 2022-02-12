@@ -25,3 +25,5 @@ aliases = ['/categories/programming/plugins']
 {{< card "https://moondeer.blog/2022/02/07/pluginprogrammablesearchengine-a-readme.html" >}}
 
 {{< card "https://moondeer.blog/2022/02/09/plugintableofcontents-a-readme.html" >}}
+
+{{< card "https://moondeer.blog/2022/02/11/pluginbanner-a-readme.html" >}}
