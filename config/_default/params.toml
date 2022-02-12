@@ -1,3 +1,17 @@
+plugins_html = [
+  "plugin-lightbox/injection.html",
+  "plugin-category-cloud/injection.html",
+  "plugin-cards/injection.html",
+  "plugin-bookshelves/injection.html",
+  "plugin-gallery/injection.html",
+  "plugin-banner/injection.html",
+  "plugin-social-media-links/injection.html",
+  "plugin-favicons/injection.html",
+  "plugin-conversation/injection.html",
+  "plugin-programmable-search-engine/injection.html",
+  "plugin-table-of-contents/injection.html",
+  "plugin-plausible/injection.html"
+]
 [Theme]
 ThemeVersion = "v184"
 VisibleThemeVersion = "test"
