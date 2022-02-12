@@ -1,0 +1,41 @@
+{{- define "main" }}
+
+{{- if not (.Scratch.Get "plugin-bookshelves.Parameters") -}}
+  {{- partial "plugin-bookshelves/load-parameters.html" . -}}
+{{- end -}}
+
+{{- $Parameters := .Scratch.Get "plugin-bookshelves.Parameters" -}}
+
+{{- if $Parameters.Config.EnableViewToggle -}}
+  {{- partial "plugin-bookshelves/view-toggle.html" . -}}
+{{- end -}}
+  
+<div id="{{ $Parameters.Style.BookshelvesID }}"
+     class="{{ $Parameters.Config.InitialView }}">
+
+{{- range $Parameters.Bookshelves.Resolved -}}
+  
+  <div class="{{ $Parameters.Style.BookshelfClassName }}">  
+    {{ with .DisplayName }}<h2>{{ . | markdownify }}</h2>{{ end }} 
+    {{ with .Description }}<p>{{ . | markdownify }}</p>{{ end }}   
+  {{ with .Key -}}
+    <div>
+    {{ range index site.Data.bookshelves . -}}      
+      <div class="{{ $Parameters.Style.BookClassName }}">
+        <a href="https://micro.blog/books/{{ .isbn }}">
+          <img src="{{ .cover_url }}" 
+               width="{{ $Parameters.Style.CoverWidth }}" />
+        </a>
+        <div>
+          <b><span>{{ .title }}</span></b>
+          {{ with .author }}<i><span>by {{.}}</span></i>{{ end }} 
+        </div>         
+      </div>      
+    {{- end }} {{/* range index site.Data.bookshelves . */}}
+    </div>
+  {{- end }} {{/* with .Key */}}    
+  </div>
+{{- end -}} {{/* range .Bookshelves.Resolved */}}
+</div>
+
+{{- end }}

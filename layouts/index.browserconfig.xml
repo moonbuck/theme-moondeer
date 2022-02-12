@@ -1,0 +1,15 @@
+{{ with (.Scratch.Get "plugin-favicons.Parameters").MSTile -}}
+<?xml version="1.0" encoding="utf-8"?>
+<browserconfig>
+  <msapplication>
+    <tile>
+      {{ with .X70 }}<square70x70logo src="{{ . }}"/>{{ end }}
+      {{ with .X144 }}<square144x144logo src="{{ . }}"/>{{ end }}
+      {{ with .X150 }}<square150x150logo src="{{ . }}"/>{{ end }}
+      {{ with .WideX150 }}<wide310x150logo src="{{ . }}"/>{{ end }}
+      {{ with .X310 }}<square310x310logo src="{{ . }}"/>{{ end }}
+      {{ with .TileColor }}<TileColor>{{ . }}</TileColor>{{ end }}
+    </tile>
+  </msapplication>
+</browserconfig>
+{{- end }}

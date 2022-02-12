@@ -1,0 +1,84 @@
+{{ define "main" -}}
+
+  {{- if not (.Scratch.Get "plugin-gallery.Parameters") -}}
+    {{- partial "plugin-gallery/load-parameters.html" . -}}
+  {{- end -}}
+  
+  {{- with .Scratch.Get "plugin-gallery.Parameters" -}}
+  
+    {{ if .Gallery.Header -}}
+<h1 id="{{ .Style.HeaderID }}">{{ .Gallery.Header | chomp | markdownify }}</h1>
+    {{- end }}
+   
+    {{ if .Gallery.Description -}}
+<div id="{{ .Style.DescriptionID }}">{{ .Gallery.Description | chomp | markdownify }}</div>
+    {{- end }}
+
+    {{- /* Create the map of parameters with non-empty values. */ -}}
+    {{- $Parameters := dict "Page" $ -}}
+    {{- with .Gallery.Name -}}
+      {{- $Parameters = merge $Parameters (dict "Gallery" .) -}}
+    {{- end -}}
+    {{- with .Assets.Slides -}}
+      {{- $Parameters = merge $Parameters (dict "Slides" .) -}}
+    {{- end -}}
+    {{- with .Gallery.PhotoWidth -}}
+      {{- $Parameters = merge $Parameters (dict "PhotoWidth" .) -}}
+    {{- end -}}
+    {{- with .Gallery.DescPosition -}}
+      {{- $Parameters = merge $Parameters (dict "DescPosition" .) -}}
+    {{- end -}}
+    {{- with .Gallery.Effect -}}
+      {{- $Parameters = merge $Parameters (dict "Effect" .) -}}
+    {{- end -}}
+    {{- if (isset .Gallery "Zoomable") -}}
+      {{- $Parameters = merge $Parameters (dict "Zoomable" .Gallery.Zoomable) -}}
+    {{- end -}}
+    {{- if (isset .Gallery "Draggable") -}}
+      {{- $Parameters = merge $Parameters (dict "Draggable" .Gallery.Draggable) -}}
+    {{- end -}}
+    {{- if (isset .Gallery "Loop") -}}
+      {{- $Parameters = merge $Parameters (dict "Loop" .Gallery.Loop) -}}
+    {{- end -}}
+    {{- if (isset .Gallery "Autoplay") -}}
+      {{- $Parameters = merge $Parameters (dict "Autoplay" .Gallery.Autoplay) -}}
+    {{- end -}}
+    {{- with .Gallery.Preload -}}
+      {{- $Parameters = merge $Parameters (dict "Preload" .) -}}
+    {{- end -}}
+    {{- with .Gallery.Width -}}
+      {{- $Parameters = merge $Parameters (dict "Width" .) -}}
+    {{- end -}}
+    {{- with .Gallery.Height -}}
+      {{- $Parameters = merge $Parameters (dict "Height" .) -}}
+    {{- end -}}
+    {{- with .Style.Gallery -}}
+      {{- $Parameters = merge $Parameters (dict "GalleryStyle" .) -}}
+    {{- end -}}
+    {{- with .Style.Link -}}
+      {{- $Parameters = merge $Parameters (dict "LinkStyle" .) -}}
+    {{- end -}}
+    {{- with .Style.Img -}}
+      {{- $Parameters = merge $Parameters (dict "ImgStyle" .) -}}
+    {{- end -}}
+    {{- with .Style.Video -}}
+      {{- $Parameters = merge $Parameters (dict "VideoStyle" .) -}}
+    {{- end -}}
+    {{- with .Style.Fit -}}
+      {{- $Parameters = merge $Parameters (dict "Fit" .) -}}
+    {{- end -}}
+    {{- with .Style.GridWidth -}}
+      {{- $Parameters = merge $Parameters (dict "GridWidth" .) -}}
+    {{- end -}}
+    {{- with .Style.RowHeight -}}
+      {{- $Parameters = merge $Parameters (dict "RowHeight" .) -}}
+    {{- end -}}
+    
+    {{- /* Invoke the partial with the map of parameters. */ -}}
+    {{- if templates.Exists "partials/plugin-lightbox/gallery.html" -}}
+      {{ partial "plugin-lightbox/gallery.html" $Parameters }}
+    {{- end -}}
+    
+  {{- end -}} {{/* with .Scratch.Get "plugin-gallery.Parameters" */}}
+
+{{- end }} {{/* define "main" */}}

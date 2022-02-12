@@ -1,0 +1,41 @@
+# Configuring the way the cloud displays category names.
+########################################################
+
+# Category names are fetched in their anchorized form.
+# Setting this parameter to true will convert anchorized
+# forms into capitalized and spaced forms.
+#
+#   my-category → My Category
+#
+Humanize = true
+
+# The default path to a category page takes the form:
+#  /categories/my-anchorized-category
+# 
+# If the category has been lifted into the main menu,
+# and its path has been altered (perhaps by dropping /categories)
+# the plugin can try to match a category to its menu item and
+# use the URL value of the menu item.
+#
+MenuItemMatching = true
+
+# List of categories to exclude from the category cloud.
+#
+# For example: ['Pinned', 'Temporary']
+#
+ExclusionList = [ ]
+
+# The plugin fetches the category names in anchorized form.
+# The 'Humanize' parameter will return the category names
+# to their capitalized and spaced form. The DisplayNames
+# parameter allows for direct control over how a category
+# name will be displayed
+#
+[DisplayNames]
+
+# To define exactly how to display a specific category name 
+# enter its value below with its anchorized form as the key.
+# My use case for this option is this category:
+#
+# stream-of-consciousness = 'Stream of Conscioussness'
+#

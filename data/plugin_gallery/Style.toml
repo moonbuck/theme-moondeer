@@ -1,0 +1,46 @@
+# Parameters for styling the gallery page
+#########################################
+
+# The ID assigned to the header above the description.
+#
+HeaderID = 'gallery-header'
+
+# Sass block applied to the header above the description.
+#
+Header = ''
+
+# The ID assigned to the description above the gallery.
+#
+DescriptionID = 'gallery-description'
+
+# Sass block applied to the description above the gallery.
+#
+Description = ''
+
+# Inline CSS to apply to the gallery's <div>
+#
+Gallery = ''
+
+# Inline CSS to apply to gallery links.
+#
+Link = ''
+
+# Inline CSS to apply to gallery images.
+#
+Img = ''
+
+# Inline CSS to apply to gallery videos.
+#
+Video = ''
+
+# The fit for images and videos inside links (contain or cover).
+#
+Fit = 'cover'
+
+# The number of images / videos to display per row.
+#
+GridWidth = 5
+
+# The row height.
+#
+RowHeight = '20vh'

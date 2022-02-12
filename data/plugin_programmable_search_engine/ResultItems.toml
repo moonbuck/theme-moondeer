@@ -1,0 +1,88 @@
+# Styling the result items section
+##################################
+
+# The ID assigned to the <section> element holding the results.
+#
+ID = 'pse-results-items'
+
+# The ID assigned to the <ul> element.
+#
+List.ID = 'pse-results-list'
+
+# Class assigned to item title links.
+#
+Item.ClassName = 'pse-result-item'
+
+# Class assigned to an item's article element.
+#
+Item.Article.ClassName = 'pse-result-item-article'
+
+# Styling the result item header
+################################
+
+# Class assigned to the header element within the article.
+#
+Item.Header.ClassName = 'pse-result-item-header'
+
+# Class assigned to the item's title link.
+#
+Item.Title.ClassName = 'pse-result-item-title'
+
+# The text color for item title links
+#
+Item.Title.Color = "inherit"
+
+# The text decoration for the item title links
+#
+Item.Title.TextDecoration = 'inherit'
+
+# the text color for item title links when hovering
+#
+Item.Title.Hover.Color = "inherit"
+
+# The text decoration for the item title links when hovering
+#
+Item.Title.Hover.TextDecoration = 'inherit'
+
+# The font size to set for item title links
+#
+Item.Title.Font.Size = 'inherit'
+
+# The font weight to set for item title links
+#
+Item.Title.Font.Weight = 'inherit'
+
+# The font style to set for item title links
+#
+Item.Title.Font.Style = 'inherit'
+
+# Styling the result item body
+#################################
+
+# Class assigned to the <section> element with the result item body.
+#
+Item.Body.ClassName = 'pse-result-item-body'
+
+# Class assigned to the item snippet.
+#
+Item.Snippet.ClassName = 'pse-result-item-snippet'
+
+# The text color for result item snippets
+#
+Item.Snippet.Color = 'inherit'
+
+# The font size for result item snippets
+#
+Item.Snippet.Font.Size = 'inherit'
+
+# The font weight for result item snippets
+#
+Item.Snippet.Font.Weight = 'inherit'
+
+# The font style for result item snippets
+#
+Item.Snippet.Font.Style = 'inherit'
+
+# Class assigned to an item's thumbnail link.
+#
+Item.Thumbnail.ClassName = 'pse-result-item-thumbnail'

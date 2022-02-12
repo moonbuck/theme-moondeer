@@ -1,0 +1,144 @@
+{{- /********************************************************
+  Resolves theme and plugin data files to build a map of 
+  parameter values and injects this map into the page scratch
+  ***********************************************************/ -}}
+
+{{- /************************************************
+  Initialize variables with default parameter values
+  to ensure every parameter has a map entry. 
+  ***************************************************/ -}}
+
+{{- $Config := dict
+  "Version" ""
+  "DebugPrint" false
+  "Fingerprint" true
+  "SassOutput" "compact"
+  "MinifyScript" false
+  "InjectPageMap" true
+  "CX" ""
+  "APIIKey" ""
+-}}
+
+{{- $SearchBar := dict 
+  "ContainerID" "pse-container"
+  "ID" "pse-search-bar"
+  "Input" (dict
+    "Collapsible" true
+    "InitialState" "collapsed"
+    "Height" "auto"
+    "Width" "300px"
+    "Color" "black"
+    "Placeholder" (dict
+        "Text" "site search"
+        "Color" "darkgray")
+    "Transition" (dict 
+        "Duration" ".35s"
+        "TimingFunction" "ease")
+    "Padding" (dict
+      "Y" "0"
+      "X" ".5em")
+    "Border" (dict
+      "Radius" "1em"
+      "Style" "solid"
+      "Color" "rgba(black,.125"))
+  "Button" (dict
+    "ID" "pse-search-bar-button"
+    "Color" "lightgray"
+    "Padding" (dict
+      "Y" "0"
+      "X" ".25em"))
+-}}
+
+{{- $ResultsOverlay := dict
+  "ID" "pse-results-overlay"
+  "Article" (dict
+    "ID" "pse-results-article"
+    "Color" "inherit"
+    (slice "Font" "Size") "1rem"
+    (slice "BG" "Color") "white")
+  "Header" (dict
+    "ID" "pse-results-header"
+    "Color" "inherit"
+    "Title" (dict
+      "ID" "pse-results-title"
+      "Font" (dict
+        "Size" "inherit"
+        "Weight" "inherit"
+        "Style" "inherit"))
+    "Terms" (dict
+      "ID" "pse-results-search-terms"
+      "Color" "inherit"
+      "Font" (dict
+        "Size" "inherit"
+        "Weight" "inherit"
+        "Style" "italic")))
+  "Footer" (dict
+    "ID" "pse-results-footer"
+    (slice "PreviousPageLink" "ID") "pse-results-previous-page"
+    (slice "NextPageLink" "ID") "pse-results-next-page"
+    "Link" (dict
+      "Color" "inherit"
+      "TextDecoration" "none"
+      "Hover" (dict
+        "Color" "inherit"
+        "TextDecoration" "underline")))
+-}}
+
+{{- $ResultItems := dict
+  "ID" "pse-result-items"
+  (slice "List" "ID") "pse-results-list"
+  "Item" (dict
+    "ClassName" "pse-result-item"
+    (slice "Article" "ClassName") "pse-result-item-article"
+    (slice "Header" "ClassName") "pse-result-item-header"
+    "Title" (dict
+      "ClassName" "pse-result-item-title"
+      "Color" "inherit"
+      "TextDecoration" "inherit"
+      "Hover" (dict
+        "Color" "inherit"
+        "TextDecoration" "inherit")
+      "Font" (dict
+        "Size" "inherit"
+        "Weight" "inherit"
+        "Style" "inherit"))
+    (slice "Body" "ClassName") "pse-result-item-body"
+    "Snippet" (dict
+      "ClassName" "pse-result-item-snippet"
+      "Color" "inherit"
+      "Font" (dict
+        "Size" "inherit"
+        "Weight" "inherit"
+        "Style" "inherit"))
+    (slice "Thumbnail" "ClassName") "pse-result-item-thumbnail")
+-}}
+
+{{- $Parameters := dict
+  "Config" $Config
+  "SearchBar" $SearchBar
+  "ResultsOverlay" $ResultsOverlay
+  "ResultItems" $ResultItems
+-}}
+
+{{- /************************************************
+  Override the default parameter values with values
+  found in the plugin data files.
+  ***************************************************/ -}}
+{{- with site.Data.plugin_programmable_search_engine -}}
+{{- $Parameters = merge $Parameters . -}}
+{{- end -}}
+
+{{- /**********************************************
+  Override the default/plugin parameter values with
+  values found in the theme data file.
+  *************************************************/ -}}
+
+{{- with (index site.Data "plugin-programmable-search-engine") -}}
+{{- $Parameters = merge $Parameters . -}}
+{{- end -}}
+
+{{- /********************************************
+  Insert the parameter map into the page scratch.
+  ***********************************************/ -}}
+
+{{- .Scratch.Set "plugin-programmable-search-engine.Parameters" $Parameters -}}

@@ -1,0 +1,44 @@
+{{ define "main" }}
+<section id="plausible-exclusion" style="max-width:600px;margin:50px auto;display:flex;justify-content:center;align-content:center;flex-direction:column;gap:30px">
+<p>
+Click the button below to toggle whether your visits to the site are to be excluded by Plausible Analytics. 
+You currently <span id="plausible_not">are not</span><span id="plausible_yes">are</span> excluding your visits.
+</p>
+
+<div id="plausible-button-wrapper" style="margin:auto"> 
+<a id="plausible_button" href="javascript:toggleExclusion()">Exclude my visits</a>
+</div>
+</section>
+<script>
+  window.addEventListener('load', function (e) {
+    var exclusionState = window.localStorage.plausible_ignore == "true"
+
+    if (exclusionState) {
+      document.getElementById("plausible_not").style.display = "none"
+      document.getElementById("plausible_yes").style.display = "inline"
+      document.getElementById("plausible_button").innerHTML = 'Stop excluding my visits'
+    } else {
+      document.getElementById("plausible_yes").style.display = "none"
+      document.getElementById("plausible_not").style.display = "inline"
+      document.getElementById("plausible_button").innerHTML = 'Exclude my visits'
+    }
+  });
+
+  function toggleExclusion(e) {
+    var exclusionState = window.localStorage.plausible_ignore == "true"
+
+    if (exclusionState) {
+      delete window.localStorage.plausible_ignore
+      document.getElementById("plausible_yes").style.display = "none"
+      document.getElementById("plausible_not").style.display = "inline"
+      document.getElementById("plausible_button").innerHTML = 'Exclude my visits'
+    } else {
+      window.localStorage.plausible_ignore = "true"
+      document.getElementById("plausible_not").style.display = "none"
+      document.getElementById("plausible_yes").style.display = "inline"
+      document.getElementById("plausible_button").innerHTML = 'Stop excluding my visits'
+    }
+  }
+</script>
+
+{{ end }}

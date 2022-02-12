@@ -1,0 +1,97 @@
+# Parameters controlling the search bar injection and style
+###########################################################
+
+# The ID of the element that will serve as the parent of the 
+# search bar injected via Javascript
+#
+ContainerID = 'pse-container'
+
+# The ID assigned to the search bar.
+#
+ID = 'pse-search-bar'
+
+# Styling the input field
+#########################
+
+# The ID assigned to the input field.
+#
+Input.ID = 'pse-search-bar-input'
+
+# Whether the input field of the search bar is collapsible.
+#
+Input.Collapsible = true
+
+# Whether the input field is initially expanded or collapsed
+#
+Input.InitialState = 'collapsed'
+
+# The height to set for the input field
+#
+Input.Height = 'auto'
+
+# The width to set for the input field
+#
+Input.Width = '300px'
+
+# The color of text within the input field
+#
+Input.Color = 'black'
+
+# The placeholder text displayed when the input field is empty
+#
+Input.Placeholder.Text = 'site search'
+
+# The color of the placeholder text
+#
+Input.Placeholder.Color = 'darkgray'
+
+# The duration to use when collapsing and expanding the search field
+#
+Input.Transition.Duration = '.35s'
+
+# The time function to use when collapsing and expanding the search field
+#
+Input.Transition.TimingFunction = 'ease'
+
+# The vertical padding to set on the input field
+#
+Input.Padding.Y = '0'
+
+# The horizontal padding to set on the input field
+#
+Input.Padding.X = '.5em'
+
+# The border radius value to set on the input field
+#
+Input.Border.Radius = '1em'
+
+# The border style to set on the input field
+#
+Input.Border.Style = 'solid'
+
+# The border color to set on the input field
+#
+Input.Border.Color = 'rgba(black,.125)'
+
+# The border width to set on the input field
+#
+Input.Border.Width = '1px'
+
+# Styling the search bar button
+###############################
+
+# The ID assigned to the button.
+#
+Button.ID = 'pse-search-bar-button'
+
+# The color to set for the button when the input is collapsed
+#
+Button.Color = 'lightgray'
+
+# The horizontal padding to set on the button
+#
+Button.Padding.X = '.25em'
+
+# The vertical padding to set on the button
+#
+Button.Padding.Y = '0'

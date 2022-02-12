@@ -1,0 +1,45 @@
+@import "vendor/rfs";
+
+{{/* Template for injecting rfs include directives into a Sass block. */}}
+{{ define "rfs-wrap" }}
+
+  {{/* Generate a slice with all the property names. */}}
+  {{ $edges := slice "top" "right" "bottom" "left" }}  
+  {{ $properties := 
+    slice "font-size" "padding" "margin"
+    | append (apply $edges "printf" "padding-%s" ".") 
+    | append (apply $edges "printf" "margin-%s" ".") }}
+
+  {{/* Convert the slice for use within the regular expression. */}}
+  {{ $properties = delimit $properties "|" }}
+  
+  {{/* Create the regular expression */}}
+  {{ $pattern := printf `(%s):\w*([^;]+)` $properties }}
+  
+  {{/* Replace matches with the appropriate rfs include. */}}
+  {{ replaceRE $pattern `@include $1($2)` . }}
+  
+{{ end }}
+
+{{ with .Scratch.Get "plugin-social-media-links.Parameters" }}
+
+#{{ .Style.ContainerID }} {
+  display: grid;
+  column-gap: 1rem;
+  grid-template-columns: 1fr 100px;
+  {{ with .Style.Container }}{{ template "rfs-wrap" . }}{{ end }}
+  
+  a.{{ .Style.LinkClassName }} { 
+    {{ with .Style.Link }}{{ template "rfs-wrap" . }}{{ end }}
+    &:hover { 
+      {{ with .Style.LinkHover }}{{ template "rfs-wrap" . }}{{ end }}
+    }
+  }
+  
+  span.{{ .Style.LabelClassName }} { 
+    {{ with .Style.Label }}{{ template "rfs-wrap" . }}{{ end }}
+  }
+  
+}
+
+{{ end }}

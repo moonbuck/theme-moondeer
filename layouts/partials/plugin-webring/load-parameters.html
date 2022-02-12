@@ -1,0 +1,44 @@
+{{- /********************************************************
+  Resolves theme and plugin data files to build a map of 
+  parameter values and injects this map into the page scratch
+  ***********************************************************/ -}}
+
+{{- /************************************************
+  Initialize variables with default parameter values
+  to ensure every parameter has a map entry. 
+  ***************************************************/ -}}
+{{- $Parameters := dict 
+  "Version" "" 
+  "DebugPrint" false 
+  "Emojis" ""
+  "Wrapper" "footer" 
+  "WrapperID" "webring" 
+  "Label" "An IndieWeb Webring" 
+  "LabelID" "label" 
+  "Gap" "20px" 
+  "VerticalAlign" "-.225em" 
+  "Height" "1em" -}}
+
+{{- /************************************************
+  Override the default parameter values with values
+  found in the plugin data files.
+  ***************************************************/ -}}
+
+{{- with site.Data.plugin_webring.Config -}}
+{{- $Parameters = merge $Parameters . -}}
+{{- end -}}
+
+{{- /**********************************************
+  Override the default/plugin parameter values with
+  values found in the theme data file.
+  *************************************************/ -}}
+
+{{- with (index site.Data "plugin-webring") -}}
+{{- $Parameters = merge $Parameters .Config -}}
+{{- end -}}
+
+{{- /********************************************
+  Insert the parameter map into the page scratch.
+  ***********************************************/ -}}
+  
+{{- .Scratch.Set "plugin-webring.Parameters" $Parameters -}}

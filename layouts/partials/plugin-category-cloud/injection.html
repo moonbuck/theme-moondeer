@@ -1,0 +1,37 @@
+{{- if not (.Scratch.Get "plugin-category-cloud.Parameters") -}}
+{{- partial "plugin-category-cloud/load-parameters.html" . -}}
+{{- end -}}
+
+{{- with (.Scratch.Get "plugin-category-cloud.Parameters") -}}
+  
+  {{ if (or ($.HasShortcode "plugin-category-cloud")
+        (in .Config.PagePaths $.RelPermalink)) -}}
+  
+    {{- if .Config.DebugPrint -}}
+      {{- printf "\n<!--\nplugin-category-cloud.Parameters:\n%s\n-->" (. | jsonify (dict "prefix" " " "indent" "  ")) | safeHTML -}}
+    {{- end -}}
+    
+    {{- $time := (time (sub now.Unix 28800)).Format "Jan 2 at 15:04" -}}
+    {{- $version := .Config.Version -}}
+    {{ printf "\n<!-- Category Cloud v%s (built on %s) -->\n" $version $time | safeHTML }}
+    
+    {{- $source_dir := "sass/plugin-category-cloud/" -}}
+    {{- $template_name := "category-cloud.scss" -}}
+    {{- $source := path.Join $source_dir $template_name -}}
+    {{- $target := path.Join "assets" $source -}}
+    {{- $style := resources.Get $source | resources.ExecuteAsTemplate $target $ -}} 
+  
+    {{- $target = $target | replaceRE "sass|scss" "css" -}}
+    {{- $options := dict "targetPath" $target  "outputStyle" .Config.SassOutput -}}
+    {{- $style = $style | toCSS $options -}}
+    
+    {{- if .Config.Fingerprint }}{{ $style = $style | fingerprint }}{{ end -}}
+    
+    {{- print "\n" -}}
+<link rel="stylesheet" href="{{ $style.Permalink }}"
+{{- if .Config.Fingerprint }} integrity="{{ $style.Data.Integrity }}"{{ end -}}
+>
+
+  {{- end -}}
+  
+{{ end -}}

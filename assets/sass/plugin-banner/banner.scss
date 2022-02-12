@@ -1,0 +1,20 @@
+{{ with .Scratch.Get "plugin-banner.Parameters" }}
+
+.{{ .Style.ClassName }} {
+  background-color: {{ .Style.Color }};
+  height: {{ .Style.Height }};
+  width: {{ .Style.Width }};
+  background-position: {{ .Style.Position }};
+  background-repeat: {{ .Style.Repeat }};
+  background-size: {{ .Style.Size }};
+  position: relative;
+    
+  {{ $URLs := .Banners.URLs }}
+  
+  {{ range $id, $index := .Banners.IndexByID }}  
+    &#{{ $id }} { background-image: url({{ index $URLs $index }}); }  
+  {{ end }}
+  
+}
+
+{{ end }}

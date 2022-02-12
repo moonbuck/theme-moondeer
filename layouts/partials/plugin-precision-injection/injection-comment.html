@@ -1,0 +1,25 @@
+{{- /* 
+  This partial expects a slice with three items:
+  1) The marker to include (ie "begin" or "end").
+  2) The file include (aka the partial being injected).
+  3) The page context (aka the dot).
+  */ -}}
+ 
+{{- /*
+  Fetch the parameters out of the slice
+  */ -}}
+{{- if (and (reflect.IsSlice .) (eq 3 (len .))) -}}
+  
+  {{- $marker := index . 0 -}}
+  {{- $file := index . 1 -}}
+  {{- $context := index . 2 -}}
+  
+  {{- /* Check the HTMLComment flag in the config  */ -}}
+  {{- if ($context.Scratch.Get "plugin-precision-injection.Parameters").Config.HTMLComments -}}
+     
+    {{- /* Insert the an HTML comment for $file with $marker */ -}}
+    {{- printf "\n<!--precision-injection-%s: %s-->\n" $marker $file | safeHTML -}}
+  
+  {{- end -}}
+
+{{- end -}}

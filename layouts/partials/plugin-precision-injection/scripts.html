@@ -1,0 +1,60 @@
+{{- /* 
+
+This partial expects a dictionary as its parameter.
+
+keys:
+
+'context': The page context (aka "the dot").
+
+*/}}
+
+{{- /* 
+  Retrieve the configuration and pull out what we need.
+  */ -}}
+
+{{- $Parameters := .context.Scratch.Get "plugin-precision-injection.Parameters" -}}
+{{- $HTMLComments := $Parameters.Config.HTMLComments -}}
+{{- $Filters := $Parameters.Filters -}}
+
+{{- /* Retrieve the full list of plugin js includes. */ -}}
+{{- $Files := site.Params.plugins_js -}}
+
+{{- /* Grab the path for the page being generated */ -}}
+{{- $Path := (urls.Parse .context.Permalink).Path -}}
+
+{{- /*
+  Create a list containing the items in $Files
+  that are not filtered out via the $Filters map
+  */ -}}
+  
+{{- $FilteredFiles := slice -}}
+{{- range $file := $Files -}}
+
+{{- /* Retrieve the $Filters entry for $file (if it exists). */ -}}
+{{- $whitelist := index $Filters $file -}}
+
+{{- /* To simplify logic, ensure $whitelist is a slice. */ -}}
+{{- if (and $whitelist (not (reflect.IsSlice $whitelist))) -}}
+{{- $whitelist = slice $whitelist -}}
+{{- end -}}
+
+{{- /* Append $file if it has no entry or $Path is in the list. */ -}}
+{{- if (or (not $whitelist) (in $whitelist $file)) -}}
+{{- $FilteredFiles = $FilteredFiles | append $file -}}
+{{- end -}}
+
+{{- end -}} {{- /* range $file := $Files */ -}}
+
+{{- /* Store the partial path for brevity */ -}}
+{{- $comment := "plugin-precision-injection/injection-comment.html" -}}
+
+{{- /* Inject the filtered list of files. */ -}}
+{{- range $file := $FilteredFiles -}}
+
+{{- /* 
+  Inject the file with a leading injection marker when so flagged. 
+  */ -}}
+{{- partial $comment (slice "link" $file $.context) -}}
+<script src="{{ $file }}"></script>
+
+{{- end -}} {{- /* range $file := $FilteredFiles */ -}}

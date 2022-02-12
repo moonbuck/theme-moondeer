@@ -1,0 +1,52 @@
+# Parameters for styling conversation items
+###########################################
+
+# The class name to assign to the conversation items wrapper.
+#
+WrapperID = 'conversation-items'
+
+# Sass block to apply to the conversation items wrapper.
+#
+Wrapper = ''
+
+# Sass block to apply to item wrappers.
+#
+Item = ''
+
+# Sass block to apply to the item content wrapper.
+#
+Content = ''
+
+# Sass block to apply to item author wrappers.
+#
+Author = ''
+
+# Sass block to apply to avatars.
+#
+Avatar = ''
+
+# Sass block to apply to item author names.
+#
+Name = ''
+
+# Sass block to apply to item links.
+#
+ItemLink = ''
+
+# Sass block to apply to item publish dates.
+#
+PublishDate = ''
+
+[Variables]
+
+# The width and height for the avatar image.
+#
+Avatar.Diameter = '64px'
+
+# The shape of the avatar image: square or circle.
+#
+Avatar.Shape = 'circle'
+
+# The CSS box shadow property value applied to the avatar image.
+#
+Avatar.BoxShadow = '0 0 0 3px #FFFFFF, 0 0 0 4px #EEEEEE'

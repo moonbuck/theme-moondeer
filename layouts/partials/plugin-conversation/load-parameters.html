@@ -1,0 +1,55 @@
+{{- /********************************************************
+  Resolves theme and plugin data files to build a map of 
+  parameter values and injects this map into the page scratch
+  ***********************************************************/ -}}
+
+{{- /************************************************
+  Initialize variables with default parameter values
+  to ensure every parameter has a map entry. 
+  ***************************************************/ -}}
+
+{{- $Parameters := dict 
+  "Config" (dict 
+    "Version" ""
+    "DebugPrint" false
+    "Fingerprint" true
+    "SassOutput" "compact")
+  (slice "Filter" "HiddenItems") (slice)
+  "Style" (dict
+    "WrapperID" "conversation-items"
+    "Wrapper" ""
+    "Item" ""
+    "Content" ""
+    "Author" ""
+    "Name" ""
+    "Avatar" ""
+    "Link" ""
+    "PublishDate" ""
+    (slice "Variables" "Avatar") (dict
+      "Diameter" 64
+      "Shape" "circle"
+      "BoxShadow" "0 0 0 3px #FFFFFF, 0 0 0 4px #EEEEEE"))
+  -}}
+
+{{- /************************************************
+  Override the default parameter values with values
+  found in the plugin data files.
+  ***************************************************/ -}}
+{{- with site.Data.plugin_conversation -}}
+{{- $Parameters = merge $Parameters . -}}
+{{- end -}}
+
+{{- /**********************************************
+  Override the default/plugin parameter values with
+  values found in the theme data file.
+  *************************************************/ -}}
+
+{{- with (index site.Data "plugin-conversation") -}}
+{{- $Parameters = merge $Parameters . -}}
+{{- end -}}
+
+{{- /********************************************
+  Insert the parameter map into the page scratch.
+  ***********************************************/ -}}
+
+{{- .Scratch.Set "plugin-conversation.Parameters" $Parameters -}}

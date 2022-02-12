@@ -1,0 +1,70 @@
+{{/**********************************************************
+  Parse page content for registered preview card meta values.
+  ***********************************************************/}}
+  
+{{- $registered := dict -}}
+
+{{- $content := .Content | markdownify -}}
+
+{{/* Parse the card-config comment key-value pairs if present. */}}
+
+{{- $pattern := `<!--card-config(.|\n)+-->` -}}
+{{- with findRE $pattern $content -}}
+
+  {{- $text := index . 0 -}}  
+  {{- $inner := substr $text 16 -4 -}}
+  
+  {{- $lines := split $inner "\n" -}}
+  
+  {{- range $lines -}}
+
+  <!-- Separate the key and value -->
+  {{- $key_value := split . "=" -}}
+  {{- if (eq (len $key_value) 2) -}}
+  
+    {{- $key := index $key_value 0 -}}
+    
+    <!-- Correct for autolinking -->
+    {{- $url_re := `[[][^]]+[]][(]([^)]+)[)]` -}}
+    {{- $value := replaceRE $url_re "$1" (index $key_value 1) -}}
+        
+    <!-- Load the entry into the map -->
+    {{- $registered = merge $registered (dict $key $value) -}}
+    
+  {{- end -}} <!-- if (len $key_value 2) -->
+  
+  {{- end -}} <!-- range $lines -->
+
+{{- end -}} <!-- with findRE $pattern $content -->
+
+{{/* Check for a standalone title declaration. */}}
+{{- $pattern = `data-card-title=["']([^"']+)["']` -}}
+{{- with findRE $pattern $content -}}
+{{- $title := replaceRE $pattern "$1" (index . 0) -}}
+{{- $registered = merge $registered (dict "title" $title) -}}
+{{- end -}}
+
+{{/* Check for a standalone image declaration. */}}
+{{- $pattern = `["']([^"']+)\?card-image["']` -}}
+{{- with findRE $pattern $content -}}
+{{- $image := replaceRE $pattern "$1" (index . 0) -}}
+{{- $registered = merge $registered (dict "image" $image) -}}
+{{- end -}}
+
+{{/* Check for a standalone audio declaration. */}}
+{{- $pattern = `["']([^"']+)\?card-audio["']` -}}
+{{- with findRE $pattern $content -}}
+{{- $audio := replaceRE $pattern "$1" (index . 0) -}}
+{{- $registered = merge $registered (dict "audio" $audio)  -}}
+{{- end -}}
+
+{{/* Check for a standalone video declaration. */}}
+{{- $pattern = `["']([^"']+)\?card-video["']` -}}
+{{- with findRE $pattern $content -}}
+{{- $video := replaceRE $pattern "$1" (index . 0) -}}
+{{- $registered = merge $registered  (dict "video" $video) -}}
+{{- end -}}
+
+{{- $Parameters := .Scratch.Get "plugin-cards.Parameters" | default dict -}}
+{{- $Parameters = merge $Parameters (dict (slice "TwitterOG" "Registered") $registered) -}}
+{{- .Scratch.Set "plugin-cards.Parameters" $Parameters -}}

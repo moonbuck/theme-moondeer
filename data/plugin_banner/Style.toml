@@ -1,0 +1,30 @@
+# Parameter values used to generate the stylesheet.
+###################################################
+
+# The class name to attach to the banner image.
+#
+ClassName = 'banner-image'
+
+# The background-color CSS property value for the image.
+#
+Color = 'inherit'
+
+# The height CSS property value for the image.
+#
+Height = '300px'
+
+# The width CSS property value for the image.
+#
+Width = '100%'
+
+# The background-position CSS property value for the image.
+#
+Position = 'center'
+
+# The background-repeat CSS property value for the image.
+#
+Repeat = 'no-repeat'
+
+# The background-size CSS property value for the image.
+#
+Size = 'cover'

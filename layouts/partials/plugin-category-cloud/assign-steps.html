@@ -1,0 +1,131 @@
+{{/* Fetch the plugin parameters */}}
+{{- $Parameters := .Scratch.Get "plugin-category-cloud.Parameters" -}}
+
+{{/* Fetch the categories to include */}}
+{{- $categories := slice -}}
+{{- range $name, $category := site.Taxonomies.categories.ByCount -}}
+  {{- if not (in $Parameters.Names.ExclusionList $name) -}}
+    {{- $categories = $categories | append $category -}}
+  {{- end -}}
+{{- end -}}
+  
+{{/* Create a map to hold the step assignments */}}
+{{- $Steps := dict -}}
+
+{{/* Track the number of categories to skip */}}
+{{- $skip := 0 -}}
+
+{{/* Iterate the steps from highest (lightest) to lowest (boldest) */}}
+{{- range $step := (seq $Parameters.Style.TotalSteps 1) -}}
+
+  {{/* calculate the number of categories to consider for this step */}}
+  {{- $consider := sub (len $categories) $skip -}}
+  
+  {{/* Check whether categories remain to consider */}}
+  {{- if $consider -}}
+
+    {{/* Grab the considered categories from the tail end of the slice */}}
+    {{- $considered := last $consider $categories -}}
+    
+    {{/* Sum the page counts of the considered categories */}}
+    {{- $total := 0 -}}
+    {{- range $considered -}}        
+      {{- $total = add $total .WeightedPages.Count -}}
+    {{- end -}}
+
+    {{/* Calculate the average page count of the considered categories */}}
+    {{- $average := div $total ($consider | float) -}}
+    
+    {{/* Iterate the considered categories for this step */}}
+    {{- range $considered -}}        
+
+      {{/* Check whether the considered category has a page count 
+           that is greater than or equal to the calculated average */}}
+      {{- if (ge .WeightedPages.Count $average) -}}
+      
+        {{/* Assign this step to this category's page count */}}
+        {{- $Steps = merge $Steps (dict (.WeightedPages.Count | string) $step) -}}
+
+        {{/* Increment the skipped category counter */}}
+        {{- $skip = add $skip 1 -}}   
+        
+      {{- end -}}
+      
+    {{- end -}}
+    
+  {{/* Otherwise adjust for unassigned steps */}}
+  {{- else  if (ge $step 1) -}}
+    
+    {{/* Track the highest unused step */}}
+    {{- $unused := $step -}}
+    
+    {{/* Track the currently assignable step */}}
+    {{- $assignable := 1 -}}
+
+    {{/* Create a map for unused step assignments */}}
+    {{- $UnusedSteps := dict -}}
+    
+    {{/* Iterate category indices in reverse order */}}
+    {{- range $index := (seq (sub (len $categories) 1) 0) -}}
+    
+      {{/* Grab the category at this index. */}}
+      {{- $category := index $categories $index -}}
+
+      {{/* Check whether unused steps remain */}}
+      {{- if $unused -}}
+        
+        {{/* Grab the page count for this category */}}
+        {{- $count := $category.WeightedPages.Count -}}
+        
+        {{/* Check whether an unused step has been assigned for this count */}}
+        {{- if not (isset $UnusedSteps ($count | string)) -}}
+
+          {{/* Fetch the step previously assigned for this count */}}
+          {{- $current_step := index $Steps ($count | string) -}}
+          
+          {{/* Create a flag to track whether ??? */}}
+          {{- $found_another := false -}}
+            
+          {{/* Only proceed if we aren't at the head of the slice */}}
+          {{- if (gt $index 0) -}}
+          
+            {{/* Iterate the indices ahead of the current index */}}
+            {{- range (seq (sub $index 1) 0) -}}
+            
+              {{/* Fetch the previously assigned step for the current index */}}
+              {{- with (index $Steps 
+                              ((index $categories .).WeightedPages.Count | string)) -}}
+              
+                {{/* Set the found another flag according to whether this
+                     or a previous iteration's previously assigned step matches */}}
+                {{- $found_another = or $found_another (eq . $current_step) -}}
+                
+              {{- end -}}
+            
+            {{- end -}}
+          
+          {{- end -}}
+        
+          {{/* Add an entry assigning the assignable step for this page count */}}
+          {{- $UnusedSteps = merge $UnusedSteps (dict ($count | string) $assignable) -}}
+          
+          {{/* Increment the assignable step */}}
+          {{- $assignable = add $assignable 1 -}}
+          
+          {{/* Honestly, kinda forgot how this algorithm works */}}
+          {{- if $found_another }}{{ $unused = sub $unused 1 }}{{ end -}}
+        
+        {{- end -}}
+      
+      {{- end -}}
+    
+    {{- end -}} {{/* if not (isset $UnusedSteps ($count | string)) */}}
+    
+    {{/* Merge new assignments into the step map */}}
+    {{- $Steps = merge $Steps $UnusedSteps -}}
+          
+  {{- end -}} {{/* if $consider */}}
+
+{{- end -}} {{/* range $step := (seq $total_steps 1) */}}
+
+{{- return $Steps -}}

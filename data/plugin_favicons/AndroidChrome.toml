@@ -1,0 +1,97 @@
+# Short name for app-like button.
+#
+# Name = "Short Name"
+
+# Path to the 192x192 pixel image. 
+#
+# X192 = "android-chrome-192x192.png"
+
+# Path to the 512x512 pixel image.
+#
+# X512 = "android-chrome-512x512.png"
+
+# Theme color to use in the webmanifest.
+#
+# ThemeColor = "#FFFFFF"
+
+# Background color to use in the webmanifest.
+#
+# BackgroundColor = "#FFFFFF"
+
+################################
+# Using the AndroidChrome assets
+################################
+
+# OPTION 1: Manual File Creation
+#
+# In this plugin or your custom theme, create template 'static/manifest.json'
+#
+# Replace bracketed variable names with their values.
+#
+# {
+#     "name": "[AndroidChrome.Name]",
+#     "short_name": "[AndroidChrome.Name]",
+#     "icons": [
+#         {
+#             "src": "[AndroidChrome.x192]",
+#             "sizes": "192x192",
+#             "type": "image/png"
+#         },
+#         {
+#             "src": "[AndroidChrome.x512]",
+#             "sizes": "512x512",
+#             "type": "image/png"
+#         }
+#     ],
+#     "theme_color": "[AndroidChrome.ThemeColor]",
+#     "background_color": "[AndroidChrome.BackgroundColor]",
+#     "display": "standalone"
+# }
+
+# If you went and stuck the file somewhere else, set this variable and uncomment it.
+#
+# Webmanifest = "/manifest.json"
+
+# OPTION 2: Automatic File Creation
+#
+# Create a template in your custom theme located at config/_default/mediaTypes.toml
+# and add the following media type:
+#
+# ["application/manifest+json"]
+# suffixes = [ "json", "webmanifest" ]
+#
+# Create a template in your custom theme located at config/_default/outputFormats.toml
+# and add the following output format:
+# 
+# [WebAppManifest]
+# mediaType = "application/manifest+json"
+# baseName = "manifest"
+# rel = "manifest"
+# isPlainText = true
+# isHTML = false
+# notAlternative = true
+#
+# Scroll down to the blank theme files in your custom theme and open config.json.
+# Look for the 'outputs' key and then the 'home' key. Copy all the current outputs
+# for 'home'.
+# 
+# Create a template in your custom theme located at config/_default/outputs.toml
+# Create an entry for 'home' with all those copied output values. Then add one more
+# called 'WebAppManifest'. My file looks like this.
+#
+# home = [
+#   "HTML",
+#   "RSS",
+#   "JSON",
+#   "RSD",
+#   "ArchiveHTML",
+#   "ArchiveJSON",
+#   "PhotosJSON",
+#   "PodcastXML",
+#   "PodcastJSON",
+#   "WebAppManifest",
+#   "BrowserConfig"
+#   ]
+#
+# You should now be configured to build a json file in your root directory called 'manifest.json'.
+# Make sure the 'Webmanifest' variable under option 1 is commented out or set to '/manifest.json'.

@@ -1,0 +1,63 @@
+@import "vendor/rfs";
+
+// Template for injecting rfs include directives into a Sass block.
+{{ define "rfs-wrap" }}
+
+  //Generate a slice with all the property names.
+  {{ $edges := slice "top" "right" "bottom" "left" }}
+  {{ $properties := 
+    slice "font-size" "padding" "margin"
+    | append (apply $edges "printf" "padding-%s" ".") 
+    | append (apply $edges "printf" "margin-%s" ".") }}
+
+  //Convert the slice for use within the regular expression.
+  {{ $properties = delimit $properties "|" }}
+  
+  // Create the regular expression
+  {{ $pattern := printf `(%s):\w*([^;]+)` $properties }}
+  
+  // Replace matches with the appropriate rfs include.
+  {{ replaceRE $pattern `@include $1($2)` . }}
+  
+{{ end }}
+
+{{ with (.Scratch.Get "plugin-category-cloud.Parameters") }}
+
+
+#{{ .Style.WrapperID }} { 
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-content: center;
+  align-items: baseline;
+  @include rfs(10px, gap);
+  @include padding(0 20px);
+  @include margin(40px auto);
+  
+  {{ with .Style.Wrapper }}{{ template "rfs-wrap" . }}{{ end }}
+  
+  a {
+    line-height: 1;
+    padding: 0;
+    margin: 0;
+    
+    {{ with .Style.Link }}{{ template "rfs-wrap" . }}{{ end }}
+    
+    span {
+      display: {{ cond .Style.DisplayPageCounts "initial" "none" }};
+    }
+    
+    @for $i from 1 through {{ .Style.TotalSteps }} {
+      
+      &.step-#{$i} {
+        @include font-size(({{ .Style.MinSize }}rem + $i * {{ .Style.SizeIncrement }}rem));
+        font-weight: {{ .Style.MinWeight }} + $i * 100;
+      }
+      
+    }
+    
+  }
+  
+}
+
+{{ end }}

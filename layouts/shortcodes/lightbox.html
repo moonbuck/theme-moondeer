@@ -1,0 +1,15 @@
+{{- $Parameters := dict "Page" .Page -}}
+
+{{- /* Parse out markdown image declaration if present */ -}}
+{{- with findRE "[!][[][^]]*[]][(][^)]+[)]" .Inner -}}
+  {{- $src := index (findRE "http[^)]+" .) 0 -}}
+  {{- $title := replaceRE "[!][[]([^]]*)[]].+" "$1" . -}}
+  {{- $Parameters = merge $Parameters (dict "Src" $src "Title" $title) -}}
+{{- end -}}
+    
+{{- range $key, $value := $.Params -}}        
+  {{- $key = $key | humanize | title | replaceRE " " "" -}}
+  {{- $Parameters = merge $Parameters (dict $key $value) -}}
+{{- end -}}
+
+{{- partial "plugin-lightbox/lightbox.html" $Parameters -}}

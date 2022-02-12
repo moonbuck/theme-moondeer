@@ -1,0 +1,99 @@
+{{- /********************************************************
+  Resolves theme and plugin data files to build a map of 
+  parameter values and injects this map into the page scratch
+  ***********************************************************/ -}}
+
+{{- /************************************************
+  Initialize variables with default parameter values
+  to ensure every parameter has a map entry. 
+  ***************************************************/ -}}
+
+{{- $Parameters := dict 
+  "Config" (dict 
+    "Version" ""
+    "DebugPrint" false
+    "Fingerprint" true
+    "SassOutput" "compact"
+    "PagePaths" (slice))
+  "Names" (dict
+    "Humanize" true
+    "MenuItemMatching" true
+    "ExclusionList" (slice)
+    "DisplayNames" (dict))
+  "Style" (dict
+    "WrapperID" "category-cloud"
+    "Wrapper" ""
+    "Link" ""
+    "MaxSize" 1.34
+    "MinSize" 0.9
+    "MaxWeight" 800
+    "MinWeight" 200
+    "DisplayPageCounts" false
+    "UnbreakableLinks" true)
+  -}}
+
+{{- /************************************************
+  Override the default parameter values with values
+  found in the plugin data files.
+  ***************************************************/ -}}
+{{- with site.Data.plugin_category_cloud -}}
+{{- $Parameters = merge $Parameters . -}}
+{{- end -}}
+
+{{- /**********************************************
+  Override the default/plugin parameter values with
+  values found in the theme data file.
+  *************************************************/ -}}
+
+{{- with (index site.Data "plugin-category-cloud") -}}
+{{- $Parameters = merge $Parameters . -}}
+{{- end -}}
+
+{{/* Generate the map of menu URLs */}}
+{{- $MenuURLs := dict -}}
+  
+{{- /* Check whether to build map of menu URLs */ -}}
+{{- if $Parameters.Names.MenuItemMatching -}}
+
+  {{- $scratch := newScratch -}}
+  
+  {{- range site.Menus.main -}}
+    {{- $scratch.Set (path.Base .URL) .URL -}}
+  {{- end -}}
+  
+  {{- $MenuURLs = $scratch.Values -}}
+  
+{{- end -}}
+
+{{- $Parameters = merge $Parameters 
+                        (dict "MenuURLs" $MenuURLs) -}}
+
+{{/* Calculate the total number of steps by using
+     the spread between min and max font weights */}}
+{{- $total_steps := (div 
+                      (sub $Parameters.Style.MaxWeight 
+                           $Parameters.Style.MinWeight) 
+                           100) -}}
+                           
+{{- $size_increment :=  div (sub $Parameters.Style.MaxSize 
+                                 $Parameters.Style.MinSize) 
+                            $total_steps -}}
+
+{{- $calculations := dict
+  (slice "Style" "TotalSteps") $total_steps
+  (slice "Style" "SizeIncrement") $size_increment 
+  -}}
+
+{{- $Parameters = merge $Parameters $calculations -}}
+                           
+{{- /* Normalize category names in exclusion list. */ -}}
+{{- $normalized := slice -}}
+{{- range $Parameters.Names.ExclusionList -}}
+  {{- $normalized = $normalized | append (. | anchorize | lower) -}}
+{{- end -}}
+{{- $Parameters = merge $Parameters (dict (slice "Names" "ExclusionList") $normalized) -}}
+
+{{- /********************************************
+  Insert the parameter map into the page scratch.
+  ***********************************************/ -}}
+{{- .Scratch.Set "plugin-category-cloud.Parameters" $Parameters -}}

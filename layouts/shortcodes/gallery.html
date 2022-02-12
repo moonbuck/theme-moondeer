@@ -1,0 +1,60 @@
+{{- /* 
+Parses slide data from markdown found in .Inner.
+
+When using positional parameters, the gallery name 
+is required and will be the only parameter processed.
+When using named parameters, parameter names are converted
+from dash-case to capital-case and sent directly to the
+gallery partial.
+
+*/ -}}
+
+{{- $slides := slice -}}
+  
+{{- if .Inner -}}
+
+
+  {{/* Parse out markdown image declarations */}}
+  {{- range findRE "[!][[][^]]*[]][(][^)]+[)]" .Inner -}}
+    {{- $src := index (findRE "http[^)]+" .) 0 -}}
+    {{- $title := replaceRE "[!][[]([^]]*)[]].+" "$1" . -}}
+    {{- $slide := dict "Title" $title "Src" $src -}}
+    {{- $slides = $slides | append $slide -}}  
+  {{- end -}}
+
+{{- else if .Get "slides" -}}
+
+  {{- with transform.Unmarshal (.Get "slides") -}}
+    {{- if reflect.IsSlice . -}}
+      {{- $slides = . -}}
+    {{- end -}}  
+  {{- end -}}
+  
+{{- end -}} {{/* with .Inner */}}
+
+{{- if $slides -}}
+
+  {{- $Parameters := dict -}}
+
+  {{- /* Handle positional parameter invocation. */ -}}
+  {{- if not $.IsNamedParams -}}
+  
+    {{- /* Gallery name should be passed as first parameter */ -}}  
+    {{- $Parameters = merge $Parameters (dict "Gallery" ($.Get 0)) -}}
+                          
+  {{- /* Otherwise, parse named parameters */ -}}
+  {{- else -}}
+    
+    {{- range $key, $value := $.Params -}}        
+      {{- $key = $key | humanize | title | replaceRE " " "" -}}
+      {{- $Parameters = merge $Parameters (dict $key $value) -}}
+    {{- end -}}
+  
+  {{- end -}} {{/* if not .IsNamedParams */}}
+  
+  {{- $Parameters = merge $Parameters (dict "Page" $.Page "Slides" $slides) -}}
+    
+  
+  {{- partial "plugin-lightbox/gallery.html" $Parameters -}}
+
+{{- end -}} {{/* if $slides */}}

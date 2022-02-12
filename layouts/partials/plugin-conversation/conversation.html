@@ -1,0 +1,59 @@
+{{- /* Resolve the plugin parameter values */ -}}
+{{- if not (.Scratch.Get "plugin-conversation.Parameters") -}}
+{{- partial "plugin-conversation/load-parameters.html" . -}}
+{{- end -}}
+
+{{- $Parameters := .Scratch.Get "plugin-conversation.Parameters" -}}
+
+{{- /* Construct the URL */ -}}
+{{- $url := "https://micro.blog/conversation.js" -}}
+{{- $queries := slice "url" $.Permalink "format" "jsonfeed" -}}
+{{- $url = printf "%s?%s" $url (querify $queries) -}}
+
+{{- /* Fetch the conversation items */ -}}
+{{- $json_feed := getJSON $url -}}
+
+{{- /* Ensure there are items to display */ -}}
+{{- if $json_feed.items -}}
+
+<div id="{{ $Parameters.Style.WrapperID }}">
+
+  {{- /* Iterate the items */ -}}
+  {{- range $item := $json_feed.items -}}
+    
+  <div id="{{ $item.id }}" class="u-comment h-cite"
+       {{- if in $Parameters.Filter.HiddenItems $item.id }} hidden{{ end }}>
+    <a class="u-author h-card" href="{{ $item.author.url }}">
+      <img class="u-photo" src="{{ $item.author.avatar }}" />
+      <span class="p-nickname">{{ $item.author.name }}</span>
+    </a>
+    <p class="e-content p-name">
+    {{- /* Remove <div> tags */ -}}
+    {{- $content_html := replace $item.content_html "<div>" "" -}}
+    {{- /* Remove </div> tags */ -}}
+    {{- $content_html = replace $content_html "</div>" "" -}}
+    {{- /* Remove <p> tags */ -}}
+    {{- $content_html = replace $content_html "<p>" "" -}}
+    {{- /* Replace </p> tags with line breaks */ -}}
+    {{- $content_html = replace $content_html "</p>" "<br />" -}}
+    {{- /* Chomp off any whitespace */ -}}
+    {{- $content_html = $content_html | chomp -}}
+    {{- /* Remove a trailing line break leftover from replacing </p> */ -}}
+    {{- $content_html = $content_html | strings.TrimSuffix "<br />" -}}
+    {{- /* Render the content */ -}}
+    {{- $content_html | safeHTML -}}
+    </p>
+    <a class="u-url" href="{{ $item.url }}">
+      <small>
+        <time class="dt-published">
+          {{- time.Format "3:04 PM • Jan 2, 2006" $item.date_published -}}
+        </time>
+      </small>
+    </a>
+  </div>
+
+  {{- end -}}
+
+</div>
+
+{{- end }}

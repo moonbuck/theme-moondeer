@@ -1,0 +1,38 @@
+{{- printf "\n<!--\n" | safeHTML -}}
+<PageMap>
+  <DataObject type="post">
+    <Attribute name="title">{{ .Title }}</Attribute>
+    <Attribute name="summary">{{ .Summary | plainify }}</Attribute>
+    <Attribute name="reading_time">{{ .ReadingTime }}</Attribute>
+{{- range (.Params.categories | default .Page.Params.categories) }}
+    <Attribute name="category">{{ . }}</Attribute>
+{{- end -}}
+{{- $iso8601 := "2006-01-02T15:04:05-07:00" -}}
+{{- $published_time := false -}}
+{{- $modified_time := false -}}
+{{- if .IsPage -}}
+  {{- if not .PublishDate.IsZero -}}
+    {{- $published_time = (.PublishDate.Format $iso8601 | safeHTML) -}}
+  {{- else if not .Date.IsZero -}}
+    {{- $published_time = (.Date.Format $iso8601 | safeHTML) -}}
+  {{- end -}}
+  {{- if not .Lastmod.IsZero -}}
+    {{- $modified_time = (.Lastmod.Format $iso8601 | safeHTML) -}}
+  {{ end -}}
+{{- else if not .Date.IsZero }}
+  {{- $modified_time = (.Date.Format $iso8601 | safeHTML) -}}
+{{- end -}}
+{{- with $published_time }}
+  <Attribute name="publish_date">{{ . }}</Attribute>
+{{- end -}}
+{{- with $modified_time }}
+  <Attribute name="modified_date">{{ . }}</Attribute>
+{{- end -}}
+</DataObject>
+{{- range .Params.images }}
+  <DataObject type="image">
+    <Attribute name="src" value="{{ . | absURL }}" />
+  </DataObject>
+{{- end }}
+</PageMap>
+{{- printf "\n-->\n" | safeHTML -}}

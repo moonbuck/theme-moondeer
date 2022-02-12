@@ -1,0 +1,40 @@
+# Array of slide configurations
+###############################
+
+# Each appearance of [[Slides]] defines a slide configuration 
+# in the slides array. For the plugin to be satisfied, every slide 
+# must have a valid path set for either 'href' or 'src'.
+#
+# The following optional parameters may also be included:
+#    LinkClass: Custom class to apply to the anchor tag.  
+#    LinkStyle: Custom style to apply to the anchor tag.              
+#    Gallery: The name of the slide's gallery.  
+#    Title: The slide's title.
+#    Description: The slide's description.
+#    DescPosition: (bottom, top, left, right)
+#    Effect: (zoom, fade, none) The slide's animation effect.
+#    Width: The custom width for this slide.
+#    Height: The custom height for this slide.
+#    Zoomable: Whether this slide should be zoomable.
+#    Draggable: Whether this slide should be draggable.
+#    Sizes: Image sizes for different page layouts.                
+#    Srcset: List of image files to use in different situations.          
+#    VideoClass: Custom class to apply to the video tag.                
+#    VideoStyle: Custom style to apply to the video tag. 
+#    Loop: Whether the link video should loop.
+#    Autoplay: Whether the link video should be set to autoplay. 
+#    Preload: Value for the link video's preload attribute. 
+#             This ignored when set to autoplay.           
+#    Alt: Specifies an alternate text for an image.
+#    ImgClass: Custom class to apply to the img tag.
+#    ImgStyle: Custom style to apply to the img tag.
+#    PhotoWidth: Specifies a pixel width for a thumbnail image to be 
+#                fetched using the photos API.
+#    Fit: (contain or cover)
+#
+# My slide configurations happen to begin like this:
+#
+# [[Slides]]
+# Title = "American Fabric"
+# Src = "https://moondeer.blog/uploads/2021/80b124a294.jpg"
+#

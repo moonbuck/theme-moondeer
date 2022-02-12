@@ -1,0 +1,281 @@
+@import "vendor/rfs";
+
+{{ with .Scratch.Get "plugin-programmable-search-engine.Parameters" }}
+
+div#{{ .SearchBar.ID }} {
+  
+  position: relative;
+  min-width: 1em;
+  
+  // The input
+  input#{{ .SearchBar.Input.ID }} {
+    
+    height: {{ .SearchBar.Input.Height }};
+    transition: width {{ .SearchBar.Input.Transition.Duration }} {{ .SearchBar.Input.Transition.TimingFunction }};
+    width: {{ .SearchBar.Input.Width }};
+    color: {{ .SearchBar.Input.Color }};
+    border-style: {{ .SearchBar.Input.Border.Style }};
+    border-radius: {{ .SearchBar.Input.Border.Radius }};
+    border-color: {{ .SearchBar.Input.Border.Color }};
+    border-width: {{ .SearchBar.Input.Border.Width }};
+    padding: {{ .SearchBar.Input.Padding.Y }} {{ .SearchBar.Input.Padding.X }};
+    
+    outline-offset: -2px;
+    -webkit-appearance: textfield;
+
+          
+    &::-webkit-search-cancel-button,
+    &::-webkit-search-decoration { 
+      
+      -webkit-appearance: none; 
+      
+    }
+    
+    &::placeholder { color: {{ .SearchBar.Input.Placeholder.Color }}; }
+          
+  } // input#pse-input
+  
+  
+  // The button that toggles collapse state
+  button#{{ .SearchBar.Button.ID }} {
+    
+    background: transparent;
+    border: none;
+    color: {{ .SearchBar.Button.Color }};
+    @include padding({{ .SearchBar.Button.Padding.Y }} {{ .SearchBar.Button.Padding.X }});
+    margin: 0;
+    z-index: 2;
+    
+    &[aria-expanded=true] { 
+      
+      position: absolute;
+      right: 0.25em;
+      top: 0.125em;
+      color: black;
+    
+    } // &.expanded
+        
+  } // button#{{ .SearchBar.Button.ID }}
+
+ } // div#{{ .SearchBar.ID }}
+  
+/// Search result wrapper
+div#{{ .ResultsOverlay.ID }} {
+  
+  position: fixed;
+  display: none;
+  width: 100vw;
+  height: 100vh;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(black, .5);
+  z-index: 3;
+  cursor: pointer;
+  
+  /// Page results wrapper
+  article#{{ .ResultsOverlay.Article.ID }} {
+    
+    position: relative;
+    overflow: auto;
+    @include font-size({{ .ResultsOverlay.Article.Font.Size }});
+    color: {{ .ResultsOverlay.Article.Color }};
+    background-color: {{ .ResultsOverlay.Article.BG.Color }};
+    display: flex;
+    flex-direction: column;
+    justify-content: stretch;
+    align-items: stretch;
+    width: 90vw;
+    height: 90vh;
+    left: 5vw;
+    top: 5vh;
+    
+    @media (min-width: 769px) {
+      width: 60vw;
+      left: 20vw;
+    }
+    
+    & > * { padding: 0; margin: 0; }
+
+    /// Page results header
+    header#{{ .ResultsOverlay.Header.ID }} {
+      
+      display: flex;
+      justify-content: center;
+      padding: 0;
+      @include margin(1rem);
+      color: {{ .ResultsOverlay.Header.Color }};
+            
+      #{{ .ResultsOverlay.Header.Title.ID }} {
+        
+        padding: 0;
+        margin: 0;
+        @include font-size({{ .ResultsOverlay.Header.Title.Font.Size }});
+        font-weight: {{ .ResultsOverlay.Header.Title.Font.Weight }};
+        font-style: {{ .ResultsOverlay.Header.Title.Font.Style }};
+        
+        #{{ .ResultsOverlay.Header.Terms.ID }} {
+          
+          color: {{ .ResultsOverlay.Header.Terms.Color }};
+          @include font-size({{ .ResultsOverlay.Header.Terms.Font.Size }});
+          font-weight: {{ .ResultsOverlay.Header.Terms.Font.Weight }};
+          font-style: {{ .ResultsOverlay.Header.Terms.Font.Style }};
+          
+        } // #{{ .ResultsOverlay.Header.Terms.ID }}
+        
+      } // #{{ .ResultsOverlay.Header.Title.ID }}
+      
+    } // header#{{ .ResultsOverlay.Header.ID }}
+    
+    /// Page results item section
+    section#{{ .ResultItems.ID }} {
+      padding: 0;
+      margin: 0;
+      flex-grow: 2;
+      
+      /// Page results list
+      ul#{{ .ResultItems.List.ID }} {
+        
+        list-style: none;
+        display: flex;
+        flex-direction: column;
+        align-items: stretch;
+        gap: 1rem;
+        padding: 0;
+        @include margin(0 1rem);
+        
+        /// Page results list item
+        li.{{ .ResultItems.Item.ClassName }} {
+          
+          padding: 0;
+          margin: 0;
+          position: relative;
+          
+          ///Result content wrapper
+          article.{{ .ResultItems.Item.Article.ClassName }} {
+            
+            width: 100%;
+            display: flex;
+            flex-direction: column;
+            align-items: stretch;
+            gap: 0.5rem;
+            padding: 0;
+            margin: 0;            
+            
+            /// Result header
+            header.{{ .ResultItems.Item.Header.ClassName }} {
+            
+              padding: 0;
+              margin: 0;
+              
+              /// Result title
+              a.{{ .ResultItems.Item.Title.ClassName }} {
+
+                color: {{ .ResultItems.Item.Title.Color }};
+                text-decoration: {{ .ResultItems.Item.Title.TextDecoration }};
+                @include font-size({{ .ResultItems.Item.Title.Font.Size }});
+                font-weight: {{ .ResultItems.Item.Title.Font.Weight }};
+                font-style: {{ .ResultItems.Item.Title.Font.Style }};
+                
+                &:hover { 
+                  
+                  color: {{ .ResultItems.Item.Title.Hover.Color }};
+                  text-decoration: {{ .ResultItems.Item.Title.Hover.TextDecoration }};
+                  
+                }
+                
+                &::after {
+                  position: absolute;
+                  top: 0;
+                  right: 0;
+                  bottom: 0;
+                  left: 0;
+                  z-index: 1;
+                  content: "";
+                }
+              } // a.{{ .ResultItems.Item.Title.ClassName }}
+              
+            } // header.{{ .ResultItems.Item.Header.ClassName }}
+            
+            /// Result body
+            section.{{ .ResultItems.Item.Body.ClassName }} {
+            
+              display: flex;
+              flex-direction: column;
+              align-items: flex-start;
+              align-content: flex-start;
+              gap: 1rem;
+              
+              @media (min-width: 576px) {
+                
+                flex-direction: row;
+                
+              }
+              
+              p.{{ .ResultItems.Item.Snippet.ClassName }} {
+                
+                flex-grow: 1;
+                color: {{ .ResultItems.Item.Snippet.Color }};
+                @include font-size({{ .ResultItems.Item.Snippet.Font.Size }});
+                font-weight: {{ .ResultItems.Item.Snippet.Font.Weight }};
+                font-style: {{ .ResultItems.Item.Snippet.Font.Style }};
+                
+              } // p.{{ .ResultItems.Item.Snippet.ClassName }}
+              
+              a.{{ .ResultItems.Item.Thumbnail.ClassName }} { }
+              
+            } // section.{{ .ResultItems.Item.Body.ClassName }}
+            
+          } // article.{{ .ResultItems.Item.Article.ClassName }}
+          
+        } // li.{{ .ResultItems.Item.ClassName }}
+        
+      } // ul#{{ .ResultItems.List.ID }}
+      
+    } // section#{{ .ResultItems.ID }}
+    
+    footer#{{ .ResultsOverlay.Footer.ID }} {
+      
+      margin: 1rem;
+      display: grid;
+      grid-template-columns: 1fr auto 1fr;
+      grid-template-areas: "previous . next";
+      place-items: center;
+      
+      a {
+        
+        background: transparent;
+        color: {{ .ResultsOverlay.Footer.Link.Color }};
+        text-decoration: {{ .ResultsOverlay.Footer.Link.TextDecoration }};
+        
+        &:hover { 
+          
+          color: {{ .ResultsOverlay.Footer.Link.Hover.Color }};
+          text-decoration: {{ .ResultsOverlay.Footer.Link.Hover.TextDecoration }};
+          
+        } // &:hover 
+        
+        &#{{ .ResultsOverlay.Footer.PreviousPageLink.ID }} {
+          
+          grid-area: previous;
+          align-self: start;
+          
+        } // &#{{ .ResultsOverlay.Footer.PreviousPageLink.ID }}
+        
+        &#{{ .ResultsOverlay.Footer.NextPageLink.ID }} {
+          
+          grid-area: next;
+          align-self: end;
+          
+        } // &#{{ .ResultsOverlay.Footer.NextPageLink.ID }}
+        
+      } // a
+      
+    } // footer#{{ .ResultsOverlay.Footer.ID }}
+    
+  } // article#{{ .ResultsOverlay.Article.ID }}
+  
+} // div#{{ .ResultsOverlay.ID }}
+
+{{ end }}

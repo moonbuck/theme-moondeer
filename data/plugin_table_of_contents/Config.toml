@@ -1,0 +1,73 @@
+# Parameters for controlling the generated css and js files
+###########################################################
+
+# Plugin version, printed to HTML comment when the plugin loads.
+#
+Version = '2.0.4'
+
+# Whether to print HTML comments for debugging purposes.
+#
+DebugPrint = false
+
+# Whether to provide subresource integrity by generating a 
+# base64-encoded cryptographic hash and attaching a .Data.Integrity
+# property containing an integrity string, which is made up of the
+# name of the hash function, one hyphen and the base64-encoded hash sum.
+#
+Fingerprint = true
+
+# Output style for /assets/sass/toc.scss. 
+# Valid options are nested, expanded, compact and compressed
+#
+SassOutput = 'compact'
+
+# Whether to minify the Javascript file generated from
+# /assets/js/toc.js
+#
+MinifyScript = false
+
+# Parameters controlling the generation of the table of contents.
+#################################################################
+
+# Selector used to identify the HTML element whose child headings shall
+# be eligible for inclusion in the table of contents.
+#
+SourceSandbox = '#post-body'
+
+# Selector for identifying the HTML element into which the container
+# shall be prepended.
+#
+ContainerParent = 'body'
+
+# The text displayed within the TOC header.
+#
+TitleText = 'Table of Contents'
+
+# Selector for identifying the HTML element into which the toggle
+# button shall be prepended.
+#
+ToggleParent = '#toc-toggle-container'
+
+# The text displayed by the toggle button.
+#
+ToggleText = 'Table of Contents'
+
+# Whether to generate section numbers kinda like:
+# 2 Installation
+# 3 Structured Data
+#   3.1 The Data … You Know … Structured
+#   3.2 The Payoff?
+# 4 Twitter and Open Graph <meta> Tags
+#   4.1 The Prototypical Previewable Post
+#     4.1.1 The Tags
+#     4.1.2 The Payoff
+#       4.1.2.1 Downsizing
+#   4.2 Audio and Video, Oh My
+#    4.2.1 How It Works
+#
+SectionNumbers = true
+
+# Whether to inject generated section numbers into the original 
+# post headings.
+#
+InjectSectionNumbers = true

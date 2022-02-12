@@ -1,0 +1,17 @@
+# A dictionary for assigning injection locations to specific files.
+# Files not assigned a location will be injected by default when
+# the `inject.html` partial is invoked with an empty location value.
+# How locations are named and assigned is entirely up to you, as you 
+# will be the one passing them as parameters when invoking the partial
+# from your theme or plugin to inject the associated file list.
+#
+# Here's how mine happens to look:
+# HEAD_TOP = [ "google-tag-manager-head-script.html" ]
+# ABOVE_HEADER = [ "google-tag-manager-header-script.html" ]
+#
+
+# HEAD_TOP = []
+# ABOVE_HEADER = []
+# BELOW_HEADER = []
+# FOOTER = []
+# BELOW_FOOTER = []

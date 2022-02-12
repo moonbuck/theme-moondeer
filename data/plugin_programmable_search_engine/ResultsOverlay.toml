@@ -1,0 +1,100 @@
+# Styling the results overlay
+#############################
+
+# The ID assigned to the results overlay.
+#
+ID = 'pse-results-overlay'
+
+# The ID assigned to the <article> element with the search results.
+#
+Article.ID = 'pse-results-article'
+
+# The text color to set on the <article> element.
+#
+Article.Color = 'inherit'
+
+# The font size to set on the <article> element.
+#
+Article.Font.Size = '1rem'
+
+# The base background color
+#
+Article.BG.Color = 'white'
+
+#Styling the <header> element of the results overlay
+##################################################
+
+# The ID assigned to the <header> element.
+#
+Header.ID = 'pse-results-header'
+
+# The color for header text
+#
+Header.Color = 'currentcolor'
+
+# The ID assigned to the title.
+#
+Header.Title.ID = 'pse-results-title'
+
+# The font size to set for the title.
+#
+Header.Title.Font.Size = 'inherit'
+
+# The font weight to set for the title.
+#
+Header.Title.Font.Weight = 'inherit'
+
+# The font style to set for the title.
+#
+Header.Title.Font.Style = 'inherit'
+
+# The ID assigned to the search terms.
+#
+Header.Terms.ID = 'pse-results-search-terms'
+
+# The text color for the search terms
+#
+Header.Terms.Color = 'inherit'
+
+# The font size to set for the search terms
+#
+Header.Terms.Font.Size = 'inherit'
+
+# The font weight to set for the search terms
+#
+Header.Terms.Font.Weight = 'inherit'
+
+# The font style to set for the search terms
+#
+Header.Terms.Font.Style = 'italic'
+
+# Styling the previous / next links in the results overlay footer
+#################################################################
+
+# The ID assigned to the footer.
+#
+Footer.ID = 'pse-results-footer'
+
+# The ID assigned to the previous page link.
+#
+Footer.PreviousPageLink.ID = 'pse-results-previous-page'
+
+# The ID assigned to the next page link.
+#
+Footer.NextPageLink.ID = 'pse-results-next-page'
+
+# The text color for the previous / next links
+#
+Footer.Link.Color = 'inherit'
+
+# The text decoration for the previous / next links
+#
+Footer.Link.TextDecoration = 'none'
+
+# The text color for the previous / next links when hovering
+#
+Footer.Link.Hover.Color = "inherit"
+
+# The text decoration for the previous / next links when hovering
+#
+Footer.Link.Hover.TextDecoration = 'underline'

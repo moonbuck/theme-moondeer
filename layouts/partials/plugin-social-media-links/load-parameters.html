@@ -1,0 +1,79 @@
+{{- /********************************************************
+  Resolves theme and plugin data files to build a map of 
+  parameter values and injects this map into the page scratch
+  ***********************************************************/ -}}
+
+{{- /************************************************
+  Initialize variables with default parameter values
+  to ensure every parameter has a map entry. 
+  ***************************************************/ -}}
+
+{{- $Parameters := dict
+  "Config" (dict
+    "Version" ""
+    "DebugPrint" false
+    "Fingerprint" true
+    "SassOutput" "compact")
+  "Accounts" (slice
+    (dict 
+      "Name" "Micro.blog" 
+      "Username" site.Author.username 
+      "Href" "https://micro.blog/USERNAME"))
+  "Style" (dict
+    "ContainerID" "social-media-link-container"
+    "LinkClassName" "social-media-link"
+    "LabelClassName" "social-media-link-label"
+    "Container" ""
+    "Link" ""
+    "LinkHover" ""
+    "Label" "")
+  -}}
+
+{{- /************************************************
+  Override the default parameter values with values
+  found in the plugin data files.
+  ***************************************************/ -}}
+
+{{- with site.Data.plugin_social_media_links -}}
+{{- $Parameters = merge $Parameters . -}}
+{{- end -}}
+
+{{- /**********************************************
+  Override the default/plugin parameter values with
+  values found in the theme data file.
+  *************************************************/ -}}
+
+{{- with (index site.Data "plugin-social-media-links") -}}
+{{- $Parameters = merge $Parameters . -}}
+{{- end -}}
+
+{{- /* Prepend the Micro.blog account to the platforms slice. */ -}}
+{{- /*$Platforms := slice 
+  (dict "Name" "Micro.blog" 
+        "Username" site.Author.username 
+        "Href" "https://micro.blog/USERNAME") | append $Parameters.Accounts.Platforms*/ -}}
+
+{{- /* Parse platforms into useable platform attributes. */ -}}
+{{- $ParsedPlatforms := slice -}}
+{{- range $Parameters.Accounts.Platforms -}}
+  {{- if (and (and (and .Name .Href) .Username) (or .Server (not (in .Href "SERVER")))) -}}
+  {{- $href := replaceRE "USERNAME" .Username .Href -}}
+    {{- with .Server -}}
+      {{- $href = $href | replaceRE "SERVER" . -}}
+    {{- end -}}
+    {{- $platform := dict "Name" .Name "Username" .Username "Href" $href -}}
+    {{- $ParsedPlatforms = $ParsedPlatforms | append $platform -}}
+  {{- end -}}
+{{- end -}}
+
+{{- $Parameters = merge $Parameters (dict 
+  "Accounts" (dict 
+    "Raw" $Parameters.Accounts.Platforms
+    "Platforms" $ParsedPlatforms)) 
+  -}}
+
+{{- /********************************************
+  Insert the parameter map into the page scratch.
+  ***********************************************/ -}}
+
+{{- .Scratch.Set "plugin-social-media-links.Parameters" $Parameters -}}

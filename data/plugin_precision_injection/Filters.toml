@@ -1,0 +1,10 @@
+# A dictionary for restricting a file's injection by page path.
+# When an plugin include appears as a key in this dictionary,
+# it will only be injected into page's whose path has been
+# included in the assigned list.
+#
+# Here's how mine looks:
+# "category-cloud-style.html" = [ "/cloud/" ]
+# "/assets/css/gallery.css" = [ "/gallery/" ]
+# "/assets/css/bookshelves.css" = [ "/bookshelf/" ]
+# "/assets/js/bookshelves.js" = [ "/bookshelf/" ]

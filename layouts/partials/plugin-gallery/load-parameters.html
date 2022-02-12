@@ -1,0 +1,69 @@
+{{- /********************************************************
+  Resolves theme and plugin data files to build a map of 
+  parameter values and injects this map into the page scratch
+  ***********************************************************/ -}}
+
+{{- /************************************************
+  Initialize variables with default parameter values
+  to ensure every parameter has a map entry. 
+  ***************************************************/ -}}
+
+{{- $Parameters := dict
+  "Config" (dict
+    "Version" ""
+    "DebugPrint" false
+    "Fingerprint" true
+    "SassOutput" "compact"
+    "GalleryPartial" "gallery.html")
+  "Gallery" (dict
+    "Header" ""
+    "Description" ""
+    "Name" "plugin-gallery"
+    "Wrap" true
+    "DescPosition" ""
+    "Effect" ""
+    "Width" ""
+    "Height" ""
+    "Zoomable" ""
+    "Draggable" ""
+    "Loop" true
+    "Autoplay" true
+    "Preload" ""
+    "PhotoWidth" 500)
+    (slice "Assets" "Slides") (slice)
+    "Style" (dict
+      "HeaderID" "gallery-header"
+      "Header" ""
+      "DescriptionID" "gallery-description"
+      "Description" ""
+      "Gallery" ""
+      "Link" ""
+      "Img" ""
+      "Video" ""
+      "Fit" "cover"
+      "GridWidth" 5
+      "RowHeight" "20vh")
+  -}}
+
+{{- /************************************************
+  Override the default parameter values with values
+  found in the plugin data files.
+  ***************************************************/ -}}
+{{- with site.Data.plugin_gallery -}}
+{{- $Parameters = merge $Parameters . -}}
+{{- end -}}
+
+{{- /**********************************************
+  Override the default/plugin parameter values with
+  values found in the theme data file.
+  *************************************************/ -}}
+
+{{- with (index site.Data "plugin-gallery") -}}
+{{- $Parameters = merge $Parameters . -}}
+{{- end -}}
+
+{{- /********************************************
+  Insert the parameter map into the page scratch.
+  ***********************************************/ -}}
+
+{{- .Scratch.Set "plugin-gallery.Parameters" $Parameters -}}

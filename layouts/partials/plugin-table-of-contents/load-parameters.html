@@ -1,0 +1,80 @@
+{{- /********************************************************
+  Resolves theme and plugin data files to build a map of 
+  parameter values and injects this map into the page scratch
+  ***********************************************************/ -}}
+
+{{- /************************************************
+  Initialize variables with default parameter values
+  to ensure every parameter has a map entry. 
+  ***************************************************/ -}}
+  
+{{- $Parameters := dict
+  "Config" (dict
+    "Version" ""
+    "DebugPrint" false
+    "Fingerprint" true
+    "SassOutput" "compact"
+    "MinifyScript" false
+    "SourceSandbox" "#post-body"
+    "ContainerParent" "body"
+    "TitleText" "Table of Contents"
+    "ToggleParent" "#toc-toggle-container"
+    "ToggleText" "Table of Contents"
+    "SectionNumbers" true
+    "InjectSectionNumbers" true) 
+  "Specifiers" (dict
+    "BackdropID" "toc-backdrop"
+    "ContainerID" "toc-container"
+    "HeaderID" "toc-header"
+    "TitleID" "toc-title"
+    "CloseButtonID" "toc-close-button"
+    "BodyID" "toc-body"
+    "ToggleID" "toc-toggle"
+    "LevelClassNamePrefix" "toc-level-"
+    "FadeClassName" "fade"
+    "ShowClassName" "show"
+    "OffscreenClassName" "offscreen"
+    "TOCEntryClassName" "toc-entry"
+    "SectionNumberClassName" "section-number"
+    "InjectedSectionNumberClassName" "injected-section-number")
+  "Style" (dict
+    "TOC" ""
+    "Header" ""
+    "Title" ""
+    "CloseButton" ""
+    "Body" ""
+    "Entry" ""
+    "EntrySection" ""
+    "EntryLink" ""
+    "Backdrop" ""
+    "Toggle" ""
+    "SectionNumber" ""
+    "Variables" (dict
+        "TOCWidth" 400
+        "LevelIndent" "4px"
+        "BackdropOpacity" 0.5)) 
+  -}}
+  
+{{- /************************************************
+  Override the default parameter values with values
+  found in the plugin data files.
+  ***************************************************/ -}}
+
+{{- with site.Data.plugin_table_of_contents -}}
+{{- $Parameters = merge $Parameters . -}}
+{{- end -}}
+
+{{- /**********************************************
+  Override the default/plugin parameter values with
+  values found in the theme data file.
+  *************************************************/ -}}
+
+{{- with (index site.Data "plugin-table-of-contents") -}}
+{{- $Parameters = merge $Parameters . -}}
+{{- end -}}
+
+{{- /********************************************
+  Insert the parameter map into the page scratch.
+  ***********************************************/ -}}
+  
+{{- .Scratch.Set "plugin-table-of-contents.Parameters" $Parameters -}}

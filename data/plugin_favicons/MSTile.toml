@@ -1,0 +1,92 @@
+# Short name for app-like button.
+#
+# ApplicationName = "Short Name"
+
+# Path to the 70x70 pixel image.
+#
+# X70 = "/mstile-70x70.png"
+
+# Path to the 144x144 pixel image.
+#
+# X144 = "/mstile-144x144.png"
+
+# Path to the 150x150 pixel image.
+#
+# X150 = "/mstile-150x150.png"
+
+# Path to the 310x150 pixel image.
+#
+# WideX150 = "/mstile-310x150.png"
+
+# Path to the 310x310 pixel image.
+#
+# X310 = "/mstile-310x310.png"
+
+# The tile color behind the 150x150 pixel image.
+#
+# TileColor = "#DA532C"
+
+################################
+# Using the MSTile assets
+################################
+
+# OPTION 1: Manual File Creation
+#
+# In this plugin or your custom theme, create a template 'static/browserconfig.xml'
+#
+# Replace bracketed variable names with their values.
+#
+# <?xml version="1.0" encoding="utf-8"?>
+# <browserconfig>
+#   <msapplication>
+#     <tile>
+#       <square70x70logo src="[MSTile.x70]"/>
+#       <square144x144logo src="[MSTile.x144]"/>
+#       <square150x150logo src="[MSTile.x150]"/>
+#       <wide310x150logo src="[MSTile.Widex150]"/>
+#       <square310x310logo src="[MSTile.x310]"/>
+#       <TileColor>[MSTile.TileColor]</TileColor>
+#     </tile>
+#   </msapplication>
+# </browserconfig>
+
+# If you went and stuck the file somewhere else, set this value and uncomment.
+#
+# BrowserConfig = "/browserconfig.xml"
+
+# OPTION 2: Automatic File Creation
+#
+# Create a template (or append if you did this for the manifest) in your custom 
+# theme located at config/_default/outputFormats.toml and add the following output format:
+# 
+# [BrowserConfig]
+# mediaType = "application/xml"
+# baseName = "browserconfig"
+# isPlainText = true
+# isHTML = false
+# notAlternative = true
+#
+# Scroll down to the blank theme files in your custom theme and open config.json.
+# Look for the 'outputs' key and then the 'home' key. Copy all the current outputs
+# for 'home'.
+# 
+# Create a template in your custom theme located at config/_default/outputs.toml
+# Create an entry for 'home' with all those copied output values. Then add one more
+# called 'BrowserConfig'. My file looks like this.
+#
+# home = [
+#   "HTML",
+#   "RSS",
+#   "JSON",
+#   "RSD",
+#   "ArchiveHTML",
+#   "ArchiveJSON",
+#   "PhotosJSON",
+#   "PodcastXML",
+#   "PodcastJSON",
+#   "WebAppManifest",
+#   "BrowserConfig"
+#   ]
+#
+# You should now be configured to build a json file in your root directory called 'manifest.json'.
+# Make sure the 'BrowserConfig' variable under option 1 is commented out or set to '/browserconfig.xml'.

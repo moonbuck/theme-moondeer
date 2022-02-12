@@ -1,0 +1,28 @@
+{{- if not (.Page.Scratch.Get "plugin-lightbox.Parameters") -}}
+  {{- partial "plugin-lightbox/load-parameters" .Page -}}
+{{- end -}}
+
+{{- $Parameters := .Page.Scratch.Get "plugin-lightbox.Parameters" -}}
+
+{{- $Class := $Parameters.Style.VideoClassName -}}
+{{- with .Class -}}
+  {{- $Class = printf "%s %s" $Class (delimit (apply (split . " ") 
+                                                     "anchorize" 
+                                                     ".") 
+                                              " ") -}}
+{{- end -}}
+{{- $Style := "" -}}
+{{- with .Fit -}}
+  {{- $Style = printf "object-fit:%s;" . -}}
+{{- end -}}
+{{- with .Style -}}
+  {{- $Style = printf "%s%s" $Style . -}}
+{{- end -}}
+<video playsinline 
+  {{- if .Autoplay }} autoplay muted {{ end -}}
+  {{- if .Loop }} loop{{ end -}}
+  {{- with .Src }} src="{{ . }}"{{ end -}}
+  {{- if (and .Preload (not .Autoplay)) }} preload="{{ .preload }}"{{ end -}}
+  {{- with $Class }} class="{{ . }}"{{ end -}}
+  {{- with $Style }} style="{{ .|safeCSS }}"{{ end -}}
+></video>

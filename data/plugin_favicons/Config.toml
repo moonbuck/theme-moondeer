@@ -1,0 +1,10 @@
+# Debug and build related parameters.
+#####################################
+
+# Theme version, printed to HTML comment when the plugin loads.
+#
+Version = '5.0.0'
+
+# Whether to print HTML comments for debugging purposes.
+#
+DebugPrint = false

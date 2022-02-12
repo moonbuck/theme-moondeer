@@ -1,0 +1,200 @@
+# Parameters corresponding to those receivable by the
+# glightbox Javascript object.
+#####################################################
+
+# Name of the selector for example '.glightbox' or 'data-glightbox' 
+# or '*[data-glightbox]'
+#
+Selector = '.glightbox'
+
+# Name of the skin, it will add a class to the lightbox so you 
+# can style it with css.
+#
+# Skin = 'clean'
+
+# Name of the effect on lightbox open. (zoom, fade, none)
+#
+# OpenEffect = 'zoom'
+
+# Name of the effect on lightbox close. (zoom, fade, none)
+#
+# CloseEffect = 'zoom'
+
+# Name of the effect on slide change. (slide, fade, zoom, none)
+#
+# SlideEffect = 'slide'
+
+# More text for descriptions on mobile devices.
+#
+# MoreText = 'See more'
+
+# Number of characters to display on the description before adding
+# the moreText link (only for mobiles), if 0 it will display the
+# entire description.
+#
+# MoreLength = 60
+
+# Show or hide the close button.
+#
+# CloseButton = true
+
+# Enable or disable the touch navigation (swipe).
+#
+# TouchNavigation = true
+
+# Image follow axis when dragging on mobile.
+#
+# TouchFollowAxis = true
+
+# Enable or disable the keyboard navigation.
+#
+# KeyboardNavigation = true
+
+# Close the lightbox when clicking outside the active slide.
+#
+# CloseOnOutsideClick = true
+
+# Start lightbox at defined index.
+#
+# StartAt = 0
+
+# Default width for inline elements and iframes, you can define a
+# specific size on each slide. You can use any unit for example 
+# 90% or 100vw for full width
+#
+# Width = '900px'
+
+# Default height for inline elements and iframes, you can define
+# a specific size on each slide.You can use any unit for example
+# 90% or 100vw For inline elements you can set the height to auto.
+#
+# Height = '506px'
+
+# Default width for videos. Videos are responsive so height is not
+# required. The width can be in px % or even vw for example, 500px,
+# 90% or 100vw for full width videos
+# VideosWidth = '960px'
+
+# Global position for slides description, you can define a 
+# specific position on each slide (bottom, top, left, right).
+#
+# DescPosition = 'bottom'
+
+# Loop slides on end.
+#
+# Loop = false
+
+# Enable or disable zoomable images you can also use 
+# data-zoomable="false" on individual nodes.
+#
+# Zoomable = true
+
+# Enable or disable mouse drag to go prev and next slide 
+# (only images and inline content), you can also use 
+# data-draggable="false" on individual nodes.
+# Draggable = true
+
+# Used with draggable. Number of pixels the user has to drag 
+# to go to prev or next slide.
+#
+# DragToleranceX = 40
+
+# Used with draggable. Number of pixels the user has to drag up 
+# or down to close the lightbox (Set 0 to disable vertical drag).
+#
+# DragToleranceY = 65
+
+# If true the slide will automatically change to prev/next or 
+# close if dragToleranceX or dragToleranceY is reached, 
+# otherwise it will wait till the mouse is released.
+#
+# DragAutoSnap = false
+
+# Enable or disable preloading.
+#
+# Preload = true
+
+# You can completely change the html of GLightbox. See the 
+# Themeable section in the README:
+# https://github.com/biati-digital/glightbox#readme.
+# 
+# LightboxHTML = '''
+# <div id="glightbox-body" class="glightbox-container">
+#   <div class="gloader visible"></div>
+#   <div class="goverlay"></div>
+#   <div class="gcontainer">
+#     <div id="glightbox-slider" class="gslider"></div>
+#     <button class="gnext gbtn" tabindex="0" 
+#             aria-label="Next">{nextSVG}</button>
+#     <button class="gprev gbtn" tabindex="1" 
+#             aria-label="Previous">{prevSVG}</button>
+#     <button class="gclose gbtn" tabindex="2" 
+#             aria-label="Close">{closeSVG}</button>
+#   </div>
+# </div>
+# '''
+
+# You can completely change the html of the individual slide. 
+# See the Themeable section in the README:
+# https://github.com/biati-digital/glightbox#readme.
+#
+# SlideHTML = '''
+# <div class="gslide">
+#   <div class="gslide-inner-content">
+#     <div class="ginner-container">
+#       <div class="gslide-media"></div>
+#       <div class="gslide-description">
+#         <div class="gdesc-inner">
+#           <h4 class="gslide-title"></h4>
+#           <div class="gslide-desc"></div>
+#         </div>
+#       </div>
+#     </div>
+#   </div>
+# </div>
+# '''
+
+# Autoplay videos on open.
+#
+# AutoplayVideos =  true
+
+# If true video will be focused on play to allow keyboard 
+# shortcuts for the player, this will deactivate prev and 
+# next arrows to change slide so use it only if you know 
+# what you are doing.
+#
+# AutofocusVideos = false
+
+# Set your own svg icons.
+#
+# [SVG]
+
+# Define or adjust lightbox animations.
+#
+# See the custom animation section of the README:
+# https://github.com/biati-digital/glightbox#adding-a-custom-animation
+#
+# [CSSEfects]
+
+# Video player options. See the video player options in
+# the README: https://github.com/biati-digital/glightbox#video-player
+#
+# The example given in the README would look like
+# this:
+# [Plyr]
+# css = 'https://cdn.plyr.io/3.5.6/plyr.css'
+# js = 'https://cdn.plyr.io/3.5.6/plyr.js'
+# config.ratio = '16:9' # or '4:3'
+# config.muted = false
+# config.hideControls = true
+# config.youtube.noCookie = true
+# config.youtube.rel = 0
+# config.youtube.showinfo = 0
+# config.youtube.iv_load_policy = 3
+# config.vimeo.byline = false
+# config.vimeo.portrait = false
+# config.vimeo.title = false
+# config.vimeo.speed = true
+# config.vimeo.transparent = false
+#
+# [Plyr]

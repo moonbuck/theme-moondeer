@@ -1,0 +1,6 @@
+{{- $Parameters := dict "Page" .Page "PhotoWidth" 260 -}}
+{{- range $key, $value := $.Params -}}        
+  {{- $key = $key | humanize | title | replaceRE " " "" -}}
+  {{- $Parameters = merge $Parameters (dict $key $value) -}}
+{{- end -}}
+{{ partial "plugin-lightbox/lightbox.html" $Parameters }}

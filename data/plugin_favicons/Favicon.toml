@@ -1,0 +1,32 @@
+# Path to an SVG favicon image.
+#
+# SVG = "/favicon.svg"
+
+# Path to the 196x196 pixel image.
+#
+# X196 = "/favicon-196x196.png"
+
+# Path to the 128x128 pixel image.
+#
+# X128 = "/favicon-128x128.png"
+
+# Path to the 96x96 pixel image.
+#
+# X96 = "/favicon-96x96.png"
+
+# Path to the 32x32 pixel image.
+#
+# X32 = "favicon-32x32.png"
+
+# Path to the 16x16 pixel image.
+#
+# X16 = "favicon-16x16.png"
+
+# Path to regular image. If you upload an ico image it gets converted to jpg
+#
+# ICO = "favicon.ico"
+
+# Base64 ico image.
+# You can convert .ico to base64 here: https://base64.guru/converter/encode/image/ico
+#
+# ICOBase64 = "base64"

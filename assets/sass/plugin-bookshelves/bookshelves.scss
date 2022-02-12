@@ -1,0 +1,177 @@
+@import "vendor/rfs";
+
+// Template for injecting rfs include directives into a Sass block.
+{{ define "rfs-wrap" }}
+
+  //Generate a slice with all the property names.
+  {{ $edges := slice "top" "right" "bottom" "left" }}
+  {{ $properties := 
+    slice "font-size" "padding" "margin"
+    | append (apply $edges "printf" "padding-%s" ".") 
+    | append (apply $edges "printf" "margin-%s" ".") }}
+
+  //Convert the slice for use within the regular expression.
+  {{ $properties = delimit $properties "|" }}
+
+  // Create the regular expression
+  {{ $pattern := printf `(%s):\w*([^;]+)`  }}
+
+  // Replace matches with the appropriate rfs include.
+  {{ replaceRE $pattern `@include $1($2)` . }}
+
+{{ end }}
+
+{{ with .Scratch.Get "plugin-bookshelves.Parameters" }}
+
+// View toggle controls
+#{{ .Style.ToggleWrapperID }} {
+  display: flex;
+  justify-content: center;
+  gap: 0;
+  padding: 0;
+  margin: 1rem 0;
+  align-content: stretch;
+  
+  div {
+    border: 0.1em solid {{ .Style.Variables.ToggleAccentColor }};
+    outline: none;
+    padding: 0;
+    margin:0;
+    background-color: {{ .Style.Variables.ToggleAccentColor }};
+    border-radius: 1em;
+    color: {{ .Style.Variables.ToggleAccentColor }};
+    @include font-size({{ .Style.Variables.ToggleFontSize }});
+    cursor: pointer;
+    
+    button {
+      padding: 0 1em;
+      margin: 0;
+      border-width: 0;
+      background-color: {{ .Style.Variables.ButtonBGColor }};
+      color: {{ .Style.Variables.ToggleAccentColor }};
+      height: 100%;
+      @include font-size({{ .Style.Variables.ToggleFontSize }});
+      
+      &#{{ .Style.ListViewButtonID }} {
+        border-radius: 1em 0 0 1em;
+        padding-right: 1em;
+      }
+      
+      &#{{ .Style.GridViewButtonID }} {
+        border-radius: 0 1em 1em 0;
+        padding-left: 1em;
+      }
+      
+      &:hover {
+        background-color: {{ .Style.Variables.ToggleHoverColor }};
+        color: {{ .Style.Variables.ButtonBGColor }};
+      }
+      
+      &.{{ .Style.ActiveButtonClassName }} {
+        background-color: {{ .Style.Variables.ToggleAccentColor }};
+        color: {{ .Style.Variables.ButtonBGColor }};
+      }
+      
+      svg {
+        overflow: visible;
+        -webkit-box-sizing: content-box;
+        box-sizing: content-box;
+        display: inline-block;
+        height: 0.95em;
+        vertical-align: -.2em;
+      } // svg
+      
+      span {
+{{ if .Style.ShowButtonLabels }}
+        padding-left: .2em;
+{{ else }}
+        display: none;
+{{ end }}
+      } // span      
+    } // button
+  } // div
+} // #{{ .Style.ToggleWrapperID }}
+
+// Bookshelves
+#{{ .Style.BookshelvesID }} {
+  display: flex;
+  flex-direction: column;
+  @include rfs(2rem, gap);
+  {{ with .Style.Bookshelves }}{{ template "rfs-wrap" . }}{{ end }}
+   
+  // Bookshelf
+  .{{ .Style.BookshelfClassName }} {
+    display: flex;
+    flex-direction: column;
+    {{ with .Style.Bookshelf }}{{ template "rfs-wrap" . }}{{ end }}
+    
+    * + * {
+      padding: 0;
+      margin: 0;
+    }
+  
+    // Display name
+    h2 {
+      @include font-size(1.25rem);
+      {{ with .Style.BookshelfName }}{{ template "rfs-wrap" . }}{{ end }}
+    }
+    
+    // Description
+    p {
+      @include font-size(1rem);
+      @include margin-bottom(1em);
+      {{ with .Style.BookshelfDescription }}{{ template "rfs-wrap" . }}{{ end }}
+    }
+    
+    // Book
+    .{{ .Style.BookClassName }} {
+      display: flex;
+      align-items: center;
+      @include rfs(1.25rem, gap);
+      {{ with .Style.Book }}{{ template "rfs-wrap" . }}{{ end }}
+            
+      a {
+        {{ with .Style.BookLink }}{{ template "rfs-wrap" . }}{{ end }}
+        
+        img {
+          width: {{ .Style.CoverWidth }}px;
+          height: auto;
+          {{ with .Style.BookCover }}{{ template "rfs-wrap" . }}{{ end }}
+        }
+      } // a
+      
+      div {
+        display: flex;
+        flex-direction: column;
+        
+        span:first-child {
+          {{ with .Style.BookTitle }}{{ template "rfs-wrap" . }}{{ end }}
+        }
+        
+        span:nth-child(2) {
+          {{ with .Style.BookAuthor }}{{ template "rfs-wrap" . }}{{ end }}
+        }
+      }
+    }
+    
+  } // .{{ .Style.BookshelfClassName }}
+  
+  // Books
+  &.list .{{ .Style.BookshelfClassName }} > div {      
+    display: flex;
+    flex-direction: column;
+    @include rfs(1.25rem, gap);
+  }
+  
+  &.grid .{{ .Style.BookshelfClassName }} > div {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    @include rfs(1.25rem, gap);
+
+    .{{ .Style.BookClassName }} div { display: none; }      
+  }
+  
+} // #{{ .Style.BookshelvesID }}
+
+{{ end }}

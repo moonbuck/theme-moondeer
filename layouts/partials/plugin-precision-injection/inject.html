@@ -1,0 +1,55 @@
+{{- /* 
+
+This partial expects a dictionary as its parameter.
+
+keys:
+
+'location': The key into the Locations map for the list
+            of files to inject. Pass the empty string
+            to inject all files not assigned a location.
+              
+'link': Pass 'css' to load plugin CSS. 
+        Pass 'js' to load plugin javascripts.
+
+'context': The page context (aka "the dot").
+
+*/}}
+
+{{- /* 
+  Only proceed when receiving a context 
+  */ -}}
+{{- if .context -}}
+
+  {{- /* Check whether the config has been loaded */ -}}  
+  {{- if not (.context.Scratch.Get "plugin-precision-injection.Parameters") -}}
+  
+    {{- partial "plugin-precision-injection/load-parameters.html" .context -}}
+    
+    {{- with .context.Scratch.Get "plugin-precision-injection.Parameters" -}}
+    
+    {{- /* Insert the plugin version and build time */ -}}
+    {{- $time := (time (sub now.Unix 28800)).Format "Jan 2 at 15:04" -}}
+    {{ printf "\n<!-- Precision Injection v%s (built on %s) -->\n" .Config.Version $time | safeHTML }}
+    
+    {{- if .Config.DebugPrint -}}
+    {{- printf "\n<!--\nplugin-precision-injection.Parameters:\n%s\n-->" (. | jsonify (dict "prefix" " " "indent" "  ")) | safeHTML -}}
+    {{- end -}}
+    
+    {{- end -}}
+  
+  {{- end -}}
+
+  {{- /* Invoke the location partial if a link parameter has not been passed */ -}}    
+  {{- if not .link -}}    
+    {{- partial "plugin-precision-injection/location.html" . -}}
+    
+  {{- /* Invoke the stylesheets partial if specified */ -}}
+  {{- else if (in (slice "css" "stylesheets") .link) -}}  
+    {{- partial "plugin-precision-injection/stylesheets.html" . -}}
+      
+  {{- /* Invoke the scripts partial if specified */ -}}
+  {{- else if (in (slice "js" "scripts") .link) -}}    
+    {{- partial "plugin-precision-injection/scripts.html" . -}}      
+  {{- end -}}
+
+{{- end -}}

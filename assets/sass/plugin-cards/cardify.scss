@@ -1,0 +1,251 @@
+@import "vendor/rfs";
+
+{{- /* Template for injecting rfs include directives into a Sass block. */ -}}
+{{- define "rfs-wrap" -}}
+
+  {{- /* Generate a slice with all the property names. */ -}}
+  {{- $edges := slice "top" "right" "bottom" "left" -}}
+  {{- $properties := 
+    slice "font-size" "padding" "margin"
+    | append (apply $edges "printf" "padding-%s" ".") 
+    | append (apply $edges "printf" "margin-%s" ".") -}}
+
+  {{- /* Convert the slice for use within the regular expression. */ -}}
+  {{- $properties = delimit $properties "|" -}}
+  
+  {{- /* Create the regular expression */ -}}
+  {{- $pattern := printf `(%s):\w*([^;]+)` $properties -}}
+  
+  {{- /* Replace matches with the appropriate rfs include. */ -}}
+  {{- replaceRE $pattern `@include $1($2)` . -}}
+  
+{{- end -}}
+
+{{- with (.Scratch.Get "plugin-cards.Parameters").Cardify -}}
+
+// Plugin parameter values
+$border-width:         {{ .Style.Variables.BorderWidth }};
+$border-radius:        {{ .Style.Variables.BorderRadius }};
+$inner-border-radius:  calc(#{$border-radius} - #{$border-width});
+
+// The card container
+.{{ .Style.ClassName }} {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  min-width: 0;
+  word-wrap: break-word;
+  background-clip: border-box;
+  background-color: white;
+  border-color: rgba(black, .125);
+  border-style: solid;  
+  border-width: $border-width;
+  border-radius: $border-radius;
+  {{ with .Style.Card }}{{ template "rfs-wrap" . }}{{ end }}
+
+  // The card image
+  img {
+    width: 100%;
+    aspect-ratio: 1200 / 628;
+    object-fit: cover;
+    padding: 0;
+    margin: 0;
+    border-top-left-radius: $inner-border-radius;
+    border-top-right-radius: $inner-border-radius;
+  }
+  
+  // The card video
+  video {
+    width: 100%;
+    aspect-ratio: 1200 / 628;
+    object-fit: cover;
+    padding: 0;
+    margin: 0;
+    border-top-left-radius: $inner-border-radius;
+    border-top-right-radius: $inner-border-radius;    
+  }
+  
+  audio {
+    width: 100%;
+    position: relative;
+    top: -24px;
+  }
+  
+  // The card body containing the title, description, 
+  // date and reading time.
+  div {
+    flex: 1 1 auto;
+    @include margin(.125rem .25rem);
+    @include padding(1rem);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-content: center;
+    gap: .25rem;
+    {{- with .Style.Body -}}
+    {{ template "rfs-wrap" . }}
+    {{- end -}}
+    
+    // The card title
+    h3 {
+      padding: 0;
+      @include margin(0 0 .5rem 0);
+      @include font-size(1rem);
+      line-height: 1.1;    
+      {{- with .Style.Title -}}
+      {{ template "rfs-wrap" . }}
+      {{- end -}}
+    }
+
+    // The remaining card text (description and time/date/reading-time) 
+    p {    
+      padding: 0;
+      margin: 0;
+      line-height: 1;
+      @include font-size(.9rem);
+      
+      /// Just the description
+      &:not(&:last-child) {        
+        {{- with .Style.Text -}}
+        {{ template "rfs-wrap" . }}
+        {{- end -}}
+      }
+      
+      // Just the time/date/reading-time
+      &:last-child {
+        display: flex;
+        justify-content: space-between;
+        align-content: stretch;
+        @include margin-top(.75em);
+        @include padding-top(.75em);
+        border-top-width: $border-width;
+        border-top-color: rgba(black, .125);
+        border-top-style: solid;
+        
+        &:empty { display: none; }       
+      }
+      
+      // The publish date.
+      small:first-child {
+        color: #666;        
+        {{- with .Style.PublishDate -}}
+        {{ template "rfs-wrap" . }}
+        {{- end -}}
+      }
+      
+    } // p
+        
+  } // div
+  
+  &.type-summary div {
+    
+    // Stretching the invisble link across the entire card.
+    a::after {
+      position: absolute;
+      top: 0;
+      right: 0;
+      bottom: 0;
+      left: 0;
+      z-index: 1;
+      content: "";
+    }
+    
+    // The reading time.
+    p small:last-child {
+      color: #9091AB;        
+      {{- with .Style.ReadingTime -}}
+      {{ template "rfs-wrap" . }}
+      {{- end -}}
+    }  
+    
+  }
+
+  &.type-video div {
+  
+    // Stretching the invisble link across the entire card.
+    a::after {
+      position: absolute;
+      top: 0;
+      right: 0;
+      bottom: 0;
+      left: 0;
+      z-index: 1;
+      content: "";
+    }
+      
+  }
+  
+  &.type-audio div {
+    position: relative; 
+
+    // Stretching the invisble link across the entire card.
+    a::after {
+      position: absolute;
+      top: 0;
+      right: 0;
+      bottom: 0;
+      left: 0;
+      z-index: 1;
+      content: "";
+    }
+    
+  }
+  
+} // .Style.ClassName
+
+// Overrides for horizontal cards
+.{{ .Style.ClassName }}.horizontal {
+  flex-direction: row;
+
+  // The card image
+  img {
+    width: 30%;
+    aspect-ratio: 1 / 1;
+    height: auto;
+    object-fit: cover;
+    border-top-right-radius: 0;
+    border-bottom-left-radius: $inner-border-radius;
+  }
+  
+  // The card video
+  video {
+    width: 30%;
+    aspect-ratio: 1 / 1;
+    height: auto;
+    object-fit: cover;
+    border-top-right-radius: 0;
+    border-bottom-left-radius: $inner-border-radius;      
+  }
+  
+  // The card title
+  h3 { @media (max-width: 600px) { text-align: center; } }
+
+  // The remaining card text (description and time/date/reading-time) 
+  p {    
+    
+    // Just the description
+    &:not(&:last-child) { @media (max-width: 600px) { display: none; } }
+    
+    // Just the time/date/reading-time
+    &:last-child { 
+      @media (max-width: 600px) { justify-content: center; } 
+    }
+            
+    } // p
+    
+  &.type-summary p {
+    
+    // The reading time.
+    small:last-child { @media (max-width: 600px) { display: none; } }
+    
+  }
+  
+  &.type-audio audio {
+    width: 100px;
+    position: absolute;
+    left: calc(15% - 25px);
+    top: calc(50% - 25px);
+  }
+} // .Style.ClassName
+  
+{{- end }}

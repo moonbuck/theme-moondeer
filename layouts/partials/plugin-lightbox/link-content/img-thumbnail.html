@@ -1,0 +1,25 @@
+{{- if not (.Page.Scratch.Get "plugin-lightbox.Parameters") -}}
+  {{- partial "plugin-lightbox/load-parameters" .Page -}}
+{{- end -}}
+
+{{- $Parameters := .Page.Scratch.Get "plugin-lightbox.Parameters" -}}
+
+{{- $Class := $Parameters.Style.ImgClassName -}}
+{{- with .Class -}}
+  {{- $Class = printf "%s %s" $Class (delimit (apply (split . " ") 
+                                                     "anchorize" 
+                                                     ".") 
+                                              " ") -}}
+{{- end -}}
+{{- $Style := "" -}}
+{{- with .Fit -}}
+  {{- $Style = printf "object-fit:%s;" . -}}
+{{- end -}}
+{{- with .Style -}}
+  {{- $Style = printf "%s%s" $Style . -}}
+{{- end -}}
+<img
+  {{- if (and .Width .Src) }} src="https://micro.blog/photos/{{ .Width }}x/{{ .Src }}"{{ end -}}
+  {{- with .Alt}} alt="{{ . }}"{{ end -}}
+  {{- with $Class}} class="{{ . }}"{{ end -}}
+  {{- if .Width }} style="width:{{ .Width }}px;height:auto;max-width:100%{{ with $Style }};{{ . | safeCSS }}{{ end }}"{{ end -}} />

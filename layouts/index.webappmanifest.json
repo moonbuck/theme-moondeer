@@ -1,0 +1,28 @@
+{{ with (.Scratch.Get "plugin-favicons.Parameters").AndroidChrome -}}
+{
+    {{- with .Name -}}
+    "name": "{{ . }}",
+    "short_name": "{{ . }}",
+    {{- end -}}
+    "icons": [
+      {{- with .X192 -}}
+        {
+            "src": "{{ . }}",
+            "sizes": "192x192",
+            "type": "image/png"
+        },
+      {{- end -}}
+      {{- with .X512 -}}
+        {
+            "src": "{{ . }}",
+            "sizes": "512x512",
+            "type": "image/png"
+        }
+      {{- end -}}
+    ],
+    {{ with .ThemeColor }}"theme_color": "{{ . }}",{{ end }}
+    {{ with .BackgroundColor }}"background_color": "{{ . }}",{{ end }}
+    "display": "standalone"
+}
+
+{{- end }}

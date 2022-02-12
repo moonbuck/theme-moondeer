@@ -1,0 +1,54 @@
+{{- if .HasShortcode "plugin-bookshelves" -}}
+
+  {{- if not (.Scratch.Get "plugin-bookshelves.Parameters") -}}
+    {{- partial "plugin-bookshelves/load-parameters.html" . -}}
+  {{- end -}}
+  
+  {{- with (.Scratch.Get "plugin-bookshelves.Parameters") -}}
+  
+    {{- if .Config.DebugPrint -}}
+      {{- printf "\n<!--plugin-bookshelves.Parameters:\n%s\n-->" (. | jsonify (dict "prefix" " " "indent" "  ")) | safeHTML -}}
+    {{- end -}}
+  
+    {{- $time := (time (sub now.Unix 28800)).Format "Jan 2 at 15:04" -}}
+    {{- $version := .Config.Version -}}
+    {{ printf "\n<!-- Bookshelves v%s (built on %s) -->\n" $version $time | safeHTML }}
+    
+    {{- $source_dir := "sass/plugin-bookshelves/" -}}
+    {{- $template_name := "bookshelves.scss" -}}
+    {{- $source := path.Join $source_dir $template_name -}}
+    {{- $target := path.Join "assets" $source -}}
+    {{- $style := resources.Get $source | resources.ExecuteAsTemplate $target $ -}} 
+  
+    {{- $target = $target | replaceRE "sass|scss" "css" -}}
+    {{- $options := dict "targetPath" $target "outputStyle" .Config.SassOutput -}}
+    {{- $style = $style | toCSS $options -}}
+  
+    {{- if .Config.Fingerprint }}{{ $style = $style | fingerprint }}{{ end -}}
+  
+    {{- print "\n" -}}
+<link rel="stylesheet" href="{{ $style.Permalink }}"
+{{- if .Config.Fingerprint }} integrity="{{ $style.Data.Integrity }}"{{ end -}}
+>
+  
+    {{- if .Config.EnableViewToggle -}}
+      
+      {{- $source_dir = "js/plugin-bookshelves/" -}}
+      {{- $template_name = "bookshelves.js" -}}
+      {{- $source = path.Join $source_dir $template_name -}}
+      {{- $target = path.Join "assets" $source -}}
+      {{- $script := resources.Get $source | resources.ExecuteAsTemplate $target $ -}}
+      
+      {{- if .Config.MinifyScript }}{{ $script = $script | minify }}{{ end -}}
+      {{- if .Config.Fingerprint }}{{ $script = $script | fingerprint }}{{ end -}}  
+      
+      {{- print "\n" -}}
+<script defer src="{{ $script.Permalink }}"
+{{- if .Config.Fingerprint }} integrity="{{ $script.Data.Integrity }}"{{ end -}}
+></script>
+
+    {{- end -}}
+  
+  {{- end -}}
+    
+{{ end -}}

@@ -1,0 +1,16 @@
+# Default parameter values for galleries.
+#########################################
+
+# Whether videos used as link content should loop by default.
+#
+Loop = true
+
+# Whether videos used as link content should autoplay by default.
+#
+Autoplay = true
+
+# Whether videos used as link content should preload by default.
+# Valid values are 'auto', 'metadata', and 'none'. Ignored when
+# autoplay is true
+#
+Preload = 'metadata'

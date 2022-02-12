@@ -1,0 +1,166 @@
+@import "vendor/rfs";
+
+{{/* Template for injecting rfs include directives into a Sass block. */}}
+{{ define "rfs-wrap" }}
+
+  {{/* Generate a slice with all the property names. */}}
+  {{ $edges := slice "top" "right" "bottom" "left" }}  
+  {{ $properties := 
+    slice "font-size" "padding" "margin"
+    | append (apply $edges "printf" "padding-%s" ".") 
+    | append (apply $edges "printf" "margin-%s" ".") }}
+
+  {{/* Convert the slice for use within the regular expression. */}}
+  {{ $properties = delimit $properties "|" }}
+  
+  {{/* Create the regular expression */}}
+  {{ $pattern := printf `(%s):\w*([^;]+)` $properties }}
+  
+  {{/* Replace matches with the appropriate rfs include. */}}
+  {{ replaceRE $pattern `@include $1($2)` . }}
+  
+{{ end }}
+
+
+{{ with .Scratch.Get "plugin-table-of-contents.Parameters" }}
+
+/// Variables
+$toc-width: {{ .Style.Variables.TOCWidth }}px;
+$level-indent: {{ .Style.Variables.LevelIndent }};
+$backdrop-opacity: {{ .Style.Variables.BackdropOpacity }};
+
+#{{ .Specifiers.BackdropID }} {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  {{ with .Style.Backdrop }}{{ template "rfs-wrap" . }}{{ end }}
+
+  // Fade backdrop and lower to prevent click handling.
+  &.{{ .Specifiers.FadeClassName }} { 
+    opacity: 0; 
+    z-index: -1;
+  }
+  
+  // Show and raise to allow click handling.
+  &.{{ .Specifiers.ShowClassName }} { 
+    opacity: $backdrop-opacity; 
+    z-index: 1040;
+  }
+}
+
+span.{{ .Specifiers.InjectedSectionNumberClassName }} {
+ {{ with .Style.SectionNumber }}{{ template "rfs-wrap" . }}{{ end }} 
+}
+
+button#{{ .Specifiers.ToggleID }} {
+  border: none;
+  border-radius: 0;
+  white-space: nowrap;
+  {{ with .Style.Toggle }}{{ template "rfs-wrap" . }}{{ end }}
+  
+  @media (max-width: $toc-width + 50) {
+    display: none;
+  }
+}
+
+#{{ .Specifiers.ContainerID }} {
+  top: 0;
+  left: 0;
+  bottom: 0;
+  width: $toc-width;
+  max-width: 100%;
+  position: fixed;
+  display: flex;
+  flex-direction: column;
+  background-clip: padding-box;
+  outline: 0;
+  {{ with .Style.TOC }}{{ template "rfs-wrap" . }}{{ end }}
+
+  &.{{ .Specifiers.OffscreenClassName }} {
+    z-index: 1045;
+    transform: translateX(-100%);
+    transition: transform .3s ease-in-out;
+    
+    &.{{ .Specifiers.ShowClassName }} { transform: none; }
+    
+  }
+  
+  header#{{ .Specifiers.HeaderID }} {
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    {{ with .Style.Header }}{{ template "rfs-wrap" . }}{{ end }}
+    
+    h2#{{ .Specifiers.TitleID }} {
+      {{ with .Style.Title }}{{ template "rfs-wrap" . }}{{ end }}
+    }
+    
+    button#{{ .Specifiers.CloseButtonID }} {
+      position: absolute;      
+      padding: 0;
+      margin: 0;
+      background: transparent;
+      border: none;
+      visibility: hidden;
+      {{ with .Style.CloseButton }}{{ template "rfs-wrap" . }}{{ end }}
+      
+      @media (max-width: $toc-width + 50) {
+        visibility: visible;
+      }
+      
+      svg {
+        display: inline-block;
+        height: 1rem;
+        overflow: visible;
+        align-self: center;
+        vertical-align: center;
+        fill: currentcolor;
+      }
+      
+    } // button#.Specifiers.CloseButtonID
+
+  } // header#.Specifiers.HeaderID
+  
+  nav#{{ .Specifiers.BodyID }} {
+    flex-grow: 1;
+    overflow-y: auto;
+    display: flex;
+    flex-direction: column; 
+    {{ with .Style.Body }}{{ template "rfs-wrap" . }}{{ end }}
+    
+    .{{ .Specifiers.TOCEntryClassName }} {
+        display: flex;
+        align-items: baseline;
+        {{ with .Style.Entry }}{{ template "rfs-wrap" . }}{{ end }}
+      
+        &.{{ .Specifiers.LevelClassNamePrefix }}2 {
+          @include margin-left($level-indent * 1);
+        }
+        &.{{ .Specifiers.LevelClassNamePrefix }}3 {
+          @include margin-left($level-indent * 2);
+        }
+        &.{{ .Specifiers.LevelClassNamePrefix }}4 {
+          @include margin-left($level-indent * 3);
+        }
+        &.{{ .Specifiers.LevelClassNamePrefix }}5 {
+          @include margin-left($level-indent * 4);
+        }
+    
+        .{{ .Specifiers.SectionNumberClassName }} {
+          {{ with .Style.EntrySection }}{{ template "rfs-wrap" . }}{{ end }}
+        }
+      
+        a {
+          {{ with .Style.EntryLink }}{{ template "rfs-wrap" . }}{{ end }}
+        }
+      
+    } // .Specifiers.TOCEntryClassName
+    
+  } // nav#.Specifiers.BodyID
+  
+} // #.Specifiers.ContainerID
+
+{{ end }}

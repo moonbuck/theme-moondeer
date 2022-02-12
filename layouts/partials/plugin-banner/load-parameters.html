@@ -1,0 +1,93 @@
+{{- /********************************************************
+  Resolves theme and plugin data files to build a map of 
+  parameter values and injects this map into the page scratch
+  ***********************************************************/ -}}
+
+{{- /************************************************
+  Initialize variables with default parameter values
+  to ensure every parameter has a map entry. 
+  ***************************************************/ -}}
+{{- $Parameters := dict 
+  "Config" (dict 
+    "Version" ""
+    "DebugPrint" false
+    "Fingerprint" true
+    "SassOutput" "compact") 
+  "Style" (dict
+    "ClassName" "banner-image"
+    "Color" "inherit"
+    "Height" "300px"
+    "Width" "100%"
+    "Position" "center"
+    "Repeat" "no-repeat"
+    "Size" "cover") 
+  -}}
+
+
+{{- /************************************************
+  Override the default parameter values with values
+  found in the plugin data files.
+  ***************************************************/ -}}
+
+{{- with site.Data.plugin_banner -}}
+  {{- $Parameters = merge $Parameters . -}}
+{{- end -}}
+
+{{- /**********************************************
+  Override the default/plugin parameter values with
+  values found in the theme data file.
+  *************************************************/ -}}
+
+{{- with (index site.Data "plugin-banner") -}}
+  {{- $Parameters = merge $Parameters . -}}
+{{- end -}}
+
+{{- /************************************ 
+  Generate an index registery of banners. 
+  ***************************************/ -}}
+  
+{{- $Paths := slice -}}
+{{- $URLs := slice -}}
+{{- $IDs := slice -}}
+
+{{- range $path, $url := $Parameters.Images -}}
+
+  {{- $components := slice "banner" -}}
+  {{- if (eq $path "/") -}}
+    {{- $components = $components | append "home" -}}
+  {{- else -}}
+    {{- $components = $components | append (split (trim $path "/") "/") -}}
+  {{- end -}}
+ 
+  {{- $id := delimit $components "-" | anchorize -}}
+
+  {{- $Paths = $Paths | append $path -}}
+  {{- $URLs = $URLs | append $url -}}
+  {{- $IDs = $IDs | append $id -}}
+
+{{- end -}}
+
+{{- $IndexByID := dict -}}
+{{- range $index, $id := $IDs -}}
+{{- $IndexByID = merge $IndexByID (dict $id $index) -}}
+{{- end -}}
+
+{{- $IndexByPath := dict -}}
+{{- range $index, $path := $Paths -}}
+{{- $IndexByPath = merge $IndexByPath (dict $path $index) -}}
+{{- end -}}
+
+{{- $Banners := dict 
+  "IndexByID" $IndexByID
+  "IndexByPath" $IndexByPath
+  "IDs" $IDs 
+  "Paths" $Paths 
+  "URLs" $URLs -}}
+  
+{{- $Parameters = merge $Parameters (dict "Banners" $Banners) -}}
+  
+{{- /********************************************
+  Insert the parameter map into the page scratch.
+  ***********************************************/ -}}
+  
+{{- .Scratch.Set "plugin-banner.Parameters" $Parameters -}}

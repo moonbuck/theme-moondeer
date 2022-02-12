@@ -1,0 +1,30 @@
+# Parameter values used to generate the stylesheet.
+###################################################
+
+# The ID to assign to the container.
+#
+ContainerID = 'social-media-link-container'
+
+# The class name to attach to the platform links.
+#
+LinkClassName = 'social-media-link'
+
+# The class name to attach to the platform labels.
+#
+LabelClassName = 'social-media-link-label'
+
+# Sass block to apply to the container.
+#
+Container = ''
+
+# Sass block to apply to the platform links.
+#
+Link = ''
+
+# Sass block to apply to the platform links when hovered.
+#
+LinkHover = ''
+
+# Sass block to apply to the platform labels.
+#
+Label = ''

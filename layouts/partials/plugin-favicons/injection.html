@@ -1,0 +1,39 @@
+{{- /* Resolve the plugin parameter values. */ -}}
+{{- partial "plugin-favicons/load-parameters.html" . -}}
+
+{{- with (.Scratch.Get "plugin-favicons.Parameters") -}}
+
+  {{- if .Config.DebugPrint -}}
+    {{- printf "\n<!--\nplugin-favicons.Parameters:\n%s\n-->" (. | jsonify (dict "prefix" " " "indent" "  ")) | safeHTML -}}
+  {{- end -}}
+
+  {{- /* Insert the plugin version and build time */ -}}
+  {{- $time := (time (sub now.Unix 28800)).Format "Jan 2 at 15:04" -}}
+  {{- $version := .Config.Version -}}
+  {{- printf "\n<!-- Favicons v%s (built on %s) -->\n" $version $time | safeHTML -}}
+  
+{{ with .Favicon.ICOBase64 }}<link rel="shortcut icon" type="image/png" href="data:image/png;base64,{{ . }}" />{{ else }}{{ with .Favicon.ICO }}<link rel="shortcut icon" href="{{ . }}" />{{ end }}{{ end }}
+{{ with .Favicon.SVG }}<link rel="alternate icon" type="image/svg+xml" href="{{ . }}">{{ end }}
+{{ with .Favicon.X196 }}<link rel="icon" type="image/png" href="{{ . }}" sizes="196x196" />{{ end }}
+{{ with .Favicon.X96 }}<link rel="icon" type="image/png" href="{{ . }}" sizes="96x96" />{{ end }}
+{{ with .Favicon.X32 }}<link rel="icon" type="image/png" href="{{ . }}" sizes="32x32" />{{ end }}
+{{ with .Favicon.X16 }}<link rel="icon" type="image/png" href="{{ . }}" sizes="16x16" />{{ end }}
+{{ with .Favicon.X128 }}<link rel="icon" type="image/png" href="{{ . }}" sizes="128x128" />{{ end }}
+{{ with .AndroidChrome.Webmanifest }}<link rel="manifest" href="{{ . }}" />{{ end }}
+{{ with .Apple.TouchIcon }}<link rel="apple-touch-icon" sizes="180x180" href="{{ . }}" />{{ end }}
+{{ with .Apple.X57 }}<link rel="apple-touch-icon-precomposed" sizes="57x57" href="{{ . }}" />{{ end }}
+{{ with .Apple.X114 }}<link rel="apple-touch-icon-precomposed" sizes="114x114" href="{{ . }}" />{{ end }}
+{{ with .Apple.X72 }}<link rel="apple-touch-icon-precomposed" sizes="72x72" href="{{ . }}" />{{ end }}
+{{ with .Apple.X144 }}<link rel="apple-touch-icon-precomposed" sizes="144x144" href="{{ . }}" />{{ end }}
+{{ with .Apple.X60 }}<link rel="apple-touch-icon-precomposed" sizes="60x60" href="{{ . }}" />{{ end }}
+{{ with .Apple.X120 }}<link rel="apple-touch-icon-precomposed" sizes="120x120" href="{{ . }}" />{{ end }}
+{{ with .Apple.X76 }}<link rel="apple-touch-icon-precomposed" sizes="76x76" href="{{ . }}" />{{ end }}
+{{ with .Apple.X152 }}<link rel="apple-touch-icon-precomposed" sizes="152x152" href="{{ . }}" />{{ end }}
+{{ if .Apple.SafariPinnedTab }}<link rel="mask-icon" href="{{ .Apple.SafariPinnedTab }}" color="{{ .Apple.ThemeColor }}" />{{ end }}
+{{ with .Apple.ThemeColor }}<meta name="theme-color" content="{{ . }}">{{ end }}
+{{ with .MSTile.ApplicationName }}<meta name="application-name" content="{{ . }}"/>{{ end }}
+{{ with .MSTile.BrowserConfig }}<meta name="msapplication-config" content="{{ . }}">{{ end }}
+{{- $feed := printf "%s/feed.xml" site.BaseURL -}}
+<meta name="msapplication-notification" content="frequency=30;polling-uri=https://notifications.buildmypinnedsite.com/?feed={{ $feed }}&amp;id=1;polling-uri2=https://notifications.buildmypinnedsite.com/?feed={{ $feed }}&amp;id=2;polling-uri3=https://notifications.buildmypinnedsite.com/?feed={{ $feed }}&amp;id=3;polling-uri4=https://notifications.buildmypinnedsite.com/?feed={{ $feed }}&amp;id=4;polling-uri5=https://notifications.buildmypinnedsite.com/?feed={{ $feed }}&amp;id=5;cycle=1" />
+
+{{- end }}

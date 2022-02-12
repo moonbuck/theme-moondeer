@@ -1,0 +1,84 @@
+{{- /********************************************************
+  Resolves theme and plugin data files to build a map of 
+  parameter values and injects this map into the page scratch
+  ***********************************************************/ -}}
+
+{{- /************************************************
+  Initialize variables with default parameter values
+  to ensure every parameter has a map entry. 
+  ***************************************************/ -}}
+{{- $Config := dict 
+  "Version" "" 
+  "DebugPrint" false -}}
+
+{{- $Apple := dict 
+  "ThemeColor" ""
+  "TouchIcon" ""
+  "X57" ""
+  "X114" ""
+  "X72" ""
+  "X144" ""
+  "X60" ""
+  "X120" ""
+  "X76" ""
+  "X152" ""
+  "SafariPinnedTab" "" -}}
+  
+{{- $Favicon := dict 
+  "SVG" ""
+  "X196" ""
+  "X128" ""
+  "X96" ""
+  "X32" ""
+  "X16" ""
+  "ICO" ""
+  "ICOBase64" "" -}}
+  
+{{- $MSTile := dict 
+  "ApplicationName" ""
+  "X70" ""
+  "X144" ""
+  "X150" ""
+  "WideX150" ""
+  "X310" ""
+  "TileColor" ""
+  "BrowserConfig" "/browserconfig.xml" -}}
+
+{{- $AndroidChrome := dict 
+  "Name" ""
+  "X192" ""
+  "X512" ""
+  "ThemeColor" ""
+  "BackgroundColor" ""
+  "Webmanifest" "/manifest.json" -}}
+
+{{- $Parameters := dict
+  "Config" $Config
+  "Apple" $Apple
+  "Favicon" $Favicon
+  "MSTile" $MSTile
+  "AndroidChrome" $AndroidChrome -}}
+  
+{{- /************************************************
+  Override the default parameter values with values
+  found in the plugin data files.
+  ***************************************************/ -}}
+
+{{- with site.Data.plugin_favicons -}}
+{{- $Parameters = merge $Parameters . -}}
+{{- end -}}
+
+{{- /**********************************************
+  Override the default/plugin parameter values with
+  values found in the theme data file.
+  *************************************************/ -}}
+
+{{- with (index site.Data "plugin-favicons") -}}
+{{- $Parameters = merge $Parameters . -}}
+{{- end -}}
+
+{{- /********************************************
+  Insert the parameter map into the page scratch.
+  ***********************************************/ -}}
+
+{{- .Scratch.Set "plugin-favicons.Parameters" $Parameters -}}

@@ -1,0 +1,48 @@
+# Debug parameters
+##################
+
+# Theme version, printed to HTML comment when the plugin loads.
+#
+Version = '3.0.0'
+
+# Whether to print HTML comments for debugging purposes.
+#
+DebugPrint = false
+
+# Configuration parameters
+##########################
+
+# The webring emojis identifiying the site.
+#
+Emojis = ''
+
+# The HTML tag within which to wrap the webring links.
+#
+Wrapper = 'footer'
+
+# The ID to assign to the wrapper.
+#
+WrapperID = 'webring'
+
+# The label to display between the arrows.
+#
+Label = 'An IndieWeb Webring'
+
+# The ID to assign to the label.
+#
+LabelID = 'label'
+
+# Style parameters
+##################
+
+# The gap between the elements.
+#
+Gap = '20px'
+
+# The vertical alignment for the arrows.
+#
+VerticalAlign = '-.225em'
+
+# The height of the arrows.
+#
+Height = '1em'

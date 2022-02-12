@@ -1,0 +1,40 @@
+{{- /* Resolve the plugin parameter values. */ -}}
+{{- if not (.Scratch.Get "plugin-social-media-links.Parameters") -}}
+  {{- partial "plugin-social-media-links/load-parameters.html" . -}}
+{{- end -}}
+
+{{- with (.Scratch.Get "plugin-social-media-links.Parameters") -}}
+
+  {{- if .Config.DebugPrint -}}
+    {{- printf "\n<!--\nplugin-social-media-links.Parameters:\n%s\n-->" (. | jsonify (dict "prefix" " " "indent" "  ")) | safeHTML -}}
+  {{- end -}}
+
+  {{- /* Insert the plugin version and build time */ -}}
+  {{- $time := (time (sub now.Unix 28800)).Format "Jan 2 at 15:04" -}}
+  {{- $version := .Config.Version -}}
+  {{ printf "\n<!-- Social Media Links v%s (built on %s) -->\n" $version $time | safeHTML }}
+  
+  {{- $source_dir := "sass/plugin-social-media-links/" -}}
+  {{- $template_name := "profile-links.scss" -}}
+  {{- $source := path.Join $source_dir $template_name -}}
+  {{- $target := path.Join "assets" $source -}}
+  {{- $style := resources.Get $source | resources.ExecuteAsTemplate $target $ -}} 
+
+  {{- $target = $target | replaceRE "sass|scss" "css" -}}
+  {{- $options := dict "targetPath" $target  "outputStyle" .Config.SassOutput -}}
+  {{- $style = $style | toCSS $options -}}
+
+  {{- if .Config.Fingerprint }}{{ $style = $style | fingerprint }}{{ end -}}
+
+  {{- print "\n" -}}
+<link rel="stylesheet" href="{{ $style.Permalink }}"
+{{- if .Config.Fingerprint }} integrity="{{ $style.Data.Integrity }}"{{ end -}}
+>
+
+  {{- range .Accounts.Platforms -}}
+    {{- print "\n" -}}
+<link rel="me" href="{{ .Href | safeHTMLAttr }}" />
+
+  {{- end -}}
+
+{{ end -}}

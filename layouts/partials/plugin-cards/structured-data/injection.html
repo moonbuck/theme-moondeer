@@ -1,0 +1,19 @@
+{{- $Parameters := .Scratch.Get "plugin-cards.Parameters" -}}
+
+{{- if $Parameters.StructuredData.Config.Enable -}}
+
+  {{- with (partial "plugin-cards/structured-data/load-ld-json.html" .) -}}
+  
+    {{- if $Parameters.Config.DebugPrint -}}
+      {{- printf "\n<!--plugin-cards.StructuredData.JSON\n%s\n-->" (. | jsonify) | safeHTML -}}
+    {{- end -}}
+    
+    {{- if (isset . "@type") -}}
+<script type="application/ld+json">
+{{ . | jsonify (dict "indent" "  ") | safeJS }}
+</script>
+    {{- end -}}
+  
+  {{- end -}}
+
+{{- end -}}

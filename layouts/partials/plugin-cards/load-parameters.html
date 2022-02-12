@@ -1,0 +1,87 @@
+{{- /********************************************************
+  Resolves theme and plugin data files to build a map of 
+  parameter values and injects this map into the page scratch
+  ***********************************************************/ -}}
+
+{{- /************************************************
+  Initialize variables with default parameter values
+  to ensure every parameter has a map entry. 
+  ***************************************************/ -}}
+{{- if not (.Page.Scratch.Get "plugin-cards.Parameters") -}}
+
+{{- $Config := dict
+  "Version" ""
+  "DebugPrint" false -}}
+
+{{- $TwitterOG := dict
+  (slice "Config" "Enable") true
+  "Images" (dict)
+  "Video" (dict
+    "Width" 600 
+    "Height" 338
+    "Type" "video.other")
+  "Audio" (dict
+    "Width" 338
+    "Height" 112
+    "Type" "music.song")
+  "Twitter" (dict
+    (slice "Config" "Username") site.Params.twitter_username
+    "Card" (dict 
+        "Preference" (dict 
+          "SinglePage" "large"
+          "ListPage" "small"
+          "LargeSummaryRequiresImage" true)
+        "Assignments" (dict))) -}}
+{{- $StructuredData := dict
+  "Config" (dict 
+    "Enable" true
+    "AuthorName" site.Author.name
+    "ProfileURL" site.Author.profileurl) -}}
+    
+{{- $Cardify := dict
+  "Config" (dict
+    "Fingerprint" true
+    "SassOutput" "nested")
+  "Style" (dict
+    "ClassName" "cardify-card"
+    "Card" ""
+    "Body" ""
+    "Title" ""
+    "Text" ""
+    "ReadingTime" ""
+    "PublishDate" ""
+    "Variables" (dict 
+      "BorderWidth" "1px"
+      "BorderRadius" ".5rem")) -}}
+
+{{- $Parameters := dict
+  "Config" $Config
+  "TwitterOG" $TwitterOG
+  "StructuredData" $StructuredData
+  "Cardify" $Cardify -}}
+      
+{{- /************************************************
+  Override the default parameter values with values
+  found in the plugin data files.
+  ***************************************************/ -}}
+  
+{{- with site.Data.plugin_cards -}}
+{{- $Parameters = merge $Parameters . -}}
+{{- end -}}
+
+{{- /**********************************************
+  Override the default/plugin parameter values with
+  values found in the theme data file.
+  *************************************************/ -}}
+  
+{{- with (index site.Data "plugin-cards") -}}
+{{- $Parameters = merge $Parameters . -}}
+{{- end -}}
+  
+{{- /********************************************
+  Insert the parameter map into the page scratch.
+  ***********************************************/ -}}
+  
+{{- .Page.Scratch.Set "plugin-cards.Parameters" $Parameters -}}
+
+{{- end }}

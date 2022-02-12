@@ -1,0 +1,37 @@
+# Debug and build related parameters.
+#####################################
+
+# Theme version, printed to HTML comment when the plugin loads.
+#
+Version = '6.0.11'
+
+# Whether to print HTML comments for debugging purposes.
+#
+DebugPrint = false
+
+# Whether to provide subresource integrity by generating a 
+# base64-encoded cryptographic hash and attaching a .Data.Integrity
+# property containing an integrity string, which is made up of the
+# name of the hash function, one hyphen and the base64-encoded hash sum.
+#
+Fingerprint = true
+
+# Output style for /assets/sass/category-cloud.scss. 
+# Valid options are nested, expanded, compact and compressed
+#
+SassOutput = 'compact'
+
+# The relative paths of pages that should link to the stylesheet.
+# The stylesheet  is always linked for the page generated at /cloud/. 
+# If you want to remove the generated page from the menu and/or insert 
+# the cloud elsewhere you can enter the relative page path(s) here to
+# ensure the stylesheet is linked for pages wherein you've inserted 
+# an invocation of the partial
+# (i.e. {{ partial "plugin-category-cloud/category-cloud.html" . }}).
+# 
+# For example, the relative path of the home page would be '/'. The
+# relative path for a page like https://my.blog/archive/ would be '/archive/'.
+# The relative path for a page like https://my.blog/some/random/page.html would
+# be '/some/random/page.html'
+#
+PagePaths = []

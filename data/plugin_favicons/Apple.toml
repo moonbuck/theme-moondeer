@@ -1,0 +1,45 @@
+# General theme color for the site (used by Mobile Safari in iOS 15 to paint the background of the status bar).
+# ThemeColor = "#FFFFFF"
+
+# Path to the 180x180 pixel image.
+#
+# TouchIcon = "apple-touch-icon.png"
+
+# Path to the 57x57 pixel image.
+#
+# X57 = "/apple-touch-icon-57x57.png"
+
+# Path to the 114x114 pixel image.
+#
+# X114 = "/apple-touch-icon-114x114.png"
+
+# Path to the 72x72 pixel image.
+#
+# X72 = "/apple-touch-icon-72x72.png"
+
+# Path to the 144x144 pixel image.
+#
+# X144 = "/apple-touch-icon-144x144.png"
+
+# Path to the 60x60 pixel image.
+#
+# X60 = "/apple-touch-icon-60x60.png"
+
+# Path to the 120x120 pixel image.
+#
+# X120 = "/apple-touch-icon-120x120.png"
+
+# Path to the 76x76 pixel image.
+#
+# X76 = "/apple-touch-icon-76x76.png"
+
+# Path to the 152x152 pixel image.
+#
+# X152 = "/apple-touch-icon-152x152.png"
+
+# Path to the Safari pinned tab SVG file.
+# You can create a template file and paste in your SVG or include the file 
+# in a custom theme GitHub repository. For it to be at the root, the location would
+# be static/safari-pinned-tab.svg
+#
+# SafariPinnedTab = "/safari-pinned-tab.svg"

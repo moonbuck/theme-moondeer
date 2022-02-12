@@ -1,0 +1,72 @@
+# Component styling with Sass blocks and variables
+##################################################
+
+# Sass block to apply to the table of contents.
+#
+TOC = '''
+background: white;
+border-right: 1px solid rgba(black, .2);'''
+
+# Sass block to apply to the TOC header.
+#
+Header = 'padding: 1rem;'
+
+# Sass block to apply to the TOC title.
+#
+Title = 'margin-bottom: 0; line-height: 1.5;'
+
+# Sass block to apply to the TOC close button.
+#
+CloseButton = '''
+top: .5rem;
+right: .5rem;
+width: 1rem;
+color: lightgray;'''
+
+# Sass block to apply to the TOC body.
+#
+Body = 'padding: 1rem 1rem 3rem 1rem; gap: .5rem;'
+
+# Sass block to apply to TOC entries
+#
+Entry = 'gap: .5em;'
+
+# Sass block to apply to the section number of the entries.
+#
+EntrySection = 'font-style: italic;'
+
+# Sass block to apply to the links within the entries.
+#
+EntryLink = 'line-height: 1.1;'
+
+# Sass block to apply to the backdrop.
+#
+Backdrop = 'background-color: black;'
+
+# Sass block to apply to the toggle button.
+#
+Toggle = '''
+color: rgba(white, .9);
+background: rgba(#1E2025, .6);
+padding: 0 .5rem;
+margin: 0;'''
+
+# Sass block to apply to the section numbers injected 
+# into headings.
+#
+SectionNumber = 'margin-right: 1em;'
+
+[Variables]
+
+# The pixel width of the table of contents.
+#
+TOCWidth = 400
+
+# The amount of indentation per level of depth within the 
+# table of contents.
+#
+LevelIndent = '1em'
+
+# The backdrop opacity when visible.
+#
+BackdropOpacity = 0.5

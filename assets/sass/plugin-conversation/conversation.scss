@@ -1,0 +1,102 @@
+@import "vendor/rfs";
+
+{{/* Template for injecting rfs include directives into a Sass block. */}}
+{{ define "rfs-wrap" }}
+
+  {{/* Generate a slice with all the property names. */}}
+  {{ $edges := slice "top" "right" "bottom" "left" }}  
+  {{ $properties := 
+    slice "font-size" "padding" "margin"
+    | append (apply $edges "printf" "padding-%s" ".") 
+    | append (apply $edges "printf" "margin-%s" ".") }}
+
+  {{/* Convert the slice for use within the regular expression. */}}
+  {{ $properties = delimit $properties "|" }}
+  
+  {{/* Create the regular expression */}}
+  {{ $pattern := printf `(%s):\w*([^;]+)` $properties }}
+  
+  {{/* Replace matches with the appropriate rfs include. */}}
+  {{ replaceRE $pattern `@include $1($2)` . }}
+  
+{{ end }}
+
+{{ with (.Scratch.Get "plugin-conversation.Parameters").Style }}
+
+$avatar_diameter: {{ .Variables.Avatar.Diameter }};
+
+#{{ .WrapperID }} {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+  margin-top: 2rem;
+  
+  {{ with .Wrapper }}{{ template "rfs-wrap" . }}{{ end }}
+  
+  .u-comment {
+    display: flex;
+    flex-direction: column;
+    gap: 0.25rem;
+    
+    {{ with .Item }}{{ template "rfs-wrap" . }}{{ end }}
+    
+    .u-author {
+      display: flex;
+      align-items: center;
+      gap: 1ch;
+      
+      {{ with .Author }}{{ template "rfs-wrap" . }}{{ end }}
+      
+      .u-photo {
+        width: $avatar_diameter;
+        height: $avatar_diameter;
+        {{ if (eq "circle" .Variables.Avatar.Shape) }}      
+        border-radius: $avatar_diameter * .5;
+        {{ end }}
+        box-shadow: {{ .Variables.Avatar.BoxShadow }};
+        
+        {{ with .Avatar }}{{ template "rfs-wrap" . }}{{ end }}
+      }
+      
+      .p-nickname {
+        
+        @media (min-width: 1024px) {
+         margin-top: $avatar_diameter * -.5;
+       }
+        
+        {{ with .Name }}{{ template "rfs-wrap" . }}{{ end }}
+      }
+      
+    }
+    
+    .e-content {
+      padding: 0;
+      margin: 0;
+      
+      a.u-mention:empty { display: none;}
+      
+      @media (min-width: 1024px) {
+        &::first-line { padding-left: $avatar_diameter * 1.1; }
+        :first-child { padding-left: $avatar_diameter * 1.1; }
+        margin-top: $avatar_diameter * -.5;
+      }
+      
+      {{ with .Content }}{{ template "rfs-wrap" . }}{{ end }}
+    }
+    
+    .u-url {
+      margin-top: 0;
+      padding-top: 0;
+      
+      {{ with .Link }}{{ template "rfs-wrap" . }}{{ end }}
+      
+      .dt-published {
+        {{ with .PublishDate }}{{ template "rfs-wrap" . }}{{ end }}
+      }
+    }
+    
+  }
+  
+}
+
+{{ end }}

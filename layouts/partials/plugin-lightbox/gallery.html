@@ -1,0 +1,96 @@
+{{- /*
+  
+  Required Parameters:
+    Page: The page context.
+    Gallery: The name of the gallery. This is required.
+    Slides: The map of slide data.
+  
+  Optional Parameters:
+    GridWidth: The number of grid cells per row.
+    RowHeight: The height of each row.
+    RowCount: The maximum number of rows. Ignored when GridWidth
+              has been provided.
+    Fit: (contain or cover) The fit for images and videos.
+    Gap: The padding between cells.
+    GalleryClass: Custom class to apply to the div.
+    GalleryStyle: Custom style to apply to the div.
+    LinkClass: Custom class to apply to all anchor tags.
+    LinkStyle: Custom style to apply to all anchor tags.
+    DescPosition: (bottom, top, left, right) Where all slides 
+                  descriptions should be positioned.
+    Effect: (zoom, fade, none) The animation effect all slide should use.
+    Width: The custom width for all slides.
+    Height: The custom height for all slides.
+    Zoomable: Whether slides should be zoomable.
+    Draggable: Whether slides should be draggable.
+    VideoClass: Custom class to apply to all video tags.
+    VideoStyle: Custom style to apply to all video tags.
+    Loop: Whether link videos should loop.
+    Autoplay: Whether link videos should be set to autoplay.
+    Preload: Value for link video preload attributes.
+    ImgClass: Custom class to apply to all img tags.
+    ImgStyle: Custom style to apply to all img tags.
+    PhotoWidth: Specifies a pixel width for a thumbnail image to be 
+                fetched using the photos API. Default is undefined.
+              
+*/ -}}
+
+{{- /* Check we have what we need to start */}}
+{{- if (and .Page (and .Gallery .Slides)) }}
+
+  {{- if not (.Page.Scratch.Get "plugin-lightbox.Parameters") -}}
+    {{- partial "plugin-lightbox/load-parameters" .Page -}}
+  {{- end -}}
+  
+  {{- $Parameters := .Page.Scratch.Get "plugin-lightbox.Parameters" -}}
+    
+  {{- /* Resolve the class for the <div> */ -}}
+  {{- $GalleryClass := $Parameters.Style.GalleryClassName -}}
+  {{- with .GalleryClass -}}
+  {{- $GalleryClass = printf "%s %s" $GalleryClass (delimit (apply (split . " ") 
+                                                                   "anchorize" 
+                                                                   ".") 
+                                                            " ") -}}
+  {{- end -}}
+    
+  {{- /* Resolve the inline style for the <div> */ -}}
+  {{- $GalleryStyle := "" -}}
+  
+    {{- /* Check whether a column count has been provided.  */ -}}
+    {{- if .GridWidth -}}
+      {{- $GalleryStyle = printf "grid-template-columns:repeat(%v,1fr);" .GridWidth -}}
+      
+    {{- /* Otherwise, check for a row count. */ -}}
+    {{- else if .RowCount -}}
+      {{- $grid_width := math.Max 1 (math.Ceil (div (len .Slides) (float .RowCount))) -}}
+      {{- $GalleryStyle = printf "grid-template-columns:repeat(%v,1fr);" $grid_width -}}
+    {{- end -}}
+    
+    {{- /* Check for a specified height for the rows. */ -}}
+    {{- with .RowHeight -}}
+      {{- $GalleryStyle = printf "%sgrid-auto-rows:%s;" $GalleryStyle . -}}
+    {{- end -}}
+    
+    {{- /* Check for a specified gap. */ -}}
+    {{- with .Gap -}}
+      {{- $GalleryStyle = printf "%sgap:%s;" $GalleryStyle . -}}
+    {{- end -}}
+
+    {{- /* Check whether a custom CSS has been provided. */ -}}
+    {{- with .GalleryStyle | default $Parameters.Style.Gallery -}}
+      {{- $GalleryStyle = printf "%s%s" $GalleryStyle . -}}
+    {{- end -}}
+    
+    
+<div 
+  {{- with .Gallery }} id="{{ . | anchorize }}"{{ end -}}
+  {{- with $GalleryClass }} class="{{ . }}"{{ end -}}
+  {{- with $GalleryStyle }} style="{{ . | safeCSS }}"{{ end -}}>
+  
+  {{- /* Invoke the lightbox partial for each slide. */}}
+  {{- range .Slides }}
+    {{- partial "plugin-lightbox/lightbox.html" (merge $ .) }}  
+  {{- end }}
+</div>
+  
+{{- end -}}

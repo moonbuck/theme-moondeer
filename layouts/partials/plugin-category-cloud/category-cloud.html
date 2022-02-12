@@ -1,0 +1,48 @@
+  {{- /* Make sure the plugin parameters have been loaded. */ -}}
+  {{- if not (.Scratch.Get "plugin-category-cloud.Parameters") -}}
+    {{- partial "plugin-category-cloud/load-parameters.html" . -}}
+  {{- end -}}
+
+  {{- /* Fetch the loaded parameter values. */ -}}
+  {{- $Parameters := .Scratch.Get "plugin-category-cloud.Parameters" -}}
+  
+  {{- /* Calculate the step assignments */ -}}
+  {{- $Steps := partial "plugin-category-cloud/assign-steps.html" . -}}
+
+{{- /* Open up the wrapper. */ -}}
+<div id="{{ $Parameters.Style.WrapperID }}">
+    
+  {{- /* Iterate over the non-excluded categories. */ -}}
+  {{- range $name, 
+            $taxonomy := site.Taxonomies.categories -}}
+            
+    {{- if not (in $Parameters.Names.ExclusionList $name) -}}
+    
+      {{- /* Fetch the assigned step. */ -}}
+      {{- $step := index $Steps ($taxonomy.Count | string) -}}    
+      
+      {{- /* Generate the link's target. */ -}}
+      {{- $href := index $Parameters.MenuURLs $name
+                   | default (path.Join ("/categories/" | relLangURL) $name) -}}
+        
+      {{- /* Overwrite the anchorized name. */ -}}
+      {{- $name = index $Parameters.Names.DisplayNames $name 
+                  | default (cond $Parameters.Names.Humanize
+                            (delimit (apply (split $name "-") 
+                                            "humanize" 
+                                            ".") 
+                                     " ")
+                            $name) -}}
+                            
+    {{- /* Create the link for this category. */ -}}
+    <a href="{{ $href | safeURL }}" class="step-{{ $step }}">
+      {{- if $Parameters.Style.UnbreakableLinks }}<nobr>{{ end -}}
+      {{- $name }}<span> ({{ $taxonomy.Count }})</span>
+      {{- if $Parameters.Style.UnbreakableLinks }}</nobr>{{ end -}}
+    </a> 
+    
+    {{- end -}} {{- /* if not (in $Parameters.Names… */ -}}
+    
+  {{- end -}} {{- /* range $name, $taxonomy… */ -}}
+
+</div> {{- /* Close the wrapper. */ -}}

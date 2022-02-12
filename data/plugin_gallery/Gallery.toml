@@ -1,0 +1,62 @@
+# Gallery description and parameters passed through to plugin-lightbox
+######################################################################
+
+# A header to display above the description and gallery. This will be
+# parsed as markdown before display.
+#
+Header = ''
+
+# A description to display just above the gallery. This will be
+# parsed as markdown before display.
+#
+Description = ''
+
+# The gallery's name. 
+#
+Name = 'plugin-gallery'
+
+# Default description position for all slides.
+#
+# DescPosition = ''
+
+# Default effect to set for slide transitions. Valid values are
+# 'zoom', 'fade', and 'none'. GLightbox defaults to `zoom`.
+#
+# Effect = ''
+
+# Default width to apply to all slides.
+#
+# Width = ''
+
+# Default height to apply to all slides.
+#
+# Height = ''
+
+# Whether slides shall be zoomable by default.
+# Glightbox defaults to true.
+#
+# Zoomable = 'true'
+
+# Whether slides shall be draggable by default.
+# Glightbox defaults to true.
+#
+# Draggable = 'true'
+
+# Whether videos used as link content should loop by default.
+#
+# Loop = true
+
+# Whether videos used as link content should autoplay by default.
+#
+# Autoplay = true
+
+# Whether videos used as link content should preload by default.
+# Valid values are 'auto', 'metadata', and 'none'. Ignored when
+# autoplay is true.
+#
+# Preload = ''
+
+# Default pixel width for fetching thumbnail images 
+# via https://micro.blog/photos/ API.
+#
+PhotoWidth = 500

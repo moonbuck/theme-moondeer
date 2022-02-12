@@ -1,0 +1,39 @@
+# Parameters for styling the cloud.
+###################################
+
+# ID to set on the wrapper.
+#
+WrapperID = 'category-cloud'
+
+# Sass (or CSS) to apply to the wrapper.
+#
+Wrapper = ''
+
+# Sass (or CSS) to apply to links.
+#
+Link = ''
+
+# Max font size to use in the cloud in rem units.
+#
+MaxSize = 2.34
+
+# Min font size to use in the cloud in rem units.
+#
+MinSize = 0.9
+
+# Max font weight to use in the cloud.
+#
+MaxWeight = 800
+
+# Min font weight to use in the cloud.
+#
+MinWeigth = 200
+
+# Whether to display parenthesized page counts along
+# with the category names.
+#
+DisplayPageCounts = false
+
+# Whether to wrap category links with <nobr>
+#
+UnbreakableLinks = true
