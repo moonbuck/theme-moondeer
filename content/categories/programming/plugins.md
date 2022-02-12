@@ -1,8 +1,8 @@
 +++
 title = 'Plugins'
 description = 'Plugins written for Micro.blog'
-url = '/programming/plugins'
-aliases = ['/categories/programming/plugins']
+url = '/plugins/'
+aliases = ['/categories/programming/plugins/', '/programming/plugins/']
 +++
 *Plugins I've written for Micro.blog.*
 
@@ -27,3 +27,5 @@ aliases = ['/categories/programming/plugins']
 {{< card "https://moondeer.blog/2022/02/09/plugintableofcontents-a-readme.html" >}}
 
 {{< card "https://moondeer.blog/2022/02/11/pluginbanner-a-readme.html" >}}
+
+{{< card "https://moondeer.blog/2022/02/12/plugingallery-a-readme.html" >}}
