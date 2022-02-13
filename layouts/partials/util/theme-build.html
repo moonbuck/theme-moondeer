@@ -1,0 +1,5 @@
+{{- return (printf 
+  "theme: Moondeer v%s (built on %s)"
+  site.Data.theme.Config.ThemeVersion
+  (partial "util/time-now.html" .)
+  ) -}}

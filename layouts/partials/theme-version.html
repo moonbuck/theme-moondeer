@@ -1,15 +1,9 @@
-{{- with site.Params.Theme.VisibleThemeVersion -}}
+{{- if (and 
+          site.Data.theme.Config.VisibleThemeVersion
+          (or (not (eq . "test")) 
+              (in (site.BaseURL | string) "test"))
+         ) -}}
 
-{{- $is_test := in (site.BaseURL | string) "test" -}}
-{{- $version := site.Params.Theme.ThemeVersion -}}
-{{- $time := (time (sub now.Unix 28800)).Format "Jan 2 at 15:04" -}}
-{{- $text := printf "Moondeer %s (built on %s)" $version $time -}}
-
-{{- /* If not equal to 'test' than it must be 'true' */ -}}
-{{- if (or (not (eq . "test")) $is_test ) -}}
-
-<span id="theme-version-overlay">{{ $text }}</span>
-
-{{- end -}}
+<span id="theme-version-overlay">{{ partial "util/theme-build.html" . }}</span>
 
 {{- end -}}

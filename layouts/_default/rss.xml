@@ -6,7 +6,7 @@
 {{- $title = printf "%s - %s" .Title $title -}}
 {{- end -}}
 
-{{- $date_format := site.Params.Theme.Date.ShortNames -}}
+{{- $date_format := site.Data.theme.DateFormats.ShortNames -}}
 
 {{- $author := false -}}
 {{- with site.Author.email }}{{ $author = . }}{{ end -}}

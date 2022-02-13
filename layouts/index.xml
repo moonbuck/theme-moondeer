@@ -2,7 +2,6 @@
   <channel>
   <title>{{ if eq  .Title  .Site.Title }}{{ .Site.Title }}{{ else }}{{ with .Title }}{{.}} on {{ end }}{{ .Site.Title }}{{ end }}</title>
     <link>{{ .Permalink }}</link>
-    {{/* Modifed to use page description from config.json */}}
     <description>
     {{- with .Description | default .Site.Params.description }}{{ . }}{{ end -}}
     </description>

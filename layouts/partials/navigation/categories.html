@@ -1,11 +1,8 @@
-{{- $categories := .Page.Params.categories -}}
-{{- $count := len $categories -}}
-
-{{- if $count -}}
+{{- if .Page.Params.categories -}}
 
 <nav id="category-list" role="navigation">
 
-  {{- range $index, $category := $categories -}}
+  {{- range $index, $category := .Page.Params.categories -}}
   
   <a class="category-link" href="/categories/{{ $category | anchorize }}/">{{ $category }}</a>
     

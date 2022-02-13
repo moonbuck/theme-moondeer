@@ -1,6 +1,4 @@
-{{/* Default template for list pages */}}
 {{ define "main" }}
-{{ partial "comment.html" "_default/list.html#main" }}
 
 {{ $list := where .Data.Pages.ByDate.Reverse "Type" "post" }}
 {{ partial "post-list.html" $list }}

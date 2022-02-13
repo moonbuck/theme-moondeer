@@ -1,119 +1,275 @@
 <!DOCTYPE html>
 <html lang="en">
-{{ partial "comment.html" "_default/baseof.html" -}}
 
-{{/* Define the page head */}}
 <head>
 <meta charset="utf-8">
   
-{{/* Include the theme version */}}
-{{- partial "head/theme-version" }}
+{{- /**********************
+  Include the theme version 
+  *************************/ -}}
+  
+{{- printf "<!--%s-->" (partial "util/theme-build.html" .) | safeHTML }}
 
-{{- if site.Params.Theme.DebugConsole -}}
+{{- /***********************************
+  Redirect Javascript console if flagged
+  **************************************/ -}}
+{{- if site.Data.theme.Config.DebugConsole -}}
 
 <script src="/assets/js/console.js"></script>
 
 {{- end -}}
 
 
-{{/* Support injection of plugin html up top */}}
-{{- partial "plugins/html-injection.html" (slice "HEAD_TOP" .) }}
+{{- /************************************
+  Support injection of plugin html up top 
+  ***************************************/ -}}
+  
+{{- partial "inject/html.html" (slice "HEAD_TOP" .) }}
 
-{{/* Define the viewport */}}
-{{- partial "head/viewport.html" . }}
+{{- /****************
+  Define the viewport 
+  *******************/ -}}
+  
+{{- with site.Data.theme.Viewport -}}
+  {{- $content := printf "width=%s, initial-scale=%s" .Width .InitialScale -}}
+  {{- with .MinimumScale }}{{ $content = printf "%s, minimum-scale=%s" $content . }}{{ end -}}
+  {{- with .MaximumScale }}{{ $content = printf "%s, maximum-scale=%s" $content . }}{{ end -}}
+  {{- with .ViewportFit }}{{ $content = printf "%s, viewport-fit=%s" $content . }}{{ end -}}
+  
+<meta name="viewport" content="{{ $content }}">
 
-{{/* Define site author */}}
+{{- end -}}
+
+{{- /***************
+  Define site author 
+  ******************/ -}}
+  
 <meta name="author" content="{{ site.Author.name }}">
 
-{{/* Include the page title */}}
-{{- partial "head/page-title.html" . }}
+{{- /*******************
+  Include the page title 
+  **********************/ -}}
+  
+<title>
+{{- site.Title -}}
+{{- with .Title }}{{ printf " - %s" . }}{{ end -}}
+</title>
 
-{{/* Include the page description */}}
-{{- partial "head/page-description.html" . }}
+{{- /************************* 
+  Include the page description 
+  ****************************/ -}}
+  
+{{- with .Description }}<meta name="description" content="{{ . }}">{{ end -}}
 
-{{/* Include links for the feeds */}}
-{{- partial "head/feeds.html" . }}
+{{- /************************
+  Include links for the feeds 
+  ***************************/ -}}
 
-{{/* Include links for the micropub, microsub, webmention, etc. */}}
-{{- partial "head/endpoints.html" . }}
+{{- if .RSSLink -}}
+<link rel="alternate" type="application/rss+xml" title="{{ site.Title }}" href="{{ .RSSLink }}" >
+<link rel="alternate" type="application/rss+xml" title="Podcast" href="{{ "podcast.xml" | absURL }}" >
+<link rel="alternate" type="application/json" title="{{ site.Title }}" href="{{ "feed.json" | absURL }}">
+<link rel="EditURI" type="application/rsd+xml" href="{{ "rsd.xml" | absURL }}">
+{{ end }}
 
-{{/* Include stylesheets */}}
-{{- partial "head/stylesheets.html" . }}
+{{- /******************************************************* 
+  Include links for the micropub, microsub, webmention, etc. 
+  **********************************************************/ -}}
+  
+<link rel="authorization_endpoint" href="https://micro.blog/indieauth/auth" />
+<link rel="token_endpoint" href="https://micro.blog/indieauth/token" />
+<link rel="micropub" href="https://micro.blog/micropub" />
+<link rel="microsub" href="https://micro.blog/microsub" />
+<link rel="webmention" href="https://micro.blog/webmention" />
+<link rel="subscribe" href="https://micro.blog/users/follow" />
 
-{{/* Inject unprefixed plugin HTML includes */}}
-{{- partial "plugins/html-injection.html" (slice "" .) }}
+{{- /****************
+  Include stylesheets 
+  *******************/ -}}
+  
+<link rel="stylesheet" href="https://use.typekit.net/nmn4mcn.css">
 
-{{/* Create a block for including any additional head elements */}}
+{{- if (eq site.Data.theme.Config.CSSPriority "theme") -}}
+  {{- partial "inject/css.html" . -}}
+{{- end -}}
+
+{{- /* Build and link the core stylesheet */ -}}
+{{- with site.Data.theme.Sass -}}
+
+{{- $base := resources.Get "sass/base.scss" 
+             | toCSS (dict 
+                      "targetPath" (path.Join .TargetDirectory "base.css")  
+                      "outputStyle" .OutputStyle 
+                      "enableSourceMap" .EnableSourceMap) -}}
+                      
+{{- if .Fingerprint }}{{ $base = $base | fingerprint }}{{ end -}}
+
+<link rel="stylesheet" href="{{ $base.Permalink }}"
+{{- if .Fingerprint }} integrity="{{ $base.Data.Integrity }}"{{ end -}}
+>
+
+{{- end -}}
+
+{{- /* Include the custom stylesheet last */ -}}
+<link rel="stylesheet" href="{{ "custom.css" | relURL }}?{{ site.Params.theme_seconds }}">
+
+{{- if not (eq site.Data.theme.Config.CSSPriority "theme") -}}
+  {{- partial "inject/css.html" . -}}
+{{- end -}}
+
+{{- /*********************************************************
+  Inject plugin HTML includes not assigned a specific location 
+  ************************************************************/ -}}
+  
+{{- partial "inject/html.html" (slice "" .) }}
+
+{{- /******************************************************
+  Create a block for including any additional head elements 
+  *********************************************************/ -}}
 {{- block "head" . }}{{ end }}
 
-{{/* Close the page head */}}
 </head>
 
-{{/* Add CSS hooks */}}
-{{- $id := (urls.Parse .Permalink).Path | anchorize | default "home" -}}
-{{- $class := printf "kind-%s type-%s" .Kind .Type -}}
+{{- /* Extract the page path */ -}}
+{{- $path := (urls.Parse .Permalink).Path -}}
 
-{{/* Define the page body */}}
-<body id="{{ $id }}" class="{{ $class }}">
+<body id="{{ $path | anchorize | default "home" }}" class="kind-{{ .Kind }} type-{{ .Type }}"
+{{- if eq .Type "post" }} style="--md-header-bg: var(--md-header-bg-l); --md-mnl-col: var(--md-mnl-col-d); --md-mnl-hov-col: var(--md-mnl-hov-col-d); --md-mnl-hov-shad: var(--md-mnl-hov-shad-d); --md-mnl-sel-shad: var(--md-mnl-sel-shad-d);"{{ end -}}
+>
 
-{{/* Support injection of plugin html above the header  */}}
-{{- partial "plugins/html-injection.html" (slice "ABOVE_HEADER" .) }}
+{{- /**********************************************
+  Support injection of plugin html above the header  
+  *************************************************/ -}}
+  
+{{- partial "inject/html.html" (slice "ABOVE_HEADER" .) }}
 
-{{/* Create the header */}}
+{{- /*******************
+  Create the page header 
+  **********************/ -}}
+  
 <header>
 
-{{/* Include the main nav */}}
-{{- partial "navigation/main-nav.html" . }}
+{{- /*****************
+  Include the main nav 
+  ********************/ -}}
 
-{{/* Include the banner */}}
-{{- partial "plugins/banner.html" . -}}
+<nav id="main-nav" role="navigation">
 
-{{/* Include theme version overlay */}}
+{{- range site.Menus.main -}}
+
+<a class="main-nav-link
+{{- if (or (eq .URL $path) 
+          (in ($.Page.Params.categories | default slice) 
+              .Title)) }} selected{{ end }}" href="{{ .URL }}">
+<nobr>{{ .Title }}</nobr>
+</a>
+  
+{{- end -}}
+
+<div id="pse-container"></div>
+</nav>
+
+{{- /********************
+  Include the page banner 
+  ***********************/ -}}
+  
+{{- if templates.Exists "partials/plugin-banner/banner.html" -}}
+{{- partial "plugin-banner/banner.html" . -}}
+{{- end -}}
+
+{{- /**************************
+  Include theme version overlay 
+  *****************************/ -}}
 {{- partial "theme-version.html" . }}
 
 </header>
 
-{{/* Support injection of plugin html below the header  */}}
-{{- partial "plugins/html-injection.html" (slice "BELOW_HEADER" .) }}
+{{- /**********************************************
+  Support injection of plugin html below the header  
+  *************************************************/ -}}
+  
+{{- partial "inject/html.html" (slice "BELOW_HEADER" .) }}
 
-{{/* Create the secondary page content */}}
+{{- /******************************************
+  Create a block for the secondary page content 
+  *********************************************/ -}}
+  
 <aside>
 {{ block "aside" . }}{{ end }}
 </aside>
 
-{{/* Create the primary page content */}}
+{{- /****************************************
+  Create a block for the primary page content 
+  *******************************************/ -}}
+  
 <main>
-{{- block "main" . }}
-
-{{ end }}
+{{ block "main" . }}{{ end }}
 </main>
 
-{{/* Support injection of plugin html above the footer  */}}
-{{- partial "plugins/html-injection.html" (slice "ABOVE_FOOTER" .) -}}
+{{- /**********************************************
+  Support injection of plugin html above the footer  
+  *************************************************/ -}}
+  
+{{- partial "inject/html.html" (slice "ABOVE_FOOTER" .) -}}
 
-{{/* Create the footer */}}
+{{- /*******************
+  Create the page footer 
+  **********************/ -}}
 <footer>
   
-{{/* Include the row of feed and email links */}}
-{{- partial "footer/feeds-email.html" . -}}
+{{- /**************************
+  Include the feed/email links 
+  *****************************/ -}}
+  
+<ul id="feeds-email">
+  <li><a href="/feed.xml">RSS</a></li>
+  <li><a href="/feed.json">JSON Feed</a></li>
+  {{ with site.Author.email -}}
+  <li><a class="u-email" href="mailto:{{.}}"rel="me">Email</a></li>
+  {{- end }}
+</ul>
 
-{{/* Include the user's custom footer */}}
+{{- /*************************************
+  Include the user's custom footer content
+  ****************************************/ -}}
 {{- partial "custom_footer.html" . -}}
 
-{{/* Include the webring nav */}}
-{{- partial "plugins/webring.html" . -}}
+{{- /********************
+  Include the webring nav 
+  ***********************/ -}}
+  
+{{- if templates.Exists "partials/plugin-webring/webring.html" -}}
+{{- partial "plugin-webring/webring.html" . -}}
+{{- end -}}
 
-{{/* Include the copyright */}}
-{{- partial "footer/copyright.html" . -}}
+{{- /******************
+  Include the copyright 
+  *********************/ -}}
+  
+{{ with site.Copyright -}}
+<small id="copyright">{{ replace . "{year}" now.Year }}</small>
+{{- end }}
 
 </footer>
 
-{{/* Support injection of plugin html below the footer  */}}
-{{- partial "plugins/html-injection.html" (slice "BELOW_FOOTER" .) -}}
+{{- /********************************************** 
+  Support injection of plugin html below the footer  
+  *************************************************/ -}}
+  
+{{- partial "inject/html.html" (slice "BELOW_FOOTER" .) -}}
 
-{{/* Insert plugin Javascript includes */}}
-{{- partial "footer/scripts.html" . }}
+{{- /************************************
+  Include Bootstrap Javascript if flagged 
+  ***************************************/ -}}
+{{- if site.Data.theme.Config.IncludeBootstrapScript -}}
+<script src="/assets/js/bootstrap.bundle.min.js"></script>
+{{- end -}}
 
-{{/* Close the page body and html */}}
+{{- /******************************
+  Insert plugin Javascript includes 
+  *********************************/ -}}
+  
+{{- partial "inject/js.html" . -}}
+
 </body>
 </html>

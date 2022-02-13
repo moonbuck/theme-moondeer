@@ -1,0 +1,7 @@
+ThemeVersion = "2.0.0"
+VisibleThemeVersion = "test"
+IncludeConversation = true
+CSSPriority = "theme"
+SummarizeTitledPosts = true
+DebugConsole = false
+IncludeBootstrapScript = false

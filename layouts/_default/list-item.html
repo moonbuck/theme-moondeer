@@ -6,15 +6,15 @@
   <section class="post-body">
   {{ if findRE "<!--more-->" .Content }}
   {{ template "more-split" . }}
-  {{ else if (and site.Params.Theme.SummarizeTitledPosts .Title) }}
+  {{ else if (and site.Data.theme.Config.SummarizeTitledPosts .Title) }}
   {{ template "titled" . }}
   {{ else }}
   {{ .Content }}
   {{ end }}
   </section>
   
-{{- $datetime := .Date.Format site.Params.Theme.Date.DateTime -}}
-{{- $time := .Date.Format site.Params.Theme.Date.TimeDay -}}
+{{- $datetime := .Date.Format site.Data.theme.DateFormats.DateTime -}}
+{{- $time := .Date.Format site.Data.theme.DateFormats.TimeDay -}}
   
   <footer>
   <a href="{{ .Permalink }}" class="u-url">

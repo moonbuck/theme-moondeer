@@ -5,7 +5,9 @@
 {{- end }}
   </a>
   <h1 class="p-name" rel="me">{{ site.Author.name }}</h1>
-{{- partial "plugins/social-media-links.html" . }}
+{{- if templates.Exists "partials/plugin-social-media-links/profile-links.html" -}}
+{{ partial "plugin-social-media-links/profile-links.html" . }}
+{{- end -}}
 {{- $bio := cond .IsHome site.Author.briefbio site.Author.aboutbio -}}
   <p id="brief-bio" class="p-note">{{ $bio }}</p>
 </section>

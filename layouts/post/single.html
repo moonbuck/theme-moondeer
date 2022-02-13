@@ -1,18 +1,23 @@
-{{/* Template for post pages */}}
 {{- define "aside" -}}
+
 <div id="toc-toggle-container"></div>
+
 {{- end -}}
+
 {{- define "main" -}}
+
 <article id="post" class="h-entry">
-  <header>  
+  <header>
+  
   {{- with .Title | markdownify -}}  
+  
     <h1 class="p-name">{{ . }}</h1>    
+    
   {{- end -}}
-    {{ $datetime := .Date.Format site.Params.Theme.Date.DateTime }}
-    {{ $date := .Date.Format site.Params.Theme.Date.Headline }}  
+  
     <h2 class="headline">
-      <time class="dt-published" datetime="{{ $datetime }}">
-        <a class="u-url" href="{{ .Permalink }}">{{ $date }}</a>
+      <time class="dt-published" datetime="{{ .Date.Format site.Data.theme.DateFormats.DateTime }}">
+        <a class="u-url" href="{{ .Permalink }}">{{.Date.Format site.Data.theme.DateFormats.Headline }}</a>
       </time>
     </h2>
   </header>
@@ -20,17 +25,34 @@
       {{ .Content }}
   </section>
   
-  {{- partial "post-meta.html" . -}}
+  {{- with site.Author -}}
   
-  {{- partial "plugins/conversation.html" . -}}
-
-  {{- partial "plugins/disqus.html" -}}
+  <footer id="post-meta" class="p-author h-card">
+      <a href="{{ .profileurl | default "/" }}" class="u-url">
+      <img id="avatar" class="u-photo" src="{{ .avatar }}" width="96" height="96">
+      </a>
+      <div>
+        <span class="p-name"><a href="{{ .profileurl | default "/" }}" class="u-url">{{ .name }}</a></span>
+        <span><a rel="me" href="https://micro.blog/{{ .username }}">@{{ .username }}</a></span>
+      </div>
+  </footer>
+  
+  {{- end -}}
+  
+  {{- if (and 
+    site.Data.theme.Config.IncludeConversation
+   (templates.Exists "partials/plugin-conversation/conversation.html")) -}}
+   
+   {{- partial "plugin-conversation/conversation.html" . -}}
+   
+  {{- end -}}
 
 </article>
 
-{{- $params := dict "next" .NextInSection "current" . "previous" .PrevInSection -}}
-
-{{- partial "navigation/next-prev.html" $params -}}
-
+{{- partial "navigation/next-prev.html" (dict
+  "next" .NextInSection 
+  "current" . 
+  "previous" .PrevInSection)
+-}}
 
 {{- end -}}
