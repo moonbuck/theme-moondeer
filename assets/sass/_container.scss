@@ -26,7 +26,7 @@ body {
     grid-template-columns: minmax(0, 1fr) 600px minmax(0, 1fr);
   }
   
-  &#gallery {
+  &#gallery, &#merch, &#cloud, &#bookshelf {
     @include media-breakpoint-up(lg) {
       grid-template-columns: minmax(0, 1fr) 900px minmax(0, 1fr);
     }

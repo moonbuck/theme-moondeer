@@ -1,4 +1,5 @@
 Config.SassOutput = 'compressed'
+Config.InitialView = 'grid'
 
 [[Bookshelves.Registered]]
 Key = 'currentlyreading'
