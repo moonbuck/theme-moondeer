@@ -1,0 +1,31 @@
+{{- $Parameters := dict "Page" .Page -}}
+
+{{- $params := $.Params -}}
+
+{{- if not .IsNamedParams -}}
+  {{- with .Get 0 -}}
+    {{- with transform.Unmarshal . -}}
+      {{- if reflect.IsMap . -}}
+        {{- $params = . -}}
+      {{- end -}}
+    {{- end -}}
+  {{- end -}}
+{{- end -}}
+
+{{- /* Copy over parameters to title case keys */ -}}
+{{- range $key, $value := $params -}}        
+  {{- $key = $key | humanize | title | replaceRE " " "" -}}
+  {{- $Parameters = merge $Parameters (dict $key $value) -}}
+{{- end -}}
+
+{{- with $params.filename -}}
+
+  {{- with .Resources.GetMatch . -}}
+    {{- $href := .RelPermalink -}}
+    {{- $thumbnail := .Resize (cond (gt .Width .Height) "900x" "x600") -}}
+    {{- $src := $thumbnail.RelPermalink -}}
+    {{- $Parameters = merge $Parameters (dict "Href" $href "Src" $src) -}}
+  {{- end -}}
+{{- end -}}
+
+{{- partial "plugin-lightbox/lightbox.html" $Parameters -}}
