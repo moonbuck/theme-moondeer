@@ -1,0 +1,71 @@
+{{- $Parameters := dict "Page" .Page -}}
+{{- range $key, $value := $.Params -}}        
+  {{- $key = $key | humanize | title | replaceRE " " "" -}}
+  {{- $Parameters = merge $Parameters (dict $key $value) -}}
+{{- end -}}
+
+{{- $filename := "" -}}
+{{- $subdirectory := "" -}}
+{{- $src := "" -}}
+{{- $parameters := dict -}}
+
+{{- if .IsNamedParams -}}
+  {{- with .Get "filename" }}{{ $filename = . }}{{ end -}}
+  {{- with .Get "subdirectory" }}{{ $subdirectory = . }}{{ end -}}
+  {{- with .Get "src" }}{{ $src = . }}{{ end -}}  
+  {{- with .Get "parameters" -}}
+    {{- with transform.Unmarshal . }}
+      {{- if reflect.IsMap . }}{{ $parameters = . }}{{ end -}}
+    {{- end -}}
+  {{- end -}}
+{{- else -}}
+  {{- with .Get 0 -}}
+    {{- with transform.Unmarshal . -}}
+      {{- if reflect.IsMap . -}}
+        {{- with .filename }}{{ $filename = . }}{{ end -}}
+        {{- with .subdirectory }}{{ $subdirectory = . }}{{ end -}}
+        {{- with .src }}{{ $src = . }}{{ end -}}
+        {{- with .parameters }}{{ $parameters = . }}{{ end -}}
+        {{- with .description -}}
+          {{- $Parameters = merge $Parameters (dict "Description" .) -}}
+        {{- end -}}
+      {{- end -}}
+    {{- end -}}
+  {{- end -}}
+{{- end -}}
+  
+{{- if $filename -}}
+  {{- $dir := slicestr (path.Ext $filename) 1 -}}
+  {{- $root := "raw.githubusercontent.com/moonbuck/blog-asset-bank/main/" -}}
+  {{- $path := path.Join $root $dir -}}
+  {{- if $subdirectory -}}
+    {{- $path = path.Join $path $subdirectory -}}
+  {{- end -}}
+  {{- $path = path.Join $path $filename -}}
+  {{- $Parameters = merge $Parameters (dict "Href" (printf "https://%s" $path)) -}}
+{{- end -}}
+
+{{- if $src -}}
+
+  {{- $Parameters = merge $Parameters (dict "Src" $src) -}}
+
+{{- else -}}
+
+{{- /* Parse out markdown image declaration if present */ -}}
+{{- with .Inner -}}
+  {{- with findRE "[!][[][^]]*[]][(][^)]+[)]" . -}}
+    {{- $src := index (findRE "http[^)]+" (index . 0)) 0 -}}
+    {{- $title := replaceRE "[!][[]([^]]*)[]].+" "$1" (index . 0) | markdownify -}}
+    {{- $Parameters = merge $Parameters (dict "Src" $src "Title" $title) -}}
+  {{- end -}}
+{{- end -}}
+{{- end -}}
+    
+
+{{- if $parameters -}}
+
+  {{- $Parameters = merge $Parameters $parameters -}}
+
+{{- end -}}
+
+{{- partial "plugin-lightbox/lightbox.html" $Parameters -}}

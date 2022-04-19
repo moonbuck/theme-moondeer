@@ -1,6 +1,6 @@
 {{- if (and 
           site.Data.theme.Config.VisibleThemeVersion
-          (or (not (eq . "test")) 
+          (or (not (eq site.Data.theme.Config.VisibleThemeVersion "test")) 
               (in (site.BaseURL | string) "test"))
          ) -}}
 

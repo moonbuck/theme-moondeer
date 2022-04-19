@@ -27,3 +27,10 @@ Description = """\
 *Books whose gaze of judgement I've kinda become okay with as \
 my interest in reading them has waned.*\
 """
+
+[[Bookshelves.Registered]]
+Key = 'theonesthatshapedme'
+DisplayName = 'The Ones That Shaped Me'
+Description = """\
+*Books I read during grade school and college that left an indelible mark.*\
+"""
